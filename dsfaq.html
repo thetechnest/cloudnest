@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBKRIST–CloudNest | Cloud FAQ for Data Science Students</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --bg:#F7FBFF;
+      --muted:#6B7A89;
+      --card-bg:#fff;
+      --radius:14px;
+      --overlay-light: rgba(255,255,255,0.72);
+      --overlay-dark: rgba(0,0,0,0.45);
+    }
+
+    body{
+      margin:0;
+      font-family:Inter, sans-serif;
+      color:var(--dark-slate);
+
+      background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1200');
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:var(--overlay-light);
+      backdrop-filter:blur(2px);
+      z-index:-1;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 18px;
+      background:rgba(255,255,255,0.86);
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+      backdrop-filter:blur(6px);
+    }
+
+    .back-btn{
+      padding:8px 14px;
+      background:#eee;
+      color:#000;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:22px;font-family:Poppins}
+    .tagline{font-size:13px;color:var(--muted)}
+
+    .btn-small{
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      background:var(--dark-slate);
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    #pdfBtn{ background:var(--azure-blue); margin-right:10px; }
+
+    .container{
+      max-width:980px;
+      margin:32px auto;
+      padding:20px;
+    }
+
+    .section{
+      padding:22px;
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      margin-bottom:28px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border-left:6px solid var(--azure-blue);
+    }
+
+    .badge{
+      background:#CFF8F0;
+      padding:5px 12px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:13px;
+      display:inline-block;
+      margin-bottom:10px;
+    }
+
+    h2{ margin-top:6px; }
+    footer{
+      text-align:center;
+      padding:28px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* Dark Mode */
+    .dark{
+      background:#0b1622 !important;
+      color:#EAF2FB;
+    }
+    .dark::before{ background:var(--overlay-dark); }
+    .dark header{ background:rgba(8,17,31,0.94); }
+    .dark .section{ background:#102031; border-left-color:#2993ff; }
+    .dark .tagline{ color:#b8d6f1; }
+    .dark .back-btn{ background:#0f2335; color:#fff; }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <svg width="46" height="46" viewBox="0 0 64 64">
+      <defs>
+        <linearGradient id="g2" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="#008CFF"/>
+          <stop offset="100%" stop-color="#00A8A8"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#g2)" stroke-width="2.6">
+        <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+    </svg>
+
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">FAQ — Cloud Computing for Data Scientists</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- PAGE TITLE -->
+  <section class="section">
+    <span class="badge">Cloud & Data Science</span>
+    <h2>Frequently Asked Questions</h2>
+    <p>As an experienced IT consultant who has worked extensively across multiple cloud platforms, I have witnessed firsthand how critical cloud computing has become for modern software engineering and data-driven applications.
+While cloud technology is often viewed as a backend requirement, its true impact becomes clear only when we apply it to real-world Data Science workflows—where scalability, speed, and availability directly influence the success of AI and analytics solutions.
+
+To help students clearly understand why cloud computing is indispensable in today’s IT landscape, and how it directly strengthens their career prospects, I have prepared this Frequently Asked Questions (FAQ) section.
+It addresses the most important and common doubts that aspiring Data Scientists have, offering clear, practical, and industry-aligned explanations that will guide you in your learning journey and future professional development.</p>
+  </section>
+
+  <!-- Q1 -->
+  <section class="section">
+    <span class="badge">Q1</span>
+    <h2>What is Cloud Computing?</h2>
+    <p>
+      Cloud computing is a model of delivering computing resources such as storage, servers,
+      databases, analytics tools, and AI/ML platforms over the internet on demand.
+      Instead of buying or maintaining physical servers, organizations use cloud platforms like
+      AWS, Azure, and Google Cloud to access scalable computing power whenever needed.
+    </p>
+  </section>
+
+  <!-- Q2 -->
+  <section class="section">
+    <span class="badge">Q2</span>
+    <h2>Why is Cloud Computing important for me as a Data Scientist?</h2>
+    <p>
+      Data Science involves processing large datasets, training complex machine learning models,
+      and deploying real-time analytics systems—all of which require significant compute and storage.
+      Cloud provides unlimited scalability, high-performance GPUs/TPUs, distributed data platforms,
+      and ready-to-use ML services, making it essential for modern Data Science workflows.
+    </p>
+  </section>
+
+  <!-- Q3 -->
+  <section class="section">
+    <span class="badge">Q3</span>
+    <h2>How will Cloud Computing help me in the future?</h2>
+    <p>
+      The future of AI, Machine Learning, and Data Engineering is entirely cloud-driven.
+      Companies worldwide are migrating their systems to cloud platforms,
+      and most Data Science models are built, trained, deployed, and monitored in the cloud.
+      Learning cloud skills ensures long-term career growth, better job opportunities,
+      and the ability to work on modern, industry-scale projects.
+    </p>
+  </section>
+
+  <!-- Q4 -->
+  <section class="section">
+    <span class="badge">Q4</span>
+    <h2>As a Data Scientist, what should I learn in Cloud Computing?</h2>
+    <p>Here are the most important cloud skills for Data Scientists:</p>
+    <ul>
+      <li>Basics of Cloud (IaaS, PaaS, SaaS, deployment models)</li>
+      <li>Cloud Storage (S3, Blob, BigQuery, Cloud SQL, DynamoDB)</li>
+      <li>Working with cloud notebooks (Colab, SageMaker, Vertex AI)</li>
+      <li>Using cloud-based ML platforms (SageMaker, Azure ML, Vertex AI)</li>
+      <li>Serverless computing for ML pipelines (AWS Lambda, Azure Functions)</li>
+      <li>Containerization (Docker) & orchestration (Kubernetes)</li>
+      <li>Big Data tools on cloud (Hadoop, Spark)</li>
+    </ul>
+  </section>
+
+  <!-- Q5 -->
+  <section class="section">
+    <span class="badge">Q5</span>
+    <h2>Is it important to learn Cloud Computing to get a job today?</h2>
+    <p>
+      Yes. In today’s IT industry, cloud skills are no longer optional—almost every organization
+      uses cloud platforms for Data Science, DevOps, AI, Machine Learning, and analytics.
+      Recruiters strongly prefer candidates who understand cloud environments,
+      especially AWS, Azure, or Google Cloud.
+    </p>
+  </section>
+
+  <!-- Q6 -->
+  <section class="section">
+    <span class="badge">Q6</span>
+    <h2>How do I use Cloud Computing as a Data Science Engineer in real-time?</h2>
+    <p>You will use cloud computing in several real-world scenarios, such as:</p>
+    <ul>
+      <li>Training ML models on cloud GPUs/TPUs</li>
+      <li>Running big-data jobs using Spark and Hadoop</li>
+      <li>Deploying machine learning models as APIs on AWS/Azure/GCP</li>
+      <li>Building end-to-end automated ML pipelines</li>
+      <li>Streaming real-time data (Kafka, Pub/Sub, Kinesis)</li>
+      <li>Performing large-scale analytics on cloud data warehouses</li>
+    </ul>
+    <p>Cloud makes Data Science faster, scalable, more flexible, and more impactful.</p>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © CloudNest • NBKRIST | Cloud FAQ for Data Science • Authored by Hari Babu Mutchakala
+</footer>
+
+<!-- JS -->
+<script>
+  document.getElementById("pdfBtn").onclick = () => window.print();
+  document.getElementById("modeToggle").onclick = () => 
+    document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>

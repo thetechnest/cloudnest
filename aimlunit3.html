@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIML Unit-3 | NBKRIST-CloudNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --mint:#CFF8F0;
+      --muted:#6B7A89;
+      --radius:14px;
+      --bg:#F7FBFF;
+      --card-bg:#FFFFFF;
+    }
+
+    body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate)}
+    *{box-sizing:border-box}
+
+    header{
+      position:sticky;top:0;z-index:1200;
+      background:var(--card-bg);
+      padding:10px 20px;
+      box-shadow:0 2px 10px rgba(15,28,46,0.06);
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-family:Poppins;font-size:20px}
+    .tagline{font-size:13px;color:var(--muted)}
+    .back-btn{
+      padding:8px 12px;background:#eee;border-radius:8px;
+      color:#000;text-decoration:none;font-weight:600
+    }
+    #modeToggle{
+      padding:8px 12px;border:none;border-radius:8px;
+      background:var(--dark-slate);color:white;font-weight:600;cursor:pointer
+    }
+
+    .container{max-width:960px;margin:30px auto;padding:20px}
+
+    .section{
+      background:var(--card-bg);padding:22px;border-radius:var(--radius);
+      margin-bottom:28px;border-left:6px solid var(--azure-blue);
+      box-shadow:0 8px 24px rgba(0,0,0,0.05)
+    }
+    h2,h3{font-family:Poppins;margin-top:0}
+    .badge{
+      display:inline-block;padding:5px 12px;border-radius:20px;
+      background:var(--mint);color:var(--dark-slate);
+      font-size:13px;font-weight:600;margin-bottom:10px
+    }
+    .img-block img{
+      width:100%;height:260px;object-fit:cover;
+      border-radius:12px;margin-top:12px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08)
+    }
+
+    details{background:#F4FBFF;padding:12px;border-radius:10px;
+      margin-bottom:10px;border:1px solid rgba(0,0,0,0.05)}
+    summary{font-weight:700;cursor:pointer}
+
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--muted)}
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+
+  <div class="brand">
+    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true">
+      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+      <g fill="none" stroke="#0F1C2E" stroke-width="1.6" opacity="0.9">
+        <path d="M20 40c6 4 18 6 28 0" />
+        <path d="M22 44c6 3 16 4 26 0" opacity="0.6" />
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+
+  <button id="modeToggle">☀ / 🌙</button>
+</header>
+
+
+<div class="container">
+
+  <h2>UNIT-3 — Cloud‑based Machine Learning & Deep Learning</h2>
+  <p>This unit explores how cloud platforms provide specialized tools, services, and infrastructure for large‑scale ML and DL workloads, including AutoML, managed training, GPUs/TPUs, and production deployment pipelines.</p>
+
+  <!-- SECTION 1 -->
+  <section class="section">
+    <span class="badge">Section 1</span>
+    <h3>Managed ML Services on AWS, Azure & GCP</h3>
+    <p>Cloud providers offer full end‑to‑end ML platforms that simplify training, hyperparameter tuning, deployment, and monitoring.</p>
+    <ul>
+      <li>AWS SageMaker: Training, AutoML, pipelines, endpoints</li>
+      <li>Azure Machine Learning: Designer, compute clusters, MLOps</li>
+      <li>GCP Vertex AI: Unified ML platform, pipelines, model registry</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/003366/FFFFFF?text=Cloud+ML+Platforms" alt="cloud ml platforms"></div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="section">
+    <span class="badge">Section 2</span>
+    <h3>Training & Deploying ML Models on Cloud</h3>
+    <p>Cloud ML services provide large compute clusters and managed training environments that scale automatically.</p>
+    <ul>
+      <li>Training jobs on GPU/TPU nodes</li>
+      <li>Distributed training using Horovod, DeepSpeed, or PyTorch DDP</li>
+      <li>Model deployment via serverless or Kubernetes endpoints</li>
+      <li>A/B testing & canary rollout for ML updates</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/005599/FFFFFF?text=Cloud+Training+%26+Deployment" alt="Training"></div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="section">
+    <span class="badge">Section 3</span>
+    <h3>AutoML & Custom ML Workflow</h3>
+    <p>AutoML automates feature engineering, model selection, and hyper‑parameter tuning while still allowing custom pipelines.</p>
+    <ul>
+      <li>AutoML for tabular, vision & NLP workloads</li>
+      <li>Feature stores for consistent training‑inference data</li>
+      <li>Model tuning with Bayesian optimization</li>
+      <li>Pipeline automation using Vertex Pipelines / Azure ML Pipelines</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/0077AA/FFFFFF?text=AutoML+Pipeline" alt="AutoML"></div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="section">
+    <span class="badge">Section 4</span>
+    <h3>GPUs / TPUs for Deep Learning</h3>
+    <p>Deep learning requires heavy computation. Cloud provides specialized hardware for fast training.</p>
+    <ul>
+      <li>NVIDIA GPUs for large‑batch training</li>
+      <li>Google TPUs for transformer‑based models</li>
+      <li>Elastic GPU clusters</li>
+      <li>Spot GPUs for cost‑efficient experimentation</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/0088CC/FFFFFF?text=GPU+TPU+Compute" alt="gpu tpu"></div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="section">
+    <span class="badge">Section 5</span>
+    <h3>Notebook Integration with Cloud Services</h3>
+    <p>Cloud‑based notebooks allow seamless access to datasets, storage, and compute.</p>
+    <ul>
+      <li>Jupyter notebooks with cloud storage mounted</li>
+      <li>Google Colab + BigQuery integration</li>
+      <li>SageMaker notebooks with S3 access</li>
+      <li>Azure ML notebooks with compute clusters</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/00AACC/FFFFFF?text=Cloud+Notebooks" alt="notebooks"></div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <h3>Key Summary Points</h3>
+    <ul>
+      <li>Cloud platforms provide powerful managed services for ML & DL workflows.</li>
+      <li>GPU/TPU compute enables fast training of large neural models.</li>
+      <li>AutoML accelerates experimentation while custom pipelines offer flexibility.</li>
+      <li>Model deployment is simplified using serverless, containers, or Kubernetes.</li>
+      <li>Integrated notebooks allow smooth development with cloud data sources.</li>
+    </ul>
+  </section>
+
+  <!-- PRACTICE QUESTIONS -->
+  <section class="section">
+    <h3>Practice & Interview Questions</h3>
+
+    <details><summary>1. What is the role of SageMaker / Vertex AI / Azure ML?</summary>
+      <p>They are managed ML platforms providing tools for training, tuning, deployment, and monitoring.</p></details>
+
+    <details><summary>2. Why are GPUs important for deep learning?</summary>
+      <p>They enable parallel computation required for neural networks, reducing training time significantly.</p></details>
+
+    <details><summary>3. What is AutoML?</summary>
+      <p>AutoML automates data prep, model selection, and hyperparameter tuning.</p></details>
+
+    <details><summary>4. What is model deployment?</summary>
+      <p>Making a trained model available as an API endpoint for real‑time predictions.</p></details>
+
+    <details><summary>5. What is the purpose of a feature store?</summary>
+      <p>To ensure consistent features are used during both training and inference.</p></details>
+
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  const btn = document.getElementById('modeToggle');
+  btn.onclick = () =>{
+    document.body.classList.toggle('dark');
+  }
+</script>
+
+</body>
+</html>

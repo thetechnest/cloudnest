@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | 20-Q Self-Scoring Quiz — AI/ML & Cloud</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --azure-blue:#008CFF;
+    --teal:#00A8A8;
+    --dark-slate:#0F1C2E;
+    --muted:#6B7A89;
+    --card-bg:#fff;
+    --radius:14px;
+    --overlay-light: rgba(255,255,255,0.72);
+    --overlay-dark: rgba(0,0,0,0.45);
+    --correct:#1e7e34;
+    --incorrect:#c82333;
+  }
+
+  /* Page + background */
+  body{
+    margin:0;
+    font-family:Inter, sans-serif;
+    color:var(--dark-slate);
+    background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1200');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:var(--overlay-light);
+    backdrop-filter:blur(2px);
+    z-index:-1;
+  }
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:900;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 18px;
+    background:rgba(255,255,255,0.86);
+    box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    backdrop-filter:blur(6px);
+  }
+  .back-btn{ padding:8px 14px; background:#eee; color:#000; border-radius:8px; text-decoration:none; font-weight:600; }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand h1{margin:0;font-size:22px;font-family:Poppins}
+  .tagline{font-size:13px;color:var(--muted)}
+  .btn-small{ padding:8px 12px; border-radius:8px; font-weight:600; background:var(--dark-slate); color:white; border:none; cursor:pointer; }
+  #pdfBtn{ background:var(--azure-blue); margin-right:10px; }
+
+  /* Container + sections */
+  .container{ max-width:980px; margin:32px auto; padding:20px; }
+  .section{ padding:18px 22px; background:var(--card-bg); border-radius:var(--radius); margin-bottom:20px; box-shadow:0 8px 24px rgba(0,0,0,0.08); border-left:6px solid var(--azure-blue); }
+  .badge{ background:#CFF8F0; padding:5px 12px; border-radius:20px; font-weight:600; font-size:13px; display:inline-block; margin-bottom:10px; }
+
+  h2{ margin:6px 0 10px 0; }
+  h3{ margin:6px 0; font-size:16px; }
+
+  label.option{ display:block; padding:8px 10px; border-radius:8px; cursor:pointer; margin:6px 0; background:#f7fafc; }
+  label.option input{ margin-right:10px; }
+  .explanation{ display:none; margin-top:8px; padding:10px; border-radius:8px; background:#f1f8ff; color:#10365b; border-left:4px solid var(--azure-blue); }
+
+  /* Styling for results */
+  .correct{ background: rgba(30,126,52,0.08); border:1px solid rgba(30,126,52,0.12); color:var(--correct); font-weight:600; }
+  .incorrect{ background: rgba(200,35,51,0.06); border:1px solid rgba(200,35,51,0.10); color:var(--incorrect); font-weight:600; }
+
+  .explanation.correct{ background: rgba(30,126,52,0.08); color:var(--correct); border-left-color:var(--correct); }
+  .explanation.incorrect{ background: rgba(200,35,51,0.06); color:var(--incorrect); border-left-color:var(--incorrect); }
+
+  /* Score box */
+  #resultBox{ display:none; margin-top:12px; padding:14px; border-radius:10px; background:#e8f4ff; border-left:6px solid var(--azure-blue); }
+
+  footer{ text-align:center; padding:28px; color:var(--muted); }
+
+  /* Dark mode tweaks */
+  .dark{ background:#0b1622 !important; color:#EAF2FB; }
+  .dark::before{ background:var(--overlay-dark); }
+  .dark header{ background:rgba(8,17,31,0.94); color:white; }
+  .dark .section{ background:#102031; border-left-color:#2993ff; color:#EAF2FB; }
+  .dark label.option{ background: rgba(255,255,255,0.02); }
+  .dark .explanation{ background: rgba(255,255,255,0.02); color:#d6e9ff; border-left-color:#2993ff; }
+  .dark #resultBox{ background: rgba(255,255,255,0.02); border-left-color:#2993ff; color:#d6e9ff; }
+
+  /* Responsive */
+  @media (max-width:600px){
+    .container{ padding:14px; margin:18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true">
+      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6"><path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/></g>
+    </svg>
+
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Self-Scoring 20-Q Quiz — AI/ML & Cloud</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="section">
+    <span class="badge">AI/ML Quiz</span>
+    <h2>20-Question Self-Scoring Quiz — Cloud for AI/ML</h2>
+    <p>Select answers for all questions, then click <strong>Submit Quiz</strong>. After submission you'll see your score, the correct options highlighted, and a brief explanation for each question.</p>
+  </section>
+
+  <!-- Questions: Each option that is correct has data-answer="true" on the input element.
+       No visual indicator appears before submission. Explanations are hidden and shown after. -->
+
+  <!-- Q1 -->
+  <section class="section" id="q1">
+    <span class="badge">Q1</span>
+    <h3>Which hardware resource is most effective for accelerating deep neural network training?</h3>
+    <label class="option"><input type="radio" name="q1"> CPU</label>
+    <label class="option"><input type="radio" name="q1" data-answer="true"> GPU / TPU</label>
+    <label class="option"><input type="radio" name="q1"> HDD</label>
+    <div class="explanation">Correct: GPU / TPU — these are engineered for parallel matrix operations and dramatically reduce training time compared to CPUs.</div>
+  </section>
+
+  <!-- Q2 -->
+  <section class="section" id="q2">
+    <span class="badge">Q2</span>
+    <h3>Which managed service is an AWS offering for building, training, and deploying ML models?</h3>
+    <label class="option"><input type="radio" name="q2"> Google Vertex AI</label>
+    <label class="option"><input type="radio" name="q2" data-answer="true"> Amazon SageMaker</label>
+    <label class="option"><input type="radio" name="q2"> Azure Blob Storage</label>
+    <div class="explanation">Correct: Amazon SageMaker — it provides integrated tooling for data labeling, training, tuning, deployment, and monitoring on AWS.</div>
+  </section>
+
+  <!-- Q3 -->
+  <section class="section" id="q3">
+    <span class="badge">Q3</span>
+    <h3>What does MLOps primarily aim to address?</h3>
+    <label class="option"><input type="radio" name="q3"> Only model architecture research</label>
+    <label class="option"><input type="radio" name="q3" data-answer="true"> Automation and management of the ML lifecycle (build, deploy, monitor)</label>
+    <label class="option"><input type="radio" name="q3"> Debugging hardware faults</label>
+    <div class="explanation">Correct: MLOps focuses on reliable, repeatable pipelines for training, deployment, versioning, and monitoring of ML systems.</div>
+  </section>
+
+  <!-- Q4 -->
+  <section class="section" id="q4">
+    <span class="badge">Q4</span>
+    <h3>Which approach is best for scaling real-time inference with minimal operational overhead?</h3>
+    <label class="option"><input type="radio" name="q4"> Deploy models on local machines</label>
+    <label class="option"><input type="radio" name="q4" data-answer="true"> Serverless inference endpoints or managed model serving (auto-scale)</label>
+    <label class="option"><input type="radio" name="q4"> Burn training checkpoints to USB</label>
+    <div class="explanation">Correct: Serverless inference endpoints (or managed model-serving) enable autoscaling, making real-time inference easier to operate and cost-efficient for variable load.</div>
+  </section>
+
+  <!-- Q5 -->
+  <section class="section" id="q5">
+    <span class="badge">Q5</span>
+    <h3>What is the goal of distributed training?</h3>
+    <label class="option"><input type="radio" name="q5"> Reduce model size</label>
+    <label class="option"><input type="radio" name="q5" data-answer="true"> Speed up training by using multiple GPUs / machines</label>
+    <label class="option"><input type="radio" name="q5"> Improve text formatting</label>
+    <div class="explanation">Correct: Distributed training divides workloads across GPUs/machines to shorten total training time for large models and datasets.</div>
+  </section>
+
+  <!-- Q6 -->
+  <section class="section" id="q6">
+    <span class="badge">Q6</span>
+    <h3>Which Google Cloud product is designed for end-to-end ML workflows?</h3>
+    <label class="option"><input type="radio" name="q6" data-answer="true"> Vertex AI</label>
+    <label class="option"><input type="radio" name="q6"> Amazon EMR</label>
+    <label class="option"><input type="radio" name="q6"> Azure DevOps</label>
+    <div class="explanation">Correct: Vertex AI — GCP's platform integrates training, pipelines, feature store, model registry and deployment capabilities.</div>
+  </section>
+
+  <!-- Q7 -->
+  <section class="section" id="q7">
+    <span class="badge">Q7</span>
+    <h3>Which tool is commonly used for containerizing ML models before deployment?</h3>
+    <label class="option"><input type="radio" name="q7" data-answer="true"> Docker</label>
+    <label class="option"><input type="radio" name="q7"> Jupyter Notebook</label>
+    <label class="option"><input type="radio" name="q7"> Excel</label>
+    <div class="explanation">Correct: Docker containers package model code and dependencies, ensuring consistent behavior across environments.</div>
+  </section>
+
+  <!-- Q8 -->
+  <section class="section" id="q8">
+    <span class="badge">Q8</span>
+    <h3>What does a feature store provide in an ML platform?</h3>
+    <label class="option"><input type="radio" name="q8"> A backup for trained models</label>
+    <label class="option"><input type="radio" name="q8" data-answer="true"> Centralized storage and serving of precomputed features for training/inference</label>
+    <label class="option"><input type="radio" name="q8"> A VPN service</label>
+    <div class="explanation">Correct: A feature store stores computed features reliably so training and serving use consistent inputs and reduce duplication.</div>
+  </section>
+
+  <!-- Q9 -->
+  <section class="section" id="q9">
+    <span class="badge">Q9</span>
+    <h3>Which service is typically used for real-time streaming ingestion on AWS?</h3>
+    <label class="option"><input type="radio" name="q9" data-answer="true"> Amazon Kinesis</label>
+    <label class="option"><input type="radio" name="q9"> Amazon S3 (alone)</label>
+    <label class="option"><input type="radio" name="q9"> Amazon RDS</label>
+    <div class="explanation">Correct: Kinesis is designed for ingesting, buffering and processing streaming data for real-time analytics and model inputs.</div>
+  </section>
+
+  <!-- Q10 -->
+  <section class="section" id="q10">
+    <span class="badge">Q10</span>
+    <h3>What is model versioning used for?</h3>
+    <label class="option"><input type="radio" name="q10"> To delete old code only</label>
+    <label class="option"><input type="radio" name="q10" data-answer="true"> Track and manage different model variants deployed in production</label>
+    <label class="option"><input type="radio" name="q10"> For user authentication</label>
+    <div class="explanation">Correct: Versioning helps reproduce results, roll back to previous models, and compare performance across variants.</div>
+  </section>
+
+  <!-- Q11 -->
+  <section class="section" id="q11">
+    <span class="badge">Q11</span>
+    <h3>Which storage option is best for large datasets used in training (object storage)?</h3>
+    <label class="option"><input type="radio" name="q11" data-answer="true"> Object storage (S3 / Blob / GCS)</label>
+    <label class="option"><input type="radio" name="q11"> Local browser storage</label>
+    <label class="option"><input type="radio" name="q11"> On-screen cache</label>
+    <div class="explanation">Correct: Object storage is cost-effective, scalable, and commonly used for storing raw datasets and model artifacts.</div>
+  </section>
+
+  <!-- Q12 -->
+  <section class="section" id="q12">
+    <span class="badge">Q12</span>
+    <h3>What is the benefit of using autoscaling for inference clusters?</h3>
+    <label class="option"><input type="radio" name="q12"> It freezes traffic</label>
+    <label class="option"><input type="radio" name="q12" data-answer="true"> Automatically adjust resources to meet demand and optimize cost</label>
+    <label class="option"><input type="radio" name="q12"> It reduces model accuracy</label>
+    <div class="explanation">Correct: Autoscaling ensures responsiveness during traffic spikes and reduces cost when demand falls.</div>
+  </section>
+
+  <!-- Q13 -->
+  <section class="section" id="q13">
+    <span class="badge">Q13</span>
+    <h3>Which orchestration platform is widely used to run containerized ML workloads at scale?</h3>
+    <label class="option"><input type="radio" name="q13" data-answer="true"> Kubernetes</label>
+    <label class="option"><input type="radio" name="q13"> Notepad</label>
+    <label class="option"><input type="radio" name="q13"> MS Paint</label>
+    <div class="explanation">Correct: Kubernetes schedules containers across clusters, enabling resilient, scalable deployment of ML services.</div>
+  </section>
+
+  <!-- Q14 -->
+  <section class="section" id="q14">
+    <span class="badge">Q14</span>
+    <h3>Which of the following helps reduce cloud costs for training jobs?</h3>
+    <label class="option"><input type="radio" name="q14"> Use only latest GPU types</label>
+    <label class="option"><input type="radio" name="q14" data-answer="true"> Spot/Preemptible instances and right-sizing resources</label>
+    <label class="option"><input type="radio" name="q14"> Keep resources running 24/7</label>
+    <div class="explanation">Correct: Spot or preemptible instances are cheaper for non-time-critical training; right-sizing prevents wasted resources.</div>
+  </section>
+
+  <!-- Q15 -->
+  <section class="section" id="q15">
+    <span class="badge">Q15</span>
+    <h3>Which practice improves reproducibility of model training?</h3>
+    <label class="option"><input type="radio" name="q15"> Randomly change seed every run</label>
+    <label class="option"><input type="radio" name="q15" data-answer="true"> Logging experiment configs, random seeds and dataset versions</label>
+    <label class="option"><input type="radio" name="q15"> Only save final model weights</label>
+    <div class="explanation">Correct: Recording configuration, seeds and dataset versions ensures training runs can be reproduced and compared.</div>
+  </section>
+
+  <!-- Q16 -->
+  <section class="section" id="q16">
+    <span class="badge">Q16</span>
+    <h3>Which security practice is important for cloud ML projects?</h3>
+    <label class="option"><input type="radio" name="q16"> Hardcoding API keys in scripts</label>
+    <label class="option"><input type="radio" name="q16" data-answer="true"> Use IAM roles, secrets manager and least privilege</label>
+    <label class="option"><input type="radio" name="q16"> Expose model endpoints without auth</label>
+    <div class="explanation">Correct: IAM and secrets management avoid credential leaks; least privilege reduces blast radius for breaches.</div>
+  </section>
+
+  <!-- Q17 -->
+  <section class="section" id="q17">
+    <span class="badge">Q17</span>
+    <h3>Edge deployment of ML models is best when:</h3>
+    <label class="option"><input type="radio" name="q17"> Low latency and offline inference are required</label>
+    <label class="option"><input type="radio" name="q17" data-answer="true"> Low latency and offline inference are required</label>
+    <label class="option"><input type="radio" name="q17"> You need maximum GPU power</label>
+    <div class="explanation">Correct: Edge is used for low-latency or intermittent-connectivity scenarios; heavy training still runs in cloud data centers.</div>
+  </section>
+
+  <!-- Q18 -->
+  <section class="section" id="q18">
+    <span class="badge">Q18</span>
+    <h3>Which service is commonly used for scheduled batch ETL jobs on cloud?</h3>
+    <label class="option"><input type="radio" name="q18"> Real-time websocket only</label>
+    <label class="option"><input type="radio" name="q18" data-answer="true"> Managed batch services / schedulers like Cloud Composer, AWS Batch or Airflow</label>
+    <label class="option"><input type="radio" name="q18"> Desktop task scheduler</label>
+    <div class="explanation">Correct: Managed schedulers handle orchestration of ETL and batch pipelines with retries, logs, and dependencies.</div>
+  </section>
+
+  <!-- Q19 -->
+  <section class="section" id="q19">
+    <span class="badge">Q19</span>
+    <h3>What role do TPUs play compared to GPUs?</h3>
+    <label class="option"><input type="radio" name="q19"> TPUs are for storage only</label>
+    <label class="option"><input type="radio" name="q19" data-answer="true"> TPUs are specialized accelerators optimized for tensor ops, often faster for certain neural networks</label>
+    <label class="option"><input type="radio" name="q19"> TPUs are network routers</label>
+    <div class="explanation">Correct: TPUs (Tensor Processing Units) are hardware accelerators designed by Google for matrix/tensor computations; they can outperform GPUs for some workloads.</div>
+  </section>
+
+  <!-- Q20 -->
+  <section class="section" id="q20">
+    <span class="badge">Q20</span>
+    <h3>Which component helps monitor production ML models for data drift and performance?</h3>
+    <label class="option"><input type="radio" name="q20"> Model training only</label>
+    <label class="option"><input type="radio" name="q20" data-answer="true"> Monitoring & observability tools (model metrics, data drift detectors)</label>
+    <label class="option"><input type="radio" name="q20"> Only unit tests</label>
+    <div class="explanation">Correct: Observability tools capture prediction metrics, input distribution changes and trigger retraining or alerts when drift occurs.</div>
+  </section>
+
+  <!-- Submit section -->
+  <section class="section">
+    <button id="submitBtn" class="btn-small" style="background:var(--azure-blue);">Submit Quiz</button>
+    <button id="resetBtn" class="btn-small" style="margin-left:10px;background:#6c757d;">Reset</button>
+    <div id="resultBox"></div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST | AI/ML & Cloud Quiz • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  // Utility: disable/enable inputs
+  function setDisabledAll(flag){
+    document.querySelectorAll("input[type='radio']").forEach(i => i.disabled = flag);
+  }
+
+  function calculateAndReveal(){
+    const totalQ = 20;
+    let score = 0;
+
+    // For each question (1..20)
+    for(let i=1;i<=totalQ;i++){
+      const qName = 'q'+i;
+      const correctInput = document.querySelector("input[name='"+qName+"'][data-answer='true']");
+      const selected = document.querySelector("input[name='"+qName+"']:checked");
+
+      // Mark options
+      document.querySelectorAll("input[name='"+qName+"']").forEach(input => {
+        const label = input.closest("label.option");
+        // clear prior classes
+        label.classList.remove('correct','incorrect');
+      });
+
+      // If selected and correct
+      if(selected && correctInput && selected === correctInput){
+        score++;
+      }
+
+      // Reveal: highlight correct option green
+      if(correctInput){
+        const lbl = correctInput.closest("label.option");
+        lbl.classList.add('correct');
+      }
+
+      // If student selected wrong, mark that selection red
+      if(selected && selected !== correctInput){
+        const sLbl = selected.closest("label.option");
+        sLbl.classList.add('incorrect');
+      }
+
+      // Show explanation (green if correct, red if student got it wrong)
+      const qSection = document.getElementById(qName);
+      const expl = qSection.querySelector(".explanation");
+      if(expl){
+        expl.style.display = "block";
+        if(selected === correctInput){
+          expl.classList.remove('incorrect'); expl.classList.add('correct');
+        } else {
+          expl.classList.remove('correct'); expl.classList.add('incorrect');
+        }
+      }
+    }
+
+    // Show score
+    const box = document.getElementById("resultBox");
+    box.style.display = 'block';
+    box.innerHTML = `<h3>Your Score: ${score} / ${totalQ}</h3>
+      <p>${score === totalQ ? "Outstanding — full marks!" : score >= Math.ceil(totalQ*0.7) ? "Well done — strong understanding." :
+        score >= Math.ceil(totalQ*0.5) ? "Good — revise a few topics." : "Keep studying — review the FAQ and retry."}</p>`;
+
+    // Disable further changes
+    setDisabledAll(true);
+    // Scroll result into view
+    box.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  // Reset function
+  function resetQuiz(){
+    // enable inputs
+    setDisabledAll(false);
+    // clear selections and styling
+    document.querySelectorAll("input[type='radio']").forEach(i => { i.checked = false; i.disabled = false; });
+    document.querySelectorAll("label.option").forEach(l => { l.classList.remove('correct','incorrect'); });
+    document.querySelectorAll(".explanation").forEach(e => { e.style.display = 'none'; e.classList.remove('correct','incorrect'); });
+    document.getElementById("resultBox").style.display = 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", function(){
+    // Ensure at least something selected — optional: require all answered
+    // You can warn if some unanswered; for now proceed and count only answered.
+    calculateAndReveal();
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", resetQuiz);
+
+  document.getElementById("pdfBtn").addEventListener("click", () => window.print());
+  document.getElementById("modeToggle").addEventListener("click", () => document.body.classList.toggle('dark'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBKRIST–CloudNest | Cloud Computing Course Overview</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --bg:#F7FBFF;
+      --muted:#6B7A89;
+      --card-bg:#fff;
+      --radius:14px;
+    }
+
+    body{
+      margin:0;
+      font-family:Inter, sans-serif;
+      background:var(--bg);
+      color:var(--dark-slate);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:900;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 18px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .back-btn{
+      padding:8px 14px;
+      background:#eee;
+      color:#000;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:22px;font-family:Poppins}
+    .tagline{font-size:13px;color:var(--muted)}
+
+    .btn-small{
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      background:var(--dark-slate);
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    #pdfBtn{ background:#008CFF; margin-right:10px; }
+
+    .container{
+      max-width:980px;
+      margin:30px auto;
+      padding:20px;
+    }
+
+    .menu-bar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .menu-btn{
+      padding:10px 16px;
+      background:linear-gradient(90deg,var(--azure-blue),var(--teal));
+      border-radius:10px;
+      color:white;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .section{
+      padding:22px;
+      background:white;
+      border-radius:var(--radius);
+      margin-bottom:28px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
+      border-left:6px solid var(--azure-blue);
+    }
+
+    .badge{
+      background:#CFF8F0;
+      padding:5px 12px;
+      border-radius:20px;
+      font-weight:600;
+      font-size:13px;
+      display:inline-block;
+      margin-bottom:10px;
+    }
+
+    footer{
+      text-align:center;
+      padding:28px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* Dark mode */
+    .dark{
+      background:#0b1622;
+      color:#EAF2FB;
+    }
+    .dark header{background:#08111f;color:white;}
+    .dark .section{background:#102031;border-left-color:#2993ff;}
+    .dark .menu-btn{box-shadow:0 8px 18px rgba(0,0,0,0.4);}
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="aiml.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <svg width="46" height="46" viewBox="0 0 64 64">
+      <defs><linearGradient id="g1" x1="0%" x2="100%">
+        <stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/>
+      </linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+        <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- HORIZONTAL MENU -->
+  <nav class="menu-bar">
+    <a class="menu-btn" href="aimlfaq.html">FAQ</a>
+    <a class="menu-btn" href="aimlquize1.html">Skill Quiz</a>
+
+  </nav>
+
+  <!-- SECTION 1: OVERVIEW -->
+  <section class="section">
+    <span class="badge">Course Overview</span>
+    <h2>Overview of the Cloud Computing Course</h2>
+    <p>
+      As a cloud consultant who has worked on real-world enterprise deployments across multiple
+      cloud platforms, I have seen first-hand how deeply Cloud Computing has reshaped the modern
+      IT industry. Today, every major application—whether in Artificial Intelligence, Data
+      Science, Cybersecurity, FinTech, Healthcare, or E-commerce—runs natively on cloud
+      infrastructure.
+    </p>
+    <p>
+      In the current IT industry landscape, possessing cloud skills is no longer an optional
+      advantage; it is a core survival skill for any software engineer. Organizations now hire
+      professionals not just for coding ability, but for their capacity to design, deploy,
+      secure, scale, and optimize applications on cloud platforms. Students who master Cloud
+      Computing early gain a powerful competitive edge and build a strong foundation for long-term
+      career growth.
+    </p>
+    <p>
+      This course is carefully designed to bridge academic knowledge with real industry
+      practices, enabling students to confidently step into cloud-based engineering roles and
+      adapt to the rapidly evolving demands of the digital economy.
+    </p>
+  </section>
+
+  <!-- SECTION 2: OBJECTIVES -->
+  <section class="section">
+    <span class="badge">Course Objectives</span>
+    <h2>What You Will Learn</h2>
+    <ul>
+      <li>Understand the core concepts, models, and service architectures of Cloud Computing.</li>
+      <li>Explore how cloud platforms support modern AI, Data Science, and software applications.</li>
+      <li>Gain practical exposure to industry-leading cloud platforms such as AWS, Azure, and GCP.</li>
+      <li>Learn secure data storage, processing pipelines, and scalable deployment strategies.</li>
+      <li>Develop the ability to design real-world cloud-based solutions for enterprise use.</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 3: OUTCOMES -->
+  <section class="section">
+    <span class="badge">Course Outcomes</span>
+    <h2>Learning Outcomes (COs)</h2>
+    <p>Upon successful completion of the course, students will be able to:</p>
+    <ul>
+      <li><strong>CO1:</strong> Explain cloud computing architecture, services, and deployment models.</li>
+      <li><strong>CO2:</strong> Use cloud platforms for application hosting, data processing, and AI workloads.</li>
+      <li><strong>CO3:</strong> Manage large-scale data storage and distributed computing environments.</li>
+      <li><strong>CO4:</strong> Implement scalable solutions using containers, serverless computing, and automation.</li>
+      <li><strong>CO5:</strong> Analyze security, cost, performance, and scalability challenges in cloud systems.</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<!-- JS -->
+<script>
+  document.getElementById("pdfBtn").onclick = () => window.print();
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>

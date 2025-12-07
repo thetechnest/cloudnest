@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest — Student Toolkit (PDF, Diagrams, Search, Progress)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--azure:#008CFF;--teal:#00A8A8;--bg:#F7FBFF;--muted:#6B7A89}
+    body{font-family:Inter,system-ui,Arial;margin:0;background:var(--bg);color:#0F1C2E}
+    header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:white;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .container{max-width:1100px;margin:20px auto;padding:20px}
+    h1{font-family:Poppins;margin:0 0 8px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:white;padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(15,28,46,0.06)}
+    button{padding:10px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--azure),var(--teal));color:white;font-weight:700;cursor:pointer}
+    .muted{color:var(--muted)}
+    /* search results */
+    #searchResults{max-height:260px;overflow:auto;margin-top:10px}
+    .result{padding:8px;border-radius:8px;border:1px solid #EEF6FF;margin-bottom:8px}
+    mark{background:yellow;color:black}
+    /* diagrams */
+    .diagram{width:100%;height:260px;border-radius:10px;background:linear-gradient(180deg,#f4fbff,#eef7ff);display:flex;align-items:center;justify-content:center}
+    .hotspot{cursor:pointer;display:inline-block;padding:8px 10px;border-radius:8px;background:rgba(1,100,255,0.08);margin:6px}
+    /* progress tracker */
+    .progress-wrap{display:flex;gap:12px;align-items:center}
+    .progress-bar{flex:1;height:14px;background:#eef7ff;border-radius:10px;overflow:hidden}
+    .progress-bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--azure),var(--teal));width:0%}
+    .list{max-height:220px;overflow:auto;margin-top:10px}
+    .section-row{display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px dashed #f0f6ff}
+    /* responsive */
+    @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <svg width="44" height="44" viewBox="0 0 64 64"><defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs><g fill="none" stroke="url(#g1)" stroke-width="2.6"><path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/></g></svg>
+      <div><h1 style="font-size:16px;margin:0">CloudNest — Student Toolkit</h1><div class="muted" style="font-size:12px">PDF • Interactive Diagrams • Search • Progress</div></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="index.html" style="text-decoration:none;color:var(--azure);font-weight:700">← Back Home</a>
+      <button id="downloadAll">Download All PDFs</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <div class="card">
+        <h3>1. PDF Export</h3>
+        <p class="muted">Download unit pages as printable PDFs. These use the browser print dialog (best quality) or generate quick PDF views.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+          <button onclick="downloadPDF('dsunit1.html','Unit I - Basics')">Unit I (PDF)</button>
+          <button onclick="downloadPDF('dsunit2.html','Unit II - Hadoop & Python')">Unit II (PDF)</button>
+          <button onclick="downloadPDF('dsunit3.html','Unit III - Python for Cloud')">Unit III (PDF)</button>
+          <button onclick="downloadPDF('dsunit4.html','Unit IV - Big Data')">Unit IV (PDF)</button>
+          <button onclick="downloadPDF('dsunit5.html','Unit V - Security')">Unit V (PDF)</button>
+        </div>
+        <p class="muted" style="margin-top:12px">Note: For best results use browser Print → Save as PDF. These buttons open the page in a print-friendly view.</p>
+      </div>
+
+      <div class="card" id="diagramCard">
+        <h3>2. Interactive Diagrams</h3>
+        <p class="muted">Click hotspots to get quick tips. These are SVG-friendly and easy to replace with real diagrams later.</p>
+        <div class="diagram" id="diagram">
+          <!-- simple schematic with clickable hotspots -->
+          <div>
+            <div style="font-weight:700;margin-bottom:8px">Cloud Architecture (click parts)</div>
+            <div>
+              <span class="hotspot" data-tip="Load Balancer: distributes traffic">Load Balancer</span>
+              <span class="hotspot" data-tip="Auto-Scaling Group: scale VMs">Auto-Scaling</span>
+              <span class="hotspot" data-tip="Object Storage: durable files (S3)">Object Storage</span>
+              <span class="hotspot" data-tip="Managed DB: RDS / Cloud SQL">Managed DB</span>
+            </div>
+            <div style="margin-top:10px;font-size:13px;color:#334155" id="tipBox">Click a part to see tip</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3. Site-wide Search</h3>
+        <p class="muted">Search across all unit content (client-side). Type keywords and press Enter.</p>
+        <input id="searchInput" placeholder="Search topics, e.g., 'MapReduce'" style="width:100%;padding:10px;border-radius:8px;border:1px solid #EEF6FF">
+        <div id="searchResults"></div>
+      </div>
+
+      <div class="card">
+        <h3>4. Student Progress Tracker</h3>
+        <p class="muted">Mark sections complete — progress is saved locally in your browser.</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+          <div class="progress-bar" style="flex:1"><i id="progFill" style="width:0%"></i></div>
+          <div id="progPct">0%</div>
+        </div>
+        <div class="list" id="sectionsList" style="margin-top:12px"></div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button onclick="resetProgress()" style="background:#eee;color:#000">Reset</button>
+          <button onclick="exportProgress()" style="background:#222;color:#fff">Export</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px" class="card">
+      <h3>Usage Notes</h3>
+      <ul>
+        <li>PDF export opens the target page in a new tab and triggers print — replace unit URLs if you hosted them differently.</li>
+        <li>Interactive hotspots are simple HTML elements — replace with SVG elements for precise diagrams.</li>
+        <li>Search uses a small built-in index (below) — you can extend it by pasting more content into <code>siteIndex</code> in the script.</li>
+        <li>Progress tracker stores data in <code>localStorage</code> (only on this browser/device).</li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    // ---------- PDF helper ----------
+    function downloadPDF(url, title){
+      // Open the URL in a new tab and let user print/save as PDF
+      const w = window.open(url, '_blank');
+      if(!w) return alert('Popup blocked: allow popups for this site');
+      // focus and give user instruction
+      w.onload = ()=>{
+        w.document.title = title || w.document.title;
+        // minimal print hint
+        setTimeout(()=>{ try{ w.focus(); }catch(e){} }, 300);
+      }
+    }
+
+    // ---------- Interactive diagram ----------
+    document.querySelectorAll('.hotspot').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const tip = el.dataset.tip || 'Info';
+        document.getElementById('tipBox').textContent = tip;
+      });
+    });
+
+    // ---------- Simple client-side search ----------
+    // Small index: title, snippet, url
+    const siteIndex = [
+      {title:'Unit I - Basics', text:'Cloud computing virtualization elasticity scalability IaaS PaaS SaaS IAM SLAs billing', url:'unit1.html'},
+      {title:'Unit II - Hadoop & Python', text:'Hadoop MapReduce Job Execution Schedulers Cluster Python basics modules packages', url:'unit2.html'},
+      {title:'Unit III - Python for Cloud', text:'Boto3 Azure SDK Google Cloud SDK MapReduce Flask FastAPI', url:'unit3.html'},
+      {title:'Unit IV - Big Data', text:'Big Data Analytics clustering classification streaming transcoding benchmarking', url:'unit4.html'},
+      {title:'Unit V - Security & Legal', text:'Cloud security IAM encryption compliance migration organizational readiness legal jurisdiction', url:'unit5.html'}
+    ];
+
+    function renderResults(results, q){
+      const out = document.getElementById('searchResults'); out.innerHTML='';
+      if(results.length===0){ out.innerHTML = '<div class="muted" style="padding:8px">No results</div>'; return; }
+      results.forEach(r=>{
+        const div = document.createElement('div'); div.className='result';
+        let highlighted = r.text.replace(new RegExp(q,'gi'), m=>'<mark>'+m+'</mark>');
+        div.innerHTML = `<strong>${r.title}</strong><div style="font-size:13px;margin-top:6px">${highlighted}</div><div style="margin-top:8px"><a href="${r.url}" target="_blank">Open page</a></div>`;
+        out.appendChild(div);
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('keydown', (e)=>{
+      if(e.key==='Enter'){
+        const q = e.target.value.trim(); if(!q) return; const results = siteIndex.filter(s=> (s.title+s.text).toLowerCase().includes(q.toLowerCase())); renderResults(results,q);
+      }
+    });
+
+    // ---------- Progress tracker ----------
+    const sections = [
+      {id:'u1-expert',label:'Unit1: Expert View'},
+      {id:'u1-intro',label:'Unit1: Introduction'},
+      {id:'u1-char',label:'Unit1: Characteristics'},
+      {id:'u2-hadoop',label:'Unit2: Hadoop & MapReduce'},
+      {id:'u2-python',label:'Unit2: Python Basics'},
+      {id:'u3-sdks',label:'Unit3: Python SDKs'},
+      {id:'u4-bigdata',label:'Unit4: Big Data Analytics'},
+      {id:'u4-multimedia',label:'Unit4: Multimedia Cloud'},
+      {id:'u5-security',label:'Unit5: Cloud Security'},
+      {id:'u5-migration',label:'Unit5: Migration'}
+    ];
+
+    function buildProgressUI(){
+      const wrap = document.getElementById('sectionsList'); wrap.innerHTML='';
+      const store = JSON.parse(localStorage.getItem('cn_progress')||'{}');
+      sections.forEach(s=>{
+        const row = document.createElement('div'); row.className='section-row';
+        const chk = document.createElement('input'); chk.type='checkbox'; chk.checked = !!store[s.id]; chk.addEventListener('change', ()=>{ store[s.id]=chk.checked; localStorage.setItem('cn_progress', JSON.stringify(store)); updateProgress(); });
+        const label = document.createElement('div'); label.textContent = s.label; label.style.flex='1';
+        row.appendChild(chk); row.appendChild(label);
+        wrap.appendChild(row);
+      });
+      updateProgress();
+    }
+
+    function updateProgress(){
+      const store = JSON.parse(localStorage.getItem('cn_progress')||'{}');
+      const done = Object.values(store).filter(Boolean).length; const total = sections.length; const pct = Math.round((done/total)*100);
+      document.getElementById('progFill').style.width = pct+'%'; document.getElementById('progPct').textContent = pct+'%';
+    }
+
+    function resetProgress(){ localStorage.removeItem('cn_progress'); buildProgressUI(); }
+    function exportProgress(){ const store = JSON.parse(localStorage.getItem('cn_progress')||'{}'); const data = {date:new Date().toISOString(),progress:store}; const blob = new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='cloudnest-progress.json'; a.click(); URL.revokeObjectURL(url); }
+
+    // init
+    buildProgressUI();
+
+    // download all PDFs helper: opens all unit pages in tabs (user may block popups)
+    document.getElementById('downloadAll').addEventListener('click', ()=>{
+      ['dsunit1.html','dsunit2.html','dsunit3.html','dsunit4.html','dsunit5.html'].forEach(u=> window.open(u,'_blank'));
+    });
+  </script>
+</body>
+</html>

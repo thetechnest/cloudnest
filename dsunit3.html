@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBKRIST-CloudNest | Unit 3</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --bg:#F7FBFF;
+      --muted:#6B7A89;
+      --radius:14px;
+      --card-bg:#fff;
+    }
+
+    body {
+      margin:0;
+      font-family:Inter;
+      background:var(--bg);
+      color:var(--dark-slate);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background:white;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 20px;
+      box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand h1 { margin:0; font-family:Poppins; font-size:22px; }
+    .tagline { font-size:13px; color:var(--muted); }
+
+    .back-btn {
+      padding:8px 12px;
+      background:#eee;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      color:#000;
+    }
+
+    #modeToggle {
+      padding:8px 12px;
+      border-radius:8px;
+      border:none;
+      font-weight:600;
+      background:var(--dark-slate);
+      color:white;
+      cursor:pointer;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .menu-bar {
+      display:flex;
+      gap:10px;
+      margin:10px 0 25px 0;
+      flex-wrap:wrap;
+    }
+
+    .menu-btn {
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      background:linear-gradient(90deg,var(--azure-blue),var(--teal));
+      color:white;
+    }
+
+    .section {
+      background:var(--card-bg);
+      padding:22px;
+      border-radius:var(--radius);
+      border-left:6px solid var(--azure-blue);
+      box-shadow:0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom:28px;
+      transition:transform .12s ease;
+    }
+    .section:hover { transform:translateY(-4px); }
+
+    .tip {
+      margin-top:10px;
+      padding:10px 14px;
+      background:#E8F4FF;
+      border-left:4px solid var(--teal);
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    .img-block { margin-top:20px; }
+    .img-block img {
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:12px;
+      box-shadow:0 6px 22px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      text-align:center;
+      padding:25px;
+      margin-top:30px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    @media(max-width:720px){
+      .brand h1 { font-size:18px; }
+      .img-block img { height:180px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+  <a href="ds.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <svg viewBox="0 0 64 64" width="46" height="46">
+      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round">
+        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+
+  <button id="modeToggle">☀ / 🌙</button>
+</header>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- Unit Navigation -->
+  <div class="menu-bar">
+    <a class="menu-btn" href="unit1.html">Unit I</a>
+    <a class="menu-btn" href="unit2.html">Unit II</a>
+    <a class="menu-btn" href="unit3.html">Unit III</a>
+    <a class="menu-btn" href="unit4.html">Unit IV</a>
+    <a class="menu-btn" href="unit5.html">Unit V</a>
+  </div>
+
+  <h2>UNIT III – Python for Cloud Computing</h2>
+
+  <!-- Expert View -->
+  <section class="section">
+    <h3>☁️ 🧠 Expert View</h3>
+    <div class="tip"><b>Tip:</b> Python is the universal language of cloud automation.</div>
+
+    <p>Python has become the backbone of cloud automation, DevOps engineering, backend development, and AI/ML workloads. All major cloud providers — AWS, Azure, GCP — offer first-class SDKs for Python, which allows engineers to manage cloud resources programmatically. With Python, you can automate deployments, manage infrastructure, write serverless functions, trigger workflows, and perform large-scale data handling. This unit builds deep understanding of how Python interacts with the cloud ecosystem.</p>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/008CFF/ffffff?text=Python+for+Cloud+Overview">
+    </div>
+  </section>
+
+  <!-- Python for AWS -->
+  <section class="section">
+    <h3>☁️ 🟧 Python for AWS</h3>
+    <div class="tip"><b>Tip:</b> Boto3 is the gateway to AWS automation.</div>
+
+    <p>Python interacts with AWS using <strong>Boto3</strong>, the official AWS SDK for Python.</p>
+
+    <ul>
+      <li>Create EC2 instances programmatically</li>
+      <li>Manage S3 buckets and object storage</li>
+      <li>Interact with DynamoDB tables</li>
+      <li>Trigger Lambda functions</li>
+      <li>CloudWatch monitoring & alerts</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/FF9900/ffffff?text=AWS+Python+Automation">
+    </div>
+  </section>
+
+  <!-- Python for Azure -->
+  <section class="section">
+    <h3>☁️ 🔷 Python for Microsoft Azure</h3>
+    <div class="tip"><b>Tip:</b> Azure SDK is modular — use only what your service requires.</div>
+
+    <p>Azure’s Python SDK provides automation for storage, compute, identity, and more.</p>
+
+    <ul>
+      <li>Create Azure VMs and resource groups</li>
+      <li>Work with Azure Blob Storage</li>
+      <li>Deploy Web Apps and Functions</li>
+      <li>Monitor using Azure Monitor API</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/0078D4/ffffff?text=Azure+Python+SDK">
+    </div>
+  </section>
+
+  <!-- Python for GCP -->
+  <section class="section">
+    <h3>☁️ 🟩 Python for Google Cloud</h3>
+    <div class="tip"><b>Tip:</b> Python integrates smoothly with GCP’s AI & data services.</div>
+
+    <p>Google Cloud’s Python SDK allows access to Compute, Cloud Storage, BigQuery, and Vertex AI.</p>
+
+    <ul>
+      <li>Start/stop Compute Engine VMs</li>
+      <li>Upload & download data from GCS</li>
+      <li>Run SQL queries on BigQuery</li>
+      <li>Deploy ML models on Vertex AI</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/34A853/ffffff?text=GCP+Python+SDK">
+    </div>
+  </section>
+
+  <!-- Python for MapReduce -->
+  <section class="section">
+    <h3>☁️ 🔄 Python for MapReduce</h3>
+    <div class="tip"><b>Tip:</b> Think of MapReduce as large-scale “for loops” running in parallel.</div>
+
+    <p>Python can be used to write MapReduce programs on Hadoop and other distributed systems.</p>
+
+    <ul>
+      <li>Mapper functions (process data)</li>
+      <li>Reducer functions (aggregate results)</li>
+      <li>Working with Hadoop streaming</li>
+      <li>Parallel data processing scripts</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/0066CC/ffffff?text=Python+MapReduce">
+    </div>
+  </section>
+
+  <!-- Python Packages -->
+  <section class="section">
+    <h3>☁️ 📦 Python Packages for Cloud</h3>
+    <div class="tip"><b>Tip:</b> Learn packages that automate tasks you do often.</div>
+
+    <ul>
+      <li><strong>Boto3</strong> (AWS)</li>
+      <li><strong>google-cloud</strong> SDK</li>
+      <li><strong>azure-mgmt</strong> packages</li>
+      <li>Requests (HTTP APIs)</li>
+      <li>Flask / FastAPI (REST APIs)</li>
+      <li>Pandas & NumPy (Data processing)</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/00A8A8/ffffff?text=Useful+Python+Packages">
+    </div>
+  </section>
+
+  <!-- Cloud Application Development -->
+  <section class="section">
+    <h3>☁️ 🛠️ Cloud Application Development in Python</h3>
+    <div class="tip"><b>Tip:</b> Cloud apps are modular — break your app into components.</div>
+
+    <p>With Python, you can build complete cloud-native applications.</p>
+
+    <ul>
+      <li>Image processing service (Lambda / Cloud Functions)</li>
+      <li>Document storage app (S3, Blob, GCS)</li>
+      <li>MapReduce data pipeline</li>
+      <li>Social media analytics app</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/004C99/ffffff?text=Python+Cloud+Apps">
+    </div>
+  </section>
+
+  <!-- Summary -->
+  <section class="section">
+    <h3>☁️ 📌 Key Summary Points</h3>
+    <div class="tip"><b>Tip:</b> Python + Cloud SDKs = complete automation ecosystem.</div>
+
+    <ul>
+      <li>Python automates cloud services (AWS, Azure, GCP)</li>
+      <li>Python supports distributed processing with MapReduce</li>
+      <li>Cloud-native applications can be fully built in Python</li>
+      <li>Python packages simplify API, data, and ML workflows</li>
+      <li>Knowing Python strongly boosts cloud career opportunities</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/005F73/ffffff?text=Unit+3+Summary">
+    </div>
+  </section>
+
+  <!-- Practice Questions -->
+  <section class="section">
+    <h3>☁️ 📝 Practice Questions</h3>
+    <div class="tip"><b>Tip:</b> Think practically — how would you automate in the cloud?</div>
+
+    <details><summary>1. What is Boto3 used for?</summary><p>Boto3 is AWS’s Python SDK for automating services like EC2, S3, and Lambda.</p></details>
+
+    <details><summary>2. Name Python SDKs for Azure and GCP.</summary><p>Azure SDK for Python, Google Cloud Python Client Libraries.</p></details>
+
+    <details><summary>3. What is Hadoop streaming?</summary><p>A way to run Python scripts as MapReduce jobs on Hadoop.</p></details>
+
+    <details><summary>4. Why is Python popular in cloud computing?</summary><p>Because it is simple, integrates with APIs, and has powerful cloud SDKs.</p></details>
+
+    <details><summary>5. Which frameworks help create REST APIs?</summary><p>Flask, FastAPI, Django REST.</p></details>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x260/003F5C/ffffff?text=Practice+Questions">
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+const btn = document.getElementById('modeToggle');
+btn.onclick = () => {
+  document.body.classList.toggle('dark-mode');
+  if(document.body.classList.contains('dark-mode')){
+    document.body.style.background='#0F1C2E';
+    document.body.style.color='#fff';
+    btn.style.background='#fff';
+    btn.style.color='#0F1C2E';
+  } else {
+    document.body.style.background='';
+    document.body.style.color='';
+    btn.style.background='#0F1C2E';
+    btn.style.color='#fff';
+  }
+};
+</script>
+
+</body>
+</html>

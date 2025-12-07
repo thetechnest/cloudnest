@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBKRIST-CloudNest | Unit 1</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+      --radius: 14px;
+      --card-bg: #fff;
+    }
+
+    /* Reset & base */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--dark-slate);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header (fixed to top) */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 20px;
+      box-shadow: 0 2px 10px rgba(15,28,46,0.06);
+    }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand svg { display:block; }
+    .brand h1 { margin:0; font-family:Poppins, Inter; font-size:20px; }
+    .tagline { font-size:13px; color:var(--muted); margin-top:2px; }
+
+    .header-controls { display:flex; gap:12px; align-items:center; }
+    .back-btn {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      padding:9px 12px;
+      background:#eee;
+      color:#000;
+      border-radius:8px;
+      font-weight:600;
+      box-shadow:0 1px 2px rgba(0,0,0,0.04);
+    }
+    #modeToggle {
+      padding:8px 12px;
+      border-radius:8px;
+      border: none;
+      font-weight:600;
+      background:var(--dark-slate);
+      color:white;
+      cursor:pointer;
+    }
+
+    /* Page container */
+    .container {
+      max-width: 980px;
+      margin: 18px auto 80px;
+      padding: 22px;
+    }
+
+    /* Menu bar */
+    .menu-bar {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      margin-bottom:22px;
+    }
+    .menu-btn {
+      padding:9px 14px;
+      border-radius:10px;
+      font-weight:700;
+      color:white;
+      text-decoration:none;
+      background: linear-gradient(90deg,var(--azure-blue), var(--teal));
+      box-shadow:0 6px 18px rgba(3,115,255,0.08);
+      font-size:14px;
+    }
+
+    /* Sections */
+    .section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding:22px;
+      margin-bottom:28px;
+      border-left:6px solid var(--azure-blue);
+      box-shadow: 0 8px 30px rgba(15,28,46,0.05);
+      transition: transform .12s ease;
+    }
+    .section:hover { transform: translateY(-4px); }
+
+    .section h3 { margin:0 0 8px 0; font-size:18px; display:flex; align-items:center; gap:10px; }
+    .section p, .section ul { margin-top:8px; color:var(--dark-slate); line-height:1.55; }
+    .section ul { padding-left:18px; }
+
+    .tip {
+      margin-top:10px;
+      padding:10px 14px;
+      background:#E8F4FF;
+      border-left:4px solid var(--teal);
+      border-radius:8px;
+      font-size:14px;
+      color:var(--dark-slate);
+    }
+
+    /* Image block - placed at BOTTOM of each section */
+    .img-block { margin-top:20px; text-align:center; }
+    .img-block img {
+      width:100%;
+      max-height:260px;
+      object-fit:cover;
+      border-radius:12px;
+      display:block;
+      box-shadow:0 8px 24px rgba(3,115,255,0.08);
+    }
+
+    /* Practice Qs */
+    details { margin-top:12px; padding:10px 12px; border-radius:8px; background:#FBFBFE; border:1px solid #EEF5FF; }
+    summary { cursor:pointer; font-weight:600; }
+
+    /* Footer */
+    footer {
+      text-align:center;
+      padding:26px 8px;
+      font-size:14px;
+      color:var(--muted);
+      margin-top:10px;
+    }
+
+    /* Responsive */
+    @media (max-width:720px){
+      .container { padding:16px; margin-top:12px; }
+      .brand h1 { font-size:18px;}
+      .menu-btn { font-size:13px; padding:8px 12px; }
+      .img-block img { max-height:180px; }
+      header { padding:10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (fixed top) -->
+  <header>
+    <!-- Back button (left) -->
+    <a class="back-btn" href="ds.html" title="Back to DS Overview">← Back</a>
+
+    <!-- Brand (center) -->
+    <div class="brand" aria-hidden="false">
+      <svg viewBox="0 0 64 64" width="46" height="46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
+        <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
+        </g>
+      </svg>
+
+      <div>
+        <h1 style="margin:0;font-family:Poppins,Inter;font-size:20px;">NBKRIST–CloudNest</h1>
+        <div class="tagline">Empowering Learners for the Cloud Era</div>
+      </div>
+    </div>
+
+    <!-- Controls (right) -->
+    <div class="header-controls">
+      <button id="modeToggle" aria-label="Toggle light/dark mode">☀ / 🌙</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" role="main">
+    <!-- top menu -->
+    <nav class="menu-bar" aria-label="Unit navigation">
+      <a class="menu-btn" href="unit1.html">Unit I</a>
+      <a class="menu-btn" href="unit2.html">Unit II</a>
+      <a class="menu-btn" href="unit3.html">Unit III</a>
+      <a class="menu-btn" href="unit4.html">Unit IV</a>
+      <a class="menu-btn" href="unit5.html">Unit V</a>
+    </nav>
+
+    <h2>UNIT I – Basics of Cloud Computing</h2>
+
+    <!-- Expert View -->
+    <section class="section" id="expert-view">
+      <h3>☁️ 🧠 Expert View</h3>
+      <div class="tip"><strong>Tip:</strong> Cloud provides the platform that makes modern AI/ML, big data and global apps possible — focus on infrastructure + automation.</div>
+      <p>As an experienced software professional, I can say cloud computing is an essential skill for modern software development. Without cloud platforms, it’s hard to imagine AI, Machine Learning, and Data Science reaching production scale. Cloud delivers flexible compute, large-scale storage, global networks, orchestration, and managed services that accelerate development and lower operational overhead. Mastering cloud fundamentals helps you design scalable, resilient, and cost-efficient software systems.</p>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/008CFF/FFFFFF?text=Cloud+Overview+(Replace+with+diagram)" alt="Cloud overview placeholder">
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section" id="intro">
+      <h3>☁️ 🌥️ Introduction to Cloud Computing</h3>
+      <div class="tip"><strong>Tip:</strong> Remember “on-demand + pay-as-you-go + global access”.</div>
+
+      <p>Cloud computing means accessing computing resources (servers, storage, databases, networking, analytics, etc.) over the internet. Organizations use cloud to avoid buying and maintaining physical hardware and to scale systems quickly as demand changes.</p>
+
+      <h4>Key Concepts</h4>
+      <ul>
+        <li><strong>On-demand access:</strong> resources provisioned instantly.</li>
+        <li><strong>Pay-as-you-go:</strong> only pay for what you use.</li>
+        <li><strong>Global accessibility:</strong> reachable from anywhere.</li>
+        <li><strong>Shared infrastructure:</strong> multi-tenant resource pooling.</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/00A8A8/FFFFFF?text=Intro+Concepts+(Replace+image)" alt="Introduction placeholder">
+      </div>
+    </section>
+
+    <!-- Characteristics -->
+    <section class="section" id="characteristics">
+      <h3>☁️ ⚙️ Characteristics of Cloud Computing</h3>
+      <div class="tip"><strong>Tip:</strong> Elasticity and scalability are not the same — elasticity is automatic scaling, scalability is capacity to grow.</div>
+
+      <ul>
+        <li><strong>Elasticity:</strong> auto-scale resources up/down.</li>
+        <li><strong>Scalability:</strong> design to support growth.</li>
+        <li><strong>Resource Pooling:</strong> providers share infrastructure.</li>
+        <li><strong>Measured Service:</strong> monitoring & billing.</li>
+        <li><strong>Broad Network Access:</strong> devices & locations.</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/0066CC/FFFFFF?text=Elasticity+%26+Scalability" alt="Characteristics placeholder">
+      </div>
+    </section>
+
+    <!-- Deployment Models -->
+    <section class="section" id="deployment">
+      <h3>☁️ 🏗️ Cloud Deployment Models</h3>
+      <div class="tip"><strong>Tip:</strong> Use Private for sensitive data, Public for scale & cost savings, Hybrid for best of both.</div>
+
+      <p>Deployment models describe how cloud services are delivered and controlled.</p>
+      <ul>
+        <li><strong>Public Cloud:</strong> services offered by providers (AWS/Azure/GCP).</li>
+        <li><strong>Private Cloud:</strong> dedicated infrastructure for one org.</li>
+        <li><strong>Hybrid Cloud:</strong> mix of both; enables workload portability.</li>
+        <li><strong>Community Cloud:</strong> shared by similar organizations.</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/004C99/FFFFFF?text=Deployment+Models" alt="Deployment models placeholder">
+      </div>
+    </section>
+
+    <!-- Service Models -->
+    <section class="section" id="service-models">
+      <h3>☁️ 🧩 Cloud Service Models</h3>
+      <div class="tip"><strong>Tip:</strong> IaaS = raw infra, PaaS = platform for devs, SaaS = finished apps.</div>
+
+      <p>Service models define the level of abstraction:</p>
+      <ul>
+        <li><strong>IaaS:</strong> virtual machines, networking, storage.</li>
+        <li><strong>PaaS:</strong> managed runtimes, databases, dev platforms.</li>
+        <li><strong>SaaS:</strong> delivered software like email, CRM, office suites.</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/0099CC/FFFFFF?text=IaaS+PaaS+SaaS" alt="Service models placeholder">
+      </div>
+    </section>
+
+    <!-- Concepts & Technologies -->
+    <section class="section" id="concepts-tech">
+      <h3>☁️ 🔧 Cloud Concepts & Technologies</h3>
+      <div class="tip"><strong>Tip:</strong> Learn a few core techs well (virtualization, containers, networking) — they appear in every cloud job.</div>
+
+      <p>Important building blocks and technologies:</p>
+      <ul>
+        <li>Virtualization & hypervisors</li>
+        <li>Load balancing</li>
+        <li>Scalability & replication</li>
+        <li>Monitoring & observability</li>
+        <li>Software-defined networking (SDN), NFV</li>
+        <li>MapReduce & big-data processing</li>
+        <li>Identity and Access Management (IAM)</li>
+        <li>Service Level Agreements (SLAs) and billing</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/0077B6/FFFFFF?text=Core+Cloud+Technologies" alt="Core technologies placeholder">
+      </div>
+    </section>
+
+    <!-- Services & Platforms -->
+    <section class="section" id="services-platforms">
+      <h3>☁️ 🗄️ Cloud Services & Platforms</h3>
+      <div class="tip"><strong>Tip:</strong> Practice with one provider (AWS/Azure/GCP) and map concepts to others.</div>
+
+      <p>Cloud providers supply many managed services that developers use:</p>
+      <ul>
+        <li>Compute: VMs, Containers, Serverless (functions)</li>
+        <li>Storage: object, block, file storage</li>
+        <li>Databases: managed relational & NoSQL</li>
+        <li>CDN: content distribution</li>
+        <li>Analytics: data lakes, streaming, ML platforms</li>
+        <li>Identity & access (IAM), deployment & monitoring tools</li>
+        <li>Open-source private cloud options: OpenStack, CloudStack</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/005F73/FFFFFF?text=Services+%26+Platforms" alt="Services platforms placeholder">
+      </div>
+    </section>
+
+    <!-- Key Summary -->
+    <section class="section" id="key-summary">
+      <h3>☁️ 📌 Key Summary Points</h3>
+      <div class="tip"><strong>Tip:</strong> Keep the fundamentals strong — they reappear in advanced topics (AI/ML, Big Data, DevOps).</div>
+
+      <ul>
+        <li>Cloud computing offers elastic, scalable, and globally available IT resources.</li>
+        <li>Virtualization and containers enable efficient resource usage.</li>
+        <li>Service models (IaaS/PaaS/SaaS) represent increasing abstraction.</li>
+        <li>Providers offer managed services to accelerate development and reduce ops burden.</li>
+        <li>Understanding fundamentals is essential before advancing to AI/ML and big-data work.</li>
+      </ul>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/008CFF/FFFFFF?text=Summary" alt="Summary placeholder">
+      </div>
+    </section>
+
+    <!-- Practice Questions -->
+    <section class="section" id="practice-qs">
+      <h3>☁️ 📝 Practice Questions</h3>
+      <div class="tip"><strong>Tip:</strong> Try to answer before you click — then open the detail to compare.</div>
+      <p>Click a question to reveal its answer.</p>
+
+      <details>
+        <summary>1. What is cloud computing in simple words?</summary>
+        <div style="margin-top:8px">
+          <p>Cloud computing is accessing computing resources (servers, storage, applications) over the internet without owning the physical hardware.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. What is the difference between scalability and elasticity?</summary>
+        <div style="margin-top:8px">
+          <p>Scalability is the ability to increase capacity to handle growth. Elasticity means automatically adding/removing resources based on demand.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. What are the three main cloud service models?</summary>
+        <div style="margin-top:8px">
+          <p>IaaS (Infrastructure as a Service), PaaS (Platform as a Service), SaaS (Software as a Service).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>4. What role does virtualization play in cloud computing?</summary>
+        <div style="margin-top:8px">
+          <p>Virtualization allows multiple virtual machines to run on a single physical machine, improving utilization and enabling isolation.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>5. Why is cloud important for AI/ML?</summary>
+        <div style="margin-top:8px">
+          <p>AI/ML needs elastic compute (GPUs/TPUs), distributed data stores, and scalable inference — all of which cloud platforms provide on demand.</p>
+        </div>
+      </details>
+
+      <div class="img-block" aria-hidden="true">
+        <img src="https://placehold.co/1000x260/004E89/FFFFFF?text=Practice+Questions" alt="Practice questions placeholder">
+      </div>
+    </section>
+
+    <!-- single back link at bottom for convenience -->
+    <p style="margin-top:6px">
+      <a class="back-btn" href="ds.html">← Back to DS Overview</a>
+    </p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+  </footer>
+
+  <!-- JS: theme toggle -->
+  <script>
+    (function(){
+      const btn = document.getElementById('modeToggle');
+      btn.addEventListener('click', function(){
+        document.documentElement.classList.toggle('dark-mode');
+        const dark = document.documentElement.classList.contains('dark-mode');
+        if(dark){
+          document.body.style.background = '#0F1C2E';
+          document.body.style.color = '#fff';
+          btn.style.background = '#fff';
+          btn.style.color = '#0F1C2E';
+        } else {
+          document.body.style.background = '';
+          document.body.style.color = '';
+          btn.style.background = '#0F1C2E';
+          btn.style.color = '#fff';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

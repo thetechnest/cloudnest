@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AIML Unit-1 | Cloud + AI Integration</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --bg:#F7FBFF;
+      --muted:#6B7A89;
+      --radius:14px;
+      --card-bg:#fff;
+    }
+
+    body{
+      margin:0;
+      font-family:Inter;
+      background:var(--bg);
+      color:var(--dark-slate);
+    }
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:900;
+      background:white;
+      padding:10px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .back-btn{
+      padding:8px 14px;
+      background:#eee;
+      color:#000;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:22px;font-family:Poppins}
+    .tagline{font-size:13px;color:var(--muted)}
+
+    #pdfBtn, #modeToggle{
+      padding:8px 12px;
+      border:none;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+      color:white;
+    }
+    #pdfBtn{background:#008CFF;margin-right:10px;}
+    #modeToggle{background:#0F1C2E;}
+
+    /* CONTENT */
+    .container{
+      max-width:980px;
+      margin:30px auto;
+      padding:20px;
+    }
+
+    h2,h3{font-family:Poppins;}
+
+    .section{
+      padding:22px;
+      background:white;
+      border-radius:14px;
+      border-left:6px solid var(--azure-blue);
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
+      margin-bottom:26px;
+    }
+
+    .img-block img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:12px;
+      margin-top:16px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .tip{
+      background:#E8F4FF;
+      padding:10px 14px;
+      border-left:4px solid var(--teal);
+      border-radius:10px;
+      margin:14px 0;
+      font-size:14px;
+    }
+
+    details{
+      padding:12px;
+      background:#F0F8FF;
+      border-radius:10px;
+      border:1px solid #DCEAFF;
+      margin-bottom:10px;
+    }
+    summary{cursor:pointer;font-weight:700;}
+
+    footer{
+      text-align:center;
+      padding:30px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* DARK MODE */
+    .dark{
+      background:#0a1627;
+      color:#E9F2FA;
+    }
+    .dark header{background:#071322;box-shadow:0 2px 10px rgba(0,0,0,0.7);}
+    .dark .section{background:#102031;border-left-color:#2993ff;}
+    .dark .img-block img{opacity:0.9;}
+    .dark details{background:#0b1f33;border-color:rgba(255,255,255,0.06);}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+
+  <div class="brand">
+    <svg width="46" height="46" viewBox="0 0 64 64">
+      <defs><linearGradient id="lnk" x1="0%" x2="100%">
+        <stop offset="0%" stop-color="#008CFF"/>
+        <stop offset="100%" stop-color="#00A8A8"/>
+      </linearGradient></defs>
+      <g fill="none" stroke="url(#lnk)" stroke-width="2.6">
+        <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>UNIT I — Introduction to Cloud Computing & AI Integration</h2>
+  <p>This unit explains how Artificial Intelligence (AI) and Cloud Computing work together. It introduces cloud models, service types, deployment models, and how AI benefits from scalable cloud infrastructure.</p>
+
+  <!-- SECTION 1 -->
+  <section class="section">
+    <h3>1️⃣ Basics of Cloud Computing</h3>
+
+    <div class="tip">💡 <b>Tip:</b> Remember the three pillars — Compute, Storage, Networking.</div>
+
+    <ul>
+      <li>Characteristics of cloud systems</li>
+      <li>On-demand access & Pay-as-you-go</li>
+      <li>Global availability & shared resources</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="">
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="section">
+    <h3>2️⃣ Cloud Service Models — IaaS, PaaS, SaaS</h3>
+
+    <div class="tip">💡 <b>Tip:</b> Think of IaaS as hardware, PaaS as tools, SaaS as applications.</div>
+
+    <ul>
+      <li>IaaS — EC2, Azure VM, Compute Engine</li>
+      <li>PaaS — App Engine, Azure App Service</li>
+      <li>SaaS — Gmail, Salesforce, Office 365</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1581091215367-59ab6b77eecb?q=80&w=1200" alt="">
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="section">
+    <h3>3️⃣ Deployment Models — Public, Private, Hybrid, Community</h3>
+
+    <div class="tip">💡 <b>Tip:</b> Public = shared, Private = isolated, Hybrid = combined.</div>
+
+    <ul>
+      <li>Public Cloud — AWS, Azure, GCP</li>
+      <li>Private Cloud — VMware, OpenStack</li>
+      <li>Hybrid Cloud — AWS Outposts, Azure Arc</li>
+      <li>Community Cloud — Shared between groups</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200" alt="">
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="section">
+    <h3>4️⃣ AI + Cloud Convergence</h3>
+
+    <div class="tip">💡 <b>Tip:</b> Cloud = compute power, AI = intelligence. Together → scalable intelligence.</div>
+
+    <p>AI relies heavily on cloud infrastructure due to:</p>
+    <ul>
+      <li>High computational need (GPU/TPU)</li>
+      <li>Large datasets requiring scalable storage</li>
+      <li>Automated ML pipelines</li>
+      <li>Global deployment of AI models</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200" alt="">
+    </div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="section">
+    <h3>5️⃣ Use Cases — AI in Cloud (Real World)</h3>
+
+    <ul>
+      <li>Speech recognition & NLP (Chatbots)</li>
+      <li>Image classification (Vision AI)</li>
+      <li>Fraud detection (Finance)</li>
+      <li>Predictive analysis</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200" alt="">
+    </div>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="section">
+    <h3>6️⃣ Cloud Providers for AI — AWS, Azure, GCP</h3>
+
+    <ul>
+      <li><b>AWS</b> — SageMaker, Rekognition, Comprehend</li>
+      <li><b>Azure</b> — Azure ML, Cognitive Services</li>
+      <li><b>GCP</b> — Vertex AI, Vision AI, BigQuery ML</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200" alt="">
+    </div>
+  </section>
+
+  <!-- KEY QUESTIONS -->
+  <section class="section">
+    <h3>Key Questions — Click to Reveal</h3>
+
+    <details>
+      <summary>1. Why do AI systems need cloud?</summary>
+      <p>AI needs large-scale GPU compute, storage and deployment pipelines.</p>
+    </details>
+
+    <details>
+      <summary>2. Which service model is best for AI?</summary>
+      <p>PaaS + IaaS mix (e.g., SageMaker + EC2 GPUs).</p>
+    </details>
+
+    <details>
+      <summary>3. Is cloud mandatory for AI?</summary>
+      <p>No, but cloud drastically improves scalability & speed.</p>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () => {
+    document.body.classList.toggle("dark");
+  };
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

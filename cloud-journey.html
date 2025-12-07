@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NBKRIST-CloudNest | Cloud Journey</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --mint: #CFF8F0;
+            --muted: #6B7A89;
+            --radius: 14px;
+            --bg: #F7FBFF;
+            --card-bg: #FFFFFF;
+        }
+
+        /* Base */
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--dark-slate);
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Header - fixed / sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 18px;
+            box-shadow: 0 2px 10px rgba(15, 28, 46, 0.06);
+        }
+
+        .header-left,
+        .header-center,
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-left {
+            min-width: 120px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #eee;
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand svg {
+            display: block
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        #modeToggle {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: none;
+            background: var(--dark-slate);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 980px;
+            margin: 22px auto 80px;
+            padding: 20px;
+        }
+
+        /* Menu */
+        .menu-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .menu-btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(90deg, var(--azure-blue), var(--teal));
+            box-shadow: 0 8px 18px rgba(3, 115, 255, 0.06);
+        }
+
+        /* Sections */
+        .section {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: var(--radius);
+            margin-bottom: 28px;
+            box-shadow: 0 8px 28px rgba(15, 28, 46, 0.04);
+            border-left: 6px solid var(--azure-blue);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            font-family: Poppins;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: var(--mint);
+            color: var(--dark-slate);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .step {
+            border-left: 4px solid var(--azure-blue);
+            padding-left: 12px;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+
+        .roadmap-item {
+            background: #fff;
+            border: 1px solid #E4EEF8;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        /* Image placeholders (bottom of section) */
+        .section .img-block {
+            margin-top: 16px;
+        }
+
+        .section .img-block img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(3, 115, 255, 0.06);
+        }
+
+        /* Questions */
+        details {
+            background: #F4FBFF;
+            padding: 12px 14px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 140, 255, 0.06)
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 28px 12px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Dark mode overrides */
+        .dark {
+            background: #081025;
+            color: #E7EEF8;
+        }
+
+        .dark header {
+            background: #071021;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark .section {
+            background: #0b1622;
+            border-left-color: #2993ff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark .menu-btn {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark .back-btn {
+            background: #1b2430;
+            color: #fff;
+        }
+
+        .dark details {
+            background: #072033;
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        /* Responsive */
+        @media(max-width:760px) {
+            header {
+                padding: 10px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+
+            .header-left,
+            .header-center,
+            .header-right {
+                justify-content: space-between;
+                padding: 0 10px;
+            }
+
+            .brand h1 {
+                font-size: 18px;
+            }
+
+            .section .img-block img {
+                height: 180px;
+            }
+
+            .container {
+                padding: 14px;
+                margin-top: 12px;
+            }
+        }
+
+        /* Base image styling */
+img {
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Very Large Image */
+.img-xl {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
+/* Large Image */
+.img-lg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* Medium Image */
+.img-md {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
+/* Small Image */
+.img-sm {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+/* Very Small Image */
+.img-xs {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-left">
+            <a class="back-btn" href="index.html" aria-label="Back to Home">← Back</a>
+        </div>
+
+        <div class="header-center">
+            <div class="brand" role="banner" aria-label="CloudNest">
+                <!-- inline logo -->
+                <svg viewBox="0 0 64 64" width="46" height="46" aria-hidden="true" focusable="false"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="g1" x1="0%" x2="100%">
+                            <stop offset="0%" stop-color="#008CFF" />
+                            <stop offset="100%" stop-color="#00A8A8" />
+                        </linearGradient>
+                    </defs>
+                    <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z" />
+                    </g>
+                    <g fill="none" stroke="#0F1C2E" stroke-width="1.6" opacity="0.9">
+                        <path d="M20 40c6 4 18 6 28 0" />
+                        <path d="M22 44c6 3 16 4 26 0" opacity="0.6" />
+                    </g>
+                </svg>
+
+                <div>
+                    <h1>NBKRIST–CloudNest</h1>
+                    <div class="tagline">Empowering Learners for the Cloud Era</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <button id="modeToggle" aria-pressed="false" title="Toggle dark / light">☀ / 🌙</button>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="container" role="main">
+        <!-- top menu -->
+        <nav class="menu-bar" aria-label="Quick links">
+            <a class="menu-btn" href="ds.html">Data Science</a>
+            <a class="menu-btn" href="aiml.html">AI / ML</a>
+            <a class="menu-btn" href="cloud-tools.html">Cloud Tool Kit</a>
+        </nav>
+
+        <h2>Start Your Cloud Journey</h2>
+        <p>Cloud computing, in practical terms, is about consuming IT infrastructure and services exactly when you need them, paying only for what you use, and eliminating the operational overhead of managing physical data centers. Over the years, working on large-scale deployments across AWS and GCP, I’ve seen how this model transforms application delivery. Instead of procuring and maintaining servers, enterprises tap into fully managed compute, storage, networking, and database services that can scale globally within minutes.
+
+This roadmap is structured based on real-world implementation experience — guiding you from foundational concepts all the way to architect-level proficiency. It covers not only core cloud architecture, but also modern disciplines like AI/ML, DevOps automation, container orchestration, and even emerging areas such as quantum computing — all essential for building resilient, production-ready cloud solutions.</p>
+        <section class="section">
+            <h2>🎬 Watch: What is Cloud Computing?</h2>
+            <p>This video gives you a clear understanding of the fundamentals of cloud computing with easy visual
+                examples.</p>
+
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/mxT233EdY5c" allowfullscreen></iframe>
+            </div>
+        </section>
+        <!-- IMAGE (overview) -->
+        <div class="section" aria-hidden="true" style="padding:18px; border-left:0; box-shadow:none;">
+            <img src="cloud2.png" class="img-xl" 
+                alt="Cloud journey overview placeholder">
+        </div>
+
+        <!-- Stage 1 -->
+        <section class="section" id="stage1" aria-labelledby="stage1-heading">
+            <span class="badge">Stage 1</span>
+            <h2 id="stage1-heading">Cloud Fundamentals</h2>
+            <p>The foundation of your cloud career begins here.</p>
+
+            <div class="step" aria-hidden="false">
+                <h4>🔹 What You'll Learn</h4>
+                <ul>
+                    <li>What is Cloud Computing?</li>
+                    <li>IaaS, PaaS, SaaS</li>
+                    <li>Virtualization, Containers, Serverless</li>
+                    <li>Regions, Zones, Global Infrastructure</li>
+                    <li>Basics of Storage, Compute, Networking</li>
+                </ul>
+            </div>
+
+            <div class="img-block" aria-hidden="true">
+                <img src="cloud3.png" class="img-xl"
+                    alt="Cloud fundamentals placeholder">
+            </div>
+        </section>
+
+        <!-- Stage 2 -->
+        <section class="section" id="stage2" aria-labelledby="stage2-heading">
+            <span class="badge">Stage 2</span>
+            <h2 id="stage2-heading">Hands-On with AWS, Azure, and GCP</h2>
+
+            <div class="roadmap-item" role="article">
+                <h4>AWS Beginner Labs</h4>
+                <p>Deploy a static website, create EC2 instances, configure IAM, manage S3 buckets, and use CloudWatch
+                    monitoring.</p>
+            </div>
+
+            <div class="roadmap-item" role="article">
+                <h4>Azure Starter Labs</h4>
+                <p>Create resource groups, deploy App Service, manage VMs, configure Azure Storage, and secure
+                    identities.</p>
+            </div>
+
+            <div class="roadmap-item" role="article">
+                <h4>GCP Starter Labs</h4>
+                <p>Work with Compute Engine, Cloud Run, Cloud Functions, VPC networks, and Cloud Logging.</p>
+            </div>
+
+            <div class="img-block" aria-hidden="true">
+                <img src="https://placehold.co/1200x260/0066CC/FFFFFF?text=AWS+Azure+GCP+Placeholder"
+                    alt="Cloud providers placeholder">
+            </div>
+        </section>
+
+        <!-- Stage 3 -->
+        <section class="section" id="stage3" aria-labelledby="stage3-heading">
+            <span class="badge">Stage 3</span>
+            <h2 id="stage3-heading">AI/ML on the Cloud</h2>
+
+            <div class="step">
+                <h4>🔹 How AI/ML Uses Cloud</h4>
+                <ul>
+                    <li>GPU/TPU clusters for model training</li>
+                    <li>Scalable data pipelines using S3, GCS, ADLS</li>
+                    <li>Managed services: SageMaker, Vertex AI, Azure ML</li>
+                    <li>Model deployment on serverless platforms or Kubernetes</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h4>🌟 Why Cloud Architects Matter in AI Era</h4>
+                <p>AI systems rely on cloud-native architecture for scaling, monitoring, security, and cost-efficiency.
+                    Cloud architects design the platform that enables reliable ML in production.</p>
+            </div>
+
+            <div class="img-block" aria-hidden="true">
+                <img src="https://placehold.co/1200x260/0078D4/FFFFFF?text=AI+ML+on+Cloud+Placeholder"
+                    alt="AI ML placeholder">
+            </div>
+        </section>
+
+        <!-- Stage 4 -->
+        <section class="section" id="stage4" aria-labelledby="stage4-heading">
+            <span class="badge">Stage 4</span>
+            <h2 id="stage4-heading">Quantum Computing on the Cloud</h2>
+
+            <div class="step">
+                <h4>🔹 Quantum via Cloud</h4>
+                <ul>
+                    <li>Azure Quantum — access to quantum hardware and simulators</li>
+                    <li>AWS Braket — simulators & circuit execution</li>
+                    <li>Qiskit & IBM Cloud — quantum programming and simulators</li>
+                </ul>
+            </div>
+
+            <div class="img-block" aria-hidden="true">
+                <img src="https://placehold.co/1200x260/004C99/FFFFFF?text=Quantum+Cloud+Placeholder"
+                    alt="Quantum computing placeholder">
+            </div>
+        </section>
+
+        <!-- Stage 5 -->
+        <section class="section" id="stage5" aria-labelledby="stage5-heading">
+            <span class="badge">Stage 5</span>
+            <h2 id="stage5-heading">Become a Cloud Architect</h2>
+
+            <div class="step">
+                <h4>🔹 Required Skills</h4>
+                <ul>
+                    <li>Cloud networking (VPC, subnets, routing)</li>
+                    <li>Identity & Access Management (IAM) and security</li>
+                    <li>Containers & Kubernetes</li>
+                    <li>DevOps & CI/CD pipelines</li>
+                    <li>Monitoring, cost optimization & high availability design</li>
+                </ul>
+            </div>
+
+            <div class="img-block" aria-hidden="true">
+                <img src="https://placehold.co/1200x260/005F73/FFFFFF?text=Cloud+Architect+Placeholder"
+                    alt="Architect placeholder">
+            </div>
+        </section>
+
+        <!-- Key Questions (final section) -->
+        <section class="section" id="questions" aria-labelledby="questions-heading">
+            <h2 id="questions-heading">Key Questions — Click to reveal answers</h2>
+            <p class="muted" style="margin-top:6px;color:var(--muted)">Short, clear answers to the common questions
+                students ask.</p>
+
+            <details>
+                <summary>1. What is cloud computing?</summary>
+                <div style="margin-top:8px;line-height:1.6">
+                    Cloud computing means delivering compute, storage, networking, databases and services over the
+                    internet (the “cloud”) so you don't need to own physical hardware. Users provision resources
+                    on-demand, pay for what they use, and scale up or down quickly.
+                </div>
+            </details>
+
+            <details>
+                <summary>2. Why is cloud computing important?</summary>
+                <div style="margin-top:8px;line-height:1.6">
+                    Cloud is important because it enables fast innovation (spin up resources in minutes), global
+                    availability, cost efficiency (pay-as-you-go), and powerful managed services (databases, ML
+                    platforms, analytics) that accelerate development and lower operations overhead.
+                </div>
+            </details>
+
+            <details>
+                <summary>3. How will cloud computing help me?</summary>
+                <div style="margin-top:8px;line-height:1.6">
+                    Learning cloud computing gives you the ability to build and operate scalable systems, deploy
+                    applications, manage data pipelines, and use managed AI/ML services. These skills are highly sought
+                    after across software, data, and research roles — they let you move proof-of-concepts into
+                    production quickly.
+                </div>
+            </details>
+
+            <details>
+                <summary>4. Where do I use cloud computing in the real-time world?</summary>
+                <div style="margin-top:8px;line-height:1.6">
+                    Real-world uses include: hosting websites and APIs, streaming services (video/audio), big data
+                    analytics (logs, telemetry, analytics pipelines), machine learning training & inference, IoT
+                    platforms, enterprise backup & disaster recovery, and SaaS products (office, CRM, collaboration
+                    tools).
+                </div>
+            </details>
+
+            <details>
+                <summary>5. Will learning cloud computing give me a strong ground in the IT industry?</summary>
+                <div style="margin-top:8px;line-height:1.6">
+                    Yes — cloud skills are foundational in modern IT. They open roles in cloud engineering, DevOps, SRE,
+                    data engineering, ML engineering and architecture. Understanding cloud concepts (networking, IAM,
+                    storage, compute) significantly strengthens your employability and ability to design production
+                    systems.
+                </div>
+            </details>
+
+            <details>
+                <summary>6. Explain a real-time scenario: how is cloud used to deploy a Large Language Model (LLM)?
+                </summary>
+                <div style="margin-top:8px;line-height:1.6">
+                    <strong>Short scenario (end-to-end):</strong><br>
+                    1. <em>Training / Fine-tuning</em>: Spin up GPU/TPU instances (or managed training clusters) on the
+                    cloud. Prepare data stored in object storage (S3/GCS/Blob). Use distributed training
+                    (Horovod/DeepSpeed) to fine-tune the base LLM. Save checkpoints to object storage.<br>
+                    2. <em>Model Registry & Artifacts</em>: Store the final model artifacts in a model registry or
+                    object store; record metadata (versioning, hash, config).<br>
+                    3. <em>Containerize & Package</em>: Package the model with a lightweight inference server (e.g.,
+                    FastAPI + Uvicorn, or Triton Inference Server) inside a container image and push the image to a
+                    container registry (ECR/GCR/ACR).<br>
+                    4. <em>Deploy</em>: Deploy the container to a scalable serving platform — Kubernetes (EKS/GKE/AKS)
+                    with Horizontal Pod Autoscaling, or a serverless inference platform (Cloud Run, AWS SageMaker
+                    endpoints). Configure CPU/GPU node pools as needed.<br>
+                    5. <em>Scale & Networking</em>: Put the service behind a Load Balancer/API Gateway for routing,
+                    authentication, rate limiting, and TLS termination. Use autoscaling policies for pods/instances to
+                    handle traffic spikes.<br>
+                    6. <em>Observability & Ops</em>: Configure monitoring (metrics/logs/traces), set up alerts for
+                    latency/throughput/failed requests, and add circuit breakers or request queuing to protect the
+                    model. Use cost monitoring to track GPU usage.<br>
+                    7. <em>Security & Governance</em>: Secure access via IAM, restrict model artifacts and secrets with
+                    KMS/Key Vaults, and apply network policies. Ensure compliance for data used in training and
+                    inference.<br>
+                    <strong>Result:</strong> Users call the LLM via a globally available endpoint; the cloud
+                    automatically scales inference capacity, stores logs/metrics, and reduces operator burden using
+                    managed services.
+                </div>
+            </details>
+
+        </section>
+
+        <!-- final back / CTA -->
+        <p style="margin-top:8px">
+            <a class="back-btn" href="index.html" style="text-decoration:none;display:inline-block">← Back to Home</a>
+        </p>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+    </footer>
+
+    <!-- LIGHT / DARK MODE SCRIPT -->
+    <script>
+        (function () {
+            const toggle = document.getElementById('modeToggle');
+            // initialize from localStorage
+            const stored = localStorage.getItem('cn_theme');
+            if (stored === 'dark') document.documentElement.classList.add('dark');
+
+            function updateButton() {
+                const dark = document.documentElement.classList.contains('dark');
+                toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+            }
+            updateButton();
+
+            toggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const dark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('cn_theme', dark ? 'dark' : 'light');
+                updateButton();
+            });
+        })();
+    </script>
+</body>
+
+</html>

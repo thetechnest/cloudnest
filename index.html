@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CloudNest — Empowering Learners for the Cloud Era</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Modern Tech Look */
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --mint: #CFF8F0;
+            --bg: #F7FBFF;
+            --card-bg: #FFFFFF;
+            --muted: #708090;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg), #F0F8FF 60%);
+            color: var(--dark-slate);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 24px
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand svg {
+            width: 56px;
+            height: 56px
+        }
+
+        .brand h1 {
+            font-family: Poppins, Inter;
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.2px
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        nav a {
+            margin-left: 18px;
+            text-decoration: none;
+            color: var(--dark-slate);
+            font-weight: 600
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 24px;
+            align-items: center;
+            margin-top: 28px
+        }
+
+        .hero .left h2 {
+            font-size: 40px;
+            margin: 0 0 12px;
+            line-height: 1.05;
+            color: var(--dark-slate)
+        }
+
+        .hero .left p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 18px
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--azure-blue), var(--teal));
+            border: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--azure-blue);
+            color: var(--azure-blue);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: 0 6px 22px rgba(15, 28, 46, 0.06)
+        }
+
+        /* Right hero mock */
+        .hero .right {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .mock {
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--azure-blue), var(--teal));
+            color: white
+        }
+
+        .mock small {
+            opacity: 0.92
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px
+        }
+
+        .feature h4 {
+            margin: 0 0 8px
+        }
+
+        .feature p {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        /* Courses */
+        .courses {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .course {
+            padding: 16px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+            border: 1px solid rgba(10, 20, 30, 0.02)
+        }
+
+        .course h5 {
+            margin: 0 0 8px
+        }
+
+        .progress {
+            height: 8px;
+            background: #EEF8FF;
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        .progress>i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--azure-blue), var(--teal));
+            width: 40%
+        }
+
+        footer {
+            margin-top: 48px;
+            padding: 28px 0;
+            color: var(--muted);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between
+        }
+
+        @media(max-width:960px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .features,
+            .courses {
+                grid-template-columns: 1fr
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <!-- Inline SVG logo: Cloud + Nest Symbol -->
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- cloud outline -->
+                    <defs>
+                        <linearGradient id="g1" x1="0%" x2="100%">
+                            <stop offset="0%" stop-color="#008CFF" />
+                            <stop offset="100%" stop-color="#00A8A8" />
+                        </linearGradient>
+                    </defs>
+                    <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z" />
+                    </g>
+                    <!-- nest (subtle curved lines) -->
+                    <g fill="none" stroke="#0F1C2E" stroke-width="1.6" opacity="0.9">
+                        <path d="M20 40c6 4 18 6 28 0" stroke-linecap="round" />
+                        <path d="M22 44c6 3 16 4 26 0" stroke-linecap="round" opacity="0.6" />
+                        <path d="M24 48c6 2 14 2 24 0" stroke-linecap="round" opacity="0.45" />
+                    </g>
+                    <!-- small feather/leaf inside -->
+                    <path d="M34 34c1.6-1.8 4-2 6-1" fill="none" stroke="url(#g1)" stroke-width="1.6"
+                        stroke-linecap="round" />
+                </svg>
+                <div>
+                    <h1>NBKRIST-CloudNest</h1>
+                    <div class="tagline">Empowering Learners for the Cloud Era</div>
+                </div>
+            </div>
+            <!--
+            <nav>
+                <a href="#courses">Courses</a>
+                <a href="#labs">Labs</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav> -->
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="left">
+                    <h2>Learn Cloud Skills — From Fundamentals to Real-World Deployments</h2>
+                    <p>CloudNest introduces learners to how cloud computing powers modern <strong>AI/ML
+                            workflows</strong>—from scalable training clusters to real-time inference pipelines—and
+                        opens doors to emerging domains like <strong>Quantum Computing</strong>, where cloud providers
+                        offer simulators and quantum development kits. Understanding cloud architecture is becoming
+                        essential in the era of AI/ML, as organizations rely on cloud-native infrastructure to build
+                        intelligent applications at global scale.</p>
+                    <p>At NBKRIST, we believe that true engineering education is built through hands-on experience and
+                        real-world exposure.
+                        Our advanced cloud laboratories empower students with practical skills on live industry
+                        platforms.
+                        We bridge the gap between classroom learning and professional IT practice through real-time
+                        projects and lab-driven training.
+                        By equipping students with future-proof cloud skills, we prepare them for global careers in the
+                        IT industry.
+                        NBKRIST proudly stands for democratizing Cloud Computing, ensuring that every student has access
+                        to cutting-edge technology.
+                        Our mission is to build confident, skilled, and industry-ready engineers.</p>
+
+                    <div class="cta">
+                        <a class="btn-primary" href="cloud-journey.html"
+                            style="text-decoration:none; display:inline-block; text-align:center;">Start Learning</a>
+                        <!-- <button class="btn-ghost">Explore Courses</button> -->
+                        <a class="btn-primary" href="https://aws.amazon.com/ai/"
+                            style="text-decoration:none; display:inline-block; text-align:center;">Real-time Use
+                            Cases</a>
+                    </div>
+
+                    <div class="features" style="margin-top:18px">
+                        <div class="feature card">
+                            <h4>Interactive Labs</h4>
+                            <p>Practice in simulated cloud environments with step-by-step guidance.</p>
+                        </div>
+                        <div class="feature card">
+                            <h4>Certification Paths</h4>
+                            <p>Structured course paths aligned with industry certifications.</p>
+                        </div>
+                        <div class="feature card">
+                            <h4>Community Projects</h4>
+                            <p>Collaborate with peers — build real projects and portfolios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="right">
+                    <div class="card mock">
+                        <div>
+                            <h3 style="margin:0 0 8px; font-family:Poppins">NBKRIST CloudNest Lab</h3>
+                            <small>A dedicated platform to learn and explore industry-leading cloud platforms such as
+                                AWS and GCP.
+                                Students build real-world skills through continuous hands-on practice.
+                                Practical exposure to live cloud environments strengthens technical confidence.
+                                Designed to make engineers truly industry-ready and future-proof.</small>
+
+                        </div>
+                        <a class="btn-primary" href="https://aws.amazon.com/ai/"
+                            style="text-decoration:none; display:inline-block; text-align:center;">AWS
+                        </a>
+                        <a class="btn-primary" href="https://aws.amazon.com/ai/"
+                            style="text-decoration:none; display:inline-block; text-align:center;">GCP
+                        </a>
+                    </div>
+
+                    <div class="card" style="display:flex;flex-direction:column;gap:8px">
+                        <div style="display:flex;justify-content:space-between;align-items:center"><strong>CC
+                                Cohort Symbiosis</strong><small>Join and Share</small></div>
+                        <div style="display:flex;gap:8px;margin-top:8px"><button class="btn-primary" style="flex:1">Join
+                                Cohort</button></div>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="courses" class="courses">
+                <div class="course card">
+                    <h5><a href="cloud-journey.html" style="text-decoration:none;color:var(--dark-slate)">Cloud
+                            Fundamentals For Data Science and AI/ML</a></h5>
+                    <p class="muted">Beginner •5 modules</p>
+                    <div style="height:10px"></div>
+                    <div class="progress"><i style="width:28%"></i></div>
+                </div>
+
+                <div class="course card">
+                    <h5>AWS Practice Path</h5>
+                    <p class="muted">Intermediate • 8 modules</p>
+                    <div style="height:10px"></div>
+                    <div class="progress"><i style="width:52%"></i></div>
+                </div>
+
+                <div class="course card">
+                    <h5>DevOps & Automation</h5>
+                    <p class="muted">Advanced • 10 modules</p>
+                    <div style="height:10px"></div>
+                    <div class="progress"><i style="width:16%"></i></div>
+                </div>
+            </section>
+
+            <section id="labs" style="margin-top:28px">
+                <div class="card">
+                    <h3 style="margin-top:0">Hands-on Labs</h3>
+                    <p style="color:var(--muted)">Interactive scenarios to practice real cloud tasks: deploy, monitor,
+                        scale, and secure applications on public clouds.</p>
+                </div>
+            </section>
+
+            <section id="about" style="margin-top:28px">
+                <div class="card">
+                    <h3 style="margin-top:0">About CloudNest</h3>
+                    <p style="color:var(--muted)">CloudNest is an educational platform focused on practical cloud skills
+                        for NBKRIST Students. Our mission: <strong>Empowering Learners for the Cloud Era.</strong></p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div>© CloudNest • Empowering Learners for the Cloud Era| Authored by Hari Babu Mutchakala</div>
+            <div>Contact • Privacy • Terms</div>
+        </footer>
+    </div>
+</body>
+
+</html>

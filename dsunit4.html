@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBKRIST-CloudNest | Unit 4</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --bg:#F7FBFF;
+      --muted:#6B7A89;
+      --radius:14px;
+      --card-bg:#fff;
+    }
+
+    body {
+      margin:0;
+      font-family:Inter;
+      background:var(--bg);
+      color:var(--dark-slate);
+    }
+
+    /* HEADER */
+    header {
+      position:sticky;
+      top:0;
+      background:white;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 20px;
+      box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand h1 { margin:0; font-family:Poppins; font-size:22px; }
+    .tagline{font-size:13px;color:var(--muted);}
+    .back-btn {
+      padding:8px 12px;
+      background:#eee;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      color:#000;
+    }
+    #modeToggle{
+      padding:8px 12px;
+      border-radius:8px;
+      border:none;
+      background:var(--dark-slate);
+      color:white;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    .container {
+      max-width:980px;
+      margin:20px auto;
+      padding:20px;
+    }
+
+    .menu-bar {
+      display:flex;
+      gap:10px;
+      margin:10px 0 25px;
+      flex-wrap:wrap;
+    }
+    .menu-btn{
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      background:linear-gradient(90deg,var(--azure-blue),var(--teal));
+      color:white;
+      font-weight:700;
+    }
+
+    .section {
+      background:white;
+      padding:22px;
+      border-radius:var(--radius);
+      border-left:6px solid var(--azure-blue);
+      margin-bottom:28px;
+      box-shadow:0 6px 22px rgba(0,0,0,0.06);
+      transition:transform .12s;
+    }
+    .section:hover { transform:translateY(-4px); }
+
+    .tip {
+      margin-top:10px;
+      padding:10px 14px;
+      background:#E8F4FF;
+      border-left:4px solid var(--teal);
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    .img-block{
+      margin-top:20px;
+    }
+    .img-block img {
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:12px;
+      box-shadow:0 6px 22px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      text-align:center;
+      padding:25px;
+      margin-top:30px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    @media(max-width:720px){
+      .brand h1{font-size:18px;}
+      .img-block img{height:180px;}
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="ds.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <svg viewBox="0 0 64 64" width="46" height="46">
+      <defs><linearGradient id="g1" x1="0%" x2="100%">
+        <stop offset="0%" stop-color="#008CFF"/>
+        <stop offset="100%" stop-color="#00A8A8"/>
+      </linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+    </svg>
+
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+
+  <button id="modeToggle">☀ / 🌙</button>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <div class="menu-bar">
+    <a class="menu-btn" href="unit1.html">Unit I</a>
+    <a class="menu-btn" href="unit2.html">Unit II</a>
+    <a class="menu-btn" href="unit3.html">Unit III</a>
+    <a class="menu-btn" href="unit4.html">Unit IV</a>
+    <a class="menu-btn" href="unit5.html">Unit V</a>
+  </div>
+
+  <h2>UNIT IV – Big Data, Multimedia Cloud & Cloud Application Tuning</h2>
+
+  <!-- Expert View -->
+  <section class="section">
+    <h3>☁️ 🧠 Expert View</h3>
+    <div class="tip"><b>Tip:</b> Big Data + Cloud enables real-time insights at global scale.</div>
+
+    <p>Unit-4 provides the core understanding of how massive datasets, multimedia content, and large-scale applications are optimized in the cloud. Big Data analytics, multimedia streaming, cloud benchmarking, and performance tuning are indispensable skills for engineers working on real-time applications, large media systems, analytics platforms, or IoT pipelines. This unit prepares learners for advanced cloud engineering roles.</p>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x250/008CFF/ffffff?text=Big+Data+and+Cloud">
+    </div>
+  </section>
+
+  <!-- Big Data Analytics -->
+  <section class="section">
+    <h3>☁️ 📊 Big Data Analytics</h3>
+    <div class="tip"><b>Tip:</b> Remember: Big Data = Volume + Variety + Velocity.</div>
+
+    <p>Big Data Analytics deals with extracting insights from massive datasets using distributed and scalable systems.</p>
+
+    <ul>
+      <li><strong>Clustering Big Data</strong> — grouping similar data points</li>
+      <li><strong>Classification</strong> — identifying categories based on patterns</li>
+      <li><strong>Recommendation Systems</strong> — suggesting items using user behavior</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x250/0066CC/ffffff?text=Big+Data+Analytics">
+    </div>
+  </section>
+
+  <!-- Multimedia Cloud -->
+  <section class="section">
+    <h3>☁️ 🎥 Multimedia Cloud</h3>
+    <div class="tip"><b>Tip:</b> Multimedia apps require high bandwidth + low latency.</div>
+
+    <p>Cloud platforms are widely used for video streaming, live broadcasting, and transcoding multimedia content.</p>
+
+    <ul>
+      <li><strong>Live Video Streaming Apps</strong></li>
+      <li><strong>Streaming Protocols</strong> (HLS, DASH, RTMP)</li>
+      <li><strong>Video Transcoding Apps</strong> — converting one format to another</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x250/0078D4/ffffff?text=Multimedia+Cloud">
+    </div>
+  </section>
+
+  <!-- Benchmarking -->
+  <section class="section">
+    <h3>☁️ ⚙️ Cloud Benchmarking & Tuning</h3>
+    <div class="tip"><b>Tip:</b> Benchmark → Measure → Optimize → Repeat.</div>
+
+    <p>To optimize cloud applications, benchmarking helps measure performance under different conditions.</p>
+
+    <ul>
+      <li><strong>Workload Characteristics</strong></li>
+      <li><strong>Application Performance Metrics</strong></li>
+      <li><strong>Benchmarking Tools</strong> (stress, JMeter, Locust)</li>
+      <li><strong>Deployment Prototyping</strong></li>
+      <li><strong>Load Testing & Bottleneck Detection</strong></li>
+      <li><strong>Hadoop Benchmarking Case Studies</strong></li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x250/00A8A8/ffffff?text=Cloud+Benchmarking">
+    </div>
+  </section>
+
+  <!-- Summary -->
+  <section class="section">
+    <h3>☁️ 📌 Key Summary Points</h3>
+    <div class="tip"><b>Tip:</b> Performance tuning is a continuous iterative process.</div>
+
+    <ul>
+      <li>Big Data analytics extracts insights using clustering & classification.</li>
+      <li>Multimedia cloud powers live streaming & transcoding apps.</li>
+      <li>Benchmarking ensures cloud systems meet performance expectations.</li>
+      <li>Understanding workloads is key to cloud optimization.</li>
+      <li>Tuning improves reliability and reduces cost.</li>
+    </ul>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x250/005F73/ffffff?text=Unit+4+Summary">
+    </div>
+  </section>
+
+  <!-- Practice Questions -->
+  <section class="section">
+    <h3>☁️ 📝 Practice Questions</h3>
+    <div class="tip"><b>Tip:</b> Try predicting real-world scenarios before checking answers.</div>
+
+    <details><summary>1. What are the 3 Vs of Big Data?</summary><p>Volume, Variety, Velocity.</p></details>
+
+    <details><summary>2. What is video transcoding?</summary><p>Converting a video from one format/quality to another.</p></details>
+
+    <details><summary>3. Why do we benchmark cloud applications?</summary><p>To measure performance, identify bottlenecks, and optimize the system.</p></details>
+
+    <details><summary>4. What is clustering in Big Data?</summary><p>Grouping similar data points based on patterns.</p></details>
+
+    <details><summary>5. Name two streaming protocols.</summary><p>HLS, DASH, RTMP.</p></details>
+
+    <div class="img-block">
+      <img src="https://placehold.co/1200x250/003F5C/ffffff?text=Practice+Questions">
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+const btn = document.getElementById('modeToggle');
+btn.onclick = () => {
+  document.body.classList.toggle('dark-mode');
+  if(document.body.classList.contains('dark-mode')){
+    document.body.style.background='#0F1C2E';
+    document.body.style.color='#fff';
+    btn.style.background='#fff';
+    btn.style.color='#0F1C2E';
+  } else {
+    document.body.style.background='';
+    document.body.style.color='';
+    btn.style.background='#0F1C2E';
+    btn.style.color='#fff';
+  }
+};
+</script>
+
+</body>
+</html>

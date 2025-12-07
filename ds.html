@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NBKRIST-CloudNest | Data Science Cloud Overview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --mint:#CFF8F0;
+      --bg:#F7FBFF;
+      --muted:#6B7A89;
+      --radius:14px;
+      --card-bg:#FFFFFF;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter;
+      background:var(--bg);
+      color:var(--dark-slate);
+    }
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:var(--card-bg);
+      padding:10px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    }
+    .header-left,.header-center,.header-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .back-btn{
+      padding:8px 12px;
+      background:#e0e0e0;
+      color:#000;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-family:Poppins;font-size:20px;color:var(--dark-slate)}
+    .tagline{font-size:13px;color:var(--muted)}
+
+    #downloadPDF, #modeToggle{
+      padding:8px 12px;
+      border-radius:8px;
+      border:none;
+      font-weight:600;
+      cursor:pointer;
+    }
+    #downloadPDF{background:#008CFF;color:white}
+    #modeToggle{background:var(--dark-slate);color:white}
+
+    /* CONTAINER */
+    .container{
+      max-width:950px;
+      margin:30px auto;
+      padding:24px;
+    }
+
+    /* MENU */
+    .menu-bar{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+    .menu-btn{
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:white;
+      text-decoration:none;
+      background:linear-gradient(90deg,var(--azure-blue),var(--teal));
+    }
+
+    /* SECTION */
+    .section{
+      background:var(--card-bg);
+      padding:24px;
+      border-radius:var(--radius);
+      margin-bottom:28px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      border-left:6px solid var(--azure-blue);
+    }
+    .unit-title{color:var(--azure-blue);font-family:Poppins}
+
+    /* IMAGE PLACEHOLDERS */
+    .img-block img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:12px;
+      margin-top:14px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:20px 0;
+      font-size:14px;
+      color:var(--muted);
+      margin-top:40px;
+    }
+
+    /* DARK MODE */
+    .dark{background:#0B1625;color:#E7EEF8}
+    .dark header{background:#07101F;box-shadow:0 2px 10px rgba(0,0,0,0.6)}
+    .dark .section{background:#0F1C2E;border-left-color:#2993ff}
+    .dark .menu-btn{box-shadow:0 8px 18px rgba(0,0,0,0.5)}
+    .dark .back-btn{background:#1b2430;color:#fff}
+    .dark #downloadPDF{background:#2993FF}
+    .dark #modeToggle{background:white;color:#0F1C2E}
+
+    @media(max-width:760px){
+      header{flex-direction:column;gap:10px}
+      .container{padding:14px;margin-top:12px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <a class="back-btn" href="index.html">← Back</a>
+    </div>
+
+    <div class="header-center">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" width="46" height="46" aria-hidden="true"><defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs><g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round"><path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/></g></svg>
+        <div>
+          <h1>NBKRIST–CloudNest</h1>
+          <div class="tagline">Empowering Learners for the Cloud Era</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="downloadPDF">⬇ PDF</button>
+      <button id="modeToggle">☀ / 🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <nav class="menu-bar">
+      <a class="menu-btn" href="dsunit1.html">Unit I</a>
+      <a class="menu-btn" href="dsunit2.html">Unit II</a>
+      <a class="menu-btn" href="dsunit3.html">Unit III</a>
+      <a class="menu-btn" href="dsunit4.html">Unit IV</a>
+      <a class="menu-btn" href="dsunit5.html">Unit V</a>
+      <a class="menu-btn" href="dssyllabus.html">Syllabus</a>
+
+    </nav>
+
+    <h2>Cloud Computing for Data Science — Overview</h2>
+    <p>This page provides a simple and clear overview of all five units for Data Science. Students understand what each unit covers before exploring detailed pages.</p>
+
+    <!-- UNIT 1 -->
+    <section class="section">
+      <h2 class="unit-title">UNIT I – Basics of Cloud Computing</h2>
+      <p>This unit introduces foundational cloud principles and why companies depend on cloud platforms.</p>
+      <h4>Topics Overview:</h4>
+      <ul>
+        <li>Cloud Characteristics & Service Models</li>
+        <li>Public / Private / Hybrid Deployment</li>
+        <li>Virtualization, Load Balancing</li>
+        <li>Elasticity, Scalability & Monitoring</li>
+        <li>SDN, NFV, MapReduce</li>
+        <li>Cloud Billing, SLAs, IAM</li>
+        <li>Compute, Storage, Networking, Databases</li>
+      </ul>
+      <p><strong>What Students Gain:</strong> A complete understanding of core cloud technologies.</p>
+      <div class="img-block"><img src="https://placehold.co/1200x260/008CFF/FFFFFF?text=UNIT+1+Image+Placeholder" alt=""></div>
+    </section>
+
+    <!-- UNIT 2 -->
+    <section class="section">
+      <h2 class="unit-title">UNIT II – Hadoop & Python</h2>
+      <p>This unit introduces distributed data processing and Python fundamentals.</p>
+      <h4>Topics Overview:</h4>
+      <ul>
+        <li>Hadoop & MapReduce Execution</li>
+        <li>Cluster Setup & Scheduling</li>
+        <li>Cloud Reference Architecture</li>
+        <li>App Design & Storage Approaches</li>
+        <li>Python Basics, Modules, Packages</li>
+        <li>File Handling & Classes</li>
+      </ul>
+      <p><strong>What Students Gain:</strong> Ability to process big data & write Python for cloud.</p>
+      <div class="img-block"><img src="https://placehold.co/1200x260/00A8A8/FFFFFF?text=UNIT+2+Image+Placeholder" alt=""></div>
+    </section>
+
+    <!-- UNIT 3 -->
+    <section class="section">
+      <h2 class="unit-title">UNIT III – Python for Cloud Computing</h2>
+      <p>Students learn how Python integrates with AWS, Azure, GCP and build cloud apps.</p>
+      <h4>Topics Overview:</h4>
+      <ul>
+        <li>Python SDKs for AWS/Azure/GCP</li>
+        <li>MapReduce in Python</li>
+        <li>REST API Development</li>
+        <li>Cloud Apps: Image Processing, Storage, Analytics</li>
+      </ul>
+      <p><strong>What Students Gain:</strong> Skills to build Python‑based cloud services.</p>
+      <div class="img-block"><img src="https://placehold.co/1200x260/0F1C2E/FFFFFF?text=UNIT+3+Image+Placeholder" alt=""></div>
+    </section>
+
+    <!-- UNIT 4 -->
+    <section class="section">
+      <h2 class="unit-title">UNIT IV – Big Data, Multimedia & Cloud Tuning</h2>
+      <p>Focuses on data analytics, media workloads and optimizing cloud systems.</p>
+      <h4>Topics Overview:</h4>
+      <ul>
+        <li>Big Data: Clustering, Classification, Recommendations</li>
+        <li>Multimedia Cloud & Streaming</li>
+        <li>Video Transcoding</li>
+        <li>Benchmarking & Load Testing</li>
+        <li>Bottleneck Detection</li>
+      </ul>
+      <p><strong>What Students Gain:</strong> Understanding of scaling media and data pipelines.</p>
+      <div class="img-block"><img src="https://placehold.co/1200x260/0066CC/FFFFFF?text=UNIT+4+Image+Placeholder" alt=""></div>
+    </section>
+
+    <!-- UNIT 5 -->
+    <section class="section">
+      <h2 class="unit-title">UNIT V – Applications & Issues in Cloud Computing</h2>
+      <p>Real industry usage, security, cloud migration & legal challenges.</p>
+      <h4>Topics Overview:</h4>
+      <ul>
+        <li>Cloud Security & IAM</li>
+        <li>Cloud Use in Healthcare, Education, Energy, Transport</li>
+        <li>Migration Strategies (Seven‑Step Model)</li>
+        <li>Organizational Readiness & Change</li>
+        <li>Legal Issues: Privacy, Jurisdiction, Contracts</li>
+      </ul>
+      <p><strong>What Students Gain:</strong> Insight into real enterprise cloud adoption.</p>
+      <div class="img-block"><img src="https://placehold.co/1200x260/0078D4/FFFFFF?text=UNIT+5+Image+Placeholder" alt=""></div>
+    </section>
+
+    <a class="back-btn" href="index.html">← Back to Home</a>
+
+  </main>
+
+  <footer>
+    © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+  </footer>
+
+  <script>
+    /* DARK MODE */
+    const modeBtn = document.getElementById('modeToggle');
+    const stored = localStorage.getItem('ds_theme');
+    if(stored === 'dark') document.documentElement.classList.add('dark');
+
+    modeBtn.onclick = () =>{
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('ds_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    };
+
+    /* PDF DOWNLOAD */
+    document.getElementById('downloadPDF').onclick = () =>{
+      window.print(); /* User can save as PDF */
+    };
+  </script>
+
+</body>
+</html>

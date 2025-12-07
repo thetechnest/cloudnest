@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NBKRIST-CloudNest | AIML Unit 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azure-blue:#008CFF;
+    --teal:#00A8A8;
+    --dark-slate:#0F1C2E;
+    --bg:#F7FBFF;
+    --muted:#6B7A89;
+    --radius:14px;
+    --card-bg:#fff;
+  }
+  body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate)}
+  header{
+    position:sticky;top:0;z-index:1200;background:var(--card-bg);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  }
+  .back-btn{padding:8px 12px;background:#eee;border-radius:8px;text-decoration:none;color:#000;font-weight:600}
+  .header-right button{padding:8px 12px;border-radius:8px;border:none;background:var(--dark-slate);color:#fff;font-weight:600;cursor:pointer;margin-left:8px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand h1{margin:0;font-family:Poppins;font-size:20px}
+  .tagline{font-size:13px;color:var(--muted)}
+
+  .container{max-width:950px;margin:30px auto;padding:20px}
+  h2,h3,h4{font-family:Poppins;margin-bottom:10px}
+
+  .section{background:var(--card-bg);padding:22px;border-radius:var(--radius);
+           box-shadow:0 8px 28px rgba(15,28,46,0.04);
+           border-left:6px solid var(--azure-blue);margin-bottom:28px}
+  .tip{margin-top:12px;padding:10px 14px;background:#E8F4FF;border-left:4px solid var(--teal);
+       border-radius:8px;font-size:14px;color:var(--dark-slate)}
+  ul{margin-top:6px}
+
+  .img-block img{width:100%;height:260px;object-fit:cover;border-radius:12px;
+                 box-shadow:0 8px 24px rgba(3,115,255,0.06);margin-top:16px}
+
+  details{background:#F4FBFF;padding:12px 14px;border-radius:10px;margin-bottom:10px;
+          border:1px solid rgba(0,140,255,0.06)}
+  summary{cursor:pointer;font-weight:700}
+
+  footer{text-align:center;padding:28px 12px;color:var(--muted);font-size:14px;margin-top:40px}
+
+</style>
+</head>
+<body>
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true">
+      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+      <g fill="none" stroke="#0F1C2E" stroke-width="1.6" opacity="0.9">
+        <path d="M20 40c6 4 18 6 28 0"/>
+        <path d="M22 44c6 3 16 4 26 0" opacity="0.6"/>
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <button id="pdfBtn">📄 PDF</button>
+    <button id="modeToggle">☀ / 🌙</button>
+  </div>
+</header>
+
+<div class="container">
+  <h2>AIML UNIT II – Storage, Computing & Data Processing in the Cloud</h2>
+  <p>This unit explains how cloud platforms manage massive data, compute resources, distributed processing, and cost optimization. Students will understand how cloud-backed data pipelines power AI/ML applications.</p>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <h3>Cloud Storage Services</h3>
+    <div class="tip">💡 Tip: Understand object storage deeply — it is the backbone of modern AI/ML workflows.</div>
+    <p>Cloud platforms provide scalable, durable, pay‑as‑you‑go storage options for AI data workloads.</p>
+    <ul>
+      <li>AWS S3</li>
+      <li>Azure Blob Storage</li>
+      <li>Google BigQuery Storage</li>
+    </ul>
+    <div class="img-block"><img src="https://www.logo.wine/a/logo/Amazon_S3/Amazon_S3-Logo.wine.svg" alt="Cloud Storage"></div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <h3>Virtualization & Elastic Computing</h3>
+    <div class="tip">💡 Tip: Elastic compute saves cost by automatically scaling with workload demand.</div>
+    <p>Cloud platforms let AI systems grow or shrink resources dynamically.</p>
+    <ul>
+      <li>Virtual machines & hypervisors</li>
+      <li>Elastic Compute (EC2, Azure VM Scale Sets, GCP Compute Autoscaling)</li>
+      <li>GPU/TPU support for ML</li>
+    </ul>
+    <div class="img-block"><img src="https://logos-world.net/wp-content/uploads/2021/08/Amazon-EC2-Logo.png" alt="Elastic Computing"></div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <h3>Distributed Computing: Hadoop & Spark</h3>
+    <div class="tip">💡 Tip: Learn Spark — it is widely used in data engineering and ML pipelines.</div>
+    <p>Hadoop and Spark enable large-scale data processing for AI preparation and analytics.</p>
+    <ul>
+      <li>Hadoop HDFS & MapReduce</li>
+      <li>Spark RDD, DataFrames, MLlib</li>
+      <li>Cluster-based distributed workloads</li>
+    </ul>
+    <div class="img-block"><img src="https://cdn.worldvectorlogo.com/logos/apache-spark-5.svg" alt="Spark Logo"></div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <h3>Data Ingestion & Processing Pipelines</h3>
+    <div class="tip">💡 Tip: Data pipelines are critical — AI models are only as good as the data pipeline feeding them.</div>
+    <p>Modern cloud pipelines help gather, clean, transform, and move data efficiently.</p>
+    <ul>
+      <li>ETL/ELT workflows</li>
+      <li>Real‑time event streaming (Kafka / PubSub)</li>
+      <li>Batch pipelines for ML training</li>
+    </ul>
+    <div class="img-block"><img src="https://miro.medium.com/v2/resize:fit:1000/1*EoCqXCakxTqcKoy0eZZ_-w.png" alt="Data Pipeline"></div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <h3>Data Lakes & Data Warehousing</h3>
+    <div class="tip">💡 Tip: Data lakes hold raw data; warehouses hold curated analytical data.</div>
+    <p>AI systems require structured and unstructured data to be stored efficiently.</p>
+    <ul>
+      <li>Data Lakes (S3, ADLS, GCS)</li>
+      <li>Data Warehouses (Redshift, BigQuery, Snowflake)</li>
+    </ul>
+    <div class="img-block"><img src="https://seeklogo.com/images/G/google-bigquery-logo-82A39F529A-seeklogo.com.png" alt="BigQuery"></div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <h3>Cost Optimization Strategies</h3>
+    <div class="tip">💡 Tip: Always choose the right storage class and compute type for ML workloads.</div>
+    <p>Cloud AI workloads can become expensive — cost optimization is essential.</p>
+    <ul>
+      <li>Reserved vs On‑Demand instances</li>
+      <li>Spot instances for cheap compute</li>
+      <li>Lifecycle rules for storage tiering</li>
+      <li>Monitoring & budgeting</li>
+    </ul>
+    <div class="img-block"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135695.png" alt="Cost Optimization"></div>
+  </div>
+
+  <!-- Summary -->
+  <div class="section">
+    <h3>Summary</h3>
+    <p>Unit‑2 builds a strong foundation in cloud storage, compute, distributed processing, and cost management. These skills are essential for building scalable AI/ML data pipelines.</p>
+  </div>
+
+  <!-- Key Questions -->
+  <div class="section">
+    <h3>Key Questions – Click to Reveal Answers</h3>
+
+    <details><summary>1. What is elastic computing?</summary><p>It refers to auto-scaling compute resources based on workload demand.</p></details>
+    <details><summary>2. Why do AI workflows need distributed computing?</summary><p>To process massive datasets efficiently for training and analytics.</p></details>
+    <details><summary>3. What are data lakes?</summary><p>Centralized storage that holds raw structured and unstructured data.</p></details>
+    <details><summary>4. What is cost optimization in cloud?</summary><p>Techniques to reduce cloud spend by choosing efficient storage and compute options.</p></details>
+    <details><summary>5. Why is Spark popular?</summary><p>It provides fast distributed processing and has built‑in ML libraries.</p></details>
+  </div>
+</div>
+
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+</body>
+</html>

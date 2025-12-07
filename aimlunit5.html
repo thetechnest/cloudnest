@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIML Unit-5 | NBKRIST-CloudNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --azure-blue:#008CFF;
+      --teal:#00A8A8;
+      --dark-slate:#0F1C2E;
+      --mint:#CFF8F0;
+      --muted:#6B7A89;
+      --radius:14px;
+      --bg:#F7FBFF;
+      --card-bg:#FFFFFF;
+    }
+
+    body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate)}
+    *{box-sizing:border-box}
+
+    header{
+      position:sticky;top:0;z-index:1200;
+      background:var(--card-bg);
+      padding:10px 20px;
+      box-shadow:0 2px 10px rgba(15,28,46,0.06);
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-family:Poppins;font-size:20px}
+    .tagline{font-size:13px;color:var(--muted)}
+    .back-btn{
+      padding:8px 12px;background:#eee;border-radius:8px;
+      color:#000;text-decoration:none;font-weight:600
+    }
+    #modeToggle{
+      padding:8px 12px;border:none;border-radius:8px;
+      background:var(--dark-slate);color:white;font-weight:600;cursor:pointer
+    }
+
+    .container{max-width:960px;margin:30px auto;padding:20px}
+
+    .section{
+      background:var(--card-bg);padding:22px;border-radius:var(--radius);
+      margin-bottom:28px;border-left:6px solid var(--azure-blue);
+      box-shadow:0 8px 24px rgba(0,0,0,0.05)
+    }
+    h2,h3{font-family:Poppins;margin-top:0}
+    .badge{
+      display:inline-block;padding:5px 12px;border-radius:20px;
+      background:var(--mint);color:var(--dark-slate);
+      font-size:13px;font-weight:600;margin-bottom:10px
+    }
+    .img-block img{
+      width:100%;height:260px;object-fit:cover;
+      border-radius:12px;margin-top:12px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08)
+    }
+
+    details{background:#F4FBFF;padding:12px;border-radius:10px;
+      margin-bottom:10px;border:1px solid rgba(0,0,0,0.05)}
+    summary{font-weight:700;cursor:pointer}
+
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--muted)}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+
+  <div class="brand">
+    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true">
+      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+      <g fill="none" stroke="#0F1C2E" stroke-width="1.6" opacity="0.9">
+        <path d="M20 40c6 4 18 6 28 0" />
+        <path d="M22 44c6 3 16 4 26 0" opacity="0.6" />
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
+    </div>
+  </div>
+
+  <button id="modeToggle">☀ / 🌙</button>
+</header>
+
+
+<div class="container">
+
+  <h2>UNIT-5 — Security, Ethics & Case Studies in Cloud-AI</h2>
+  <p>This unit explains the critical security, fairness, governance, and privacy issues surrounding cloud-based AI systems. It also explores powerful real-world AI cloud solutions used in healthcare, finance, enterprise systems, and public safety.</p>
+
+  <!-- SECTION 1 -->
+  <section class="section">
+    <span class="badge">Section 1</span>
+    <h3>Security & Privacy in Cloud-based AI</h3>
+    <p>Security is an essential pillar of AI systems deployed on the cloud. This includes protecting model data, training datasets, API endpoints, credentials, and identity systems.</p>
+    <ul>
+      <li>Data encryption at rest & in transit (KMS, Azure Key Vault)</li>
+      <li>Securing AI endpoints using IAM and API Gateways</li>
+      <li>Role-based access and least-privilege permissions</li>
+      <li>Data masking and differential privacy</li>
+      <li>Secure model storage & registries</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/003366/FFFFFF?text=Cloud+AI+Security+Placeholder" alt="AI security"></div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="section">
+    <span class="badge">Section 2</span>
+    <h3>Identity & Access Management (IAM)</h3>
+    <p>IAM ensures that only authorized users and applications can access cloud resources. AI systems depend heavily on secure credential handling.</p>
+    <ul>
+      <li>Role-based controls for ML pipelines</li>
+      <li>Service accounts for automated workflows</li>
+      <li>Key rotation & secret vaults</li>
+      <li>Multi-factor authentication</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/004080/FFFFFF?text=IAM+Placeholder" alt="IAM"></div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="section">
+    <span class="badge">Section 3</span>
+    <h3>Ethical Issues & Fairness in Cloud AI</h3>
+    <p>Cloud-powered AI brings new ethical challenges. Ensuring fairness, transparency, and accountability is a core requirement.</p>
+    <ul>
+      <li>Bias in training data</li>
+      <li>Explainability and transparency</li>
+      <li>Responsible AI frameworks</li>
+      <li>Fairness in automated decision making</li>
+      <li>Model audits & compliance checks</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/005599/FFFFFF?text=AI+Ethics+Placeholder" alt="ethics"></div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="section">
+    <span class="badge">Section 4</span>
+    <h3>Cost Management & AI Billing</h3>
+    <p>AI workloads like training, inference, and GPU compute can be expensive. Cloud platforms offer tools to optimize cost.</p>
+    <ul>
+      <li>Spot instances / preemptible VMs</li>
+      <li>Autoscaling & serverless inference</li>
+      <li>Budget alerts & cost dashboards</li>
+      <li>Resource tagging</li>
+      <li>Optimizing storage tiers</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/0066AA/FFFFFF?text=Cloud+AI+Cost+Mgmt" alt="cost mgmt"></div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="section">
+    <span class="badge">Section 5</span>
+    <h3>Case Studies: Real-World AI Cloud Applications</h3>
+    <p>These case studies show how industries use cloud+AI to build intelligent, scalable solutions.</p>
+    <h4>Healthcare</h4>
+    <ul>
+      <li>Medical image analysis using cloud inference</li>
+      <li>Patient record analytics using BigQuery / Redshift</li>
+      <li>Predictive diagnosis models</li>
+    </ul>
+    <h4>Finance</h4>
+    <ul>
+      <li>Fraud detection on streaming data</li>
+      <li>Real-time market analytics</li>
+      <li>Risk modeling with ML pipelines</li>
+    </ul>
+    <div class="img-block"><img src="https://placehold.co/1200x260/004466/FFFFFF?text=Case+Studies+Placeholder" alt="case studies"></div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <h3>Key Summary Points</h3>
+    <ul>
+      <li>Security & IAM are foundational for every AI cloud deployment.</li>
+      <li>Ethical design is necessary to avoid biased and unsafe AI systems.</li>
+      <li>Cost management is crucial due to GPU-intensive workloads.</li>
+      <li>Cloud AI enables large-scale solutions in healthcare, finance & enterprise.</li>
+      <li>Unit-5 prepares students for real-world AI governance & compliance roles.</li>
+    </ul>
+  </section>
+
+  <!-- PRACTICE Qs -->
+  <section class="section">
+    <h3>Practice & Interview Questions</h3>
+
+    <details><summary>1. What security measures protect cloud-based AI?</summary>
+      <p>Encryption, access control, IAM, secured endpoints, auditing, and secret management.</p></details>
+
+    <details><summary>2. Why does AI need IAM?</summary>
+      <p>AI pipelines involve multiple services; IAM ensures each part has the correct permissions.</p></details>
+
+    <details><summary>3. What is AI fairness?</summary>
+      <p>Ensuring ML systems make unbiased and ethical predictions.</p></details>
+
+    <details><summary>4. What are cost optimization methods for AI cloud workloads?</summary>
+      <p>Spot instances, autoscaling, serverless, optimized storage tiers & usage monitoring.</p></details>
+
+    <details><summary>5. Explain a healthcare cloud-AI use case.</summary>
+      <p>Cloud inference for CT/MRI image classification using managed ML endpoints.</p></details>
+
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  const btn = document.getElementById('modeToggle');
+  btn.onclick = () =>{
+    document.body.classList.toggle('dark');
+  }
+</script>
+
+</body>
+</html>
