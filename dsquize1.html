@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NBKRIST–CloudNest | Cloud Computing Quiz for Data Science</title>
+  <meta charset="utf-8"/>
+  <title>NBKRIST–CloudNest | Data Science Cloud Skill Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
@@ -14,51 +14,27 @@
       --dark-slate:#0F1C2E;
       --bg:#F7FBFF;
       --muted:#6B7A89;
-      --card-bg:#fff;
       --radius:14px;
-      --overlay-light: rgba(255,255,255,0.72);
-      --overlay-dark: rgba(0,0,0,0.45);
     }
 
     body{
       margin:0;
       font-family:Inter, sans-serif;
+      background:var(--bg);
       color:var(--dark-slate);
-      background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1200');
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:var(--overlay-light);
-      backdrop-filter:blur(2px);
-      z-index:-1;
     }
 
     header{
-      position:sticky;
-      top:0;
-      z-index:900;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      position:sticky; top:0; z-index:900;
+      background:#fff;
+      display:flex; align-items:center; justify-content:space-between;
       padding:10px 18px;
-      background:rgba(255,255,255,0.86);
       box-shadow:0 2px 10px rgba(0,0,0,0.06);
-      backdrop-filter:blur(6px);
     }
 
     .back-btn{
-      padding:8px 14px;
-      background:#eee;
-      color:#000;
-      border-radius:8px;
-      font-weight:600;
-      text-decoration:none;
+      padding:8px 14px; background:#eee; color:#000;
+      border-radius:8px; font-weight:600; text-decoration:none;
     }
 
     .brand{display:flex;align-items:center;gap:12px}
@@ -70,83 +46,50 @@
       border-radius:8px;
       font-weight:600;
       background:var(--dark-slate);
-      color:white;
-      cursor:pointer;
-      border:none;
+      color:white; border:none; cursor:pointer;
     }
 
-    #pdfBtn{ background:var(--azure-blue); margin-right:10px; }
+    #pdfBtn{background:#008CFF;margin-right:10px;}
 
-    .container{
-      max-width:980px;
-      margin:32px auto;
-      padding:20px;
-    }
+    .container{max-width:980px;margin:30px auto;padding:20px;}
 
     .section{
-      padding:22px;
-      background:var(--card-bg);
+      padding:22px; background:white;
       border-radius:var(--radius);
-      margin-bottom:28px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      margin-bottom:26px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
       border-left:6px solid var(--azure-blue);
     }
 
-    .badge{
-      background:#CFF8F0;
-      padding:5px 12px;
-      border-radius:20px;
-      font-weight:600;
-      margin-bottom:10px;
-      display:inline-block;
+    .question{margin-bottom:18px;}
+    .options label{display:block;margin:6px 0;cursor:pointer;}
+
+    .correct{color:green;font-weight:600;}
+    .wrong{color:red;font-weight:600;}
+
+    .result-box{
+      padding:18px; border-radius:12px;
+      background:#e8fff2; font-weight:700;
+      margin-top:20px; text-align:center;
     }
 
-    h2{ margin-top:6px; }
-    h3{ margin:8px 0; }
+    footer{text-align:center;padding:28px;font-size:14px;color:var(--muted);}
 
-    label{
-      display:block;
-      padding:6px 0;
-      cursor:pointer;
-    }
-
-    footer{
-      text-align:center;
-      padding:28px;
-      color:var(--muted);
-    }
-
-    /* DARK MODE */
-    .dark{
-      background:#0b1622 !important;
-      color:#EAF2FB;
-    }
-    .dark::before{ background:var(--overlay-dark); }
-    .dark header{ background:rgba(8,17,31,0.94); }
-    .dark .section{ background:#102031; border-left-color:#2993ff; }
-    .dark .back-btn{ background:#0f2335; color:white; }
+    .dark{background:#0b1622;color:#EAF2FB;}
+    .dark header{background:#08111f;}
+    .dark .section{background:#102031;border-left-color:#2993ff;}
   </style>
 </head>
 
 <body>
 
 <header>
-  <a href="index.html" class="back-btn">← Back</a>
+  <a href="datascience.html" class="back-btn">← Back</a>
 
   <div class="brand">
-    <svg width="46" height="46" viewBox="0 0 64 64">
-      <defs><linearGradient id="g2" x1="0%" x2="100%">
-        <stop offset="0%" stop-color="#008CFF"/>
-        <stop offset="100%" stop-color="#00A8A8"/>
-      </linearGradient></defs>
-      <g fill="none" stroke="url(#g2)" stroke-width="2.6">
-        <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
-      </g>
-    </svg>
-
     <div>
       <h1>NBKRIST–CloudNest</h1>
-      <div class="tagline">Cloud Computing Quiz — Data Science Focus</div>
+      <div class="tagline">Data Science – Cloud Skill Quiz</div>
     </div>
   </div>
 
@@ -156,143 +99,76 @@
   </div>
 </header>
 
-
 <div class="container">
 
-  <section class="section">
-    <span class="badge">MCQ Quiz</span>
-    <h2>Cloud Computing for Data Science — MCQ Quiz</h2>
-    <p>Answer the following questions to test your understanding of Cloud Computing and its role in Data Science.</p>
-  </section>
+  <form id="quizForm">
 
-  <!-- MCQ 1 -->
-  <section class="section">
-    <span class="badge">Q1</span>
-    <h3>Cloud computing primarily provides:</h3>
-    <label><input type="radio" name="q1"> A personal computer for every user</label>
-    <label><input type="radio" name="q1"> Only storage services</label>
-    <label><input type="radio" name="q1"> On-demand computing resources over the internet ✔</label>
-    <label><input type="radio" name="q1"> Offline analytics platforms</label>
-  </section>
+    <div class="section" id="quiz"></div>
 
-  <!-- MCQ 2 -->
-  <section class="section">
-    <span class="badge">Q2</span>
-    <h3>Why is cloud computing important for Data Scientists?</h3>
-    <label><input type="radio" name="q2"> It reduces code writing</label>
-    <label><input type="radio" name="q2"> It provides scalable compute and storage needed for big data ✔</label>
-    <label><input type="radio" name="q2"> It replaces all ML models</label>
-    <label><input type="radio" name="q2"> It is only used for email services</label>
-  </section>
+    <div class="section">
+      <button type="button" class="btn-small" onclick="submitQuiz()">Submit Quiz</button>
+      <div id="result" class="result-box" style="display:none;"></div>
+    </div>
 
-  <!-- MCQ 3 -->
-  <section class="section">
-    <span class="badge">Q3</span>
-    <h3>Which of the following is a cloud ML platform?</h3>
-    <label><input type="radio" name="q3"> Notepad</label>
-    <label><input type="radio" name="q3"> AWS SageMaker ✔</label>
-    <label><input type="radio" name="q3"> MS Word</label>
-    <label><input type="radio" name="q3"> Paint</label>
-  </section>
-
-  <!-- MCQ 4 -->
-  <section class="section">
-    <span class="badge">Q4</span>
-    <h3>Which cloud service allows running code without managing servers?</h3>
-    <label><input type="radio" name="q4"> Docker</label>
-    <label><input type="radio" name="q4"> Serverless computing (AWS Lambda, Azure Functions) ✔</label>
-    <label><input type="radio" name="q4"> Hard disk storage</label>
-    <label><input type="radio" name="q4"> Virtual machine snapshots</label>
-  </section>
-
-  <!-- MCQ 5 -->
-  <section class="section">
-    <span class="badge">Q5</span>
-    <h3>Is cloud knowledge important for getting a job in Data Science?</h3>
-    <label><input type="radio" name="q5"> No, companies do not use cloud</label>
-    <label><input type="radio" name="q5"> Only helpful for web developers</label>
-    <label><input type="radio" name="q5"> Yes, most companies expect cloud skills ✔</label>
-    <label><input type="radio" name="q5"> Only useful for gaming</label>
-  </section>
-
-  <!-- MCQ 6 -->
-  <section class="section">
-    <span class="badge">Q6</span>
-    <h3>Which cloud skill is MOST useful for Data Scientists?</h3>
-    <label><input type="radio" name="q6"> Video editing tools</label>
-    <label><input type="radio" name="q6"> Cloud storage & ML services (S3, BigQuery, SageMaker, Vertex AI) ✔</label>
-    <label><input type="radio" name="q6"> Game engines</label>
-    <label><input type="radio" name="q6"> Mobile app themes</label>
-  </section>
-
-  <!-- MCQ 7 -->
-  <section class="section">
-    <span class="badge">Q7</span>
-    <h3>Real-time model deployment in Data Science is usually done using:</h3>
-    <label><input type="radio" name="q7"> SMS gateways</label>
-    <label><input type="radio" name="q7"> Cloud APIs & microservices ✔</label>
-    <label><input type="radio" name="q7"> Pen drives</label>
-    <label><input type="radio" name="q7"> Local text editors</label>
-  </section>
-
-  <!-- MCQ 8 -->
-  <section class="section">
-    <span class="badge">Q8</span>
-    <h3>Which cloud feature helps handle sudden increases in user traffic?</h3>
-    <label><input type="radio" name="q8"> Elasticity & auto-scaling ✔</label>
-    <label><input type="radio" name="q8"> Manual reboot</label>
-    <label><input type="radio" name="q8"> Hard disk formatting</label>
-    <label><input type="radio" name="q8"> Image compression</label>
-  </section>
-
-  <!-- MCQ 9 -->
-  <section class="section">
-    <span class="badge">Q9</span>
-    <h3>Which of these is a real-time cloud data streaming service?</h3>
-    <label><input type="radio" name="q9"> Bluetooth</label>
-    <label><input type="radio" name="q9"> AWS Kinesis / GCP Pub/Sub ✔</label>
-    <label><input type="radio" name="q9"> USB drive</label>
-    <label><input type="radio" name="q9"> BIOS</label>
-  </section>
-
-  <!-- MCQ 10 -->
-  <section class="section">
-    <span class="badge">Q10</span>
-    <h3>What is the main benefit of cloud for ML model training?</h3>
-    <label><input type="radio" name="q10"> Faster internet browsing</label>
-    <label><input type="radio" name="q10"> Access to scalable GPUs/TPUs on-demand ✔</label>
-    <label><input type="radio" name="q10"> More emojis</label>
-    <label><input type="radio" name="q10"> Phone charging</label>
-  </section>
-
-  <!-- ANSWER KEY -->
-  <section class="section">
-    <span class="badge">Answer Key</span>
-    <details>
-      <summary><strong>Click to reveal answers</strong></summary>
-      <p><strong>Q1:</strong> On-demand computing resources over the internet</p>
-      <p><strong>Q2:</strong> Scalable compute & storage for big data</p>
-      <p><strong>Q3:</strong> AWS SageMaker</p>
-      <p><strong>Q4:</strong> Serverless computing</p>
-      <p><strong>Q5:</strong> Yes, cloud skills are expected</p>
-      <p><strong>Q6:</strong> Cloud storage & ML services</p>
-      <p><strong>Q7:</strong> Cloud APIs & microservices</p>
-      <p><strong>Q8:</strong> Elasticity & auto-scaling</p>
-      <p><strong>Q9:</strong> AWS Kinesis / GCP Pub/Sub</p>
-      <p><strong>Q10:</strong> Scalable GPUs/TPUs</p>
-    </details>
-  </section>
+  </form>
 
 </div>
 
 <footer>
-  © CloudNest • NBKRIST | Cloud Computing Quiz • Authored by Hari Babu Mutchakala
+  © CloudNest • NBKRIST | Data Science Cloud Skill Quiz
 </footer>
 
 <script>
-  document.getElementById("pdfBtn").onclick = () => window.print();
-  document.getElementById("modeToggle").onclick = () =>
-    document.body.classList.toggle("dark");
+const questions = [
+{q:"Which service is used for big data analytics in cloud?", o:["EC2","BigQuery","Route53","IAM"], a:1, e:"BigQuery is a cloud-native data warehouse."},
+{q:"Which tool is used for distributed data processing?", o:["Spark","Excel","Notepad","FTP"], a:0, e:"Apache Spark handles large-scale data processing."},
+{q:"Which cloud storage is object-based?", o:["S3","MySQL","Redis","PostgreSQL"], a:0, e:"S3 is object storage."},
+{q:"Which language is mainly used for Data Science in cloud?", o:["Java","Python","HTML","PHP"], a:1, e:"Python dominates cloud-based analytics."},
+{q:"Which is NOT a cloud service model?", o:["IaaS","PaaS","SaaS","DaaS"], a:3, e:"DaaS is not a core cloud service model."},
+{q:"Which is used for streaming data?", o:["Kafka","Word","Paint","Notepad"], a:0, e:"Kafka is used for real-time data streaming."},
+{q:"Which cloud service handles virtual machines?", o:["EC2","S3","IAM","DNS"], a:0, e:"EC2 is used for computing."},
+{q:"Which is used for cloud data warehousing?", o:["BigQuery","Lambda","VPC","EC2"], a:0, e:"BigQuery is for analytics."},
+{q:"Which tool cleans and transforms data?", o:["ETL","HTML","CSS","FTP"], a:0, e:"ETL pipelines process raw data."},
+{q:"Which is used for visualization?", o:["Power BI","IAM","EC2","VPC"], a:0, e:"Power BI creates dashboards."},
+{q:"Which domain uses Hadoop most?", o:["Big Data","Gaming","Robotics","Networks"], a:0, e:"Hadoop is a big data platform."},
+{q:"Which handles data access security?", o:["IAM","EC2","S3","Lambda"], a:0, e:"IAM manages permissions."},
+{q:"Which service enables serverless analytics?", o:["Lambda","EC2","VPC","S3"], a:0, e:"Lambda runs code without servers."},
+{q:"Which tool is used for batch analytics?", o:["Spark","DNS","HTML","CSS"], a:0, e:"Spark is optimized for batch processing."},
+{q:"Which skill is most essential for cloud Data Scientists?", o:["Python","Photoshop","Tally","MS Paint"], a:0, e:"Python is the core Data Science language."}
+];
+
+const quizDiv=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+ let html=`<div class='question'><h3>Q${i+1}. ${q.q}</h3><div class='options'>`;
+ q.o.forEach((opt,j)=>{
+  html+=`<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`;
+ });
+ html+=`</div><p id="exp${i}"></p></div>`;
+ quizDiv.innerHTML+=html;
+});
+
+function submitQuiz(){
+ let score=0;
+ questions.forEach((q,i)=>{
+  const sel=document.querySelector(`input[name="q${i}"]:checked`);
+  const exp=document.getElementById("exp"+i);
+  if(sel && parseInt(sel.value)===q.a){
+    score++;
+    exp.innerHTML=`✅ Correct: ${q.o[q.a]} – ${q.e}`;
+    exp.className="correct";
+  }else{
+    exp.innerHTML=`❌ Correct Answer: ${q.o[q.a]} – ${q.e}`;
+    exp.className="wrong";
+  }
+ });
+
+ document.getElementById("result").style.display="block";
+ document.getElementById("result").innerHTML=`🎯 Your Score: ${score} / 15`;
+}
+
+document.getElementById("pdfBtn").onclick=()=>window.print();
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
 </script>
 
 </body>
