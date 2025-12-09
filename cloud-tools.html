@@ -4,23 +4,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CloudNest — Student Toolkit (PDF, Diagrams, Search, Progress)</title>
+  <title>CloudNest — Cloud Tools Hub</title>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
     rel="stylesheet">
+
   <style>
     :root {
       --azure: #008CFF;
       --teal: #00A8A8;
       --bg: #F7FBFF;
-      --muted: #6B7A89
+      --muted: #6B7A89;
+      --dark: #0F1C2E;
+      --card: #ffffff;
+      --radius: 14px;
     }
 
     body {
       font-family: Inter, system-ui, Arial;
       margin: 0;
       background: var(--bg);
-      color: #0F1C2E
+      color: var(--dark);
     }
 
     header {
@@ -29,138 +34,160 @@
       justify-content: space-between;
       padding: 14px 20px;
       background: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06)
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px
+      gap: 12px;
     }
 
     .container {
       max-width: 1100px;
-      margin: 20px auto;
-      padding: 20px
+      margin: 5px auto;
+      padding: 20px;
     }
 
     h1 {
       font-family: Poppins;
-      margin: 0 0 8px
+      margin: 0 0 6px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tool-group {
+      margin-top: 28px;
+    }
+
+    .tool-group h2 {
+      margin-bottom: 14px;
+      font-size: 22px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
     .card {
-      background: white;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(15, 28, 46, 0.06)
+      background: var(--card);
+      padding: 18px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(15, 28, 46, 0.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+      border-left: 6px solid var(--azure);
     }
 
-    button {
-      padding: 10px 12px;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(15, 28, 46, 0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 8px 14px;
       border-radius: 10px;
-      border: none;
       background: linear-gradient(90deg, var(--azure), var(--teal));
       color: white;
       font-weight: 700;
-      cursor: pointer
+      text-decoration: none;
+      font-size: 14px;
     }
 
-    .muted {
-      color: var(--muted)
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
-    /* search results */
-    #searchResults {
-      max-height: 260px;
-      overflow: auto;
-      margin-top: 10px
-    }
-
-    .result {
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #EEF6FF;
-      margin-bottom: 8px
-    }
-
-    mark {
-      background: yellow;
-      color: black
-    }
-
-    /* diagrams */
-    .diagram {
-      width: 100%;
-      height: 260px;
-      border-radius: 10px;
-      background: linear-gradient(180deg, #f4fbff, #eef7ff);
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .hotspot {
-      cursor: pointer;
-      display: inline-block;
-      padding: 8px 10px;
-      border-radius: 8px;
-      background: rgba(1, 100, 255, 0.08);
-      margin: 6px
-    }
-
-    /* progress tracker */
-    .progress-wrap {
-      display: flex;
-      gap: 12px;
-      align-items: center
-    }
-
-    .progress-bar {
-      flex: 1;
-      height: 14px;
-      background: #eef7ff;
-      border-radius: 10px;
-      overflow: hidden
-    }
-
-    .progress-bar>i {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, var(--azure), var(--teal));
-      width: 0%
-    }
-
-    .list {
-      max-height: 220px;
-      overflow: auto;
-      margin-top: 10px
-    }
-
-    .section-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px;
-      border-bottom: 1px dashed #f0f6ff
-    }
-
-    /* responsive */
-    @media(max-width:860px) {
+    @media(max-width: 900px) {
       .grid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr 1fr;
       }
     }
+
+    @media(max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================================
+   Horizontal Cloud Services Menu
+   ================================ */
+
+    .service-bar {
+      background: linear-gradient(90deg, #f8fbff, #eef6ff);
+      border-top: 1px solid #e6f0ff;
+      border-bottom: 1px solid #e6f0ff;
+      padding: 10px 0;
+      overflow-x: auto;
+    }
+
+    .service-menu {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .service-menu a {
+      white-space: nowrap;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #e3eeff;
+      color: var(--dark);
+      transition: all 0.2s ease;
+    }
+
+    .service-menu a:hover {
+      background: linear-gradient(90deg, var(--azure), var(--teal));
+      color: white;
+      border-color: transparent;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile scroll hint */
+    .service-bar::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .service-bar::-webkit-scrollbar-thumb {
+      background: #cfe5ff;
+      border-radius: 10px;
+    }
   </style>
+
+
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header>
     <div class="brand">
       <svg width="44" height="44" viewBox="0 0 64 64">
@@ -171,188 +198,227 @@
           </linearGradient>
         </defs>
         <g fill="none" stroke="url(#g1)" stroke-width="2.6">
-          <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z" />
+          <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z" />
         </g>
       </svg>
       <div>
-        <h1 style="font-size:16px;margin:0">CloudNest — Student Toolkit</h1>
-        <div class="muted" style="font-size:12px">PDF • Interactive Diagrams • Search • Progress</div>
+        <h1 style="font-size:16px;margin:0">CloudNest — Cloud Tools Hub</h1>
+        <div class="subtitle">Explore • Learn • Master Core Cloud Components</div>
       </div>
     </div>
-    <div style="display:flex;gap:10px;align-items:center">
-      <a href="index.html" style="text-decoration:none;color:var(--azure);font-weight:700">← Back Home</a>
-      <button id="downloadAll">Download All PDFs</button>
-    </div>
+
+    <a href="index.html" style="text-decoration:none;color:var(--azure);font-weight:700">← Back Home</a>
   </header>
+  <div class="service-bar">
+    <div class="service-menu">
 
+      <a href="datacenter.html">Data Center</a>
+      <a href="cloud-loadbalancer.html">Load Balancer</a>
+      <a href="cloud-autoscaling.html">Auto Scaling</a>
+      <a href="cloud-object-storage.html">Object Storage</a>
+      <a href="cloud-vpc.html">VPC</a>
+      <a href="cloud-databases.html">Databases</a>
+      <a href="cloud-containers.html">Containers</a>
+      <a href="cloud-serverless.html">Serverless</a>
+      <a href="cloud-monitoring.html">Monitoring</a>
+      <a href="cloud-mlops.html">MLOps</a>
+
+    </div>
+  </div>
+  <!-- MAIN CONTENT -->
   <main class="container">
-    <div class="grid">
-      <div class="card">
-        <h3>1. PDF Export</h3>
-        <p class="muted">Download unit pages as printable PDFs. These use the browser print dialog (best quality) or
-          generate quick PDF views.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
-          <button onclick="downloadPDF('dsunit1.html','Unit I - Basics')">Unit I (PDF)</button>
-          <button onclick="downloadPDF('dsunit2.html','Unit II - Hadoop & Python')">Unit II (PDF)</button>
-          <button onclick="downloadPDF('dsunit3.html','Unit III - Python for Cloud')">Unit III (PDF)</button>
-          <button onclick="downloadPDF('dsunit4.html','Unit IV - Big Data')">Unit IV (PDF)</button>
-          <button onclick="downloadPDF('dsunit5.html','Unit V - Security')">Unit V (PDF)</button>
+
+    <!-- CORE INFRASTRUCTURE -->
+    <section class="tool-group">
+      <h2>🏗 Core Cloud Infrastructure</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Cloud Data Center</h3>
+          <p>Virtualized infrastructure delivering compute, storage and networking over the internet.</p>
+          <a href="datacenter.html">Learn Data Center</a>
         </div>
-        <p class="muted" style="margin-top:12px">Note: For best results use browser Print → Save as PDF. These buttons
-          open the page in a print-friendly view.</p>
-      </div>
 
-      <div class="card" id="diagramCard">
-        <h3>2. Interactive Diagrams</h3>
-        <p class="muted">Click hotspots to get quick tips. These are SVG-friendly and easy to replace with real diagrams
-          later.</p>
-        <div class="diagram" id="diagram">
-          <!-- simple schematic with clickable hotspots -->
-          <div>
-            <div style="font-weight:700;margin-bottom:8px">Cloud Architecture (click parts)</div>
-            <div>
-              <span class="hotspot"
-                data-tip="Load Balancer: A modern cloud data center is a virtualized, software-defined IT ecosystem delivered over the internet by cloud service providers such as AWS and Google Cloud Platform (GCP), enabling on-demand access to compute, storage, networking, databases, and advanced cloud services.">DataCenter</span>
-
-              <span class="hotspot" data-tip="Load Balancer: distributes traffic">Load Balancer</span>
-              <span class="hotspot" data-tip="Auto-Scaling Group: scale VMs">Auto-Scaling</span>
-              <span class="hotspot" data-tip="Object Storage: durable files (S3)">Object Storage</span>
-              <span class="hotspot" data-tip="Managed DB: RDS / Cloud SQL">Managed DB</span>
-            </div>
-            <div style="margin-top:10px;font-size:13px;color:#334155" id="tipBox">Click a part to see tip</div>
-          </div>
+        <div class="card">
+          <h3>Virtual Machines (Compute)</h3>
+          <p>Elastic virtual servers used to deploy applications and workloads.</p>
+          <a href="cloud-compute.html">Learn Compute</a>
         </div>
-      </div>
 
-      <div class="card">
-        <h3>3. Site-wide Search</h3>
-        <p class="muted">Search across all unit content (client-side). Type keywords and press Enter.</p>
-        <input id="searchInput" placeholder="Search topics, e.g., 'MapReduce'"
-          style="width:100%;padding:10px;border-radius:8px;border:1px solid #EEF6FF">
-        <div id="searchResults"></div>
-      </div>
-
-      <div class="card">
-        <h3>4. Student Progress Tracker</h3>
-        <p class="muted">Mark sections complete — progress is saved locally in your browser.</p>
-        <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
-          <div class="progress-bar" style="flex:1"><i id="progFill" style="width:0%"></i></div>
-          <div id="progPct">0%</div>
+        <div class="card">
+          <h3>Object Storage</h3>
+          <p>Highly scalable storage for files, backups, datasets and application assets.</p>
+          <a href="cloud-object-storage.html">Learn Storage</a>
         </div>
-        <div class="list" id="sectionsList" style="margin-top:12px"></div>
-        <div style="margin-top:12px;display:flex;gap:8px">
-          <button onclick="resetProgress()" style="background:#eee;color:#000">Reset</button>
-          <button onclick="exportProgress()" style="background:#222;color:#fff">Export</button>
-        </div>
-      </div>
-    </div>
 
-    <div style="margin-top:18px" class="card">
-      <h3>Usage Notes</h3>
-      <ul>
-        <li>PDF export opens the target page in a new tab and triggers print — replace unit URLs if you hosted them
-          differently.</li>
-        <li>Interactive hotspots are simple HTML elements — replace with SVG elements for precise diagrams.</li>
-        <li>Search uses a small built-in index (below) — you can extend it by pasting more content into
-          <code>siteIndex</code> in the script.</li>
-        <li>Progress tracker stores data in <code>localStorage</code> (only on this browser/device).</li>
-      </ul>
-    </div>
+      </div>
+    </section>
+
+    <!-- NETWORKING -->
+    <section class="tool-group">
+      <h2>🌐 Cloud Networking</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Virtual Private Cloud (VPC)</h3>
+          <p>Private isolated networks inside the public cloud.</p>
+          <a href="cloud-vpc.html">Learn VPC</a>
+        </div>
+
+        <div class="card">
+          <h3>Load Balancer</h3>
+          <p>Distributes application traffic across multiple servers automatically.</p>
+          <a href="cloud-loadbalancer.html">Learn Load Balancer</a>
+        </div>
+
+        <div class="card">
+          <h3>Auto Scaling</h3>
+          <p>Automatically increases or decreases compute resources based on demand.</p>
+          <a href="cloud-autoscaling.html">Learn Auto Scaling</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============================= -->
+    <!-- 🧠 DATA SCIENCE & AI/ML TOOLS -->
+    <!-- ============================= -->
+    <section class="tool-group">
+      <h2>🧠 Data Science & AI/ML on Cloud</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Managed Notebooks</h3>
+          <p>Cloud-based Jupyter environments with built-in ML libraries and GPU/TPU support for experiments.</p>
+          <p class="muted"><strong>AWS:</strong> SageMaker Studio | <strong>GCP:</strong> Vertex AI Workbench</p>
+          <a href="cloud-notebooks.html">Learn Notebooks</a>
+        </div>
+
+        <div class="card">
+          <h3>Data Pipelines</h3>
+          <p>Ingest, clean, transform and move massive datasets into data lakes and ML workflows.</p>
+          <p class="muted"><strong>AWS:</strong> Glue, Data Pipeline | <strong>GCP:</strong> Dataflow, Composer</p>
+          <a href="cloud-data-pipelines.html">Learn Data Pipelines</a>
+        </div>
+
+        <div class="card">
+          <h3>Feature Store</h3>
+          <p>Centralized storage of ML features for consistency between training and inference.</p>
+          <p class="muted"><strong>AWS:</strong> SageMaker Feature Store | <strong>GCP:</strong> Vertex Feature Store
+          </p>
+          <a href="cloud-feature-store.html">Learn Feature Store</a>
+        </div>
+
+        <div class="card">
+          <h3>Model Training & AutoML</h3>
+          <p>Managed distributed training and AutoML services for fast model development.</p>
+          <p class="muted"><strong>AWS:</strong> SageMaker Training, AutoPilot | <strong>GCP:</strong> Vertex AI
+            Training</p>
+          <a href="cloud-model-training.html">Learn Model Training</a>
+        </div>
+
+        <div class="card">
+          <h3>Model Serving & Endpoints</h3>
+          <p>Deploy trained models as scalable real-time HTTPS endpoints.</p>
+          <p class="muted"><strong>AWS:</strong> SageMaker Endpoints | <strong>GCP:</strong> Vertex AI Endpoints</p>
+          <a href="cloud-model-serving.html">Learn Model Serving</a>
+        </div>
+
+        <div class="card">
+          <h3>MLOps & Model Monitoring</h3>
+          <p>Track experiments, versions, drift detection, and production model performance.</p>
+          <p class="muted"><strong>AWS:</strong> SageMaker Pipelines | <strong>GCP:</strong> Vertex AI Pipelines</p>
+          <a href="cloud-mlops.html">Learn MLOps</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DATABASE & DATA -->
+    <section class="tool-group">
+      <h2>🗄 Database & Data Services</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Managed Databases (DBMS)</h3>
+          <p>Fully managed relational and NoSQL database services.</p>
+          <a href="cloud-databases.html">Learn Databases</a>
+        </div>
+
+        <div class="card">
+          <h3>Big Data Analytics</h3>
+          <p>Process and analyze massive volumes of structured and unstructured data.</p>
+          <a href="cloud-bigdata.html">Learn Big Data</a>
+        </div>
+
+        <div class="card">
+          <h3>Data Warehousing</h3>
+          <p>High-performance analytics systems for business intelligence.</p>
+          <a href="cloud-datawarehouse.html">Learn Data Warehouse</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEVOPS & AUTOMATION -->
+    <section class="tool-group">
+      <h2>⚙ DevOps, Containers & Automation</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Containers & Kubernetes</h3>
+          <p>Modern application packaging and orchestration systems.</p>
+          <a href="cloud-containers.html">Learn Containers</a>
+        </div>
+
+        <div class="card">
+          <h3>Serverless Computing</h3>
+          <p>Run code without managing any servers.</p>
+          <a href="cloud-serverless.html">Learn Serverless</a>
+        </div>
+
+        <div class="card">
+          <h3>CI/CD & DevOps</h3>
+          <p>Automated software build, testing, and deployment pipelines.</p>
+          <a href="cloud-devops.html">Learn DevOps</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECURITY & GOVERNANCE -->
+    <section class="tool-group">
+      <h2>🔐 Security & Management</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Identity & Access Management (IAM)</h3>
+          <p>Controls user access, authentication and authorization.</p>
+          <a href="cloud-iam.html">Learn IAM</a>
+        </div>
+
+        <div class="card">
+          <h3>Cloud Monitoring</h3>
+          <p>Tracks performance, logs, errors, and operational health.</p>
+          <a href="cloud-monitoring.html">Learn Monitoring</a>
+        </div>
+
+        <div class="card">
+          <h3>Disaster Recovery</h3>
+          <p>Ensures business continuity during failures and outages.</p>
+          <a href="cloud-disaster-recovery.html">Learn DR</a>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <script>
-    // ---------- PDF helper ----------
-    function downloadPDF(url, title) {
-      // Open the URL in a new tab and let user print/save as PDF
-      const w = window.open(url, '_blank');
-      if (!w) return alert('Popup blocked: allow popups for this site');
-      // focus and give user instruction
-      w.onload = () => {
-        w.document.title = title || w.document.title;
-        // minimal print hint
-        setTimeout(() => { try { w.focus(); } catch (e) { } }, 300);
-      }
-    }
+  <!-- FOOTER -->
+  <footer>
+    © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+  </footer>
 
-    // ---------- Interactive diagram ----------
-    document.querySelectorAll('.hotspot').forEach(el => {
-      el.addEventListener('click', () => {
-        const tip = el.dataset.tip || 'Info';
-        document.getElementById('tipBox').textContent = tip;
-      });
-    });
-
-    // ---------- Simple client-side search ----------
-    // Small index: title, snippet, url
-    const siteIndex = [
-      { title: 'Unit I - Basics', text: 'Cloud computing virtualization elasticity scalability IaaS PaaS SaaS IAM SLAs billing', url: 'unit1.html' },
-      { title: 'Unit II - Hadoop & Python', text: 'Hadoop MapReduce Job Execution Schedulers Cluster Python basics modules packages', url: 'unit2.html' },
-      { title: 'Unit III - Python for Cloud', text: 'Boto3 Azure SDK Google Cloud SDK MapReduce Flask FastAPI', url: 'unit3.html' },
-      { title: 'Unit IV - Big Data', text: 'Big Data Analytics clustering classification streaming transcoding benchmarking', url: 'unit4.html' },
-      { title: 'Unit V - Security & Legal', text: 'Cloud security IAM encryption compliance migration organizational readiness legal jurisdiction', url: 'unit5.html' }
-    ];
-
-    function renderResults(results, q) {
-      const out = document.getElementById('searchResults'); out.innerHTML = '';
-      if (results.length === 0) { out.innerHTML = '<div class="muted" style="padding:8px">No results</div>'; return; }
-      results.forEach(r => {
-        const div = document.createElement('div'); div.className = 'result';
-        let highlighted = r.text.replace(new RegExp(q, 'gi'), m => '<mark>' + m + '</mark>');
-        div.innerHTML = `<strong>${r.title}</strong><div style="font-size:13px;margin-top:6px">${highlighted}</div><div style="margin-top:8px"><a href="${r.url}" target="_blank">Open page</a></div>`;
-        out.appendChild(div);
-      });
-    }
-
-    document.getElementById('searchInput').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const q = e.target.value.trim(); if (!q) return; const results = siteIndex.filter(s => (s.title + s.text).toLowerCase().includes(q.toLowerCase())); renderResults(results, q);
-      }
-    });
-
-    // ---------- Progress tracker ----------
-    const sections = [
-      { id: 'u1-expert', label: 'Unit1: Expert View' },
-      { id: 'u1-intro', label: 'Unit1: Introduction' },
-      { id: 'u1-char', label: 'Unit1: Characteristics' },
-      { id: 'u2-hadoop', label: 'Unit2: Hadoop & MapReduce' },
-      { id: 'u2-python', label: 'Unit2: Python Basics' },
-      { id: 'u3-sdks', label: 'Unit3: Python SDKs' },
-      { id: 'u4-bigdata', label: 'Unit4: Big Data Analytics' },
-      { id: 'u4-multimedia', label: 'Unit4: Multimedia Cloud' },
-      { id: 'u5-security', label: 'Unit5: Cloud Security' },
-      { id: 'u5-migration', label: 'Unit5: Migration' }
-    ];
-
-    function buildProgressUI() {
-      const wrap = document.getElementById('sectionsList'); wrap.innerHTML = '';
-      const store = JSON.parse(localStorage.getItem('cn_progress') || '{}');
-      sections.forEach(s => {
-        const row = document.createElement('div'); row.className = 'section-row';
-        const chk = document.createElement('input'); chk.type = 'checkbox'; chk.checked = !!store[s.id]; chk.addEventListener('change', () => { store[s.id] = chk.checked; localStorage.setItem('cn_progress', JSON.stringify(store)); updateProgress(); });
-        const label = document.createElement('div'); label.textContent = s.label; label.style.flex = '1';
-        row.appendChild(chk); row.appendChild(label);
-        wrap.appendChild(row);
-      });
-      updateProgress();
-    }
-
-    function updateProgress() {
-      const store = JSON.parse(localStorage.getItem('cn_progress') || '{}');
-      const done = Object.values(store).filter(Boolean).length; const total = sections.length; const pct = Math.round((done / total) * 100);
-      document.getElementById('progFill').style.width = pct + '%'; document.getElementById('progPct').textContent = pct + '%';
-    }
-
-    function resetProgress() { localStorage.removeItem('cn_progress'); buildProgressUI(); }
-    function exportProgress() { const store = JSON.parse(localStorage.getItem('cn_progress') || '{}'); const data = { date: new Date().toISOString(), progress: store }; const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'cloudnest-progress.json'; a.click(); URL.revokeObjectURL(url); }
-
-    // init
-    buildProgressUI();
-
-    // download all PDFs helper: opens all unit pages in tabs (user may block popups)
-    document.getElementById('downloadAll').addEventListener('click', () => {
-      ['dsunit1.html', 'dsunit2.html', 'dsunit3.html', 'dsunit4.html', 'dsunit5.html'].forEach(u => window.open(u, '_blank'));
-    });
-  </script>
 </body>
 
 </html>
