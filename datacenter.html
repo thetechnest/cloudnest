@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NBKRIST–CloudNest | Modern Cloud Data Center (AWS & GCP)</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+            --card-bg: #fff;
+            --radius: 14px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 18px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 22px;
+            font-family: Poppins
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .btn-small {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            background: var(--dark-slate);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 22px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            margin-bottom: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border-left: 6px solid var(--azure-blue);
+        }
+
+        .badge {
+            background: #CFF8F0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 4px;
+        }
+
+        /* BLUE DEFINITION BAR */
+        .definition-bar {
+            margin-top: 18px;
+            padding: 18px 26px;
+            background: #07597f;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+        }
+
+        /* INFO BOX */
+        .info-box {
+            margin-top: 26px;
+            padding: 18px 24px;
+            border-radius: 10px;
+            border: 2px solid #0f7ca6;
+            background: #fdfefe;
+        }
+
+        .info-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-box li {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 26px;
+        }
+
+        .info-box li::before {
+            content: "➤";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #0f7ca6;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* DARK MODE */
+        .dark {
+            background: #0b1622;
+            color: #EAF2FB;
+        }
+
+        .dark header {
+            background: #08111f;
+            color: white;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark .definition-bar {
+            background: #06405b;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark .info-box {
+            background: #0e2134;
+            border-color: #2993ff;
+        }
+
+        /* ================================
+   CloudNest Image Size Utilities
+   ================================ */
+
+        .img-xs {
+            width: 48px;
+            height: 48px;
+        }
+
+        .img-sm {
+            width: 96px;
+            height: 96px;
+        }
+
+        .img-md {
+            width: 180px;
+            height: 180px;
+        }
+
+        .img-lg {
+            width: 100%;
+            height: 400px;
+        }
+
+        /* ✅ Keeps image crisp, no distortion */
+        .img-xs,
+        .img-sm,
+        .img-md,
+        .img-lg {
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(15, 28, 46, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            background: #fff;
+        }
+
+        /* ✅ Subtle premium hover */
+        .img-xs:hover,
+        .img-sm:hover,
+        .img-md:hover,
+        .img-lg:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(15, 28, 46, 0.15);
+        }
+
+        /* ✅ Auto responsive on mobile */
+        @media (max-width: 768px) {
+            .img-lg {
+                width: 100%;
+                height: auto;
+            }
+
+            .img-md {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* ================================
+   CloudNest YouTube Video Grid
+   ================================ */
+
+.video-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.video-card {
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.video-card iframe {
+    width: 100%;
+    height: 280px;
+    border: none;
+}
+
+/* ✅ Mobile responsive */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-card iframe {
+        height: 220px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="index.html" class="back-btn">← Back</a>
+
+        <div class="brand">
+            <svg width="46" height="46" viewBox="0 0 64 64">
+                <defs>
+                    <linearGradient id="g1" x1="0%" x2="100%">
+                        <stop offset="0%" stop-color="#008CFF" />
+                        <stop offset="100%" stop-color="#00A8A8" />
+                    </linearGradient>
+                </defs>
+                <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+                    <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z" />
+                </g>
+            </svg>
+            <div>
+                <h1>NBKRIST–CloudNest</h1>
+                <div class="tagline">Modern Cloud Data Center – AWS & GCP</div>
+            </div>
+        </div>
+
+        <div>
+            <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+            <button id="modeToggle" class="btn-small">☀/🌙</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <section class="section">
+            <span class="badge">Classic Data Center</span>
+            <h2>Classic Data Center</h2>
+
+            <!-- Extracted from first image -->
+            <div class="definition-bar">
+                Classic data center is an IT setup which includes compute, storage, and network,
+                which enable storing and processing large amounts of data.
+            </div>
+
+            <!-- Extracted from second image -->
+            <div class="info-box">
+                <ul>
+                    <li>
+                        The core elements of a classic data center are:
+                        <strong>Compute, Storage, Network, Application, Database Management System (DBMS)</strong>.
+                    </li>
+                    <li>
+                        These IT resources (elements) are typically viewed and managed as separate entities
+                        and work together to meet data processing requirements.
+                    </li>
+                    <li>
+                        Besides core elements, other aspects of a classic data center (CDC) are power supplies
+                        and environmental controls such as air conditioning and fire suppression.
+                    </li>
+                </ul>
+             
+                <img src="classicDC2.png" alt="Classic Data Center Architecture" class="img-lg" />
+            </div>
+        </section>
+
+
+        <section class="section">
+            <span class="badge">Modern Cloud Data Center</span>
+            <h2>Cloud Data Center (AWS & GCP)</h2>
+
+            <!-- Definition -->
+            <div class="definition-bar">
+                A modern cloud data center is a virtualized, software-defined IT ecosystem delivered over the internet
+                by cloud service providers such as AWS and Google Cloud Platform (GCP), enabling on-demand access to
+                compute, storage, networking, databases, and advanced cloud services.
+            </div>
+
+            <!-- Core Elements -->
+            <div class="info-box">
+                <ul>
+                    <li>
+                        The core elements of a cloud data center include:
+                        <strong>Virtual Compute, Object & Block Storage, Software-Defined Networking,
+                            Managed Databases, Containers, Serverless Platforms, and AI/Analytics Services.</strong>
+                    </li>
+
+                    <li>
+                        Unlike classic data centers, cloud resources in AWS and GCP are fully
+                        <strong>virtualized, automated, elastically scalable, and centrally managed</strong>
+                        using web consoles, APIs, and Infrastructure as Code (IaC).
+                    </li>
+
+                    <li>
+                        Power, cooling, fire suppression, hardware maintenance, availability, and fault tolerance
+                        are fully handled by the cloud service provider, freeing organizations from physical
+                        infrastructure responsibilities.
+                    </li>
+
+                    <li>
+                        AWS examples:
+                        <strong>EC2 (Compute), S3 (Storage), VPC (Networking), RDS/DynamoDB (Databases),
+                            EKS (Containers), Lambda (Serverless).</strong>
+                    </li>
+
+                    <li>
+                        GCP examples:
+                        <strong>Compute Engine, Cloud Storage, VPC, BigQuery, GKE (Kubernetes),
+                            Cloud Functions.</strong>
+                    </li>
+
+                    <li>
+                        Cloud data centers support
+                        <strong>global deployment, built-in high availability, auto-scaling, disaster recovery,
+                            security compliance, and pay-as-you-go pricing</strong>.
+                    </li>
+                </ul>
+
+                <!-- ✅ Cloud Data Center Videos -->
+<div class="video-grid">
+
+    <div class="video-card">
+        <iframe 
+            src="https://www.youtube.com/embed/ut1-qTlusnA"
+            title="AWS Cloud Data Center"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="video-card">
+        <iframe 
+            src="https://www.youtube.com/embed/0TnHSRNqDqM"
+            title="Google Cloud Data Center"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
+            </div>
+        </section>
+
+
+
+        <!-- COMPUTE -->
+        <section class="section">
+            <span class="badge">Compute</span>
+            <div class="concept-box">
+                <div>
+                    <h3>Compute in the Cloud</h3>
+                    <p>
+                        Compute refers to virtual machines, containers, and serverless systems that execute
+                        applications and workloads.
+                    </p>
+                    <p><strong>AWS:</strong> EC2, Lambda, ECS, EKS</p>
+                    <p><strong>GCP:</strong> Compute Engine, Cloud Functions, GKE</p>
+                </div>
+                <div class="img-placeholder">
+                    Compute Architecture Image<br />(AWS EC2 / GCP Compute Engine)
+                </div>
+            </div>
+        </section>
+
+        <!-- STORAGE -->
+        <section class="section">
+            <span class="badge">Storage</span>
+            <div class="concept-box">
+                <div>
+                    <h3>Storage in the Cloud</h3>
+                    <p>
+                        Storage provides highly durable, scalable, and distributed data storage
+                        for files, objects, and backups.
+                    </p>
+                    <p><strong>AWS:</strong> S3, EBS, EFS</p>
+                    <p><strong>GCP:</strong> Cloud Storage, Persistent Disk, Filestore</p>
+                </div>
+                <div class="img-placeholder">
+                    Cloud Storage Architecture Image<br />(AWS S3 / GCP Cloud Storage)
+                </div>
+            </div>
+        </section>
+
+        <!-- NETWORK -->
+        <section class="section">
+            <span class="badge">Network</span>
+            <div class="concept-box">
+                <div>
+                    <h3>Networking in the Cloud</h3>
+                    <p>
+                        Networking enables secure communication between cloud resources using
+                        virtual private networks, subnets, routing, and firewalls.
+                    </p>
+                    <p><strong>AWS:</strong> VPC, Subnets, Route Tables, Load Balancer</p>
+                    <p><strong>GCP:</strong> VPC, Firewalls, Cloud Load Balancing</p>
+                </div>
+                <div class="img-placeholder">
+                    Cloud Network Diagram<br />(AWS VPC / GCP VPC)
+                </div>
+            </div>
+        </section>
+
+        <!-- DBMS -->
+        <section class="section">
+            <span class="badge">DBMS</span>
+            <div class="concept-box">
+                <div>
+                    <h3>Database Management Systems in the Cloud</h3>
+                    <p>
+                        Cloud DBMS provides fully managed relational and NoSQL databases with
+                        automatic backups, scaling, and security.
+                    </p>
+                    <p><strong>AWS:</strong> RDS, Aurora, DynamoDB</p>
+                    <p><strong>GCP:</strong> Cloud SQL, Firestore, BigQuery</p>
+                </div>
+                <div class="img-placeholder">
+                    Cloud Database Architecture Image<br />(AWS RDS / GCP Cloud SQL)
+                </div>
+                
+            </div>
+                            <img src="ccdb.png" alt="Classic Data Center Architecture" class="img-lg" />
+
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+    </footer>
+
+    <script>
+        document.getElementById("pdfBtn").onclick = () => window.print();
+        document.getElementById("modeToggle").onclick = () =>
+            document.body.classList.toggle("dark");
+    </script>
+
+</body>
+
+</html>
