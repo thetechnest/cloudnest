@@ -180,6 +180,13 @@
       background: #cfe5ff;
       border-radius: 10px;
     }
+
+    .disabled-link {
+  pointer-events: none;   /* Disable clicking */
+  color: #999;            /* Grey color */
+  text-decoration: none; /* Remove underline */
+  cursor: not-allowed;   /* Disabled mouse icon */
+}
   </style>
 
 
@@ -213,15 +220,15 @@
     <div class="service-menu">
 
       <a href="datacenter.html">Data Center</a>
-      <a href="cloud-loadbalancer.html">Load Balancer</a>
-      <a href="cloud-autoscaling.html">Auto Scaling</a>
-      <a href="cloud-object-storage.html">Object Storage</a>
-      <a href="cloud-vpc.html">VPC</a>
-      <a href="cloud-databases.html">Databases</a>
-      <a href="cloud-containers.html">Containers</a>
-      <a href="cloud-serverless.html">Serverless</a>
-      <a href="cloud-monitoring.html">Monitoring</a>
-      <a href="cloud-mlops.html">MLOps</a>
+      <a class="disabled-link"  href="cloud-loadbalancer.html">Load Balancer</a>
+      <a class="disabled-link"   href="cloud-autoscaling.html">Auto Scaling</a>
+      <a class="disabled-link"   href="cloud-object-storage.html">Object Storage</a>
+      <a class="disabled-link"   href="cloud-vpc.html">VPC</a>
+      <a class="disabled-link"   href="cloud-databases.html">Databases</a>
+      <a class="disabled-link"   href="cloud-containers.html">Containers</a>
+      <a class="disabled-link"   href="cloud-serverless.html">Serverless</a>
+      <a class="disabled-link"   href="cloud-monitoring.html">Monitoring</a>
+      <a class="disabled-link"   href="cloud-mlops.html">MLOps</a>
 
     </div>
   </div>
@@ -236,19 +243,22 @@
         <div class="card">
           <h3>Cloud Data Center</h3>
           <p>Virtualized infrastructure delivering compute, storage and networking over the internet.</p>
-          <a href="datacenter.html">Learn Data Center</a>
+          <a   href="datacenter.html">Data Center</a>
+           <a href="datacenterfaq.html">FAQ</a>
+            <a href="dcmcq.html">MCQ</a>
+            <a href="datacenterdemo.html">Demo</a>
         </div>
 
         <div class="card">
           <h3>Virtual Machines (Compute)</h3>
           <p>Elastic virtual servers used to deploy applications and workloads.</p>
-          <a href="cloud-compute.html">Learn Compute</a>
+          <a class="disabled-link"  href="cloud-compute.html">Learn Compute</a>
         </div>
 
         <div class="card">
           <h3>Object Storage</h3>
           <p>Highly scalable storage for files, backups, datasets and application assets.</p>
-          <a href="cloud-object-storage.html">Learn Storage</a>
+          <a  class="disabled-link"  href="cloud-object-storage.html">Learn Storage</a>
         </div>
 
       </div>
@@ -262,19 +272,19 @@
         <div class="card">
           <h3>Virtual Private Cloud (VPC)</h3>
           <p>Private isolated networks inside the public cloud.</p>
-          <a href="cloud-vpc.html">Learn VPC</a>
+          <a  class="disabled-link"  href="cloud-vpc.html">Learn VPC</a>
         </div>
 
         <div class="card">
           <h3>Load Balancer</h3>
           <p>Distributes application traffic across multiple servers automatically.</p>
-          <a href="cloud-loadbalancer.html">Learn Load Balancer</a>
+          <a  class="disabled-link"  href="cloud-loadbalancer.html">Learn Load Balancer</a>
         </div>
 
         <div class="card">
           <h3>Auto Scaling</h3>
           <p>Automatically increases or decreases compute resources based on demand.</p>
-          <a href="cloud-autoscaling.html">Learn Auto Scaling</a>
+          <a class="disabled-link"   href="cloud-autoscaling.html">Learn Auto Scaling</a>
         </div>
 
       </div>
@@ -291,22 +301,21 @@
           <h3>Managed Notebooks</h3>
           <p>Cloud-based Jupyter environments with built-in ML libraries and GPU/TPU support for experiments.</p>
           <p class="muted"><strong>AWS:</strong> SageMaker Studio | <strong>GCP:</strong> Vertex AI Workbench</p>
-          <a href="cloud-notebooks.html">Learn Notebooks</a>
+          <a  class="disabled-link"  href="cloud-notebooks.html">Learn Notebooks</a>
         </div>
 
         <div class="card">
           <h3>Data Pipelines</h3>
           <p>Ingest, clean, transform and move massive datasets into data lakes and ML workflows.</p>
           <p class="muted"><strong>AWS:</strong> Glue, Data Pipeline | <strong>GCP:</strong> Dataflow, Composer</p>
-          <a href="cloud-data-pipelines.html">Learn Data Pipelines</a>
+          <a  class="disabled-link"  href="cloud-data-pipelines.html">Learn Data Pipelines</a>
         </div>
 
         <div class="card">
           <h3>Feature Store</h3>
           <p>Centralized storage of ML features for consistency between training and inference.</p>
-          <p class="muted"><strong>AWS:</strong> SageMaker Feature Store | <strong>GCP:</strong> Vertex Feature Store
-          </p>
-          <a href="cloud-feature-store.html">Learn Feature Store</a>
+          <p   class="muted"><strong>AWS:</strong> SageMaker Feature Store | <strong>GCP:</strong> Vertex Feature Store
+          <a class="disabled-link" href="cloud-feature-store.html">Learn Feature Store</a>
         </div>
 
         <div class="card">
@@ -314,21 +323,21 @@
           <p>Managed distributed training and AutoML services for fast model development.</p>
           <p class="muted"><strong>AWS:</strong> SageMaker Training, AutoPilot | <strong>GCP:</strong> Vertex AI
             Training</p>
-          <a href="cloud-model-training.html">Learn Model Training</a>
+          <a class="disabled-link" href="cloud-model-training.html">Learn Model Training</a>
         </div>
 
         <div class="card">
           <h3>Model Serving & Endpoints</h3>
           <p>Deploy trained models as scalable real-time HTTPS endpoints.</p>
           <p class="muted"><strong>AWS:</strong> SageMaker Endpoints | <strong>GCP:</strong> Vertex AI Endpoints</p>
-          <a href="cloud-model-serving.html">Learn Model Serving</a>
+          <a class="disabled-link" href="cloud-model-serving.html">Learn Model Serving</a>
         </div>
 
         <div class="card">
           <h3>MLOps & Model Monitoring</h3>
           <p>Track experiments, versions, drift detection, and production model performance.</p>
           <p class="muted"><strong>AWS:</strong> SageMaker Pipelines | <strong>GCP:</strong> Vertex AI Pipelines</p>
-          <a href="cloud-mlops.html">Learn MLOps</a>
+          <a class="disabled-link" href="cloud-mlops.html">Learn MLOps</a>
         </div>
 
       </div>
@@ -342,19 +351,19 @@
         <div class="card">
           <h3>Managed Databases (DBMS)</h3>
           <p>Fully managed relational and NoSQL database services.</p>
-          <a href="cloud-databases.html">Learn Databases</a>
+          <a class="disabled-link" href="cloud-databases.html">Learn Databases</a>
         </div>
 
         <div class="card">
           <h3>Big Data Analytics</h3>
           <p>Process and analyze massive volumes of structured and unstructured data.</p>
-          <a href="cloud-bigdata.html">Learn Big Data</a>
+          <a class="disabled-link" href="cloud-bigdata.html">Learn Big Data</a>
         </div>
 
         <div class="card">
           <h3>Data Warehousing</h3>
           <p>High-performance analytics systems for business intelligence.</p>
-          <a href="cloud-datawarehouse.html">Learn Data Warehouse</a>
+          <a class="disabled-link" href="cloud-datawarehouse.html">Learn Data Warehouse</a>
         </div>
 
       </div>
@@ -368,19 +377,19 @@
         <div class="card">
           <h3>Containers & Kubernetes</h3>
           <p>Modern application packaging and orchestration systems.</p>
-          <a href="cloud-containers.html">Learn Containers</a>
+          <a class="disabled-link" href="cloud-containers.html">Learn Containers</a>
         </div>
 
         <div class="card">
           <h3>Serverless Computing</h3>
           <p>Run code without managing any servers.</p>
-          <a href="cloud-serverless.html">Learn Serverless</a>
+          <a class="disabled-link" href="cloud-serverless.html">Learn Serverless</a>
         </div>
 
         <div class="card">
           <h3>CI/CD & DevOps</h3>
           <p>Automated software build, testing, and deployment pipelines.</p>
-          <a href="cloud-devops.html">Learn DevOps</a>
+          <a class="disabled-link" href="cloud-devops.html">Learn DevOps</a>
         </div>
 
       </div>
@@ -394,19 +403,19 @@
         <div class="card">
           <h3>Identity & Access Management (IAM)</h3>
           <p>Controls user access, authentication and authorization.</p>
-          <a href="cloud-iam.html">Learn IAM</a>
+          <a class="disabled-link" href="cloud-iam.html">Learn IAM</a>
         </div>
 
         <div class="card">
           <h3>Cloud Monitoring</h3>
           <p>Tracks performance, logs, errors, and operational health.</p>
-          <a href="cloud-monitoring.html">Learn Monitoring</a>
+          <a class="disabled-link" href="cloud-monitoring.html">Learn Monitoring</a>
         </div>
 
         <div class="card">
           <h3>Disaster Recovery</h3>
           <p>Ensures business continuity during failures and outages.</p>
-          <a href="cloud-disaster-recovery.html">Learn DR</a>
+          <a class="disabled-link" href="cloud-disaster-recovery.html">Learn DR</a>
         </div>
 
       </div>

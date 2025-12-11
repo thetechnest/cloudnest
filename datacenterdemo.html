@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Virtual Cloud Data Center Lab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--azure-blue:#008CFF;
+--teal:#00A8A8;
+--dark-slate:#0F1C2E;
+--bg:#F7FBFF;
+--muted:#6B7A89;
+--card-bg:#fff;
+--radius:14px;
+}
+
+body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--dark-slate);}
+header{
+position:sticky;top:0;z-index:900;background:#fff;
+display:flex;align-items:center;justify-content:space-between;
+padding:10px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+
+.back-btn{padding:8px 14px;background:#eee;color:#000;border-radius:8px;text-decoration:none;font-weight:600;}
+.brand{display:flex;align-items:center;gap:12px}
+.brand h1{margin:0;font-size:22px;font-family:Poppins}
+.tagline{font-size:13px;color:var(--muted)}
+
+.btn-small{padding:8px 12px;border-radius:8px;font-weight:600;background:var(--dark-slate);color:white;border:none;cursor:pointer;}
+#pdfBtn{background:var(--azure-blue);margin-right:10px;}
+
+.container{max-width:1100px;margin:30px auto;padding:20px;}
+
+.section{padding:22px;background:var(--card-bg);border-radius:var(--radius);margin-bottom:28px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border-left:6px solid var(--azure-blue);}
+
+.badge{background:#CFF8F0;padding:5px 12px;border-radius:20px;font-weight:600;font-size:13px;display:inline-block;margin-bottom:10px;}
+h2{margin-top:4px}
+
+/* GRID LAYOUTS */
+.lab-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-bottom:24px;}
+.lab-grid-2{display:grid;grid-template-columns:2fr 1fr;gap:22px;}
+
+/* DATA CENTER FLOOR */
+.dc-floor{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:0 8px 22px rgba(0,0,0,.08);}
+.zone-title{font-weight:700;margin-bottom:12px;color:var(--azure-blue);}
+.floor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.dc-box{background:linear-gradient(135deg,#008CFF,#00A8A8);color:#fff;padding:18px;border-radius:12px;text-align:center;font-weight:600;cursor:pointer;transition:.25s;box-shadow:0 8px 20px rgba(0,0,0,.2);}
+.dc-box:hover{transform:scale(1.05)}
+.dc-box.fail{background:linear-gradient(135deg,#dc2626,#7f1d1d)}
+.dc-box.scale{background:linear-gradient(135deg,#22c55e,#15803d)}
+
+/* CONTROL ROOM */
+.panel{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:0 8px 22px rgba(0,0,0,.08);}
+.panel h3{margin-top:0;color:var(--teal)}
+.log{background:#0F1C2E;color:#00FFAA;font-family:monospace;padding:14px;border-radius:10px;height:340px;overflow-y:auto;font-size:13px;}
+
+/* SIM BUTTONS */
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+.sim-btn{padding:14px;border-radius:12px;border:none;font-weight:700;cursor:pointer;color:#fff;}
+.fail-btn{background:#dc2626}
+.scale-btn{background:#22c55e}
+.region-fail-btn{background:#7f1d1d}
+.cable-btn{background:#f97316}
+.reset-btn{background:#475569}
+
+/* SCALE BOX */
+.scale-box{margin-top:14px;padding:12px;border-radius:12px;background:#F1FAF5;font-weight:600;}
+
+/* REGION & AZ */
+.az-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+.az{background:#EAF4FF;padding:16px;border-radius:12px;font-weight:600;text-align:center;cursor:pointer;border:2px solid transparent;}
+.az.active{border-color:#22c55e;background:#dcfce7}
+.az.down{border-color:#dc2626;background:#fee2e2}
+
+.region-status{font-weight:700;padding:10px;border-radius:10px;text-align:center;margin-bottom:10px;}
+.primary-region{background:#dcfce7;border:2px solid #22c55e}
+.dr-region{background:#e0f2fe;border:2px solid #0284c7}
+.region-down{background:#fee2e2;border:2px solid #dc2626}
+
+/* ----------------------- GLOBAL MAP ----------------------- */
+.map-box{background:#fff;padding:18px;border-radius:var(--radius);box-shadow:0 8px 22px rgba(0,0,0,.08);}
+
+.map-container{position:relative;width:100%;height:350px;border-radius:12px;overflow:hidden;}
+.world-map{width:100%;height:100%;object-fit:cover;opacity:.9;display:block}
+
+/* region pins on map */
+.region-pin{position:absolute;padding:6px 10px;border-radius:10px;color:#fff;font-weight:600;font-size:13px;transform:translate(-50%,-50%);box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:.3s;cursor:pointer;}
+.primary{background:#22c55e}
+.dr{background:#0284c7}
+.edge{background:#f59e0b}
+.down{background:#dc2626 !important}
+
+/* Fiber lines svg sits absolutely on map */
+.fiber-lines{position:absolute;top:0;left:0;width:100%;height:100%;}
+.fiber-lines svg{width:100%;height:100%;}
+.fiber-lines path{stroke:#00A8A8;stroke-width:3;fill:none;stroke-dasharray:20;animation:pulse 1.5s infinite linear;opacity:0.95;}
+.fiber-lines path.cut{stroke:#dc2626;animation:none;opacity:1}
+
+/* small packet style (for non-SMIL fallback if needed) */
+.packet{fill:#00ffcc;stroke:none;}
+
+/* SMIL circle style */
+.svg-packet{r:4;}
+
+/* pulse keyframes */
+@keyframes pulse{0%{stroke-dashoffset:20;opacity:.4}100%{stroke-dashoffset:0;opacity:1}}
+
+/* DARK MODE */
+.dark{background:#0b1622;color:#EAF2FB}
+.dark header{background:#08111f;color:white}
+.dark .section,.dark .dc-floor,.dark .panel,.dark .region-box,.dark .map-box{background:#102031}
+.dark .az{background:#0e2134}
+.dark .log{background:#000}
+
+footer{text-align:center;padding:28px;font-size:14px;color:var(--muted);}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="cloud-tools.html" class="back-btn">← Back</a>
+
+<div class="brand">
+<h1>NBKRIST–CloudNest</h1>
+<div class="tagline">Virtual Cloud Data Center Lab</div>
+</div>
+
+<div>
+<button id="pdfBtn" class="btn-small">⬇ PDF</button>
+<button id="modeToggle" class="btn-small">☀/🌙</button>
+</div>
+</header>
+
+<div class="container">
+
+<!-- ================================================================= -->
+<!-- VIRTUAL LAB -->
+<!-- ================================================================= -->
+<section class="section">
+<span class="badge">Virtual Lab</span>
+<h2>Interactive Cloud Data Center Experience</h2>
+
+<!-- ------------------ ROW 1 ------------------ -->
+<div class="lab-grid">
+
+<!-- LEFT: DC FLOOR -->
+<div class="dc-floor">
+<div class="zone-title">On-Prem / Cloud Data Center Floor</div>
+
+<div class="floor-grid">
+<div class="dc-box" onclick="logAction('⚡ UPS + Generator running. Redundant power active.')">⚡ Power</div>
+<div class="dc-box" onclick="logAction('❄ Cooling stable at 22°C.')">❄ Cooling</div>
+<div class="dc-box" onclick="logAction('🌐 Primary fiber path active. Backup path on standby.')">🌐 Network</div>
+<div class="dc-box" onclick="logAction('🖥 Virtual Machines running across AZ clusters.')">🖥 Server Racks</div>
+<div class="dc-box" onclick="logAction('💾 Storage replicating across AZs.')">💾 Storage</div>
+<div class="dc-box" onclick="logAction('🛡 DR sync healthy with Region-2.')">🛡 Disaster Recovery</div>
+</div>
+
+<!-- SIM BUTTONS -->
+<div class="sim-grid">
+<button class="sim-btn fail-btn" onclick="simulateFailure()">⚠ AZ Failure → Failover to AZ-2</button>
+<button class="sim-btn scale-btn" onclick="simulateScaling()">📈 Traffic Spike → Auto Scale</button>
+<button class="sim-btn region-fail-btn" onclick="simulateRegionFailure()">🌋 Region-1 Failure → Region-2 DR</button>
+<button class="sim-btn cable-btn" onclick="simulateCableCut()">🔌 Network Cable Cut → Path Switch</button>
+</div>
+
+<button class="sim-btn reset-btn" style="margin-top:12px;width:100%;" onclick="resetSimulation()">🔄 Reset Simulation</button>
+
+<div class="scale-box" id="scaleBox">Active Servers: 4</div>
+</div>
+
+<!-- RIGHT: CONTROL ROOM -->
+<div class="panel">
+<h3>Control Room Status</h3>
+<div class="log" id="log">System Ready...<br>Select any component or simulation.</div>
+</div>
+
+</div>
+
+<!-- ------------------ ROW 2 (MAP + MAP CONTROLS) ------------------ -->
+<div class="lab-grid-2">
+
+<!-- LEFT: GLOBAL MAP VISUALIZATION -->
+<div class="map-box">
+<div class="zone-title">Global Cloud Network Map</div>
+
+<div class="map-container" id="mapContainer">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/2000px-World_map_-_low_resolution.svg.png" class="world-map" alt="World Map">
+
+<!-- REGION PINS -->
+<div id="map-r1" class="region-pin primary" style="top:42%; left:48%;">Region-1</div>
+<div id="map-r2" class="region-pin dr" style="top:30%; left:75%;">Region-2 (DR)</div>
+<div id="map-r3" class="region-pin edge" style="top:70%; left:25%;">Region-3 (Edge)</div>
+
+<!-- FIBER CABLES + PACKETS (SVG) -->
+<div class="fiber-lines" aria-hidden="true">
+<svg id="mapSvg" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <!-- Paths defined in normalized coordinates (0-100) so they scale with svg -->
+  <path id="fiber12" d="M48 42 C60 25, 70 25, 75 30" vector-effect="non-scaling-stroke"/>
+  <path id="fiber13" d="M48 42 C40 55, 32 64, 25 70" vector-effect="non-scaling-stroke"/>
+  <path id="fiber23" d="M75 30 C62 42, 45 55, 25 70" vector-effect="non-scaling-stroke"/>
+
+  <!-- Packets (circles that animate along the paths via <animateMotion>) -->
+  <!-- fiber12 packets -->
+  <circle class="svg-packet" id="pkt12a" r="1.2" fill="#00FFD1">
+    <animateMotion dur="3s" repeatCount="indefinite" begin="0s">
+      <mpath href="#fiber12"></mpath>
+    </animateMotion>
+  </circle>
+  <circle class="svg-packet" id="pkt12b" r="1.2" fill="#8FFFD1">
+    <animateMotion dur="3.8s" repeatCount="indefinite" begin="1s">
+      <mpath href="#fiber12"></mpath>
+    </animateMotion>
+  </circle>
+
+  <!-- fiber13 packets -->
+  <circle class="svg-packet" id="pkt13a" r="1.2" fill="#00BFFF">
+    <animateMotion dur="4s" repeatCount="indefinite" begin="0.6s">
+      <mpath href="#fiber13"></mpath>
+    </animateMotion>
+  </circle>
+
+  <!-- fiber23 packets -->
+  <circle class="svg-packet" id="pkt23a" r="1.2" fill="#FFD166">
+    <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.2s">
+      <mpath href="#fiber23"></mpath>
+    </animateMotion>
+  </circle>
+  <circle class="svg-packet" id="pkt23b" r="1.2" fill="#FFB86B">
+    <animateMotion dur="4.4s" repeatCount="indefinite" begin="1.2s">
+      <mpath href="#fiber23"></mpath>
+    </animateMotion>
+  </circle>
+</svg>
+</div>
+
+</div>
+
+<!-- RIGHT: MAP CONTROLS -->
+<div class="panel">
+<h3>Map Controls</h3>
+
+<div class="sim-grid">
+<button class="sim-btn region-fail-btn" onclick="simulateRegionFailure()">🌋 Region-1 → DR Failover</button>
+<button class="sim-btn cable-btn" onclick="simulateCableCut()">🔌 Fiber Cable Cut</button>
+</div>
+
+<p style="margin-top:12px;color:#6B7A89;font-size:13px;">
+Tip: Use the simulation buttons (either map controls or the main lab controls) and watch packets flow along the fiber lines.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================================================= -->
+<!-- REGION & AZ DISPLAY -->
+<!-- ================================================================= -->
+<section class="section">
+<span class="badge">Region & AZ</span>
+<h2>Cloud Region and Availability Zones</h2>
+
+<div id="region1" class="region-status primary-region">🌍 Region-1 (Primary)</div>
+<div id="region2" class="region-status dr-region">🌍 Region-2 (Disaster Recovery)</div>
+
+<div class="az-grid">
+<div class="az active" id="az1">Region-1 : AZ-1 (Active)</div>
+<div class="az" id="az2">Region-1 : AZ-2 (Standby)</div>
+<div class="az" id="az3">Region-1 : AZ-3 (Standby)</div>
+</div>
+</section>
+
+<!-- HYBRID CLOUD -->
+<section class="section">
+<span class="badge">Hybrid Cloud</span>
+<h2>Ford Company – On-Prem + Cloud Hybrid Model</h2>
+<p>Ford uses on-prem data centers for low-latency operations and cloud for scalability:</p>
+<ul>
+<li>Factory systems run on local data center</li>
+<li>Analytics and IoT workloads run on cloud regions</li>
+<li>Region-2 provides global DR and backup</li>
+</ul>
+</section>
+
+<!-- RESILIENCE -->
+<section class="section">
+<span class="badge">Resilience & Scalability</span>
+<h2>How Cloud Data Centers Stay Reliable</h2>
+<ul>
+<li>Multi-AZ setup ensures high availability</li>
+<li>Auto-scaling responds to traffic spikes</li>
+<li>Undersea fiber and redundant routes</li>
+<li>Cross-region DR using synchronous replication</li>
+</ul>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • Virtual Hands-On Cloud Data Center Lab | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("pdfBtn").onclick = () => window.print();
+document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+
+let serverCount = 4;
+
+/* LOGGING */
+function logAction(msg) {
+  const log = document.getElementById("log");
+  const time = new Date().toLocaleTimeString();
+  log.innerHTML += `<br>[${time}] ${msg}`;
+  log.scrollTop = log.scrollHeight;
+}
+
+/* RESET */
+function resetSimulation() {
+  serverCount = 4;
+  document.getElementById("scaleBox").textContent = "Active Servers: 4";
+  document.getElementById("log").innerHTML = "System Ready...<br>Simulation reset.";
+
+  /* Reset AZ */
+  ["az1", "az2", "az3"].forEach((id, i) => {
+    let el = document.getElementById(id);
+    el.className = "az";
+    el.textContent = i === 0 ? "Region-1 : AZ-1 (Active)" : `Region-1 : AZ-${i+1} (Standby)`;
+  });
+  document.getElementById("az1").classList.add("active");
+
+  /* Reset Regions */
+  document.getElementById("region1").className = "region-status primary-region";
+  document.getElementById("region1").textContent = "🌍 Region-1 (Primary)";
+  document.getElementById("region2").className = "region-status dr-region";
+  document.getElementById("region2").textContent = "🌍 Region-2 (Disaster Recovery)";
+
+  /* Reset Map Regions */
+  ["map-r1", "map-r2", "map-r3"].forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove("down");
+  });
+
+  /* Reset Fiber */
+  ["fiber12", "fiber13", "fiber23"].forEach(id => {
+    document.getElementById(id).classList.remove("cut");
+    // restore stroke color
+    document.getElementById(id).style.stroke = "#00A8A8";
+  });
+
+  /* Show packets if hidden */
+  showPacketsForAll();
+}
+
+/* AZ FAILURE */
+function simulateFailure() {
+  logAction("⚠ AZ-1 Failure detected!");
+  let az1 = document.getElementById("az1");
+  let az2 = document.getElementById("az2");
+
+  az1.classList.add("down");
+  az1.textContent = "Region-1 : AZ-1 (FAILED)";
+  az2.classList.add("active");
+  az2.textContent = "Region-1 : AZ-2 (ACTIVE – Failover)";
+  logAction("🔁 Traffic moved to AZ-2.");
+}
+
+/* AUTO-SCALING */
+function simulateScaling() {
+  logAction("📈 Traffic spike detected!");
+  let interval = setInterval(() => {
+    serverCount++;
+    document.getElementById("scaleBox").textContent = "Active Servers: " + serverCount;
+    logAction("➕ Auto-scaling added new server → " + serverCount);
+    if (serverCount >= 10) {
+      clearInterval(interval);
+      logAction("✅ Auto-scaling stabilized.");
+    }
+  }, 600);
+}
+
+/* REGION-LEVEL FAILURE */
+function simulateRegionFailure() {
+  logAction("🌋 Region-1 FAILURE detected!");
+
+  /* Panel region updates */
+  let r1 = document.getElementById("region1");
+  let r2 = document.getElementById("region2");
+  r1.classList.add("region-down");
+  r1.textContent = "🌍 Region-1 (FAILED)";
+  r2.classList.remove("dr-region");
+  r2.classList.add("primary-region");
+  r2.textContent = "🌍 Region-2 (DR ACTIVE)";
+
+  /* MAP region updates */
+  document.getElementById("map-r1").classList.add("down");
+  document.getElementById("map-r2").classList.remove("dr");
+  document.getElementById("map-r2").classList.add("primary");
+
+  logAction("🔁 Failover to Region-2 activated.");
+}
+
+/* FIBER CABLE CUT - also affects packets */
+function simulateCableCut() {
+  logAction("🔌 Fiber cable CUT between Region-1 and Region-2!");
+
+  let f12 = document.getElementById("fiber12");
+  f12.classList.add("cut");
+
+  // hide packets moving on fiber12 to simulate interruption
+  hidePacketsOnPath("fiber12");
+
+  setTimeout(() => logAction("🌐 Switching to alternate fiber path..."), 700);
+
+  setTimeout(() => {
+    // visually emphasize backup paths by changing stroke color
+    document.getElementById("fiber13").style.stroke = "#22c55e";
+    document.getElementById("fiber23").style.stroke = "#22c55e";
+
+    // increase packet flow on backup lines visually by showing duplicate packets
+    spawnExtraPacketsOnPath("fiber13", 2);
+    spawnExtraPacketsOnPath("fiber23", 2);
+
+    logAction("🔁 Backup path active.");
+  }, 1200);
+
+  setTimeout(() => logAction("✅ Connectivity stable via backup route."), 1800);
+}
+
+/* ------------------------
+   PACKET HELPERS (SMIL based)
+   ------------------------ */
+
+/* Show any hidden packets and remove extras */
+function showPacketsForAll() {
+  // ensure original packet circles visible
+  ["pkt12a", "pkt12b", "pkt13a", "pkt23a", "pkt23b"].forEach(id => {
+    const c = document.getElementById(id);
+    if (c) c.style.display = "";
+  });
+
+  // remove extra spawned packets
+  document.querySelectorAll('[data-extra="true"]').forEach(el => el.remove());
+}
+
+/* Hide packets that animate on a specific path */
+function hidePacketsOnPath(pathId) {
+  // map which packet ids are on which path
+  const map = {
+    "fiber12": ["pkt12a", "pkt12b"],
+    "fiber13": ["pkt13a"],
+    "fiber23": ["pkt23a", "pkt23b"]
+  };
+  const list = map[pathId] || [];
+  list.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+}
+
+/* Spawn extra packets on an alternate path to visually show increased flow */
+function spawnExtraPacketsOnPath(pathId, count = 1) {
+  const svg = document.getElementById("mapSvg");
+  for (let i = 0; i < count; i++) {
+    const circ = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circ.setAttribute("r", "1.2");
+    circ.setAttribute("class", "svg-packet");
+    circ.setAttribute("fill", "#00FFD1");
+    circ.setAttribute("data-extra", "true");
+    // create animateMotion
+    const anim = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
+    anim.setAttribute("dur", (3 + Math.random()*1.5).toFixed(2) + "s");
+    anim.setAttribute("repeatCount", "indefinite");
+    anim.setAttribute("begin", (0.1 * i) + "s");
+    // mpath
+    const mpath = document.createElementNS("http://www.w3.org/2000/svg", "mpath");
+    // use href attribute (modern browsers)
+    mpath.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#" + pathId);
+    // fallback set href
+    mpath.setAttribute("href", "#" + pathId);
+    anim.appendChild(mpath);
+    circ.appendChild(anim);
+    svg.appendChild(circ);
+  }
+}
+
+/* On page load: ensure extra packets not present and original visible */
+window.addEventListener("load", () => {
+  showPacketsForAll();
+});
+
+/* Make sure reset also restores SMIL animations visibility */
+</script>
+
+</body>
+</html>

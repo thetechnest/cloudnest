@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NBKRIST–CloudNest | Cloud Data Center Infrastructure MCQ</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+            --card-bg: #fff;
+            --radius: 14px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 18px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 22px;
+            font-family: Poppins
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .btn-small {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            background: var(--dark-slate);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: var(--azure-blue);
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 22px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            margin-bottom: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border-left: 6px solid var(--azure-blue);
+        }
+
+        .badge {
+            background: #CFF8F0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 4px;
+        }
+
+        /* Result banner */
+        #scoreBox {
+            display: none;
+            margin-bottom: 18px;
+            padding: 16px 20px;
+            border-radius: 16px;
+            background: linear-gradient(90deg, #008CFF, #00A8A8);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Question card */
+        .question-card {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+        }
+
+        .q-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-top: 6px;
+        }
+
+        .options label {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: background 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .options label:hover {
+            background: #F2F7FF;
+        }
+
+        .correct {
+            background: #D9F8E6 !important;
+            border: 1px solid #18A34A;
+            font-weight: 600;
+        }
+
+        .wrong {
+            background: #FFE3E3 !important;
+            border: 1px solid #DC2626;
+            font-weight: 600;
+        }
+
+        .explanation {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #EAF4FF;
+            border-left: 4px solid #008CFF;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .submit-row {
+            margin-top: 24px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: var(--azure-blue);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 22px rgba(0, 140, 255, 0.35);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: default;
+            box-shadow: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* DARK MODE */
+        .dark {
+            background: #0b1622;
+            color: #EAF2FB;
+        }
+
+        .dark header {
+            background: #08111f;
+            color: white;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark .question-card {
+            background: #0f1d2e;
+            border-color: #1f2a3a;
+        }
+
+        .dark .options label:hover {
+            background: #16263a;
+        }
+
+        .dark .explanation {
+            background: #0e2134;
+            border-left-color: #2993ff;
+        }
+
+        .dark #scoreBox {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="cloud-tools.html" class="back-btn">← Back</a>
+
+        <div class="brand">
+            <svg width="46" height="46" viewBox="0 0 64 64">
+                <defs>
+                    <linearGradient id="g1" x1="0%" x2="100%">
+                        <stop offset="0%" stop-color="#008CFF" />
+                        <stop offset="100%" stop-color="#00A8A8" />
+                    </linearGradient>
+                </defs>
+                <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+                    <path
+                        d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z" />
+                </g>
+            </svg>
+            <div>
+                <h1>NBKRIST–CloudNest</h1>
+                <div class="tagline">Cloud Data Center Infrastructure – Concept Mastery Quiz</div>
+            </div>
+        </div>
+
+        <div>
+            <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+            <button id="modeToggle" class="btn-small">☀/🌙</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <section class="section">
+            <span class="badge">MCQ – Cloud Data Center Infrastructure</span>
+            <h2>Test Your Understanding of Modern Cloud Data Centers</h2>
+
+            <p style="font-size:14px;color:var(--muted);margin-top:6px;">
+                Answer all 15 questions. After you submit, you’ll see your score and a short explanation under each
+                question.
+            </p>
+
+            <div id="scoreBox"></div>
+
+            <form id="quizForm">
+                <div id="quizContainer"></div>
+
+                <div class="submit-row">
+                    <button type="button" id="submitBtn" class="btn-submit">Submit Answers</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+    </footer>
+
+    <script>
+        // Dark mode + PDF
+        document.getElementById("pdfBtn").onclick = () => window.print();
+        document.getElementById("modeToggle").onclick = () =>
+            document.body.classList.toggle("dark");
+
+        // MCQ Data - Only Cloud Infrastructure / Data Center Concepts
+        const questions = [
+            {
+                q: "1. What is the best description of a cloud data center Region?",
+                options: [
+                    "A single physical server inside a building",
+                    "A logical folder created for users",
+                    "A geographically separated cluster of one or more data centers",
+                    "A rack of storage devices in a LAN room"
+                ],
+                answer: 2,
+                explanation:
+                    "A Region is a geographically separated area that contains one or more physical data centers grouped together to provide services in that location."
+            },
+            {
+                q: "2. What is an Availability Zone (AZ) in a cloud provider’s infrastructure?",
+                options: [
+                    "A group of user accounts sharing the same password policy",
+                    "A physically separate data center (or group) within a Region connected by high-speed links",
+                    "A virtual machine running inside a server",
+                    "A place where backups are stored on tape"
+                ],
+                answer: 1,
+                explanation:
+                    "An AZ is a physically separate data center or group of data centers within a Region, connected with high-speed, low-latency networking for fault isolation."
+            },
+            {
+                q: "3. How are Regions and Availability Zones typically connected inside the cloud provider network?",
+                options: [
+                    "Through the public Internet only",
+                    "With low-bandwidth copper cables",
+                    "By dedicated high-speed fiber links in the provider’s backbone network",
+                    "By Wi-Fi connections across cities"
+                ],
+                answer: 2,
+                explanation:
+                    "Regions and AZs are connected using high-speed, redundant fiber links as part of the provider’s private backbone network for low latency and resilience."
+            },
+            {
+                q: "4. Which statement about physical vs logical concepts in cloud data centers is MOST accurate?",
+                options: [
+                    "Regions and AZs are only logical and have no physical facilities",
+                    "Virtual machines are physical servers placed in racks",
+                    "Physical data centers host hardware, while Regions/AZs are logical groupings of those physical sites",
+                    "Logical concepts are not used in cloud computing"
+                ],
+                answer: 2,
+                explanation:
+                    "Cloud providers use logical concepts like Regions and AZs to represent collections of underlying physical buildings, racks, and hardware."
+            },
+            {
+                q: "5. Which option best describes an on-premises data center using the Ford company example?",
+                options: [
+                    "Ford rents all its IT resources from a public cloud provider only",
+                    "Ford has its own buildings with racks, servers, storage, and network on its campus",
+                    "Ford’s employees store data only on personal laptops",
+                    "Ford uses a shared cyber café to run its ERP system"
+                ],
+                answer: 1,
+                explanation:
+                    "In an on-premises model, a company like Ford owns and operates its own data center facility with servers, storage, and networking on its premises."
+            },
+            {
+                q: "6. What is a Hybrid Cloud data center approach?",
+                options: [
+                    "Using only one public cloud provider",
+                    "Using only private data centers in one city",
+                    "Combining on-premises data centers with public cloud resources and connecting them securely",
+                    "Using only SaaS applications"
+                ],
+                answer: 2,
+                explanation:
+                    "Hybrid cloud means integrating on-premises data centers with one or more public clouds using secure connectivity, so workloads can move or be shared."
+            },
+            {
+                q: "7. How do multiple data centers connect together to improve availability?",
+                options: [
+                    "They are never connected to avoid complexity",
+                    "They are loosely connected over random Wi-Fi links",
+                    "They are connected using redundant, high-speed network paths and routing policies",
+                    "They share a single low-speed cable between them"
+                ],
+                answer: 2,
+                explanation:
+                    "To improve availability, data centers are interconnected using redundant, high-speed links and intelligent routing so traffic can fail over during outages."
+            },
+            {
+                q: "8. Which design principle mainly helps a cloud data center scale to handle more load?",
+                options: [
+                    "Running all applications on a single large physical server",
+                    "Using horizontal scaling with many smaller servers behind load balancers",
+                    "Limiting new user registrations",
+                    "Disabling network redundancy"
+                ],
+                answer: 1,
+                explanation:
+                    "Horizontal scaling uses many smaller servers behind load balancers to add or remove capacity dynamically as load changes."
+            },
+            {
+                q: "9. How does a cloud data center infrastructure stay resilient against hardware failure?",
+                options: [
+                    "By never performing maintenance",
+                    "By using N+1 or N+2 redundancy for power, cooling, and network paths",
+                    "By shutting down all backup systems to save cost",
+                    "By placing all critical systems in one rack"
+                ],
+                answer: 1,
+                explanation:
+                    "Resilient data centers implement redundancy (N+1, N+2) for power, cooling, and networking so single failures do not interrupt services."
+            },
+            {
+                q: "10. Which type of cable is most commonly used for long-distance and high-speed connectivity between data centers?",
+                options: [
+                    "Traditional telephone copper cable",
+                    "Fiber optic cable",
+                    "HDMI cable",
+                    "Coaxial TV cable"
+                ],
+                answer: 1,
+                explanation:
+                    "Fiber optic cables are used for high-bandwidth, long-distance, low-latency connections within and between data centers."
+            },
+            {
+                q: "11. Inside a data center building, how are racks of servers typically interconnected?",
+                options: [
+                    "Through Wi-Fi routers only",
+                    "Using undersea cables",
+                    "With structured cabling (copper/fiber) connected to top-of-rack and aggregation switches",
+                    "Through Bluetooth connections"
+                ],
+                answer: 2,
+                explanation:
+                    "Server racks are connected using structured cabling to top-of-rack switches, which then connect to aggregation and core switches."
+            },
+            {
+                q: "12. Why do cloud data centers often use multiple Availability Zones per Region?",
+                options: [
+                    "To reduce the number of backups required",
+                    "To isolate failures so that if one AZ fails, others can continue serving traffic",
+                    "To increase the electricity bill",
+                    "To avoid using fiber cables"
+                ],
+                answer: 1,
+                explanation:
+                    "Multiple AZs provide fault isolation; if one AZ has a problem, workloads in another AZ can continue running, improving availability."
+            },
+            {
+                q: "13. In a scalable cloud architecture, what is the role of a load balancer in front of multiple data center resources?",
+                options: [
+                    "To store database records",
+                    "To randomly shut down servers at night",
+                    "To distribute incoming traffic across healthy backend instances",
+                    "To handle only backup jobs"
+                ],
+                answer: 2,
+                explanation:
+                    "A load balancer spreads incoming user requests across multiple healthy servers, which is key for both scalability and availability."
+            },
+            {
+                q: "14. Which statement best explains how disaster recovery (DR) is achieved between distant cloud Regions?",
+                options: [
+                    "By keeping all data only in a single Region",
+                    "By periodically copying critical data and workloads to a second, independent Region",
+                    "By turning off monitoring tools",
+                    "By using only on-premise tape backup"
+                ],
+                answer: 1,
+                explanation:
+                    "Disaster recovery uses replication or backup of data and workloads to another independent Region so services can be restored after a major failure."
+            },
+            {
+                q: "15. In cloud terminology, what does 'edge location' or 'edge data center' mainly focus on?",
+                options: [
+                    "Running heavy batch processing far from users",
+                    "Bringing content and services closer to end users to reduce latency",
+                    "Replacing all core data centers",
+                    "Managing HR and payroll data"
+                ],
+                answer: 1,
+                explanation:
+                    "Edge locations are small, geographically distributed facilities designed to bring content and services closer to end users, reducing latency."
+            }
+        ];
+
+        // Render questions into the page
+        const quizContainer = document.getElementById("quizContainer");
+
+        function renderQuiz() {
+            quizContainer.innerHTML = "";
+            questions.forEach((q, index) => {
+                const card = document.createElement("div");
+                card.className = "question-card";
+
+                const qTitle = document.createElement("div");
+                qTitle.className = "q-title";
+                qTitle.textContent = q.q;
+
+                const optionsDiv = document.createElement("div");
+                optionsDiv.className = "options";
+
+                q.options.forEach((opt, optIndex) => {
+                    const label = document.createElement("label");
+                    const input = document.createElement("input");
+                    input.type = "radio";
+                    input.name = "q" + index;
+                    input.value = optIndex;
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(opt));
+                    optionsDiv.appendChild(label);
+                });
+
+                const expDiv = document.createElement("div");
+                expDiv.className = "explanation";
+                expDiv.id = "exp" + index;
+                expDiv.innerHTML = "<strong>Explanation:</strong> " + q.explanation;
+
+                card.appendChild(qTitle);
+                card.appendChild(optionsDiv);
+                card.appendChild(expDiv);
+
+                quizContainer.appendChild(card);
+            });
+        }
+
+        renderQuiz();
+
+        // Handle submit
+        document.getElementById("submitBtn").addEventListener("click", () => {
+            let score = 0;
+
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const options = document.querySelectorAll(`input[name="q${index}"]`);
+
+                options.forEach(opt => {
+                    opt.disabled = true;
+                    const label = opt.parentElement;
+                    const value = parseInt(opt.value, 10);
+
+                    if (value === q.answer) {
+                        label.classList.add("correct");
+                    }
+
+                    if (selected && opt === selected && value !== q.answer) {
+                        label.classList.add("wrong");
+                    }
+                });
+
+                if (selected && parseInt(selected.value, 10) === q.answer) {
+                    score++;
+                }
+
+                const expDiv = document.getElementById("exp" + index);
+                if (expDiv) expDiv.style.display = "block";
+            });
+
+            const scoreBox = document.getElementById("scoreBox");
+            scoreBox.style.display = "block";
+            scoreBox.innerHTML = `Your Score: ${score} / ${questions.length}`;
+
+            document.getElementById("submitBtn").disabled = true;
+        });
+    </script>
+
+</body>
+
+</html>
