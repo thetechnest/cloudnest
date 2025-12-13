@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NBKRIST – CloudNest | Cloud Fundamentals MCQ Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#f7fbff;
+  --panel:#ffffff;
+  --border:#dbeafe;
+  --header:#2563eb;
+  --accent:#0ea5e9;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --text:#0f172a;
+  --muted:#475569;
+}
+
+body{
+  margin:0;
+  font-family:Inter,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  background:linear-gradient(90deg,#2563eb,#0ea5e9);
+  color:white;
+  padding:18px 26px;
+  font-size:22px;
+  font-weight:700;
+}
+
+.container{
+  max-width:1100px;
+  margin:20px auto;
+  padding:20px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+.question{
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.options label{
+  display:block;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:8px;
+  cursor:pointer;
+  background:#f9fbff;
+}
+
+.options input{
+  margin-right:10px;
+}
+
+.correct{
+  border-color:var(--success)!important;
+  background:#dcfce7!important;
+}
+
+.wrong{
+  border-color:var(--danger)!important;
+  background:#fee2e2!important;
+}
+
+.explanation{
+  margin-top:10px;
+  padding:10px;
+  background:#eef5ff;
+  border-left:5px solid var(--accent);
+  border-radius:8px;
+  display:none;
+}
+
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  font-weight:700;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  background:var(--header);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+button:hover{background:#1d4ed8}
+
+.result{
+  font-size:20px;
+  font-weight:800;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+NBKRIST – CloudNest | Cloud Fundamentals MCQ Quiz
+</header>
+
+<div class="container">
+
+<div class="top-bar card">
+<div>⏱ Time: <span id="timer">00:00</span></div>
+<div>📊 Score: <span id="score">0</span> / 20</div>
+</div>
+
+<form id="quiz">
+
+<!-- QUESTIONS -->
+<script>
+const questions = [
+{q:"What does elasticity in cloud computing mean?",
+o:["Ability to handle growth","Automatic scaling based on demand","High availability","Data security"],
+a:1,
+e:"Elasticity means resources automatically scale up or down based on real-time demand."},
+
+{q:"Scalability refers to:",
+o:["System security","Handling growth smoothly","Cost reduction","Backup strategy"],
+a:1,
+e:"Scalability is the system’s ability to handle increased users, traffic, or data."},
+
+{q:"Availability means:",
+o:["Fast performance","System is accessible with minimal downtime","Data encryption","High speed network"],
+a:1,
+e:"Availability ensures systems remain accessible when users need them."},
+
+{q:"High Availability (HA) is achieved by:",
+o:["Using one powerful server","Redundancy across zones/regions","Vertical scaling","Manual backups"],
+a:1,
+e:"HA uses redundancy to avoid single points of failure."},
+
+{q:"Agility in cloud refers to:",
+o:["Hardware durability","Rapid development and deployment","Fault tolerance","Network speed"],
+a:1,
+e:"Agility enables quick changes, deployments, and innovation."},
+
+{q:"Resilience means:",
+o:["Preventing failures","Recovering quickly from failures","Avoiding scaling","Encrypting data"],
+a:1,
+e:"Resilience focuses on fast recovery after failures."},
+
+{q:"Fault tolerance ensures:",
+o:["System stops on failure","System continues working despite failures","Low cost","Manual recovery"],
+a:1,
+e:"Fault tolerance allows systems to keep running even if components fail."},
+
+{q:"What is the role of a Load Balancer?",
+o:["Store data","Distribute traffic","Encrypt traffic","Monitor users"],
+a:1,
+e:"Load balancers distribute incoming traffic across multiple servers."},
+
+{q:"Auto Scaling helps by:",
+o:["Manual scaling","Adding/removing resources automatically","Increasing storage only","Reducing security"],
+a:1,
+e:"Auto Scaling adjusts compute resources automatically based on demand."},
+
+{q:"Horizontal scaling means:",
+o:["Increase CPU/RAM","Add more machines","Change OS","Upgrade network"],
+a:1,
+e:"Horizontal scaling adds more servers to handle load."},
+
+{q:"Vertical scaling means:",
+o:["Add servers","Increase CPU/RAM","Add regions","Add AZs"],
+a:1,
+e:"Vertical scaling increases the power of an existing machine."},
+
+{q:"A cloud region is:",
+o:["A single server","Geographical area with data centers","A virtual machine","An edge location"],
+a:1,
+e:"A region is a geographical area containing multiple data centers."},
+
+{q:"Availability Zone (AZ) is:",
+o:["Backup server","Isolated data center within a region","CDN","VM"],
+a:1,
+e:"AZs are isolated locations within a region for fault isolation."},
+
+{q:"Edge location is used for:",
+o:["Database storage","Content delivery","Compute scaling","Monitoring"],
+a:1,
+e:"Edge locations deliver content closer to users for low latency."},
+
+{q:"Which improves fault isolation?",
+o:["Single AZ","Multiple AZs","Vertical scaling","Edge computing"],
+a:1,
+e:"Multiple AZs improve fault isolation."},
+
+{q:"Which concept focuses on uptime?",
+o:["Scalability","Availability","Agility","Edge"],
+a:1,
+e:"Availability focuses on system uptime."},
+
+{q:"Which helps reduce latency globally?",
+o:["Region","AZ","Edge location","Database"],
+a:2,
+e:"Edge locations reduce latency by serving users nearby."},
+
+{q:"Which handles sudden traffic spikes?",
+o:["Manual scaling","Elasticity","Backup","Encryption"],
+a:1,
+e:"Elasticity handles sudden increases or decreases in demand."},
+
+{q:"Which is cost-efficient scaling?",
+o:["Vertical only","Horizontal only","Auto Scaling","Manual scaling"],
+a:2,
+e:"Auto Scaling optimizes cost by adjusting resources dynamically."},
+
+{q:"Which is MOST critical for banking apps?",
+o:["Entertainment","High Availability","Gaming","Batch jobs"],
+a:1,
+e:"Banking apps require high availability to ensure continuous service."}
+];
+
+document.write(
+questions.map((q,i)=>`
+<div class="card">
+<div class="question">${i+1}. ${q.q}</div>
+<div class="options">
+${q.o.map((opt,j)=>`
+<label>
+<input type="radio" name="q${i}" value="${j}">
+${opt}
+</label>`).join("")}
+</div>
+<div class="explanation">${q.e}</div>
+</div>`).join("")
+);
+</script>
+
+<button type="button" onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="result" id="result"></div>
+</form>
+
+</div>
+
+<script>
+let seconds=0;
+setInterval(()=>{
+  seconds++;
+  const m=String(Math.floor(seconds/60)).padStart(2,"0");
+  const s=String(seconds%60).padStart(2,"0");
+  document.getElementById("timer").textContent=`${m}:${s}`;
+},1000);
+
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    const labels=document.querySelectorAll(`input[name="q${i}"]`);
+    labels.forEach(l=>{
+      const parent=l.parentElement;
+      parent.classList.remove("correct","wrong");
+      if(l.value==q.a) parent.classList.add("correct");
+      if(sel && l.checked && l.value!=q.a) parent.classList.add("wrong");
+    });
+    if(sel && Number(sel.value)===q.a) score++;
+    document.querySelectorAll(".explanation")[i].style.display="block";
+  });
+  document.getElementById("score").textContent=score;
+  document.getElementById("result").textContent=`✅ Final Score: ${score} / 20`;
+}
+</script>
+
+</body>
+</html>

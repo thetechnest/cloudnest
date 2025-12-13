@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Foundations FAQ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure:#008CFF;
+  --teal:#00A8A8;
+  --dark:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+  --card:#ffffff;
+  --radius:14px;
+}
+
+/* ===== LIGHT MODE ===== */
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+
+/* ===== HEADER ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+  font-family:Poppins;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.btn-small{
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+  background:var(--dark);
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+/* ===== CONTENT ===== */
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:20px;
+}
+
+.section{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:24px;
+  margin-bottom:26px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  border-left:6px solid var(--azure);
+}
+
+.section h2{
+  margin-top:0;
+  font-family:Poppins;
+}
+
+.faq-item{
+  margin-bottom:26px;
+  padding-bottom:18px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.question{
+  font-weight:700;
+  font-size:17px;
+  margin-bottom:10px;
+}
+
+.answer{
+  background:#f1f9ff;
+  padding:14px 18px;
+  border-radius:10px;
+  border-left:4px solid var(--azure);
+  margin-bottom:10px;
+}
+
+.reason{
+  background:#fdfefe;
+  padding:14px 18px;
+  border-radius:10px;
+  border:1px dashed var(--azure);
+}
+
+.label{
+  font-weight:700;
+  color:var(--azure);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:26px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* ===== DARK MODE ===== */
+.dark{
+  background:#0b1622;
+  color:#eaf2fb;
+}
+
+.dark header{
+  background:#08111f;
+}
+
+.dark .section{
+  background:#102031;
+  border-left-color:#2993ff;
+}
+
+.dark .answer{
+  background:#0e2134;
+}
+
+.dark .reason{
+  background:#0e2134;
+  border-color:#2993ff;
+}
+
+.dark footer{
+  color:#9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="left">
+    <a href="cloud-tools.html" class="back-btn">← Back</a>
+
+    <div class="brand">
+      <svg width="42" height="42" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="g1" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#008CFF"/>
+            <stop offset="100%" stop-color="#00A8A8"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+          <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
+        </g>
+      </svg>
+      <div>
+        <h1>NBKRIST–CloudNest</h1>
+        <div class="tagline">Cloud Foundations – FAQ & Reasoning</div>
+      </div>
+    </div>
+  </div>
+
+  <button id="modeToggle" class="btn-small">☀ / 🌙</button>
+</header>
+
+<!-- CONTENT -->
+<div class="container">
+<section class="section">
+<h2>Cloud Foundations – Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="question">1️⃣ What is scalability in cloud computing?</div>
+<div class="answer"><span class="label">Answer:</span> Ability to handle growing users or workload.</div>
+<div class="reason"><span class="label">Reasoning:</span> Cloud resources expand smoothly during demand spikes.</div>
+</div>
+
+<div class="faq-item">
+<div class="question">2️⃣ What is elasticity?</div>
+<div class="answer"><span class="label">Answer:</span> With cloud computing, you don’t have to over-provision resources up front to handle peak levels of business activity in the future. Instead, you provision the amount of resources that you actually need. You can scale these resources up or down to instantly grow and shrink capacity as your business needs change.
+
+</div>
+<div class="reason"><span class="label">Reasoning:</span> Prevents overpaying for unused resources.</div>
+</div>
+
+<div class="faq-item">
+<div class="question">3️⃣ How does cloud reduce cost?</div>
+<div class="answer"><span class="label">Answer:</span> The cloud allows you to trade fixed expenses (such as data centers and physical servers) for variable expenses, and only pay for IT as you consume it. Plus, the variable expenses are much lower than what you would pay to do it yourself because of the economies of scale. .Trade fixed cost for pay-as-you-use model.</div>
+<div class="reason"><span class="label">Reasoning:</span> Economies of scale lower overall IT spending.</div>
+</div>
+
+<div class="faq-item">
+<div class="question">4️⃣ How does cloud provide agility?</div>
+<div class="answer"><span class="label">Answer:</span>The cloud gives you easy access to a broad range of technologies so that you can innovate faster and build nearly anything that you can imagine. You can quickly spin up resources as you need them–from infrastructure services, such as compute, storage, and databases, to Internet of Things, machine learning, data lakes and analytics, and much more.
+
+You can deploy technology services in a matter of minutes, and get from idea to implementation several orders of magnitude faster than before. This gives you the freedom to experiment, test new ideas to differentiate customer experiences, and transform your business.<br></b> Rapid access to modern technologies.</div>
+<div class="reason"><span class="label">Reasoning:</span> Deploy in minutes instead of weeks.</div>
+</div>
+
+<div class="faq-item">
+<div class="question">5️⃣ What does deploy globally in minutes mean?</div>
+<div class="answer"><span class="label">Answer:</span>With the cloud, you can expand to new geographic regions and deploy globally in minutes. For example, AWS has infrastructure all over the world, so you can deploy your application in multiple physical locations with just a few clicks. Putting applications in closer proximity to end users reduces latency and improves their experience. . Deploy applications worldwide quickly.</div>
+<div class="reason"><span class="label">Reasoning:</span> Reduces latency and improves global user experience.</div>
+</div>
+
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+© CloudNest • Cloud Foundations for AWS & GCP | Academic Learning
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>

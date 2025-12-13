@@ -182,11 +182,15 @@
     }
 
     .disabled-link {
-  pointer-events: none;   /* Disable clicking */
-  color: #999;            /* Grey color */
-  text-decoration: none; /* Remove underline */
-  cursor: not-allowed;   /* Disabled mouse icon */
-}
+      pointer-events: none;
+      /* Disable clicking */
+      color: #999;
+      /* Grey color */
+      text-decoration: none;
+      /* Remove underline */
+      cursor: not-allowed;
+      /* Disabled mouse icon */
+    }
   </style>
 
 
@@ -220,47 +224,71 @@
     <div class="service-menu">
 
       <a href="datacenter.html">Data Center</a>
-      <a class="disabled-link"  href="cloud-loadbalancer.html">Load Balancer</a>
-      <a class="disabled-link"   href="cloud-autoscaling.html">Auto Scaling</a>
-      <a class="disabled-link"   href="cloud-object-storage.html">Object Storage</a>
-      <a class="disabled-link"   href="cloud-vpc.html">VPC</a>
-      <a class="disabled-link"   href="cloud-databases.html">Databases</a>
-      <a class="disabled-link"   href="cloud-containers.html">Containers</a>
-      <a class="disabled-link"   href="cloud-serverless.html">Serverless</a>
-      <a class="disabled-link"   href="cloud-monitoring.html">Monitoring</a>
-      <a class="disabled-link"   href="cloud-mlops.html">MLOps</a>
+      <a class="disabled-link" href="cloud-loadbalancer.html">Load Balancer</a>
+      <a class="disabled-link" href="cloud-autoscaling.html">Auto Scaling</a>
+      <a class="disabled-link" href="cloud-object-storage.html">Object Storage</a>
+      <a class="disabled-link" href="cloud-vpc.html">VPC</a>
+      <a class="disabled-link" href="cloud-databases.html">Databases</a>
+      <a class="disabled-link" href="cloud-containers.html">Containers</a>
+      <a class="disabled-link" href="cloud-serverless.html">Serverless</a>
+      <a class="disabled-link" href="cloud-monitoring.html">Monitoring</a>
+      <a class="disabled-link" href="cloud-mlops.html">MLOps</a>
 
     </div>
   </div>
   <!-- MAIN CONTENT -->
   <main class="container">
-The Cloud Computing Concepts Hub is the centralized place where you can browse or search for informative articles about cloud computing. You'll find easy-to-understand info about broad topics such as "What is Machine Learning?" and "What is Data Science?" These articles are intended to help you up-level your understanding of frequently asked cloud computing topics, for Software Engineers, Data Scientists, Artificial Intelligence/Machine Learning Engineers, DevOps Engineers, and Cloud Architects in the cloud era of today's IT Industry Landscape.
+    The Cloud Computing Concepts Hub is the centralized place where you can browse or search for informative articles
+    about cloud computing. You'll find easy-to-understand info about broad topics such as "What is Machine Learning?"
+    and "What is Data Science?" These articles are intended to help you up-level your understanding of frequently asked
+    cloud computing topics, for Software Engineers, Data Scientists, Artificial Intelligence/Machine Learning Engineers,
+    DevOps Engineers, and Cloud Architects in the cloud era of today's IT Industry Landscape.
 
+<section class="tool-group">
+      <h2>🏗  Cloud Foundation</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Cloud Foundation</h3>
+          <p>Cloud Foundation introduces the core principles of cloud computing—scalability, elasticity, availability,
+            resilience, and cost efficiency—that explain why the cloud works the way it does.
+          </p>
+          <a href="foundation.html">Foundation</a>
+          <a href="basicfaq.html">FAQ</a>
+          <a href="basicmcq.html">MCQ</a>
+          <a href="cloudstory.html">Demo</a>
+        </div>
+
+
+      </div>
+    </section>
 
     <!-- CORE INFRASTRUCTURE -->
     <section class="tool-group">
       <h2>🏗 Core Cloud Infrastructure</h2>
       <div class="grid">
 
+        
+
         <div class="card">
           <h3>Cloud Data Center</h3>
           <p>Virtualized infrastructure delivering compute, storage and networking over the internet.</p>
-          <a   href="datacenter.html">Data Center</a>
-           <a href="datacenterfaq.html">FAQ</a>
-            <a href="dcmcq.html">MCQ</a>
-            <a href="datacenterdemo.html">Demo</a>
+          <a href="datacenter.html">Data Center</a>
+          <a href="datacenterfaq.html">FAQ</a>
+          <a href="dcmcq.html">MCQ</a>
+          <a href="datacenterdemo.html">Demo</a>
         </div>
 
         <div class="card">
           <h3>Virtual Machines (Compute)</h3>
           <p>Elastic virtual servers used to deploy applications and workloads.</p>
-          <a class="disabled-link"  href="cloud-compute.html">Learn Compute</a>
+          <a class="disabled-link" href="cloud-compute.html">Learn Compute</a>
         </div>
 
         <div class="card">
           <h3>Object Storage</h3>
           <p>Highly scalable storage for files, backups, datasets and application assets.</p>
-          <a  class="disabled-link"  href="cloud-object-storage.html">Learn Storage</a>
+          <a class="disabled-link" href="cloud-object-storage.html">Learn Storage</a>
         </div>
 
       </div>
@@ -274,19 +302,19 @@ The Cloud Computing Concepts Hub is the centralized place where you can browse o
         <div class="card">
           <h3>Virtual Private Cloud (VPC)</h3>
           <p>Private isolated networks inside the public cloud.</p>
-          <a  class="disabled-link"  href="cloud-vpc.html">Learn VPC</a>
+          <a class="disabled-link" href="cloud-vpc.html">Learn VPC</a>
         </div>
 
         <div class="card">
           <h3>Load Balancer</h3>
           <p>Distributes application traffic across multiple servers automatically.</p>
-          <a  class="disabled-link"  href="cloud-loadbalancer.html">Learn Load Balancer</a>
+          <a class="disabled-link" href="cloud-loadbalancer.html">Learn Load Balancer</a>
         </div>
 
         <div class="card">
           <h3>Auto Scaling</h3>
           <p>Automatically increases or decreases compute resources based on demand.</p>
-          <a class="disabled-link"   href="cloud-autoscaling.html">Learn Auto Scaling</a>
+          <a class="disabled-link" href="cloud-autoscaling.html">Learn Auto Scaling</a>
         </div>
 
       </div>
@@ -303,21 +331,21 @@ The Cloud Computing Concepts Hub is the centralized place where you can browse o
           <h3>Managed Notebooks</h3>
           <p>Cloud-based Jupyter environments with built-in ML libraries and GPU/TPU support for experiments.</p>
           <p class="muted"><strong>AWS:</strong> SageMaker Studio | <strong>GCP:</strong> Vertex AI Workbench</p>
-          <a  class="disabled-link"  href="cloud-notebooks.html">Learn Notebooks</a>
+          <a class="disabled-link" href="cloud-notebooks.html">Learn Notebooks</a>
         </div>
 
         <div class="card">
           <h3>Data Pipelines</h3>
           <p>Ingest, clean, transform and move massive datasets into data lakes and ML workflows.</p>
           <p class="muted"><strong>AWS:</strong> Glue, Data Pipeline | <strong>GCP:</strong> Dataflow, Composer</p>
-          <a  class="disabled-link"  href="cloud-data-pipelines.html">Learn Data Pipelines</a>
+          <a class="disabled-link" href="cloud-data-pipelines.html">Learn Data Pipelines</a>
         </div>
 
         <div class="card">
           <h3>Feature Store</h3>
           <p>Centralized storage of ML features for consistency between training and inference.</p>
-          <p   class="muted"><strong>AWS:</strong> SageMaker Feature Store | <strong>GCP:</strong> Vertex Feature Store
-          <a class="disabled-link" href="cloud-feature-store.html">Learn Feature Store</a>
+          <p class="muted"><strong>AWS:</strong> SageMaker Feature Store | <strong>GCP:</strong> Vertex Feature Store
+            <a class="disabled-link" href="cloud-feature-store.html">Learn Feature Store</a>
         </div>
 
         <div class="card">

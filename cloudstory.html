@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NBKRIST – CloudNest | Full Cloud Request Flow Simulation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= CLOUDNEST ACADEMIC THEME ================= */
+:root{
+  --bg:#f7fbff;
+  --panel:#ffffff;
+  --border:#dbeafe;
+  --header:#2563eb;
+  --accent:#0ea5e9;
+  --success:#16a34a;
+  --warn:#f59e0b;
+  --danger:#dc2626;
+  --text:#0f172a;
+  --muted:#475569;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial;
+}
+
+header{
+  padding:16px 26px;
+  background:linear-gradient(90deg,#2563eb,#0ea5e9);
+  color:white;
+  font-size:22px;
+  font-weight:700;
+}
+
+.container{padding:22px}
+
+/* ================= REGIONS ================= */
+.region{
+  margin-bottom:26px;
+  background:var(--panel);
+  border-radius:16px;
+  padding:20px;
+  border:1px solid var(--border);
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  transition:.4s;
+}
+
+.region.dim{opacity:.35}
+
+/* ================= DIAGRAM ================= */
+.diagram{
+  position:relative;
+  height:520px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-top:12px;
+  background:#f9fbff;
+}
+
+/* ================= NODES ================= */
+.node{
+  position:absolute;
+  width:150px;
+  padding:14px;
+  background:white;
+  border-radius:14px;
+  text-align:center;
+  font-weight:600;
+  color:var(--text);
+  border:1px solid var(--border);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.node svg{
+  width:36px;
+  margin-bottom:6px;
+}
+
+/* ================= POSITIONS (UNCHANGED) ================= */
+.browser{left:40px;top:220px}
+.lb{left:240px;top:220px}
+
+.web{left:460px}
+.web1{top:120px}
+.web2{top:220px}
+.web3{top:320px}
+
+.app{left:680px}
+.app1{top:180px}
+.app2{top:260px}
+
+.ai{left:900px;top:100px}
+.db{left:900px;top:220px;border-top:4px solid var(--success)}
+.pay{left:900px;top:340px}
+
+/* ================= FLOW SVG ================= */
+svg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+line.req{
+  stroke:var(--accent);
+  stroke-width:3;
+  stroke-dasharray:8;
+  animation:req 1s linear infinite;
+}
+
+line.res{
+  stroke:var(--success);
+  stroke-width:3;
+  stroke-dasharray:8;
+  animation:res 1.2s linear infinite;
+}
+
+@keyframes req{to{stroke-dashoffset:-16}}
+@keyframes res{to{stroke-dashoffset:16}}
+
+.hidden{display:none}
+
+/* ================= DB STATES ================= */
+.db-ok{border-top-color:var(--success)}
+.db-warn{border-top-color:var(--warn)}
+.db-fail{border-top-color:var(--danger)}
+
+/* ================= CONTROLS ================= */
+.controls{
+  margin-top:14px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  align-items:center;
+  color:var(--muted);
+}
+
+.controls label{font-weight:600}
+
+button{
+  padding:10px 18px;
+  border:none;
+  border-radius:12px;
+  background:var(--header);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+button:hover{background:#1d4ed8}
+
+/* ================= LOG ================= */
+.log{
+  margin-top:16px;
+  background:#f1f5f9;
+  color:#0f172a;
+  padding:12px;
+  height:180px;
+  overflow:auto;
+  font-family:monospace;
+  font-size:13px;
+  border-radius:12px;
+  border:1px solid var(--border);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+NBKRIST – CloudNest | HTTP Flow, AI, DB Stress & DR
+</header>
+
+<div class="container">
+
+<!-- ================= PRIMARY REGION ================= -->
+<div class="region" id="primary">
+<h3>🌍 Region-1 (Primary)</h3>
+
+<div class="diagram">
+
+<!-- Nodes -->
+<div class="node browser" id="browser">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#38bdf8"/></svg>
+Browser
+</div>
+
+<div class="node lb" id="lb">
+<svg viewBox="0 0 24 24"><path d="M12 2L2 12h4v8h12v-8h4z" fill="#0ea5e9"/></svg>
+Load Balancer
+</div>
+
+<div class="node web web1" id="web1">Web 1</div>
+<div class="node web web2" id="web2">Web 2</div>
+<div class="node web web3" id="web3">Web 3</div>
+
+<div class="node app app1" id="app1">App 1</div>
+<div class="node app app2" id="app2">App 2</div>
+
+<div class="node ai" id="ai">
+<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" fill="#f59e0b"/></svg>
+Recommendation Engine
+</div>
+
+<div class="node db db-ok" id="db">
+<svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="4" fill="#9ca3af"/></svg>
+Database
+</div>
+
+<div class="node pay" id="pay">
+<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" fill="#ef4444"/></svg>
+Payment Gateway
+</div>
+
+<svg id="flows"></svg>
+</div>
+
+<div class="controls">
+<label>Users:
+<input type="range" min="100" max="1000" step="100" value="300" id="users">
+<span id="uc">300</span>
+</label>
+<button onclick="scale()">Scale</button>
+<button onclick="failover()">Simulate Region Failure</button>
+</div>
+
+<div class="log" id="log">System ready…</div>
+</div>
+
+<!-- ================= DR REGION ================= -->
+<div class="region dim" id="dr">
+<h3>🌍 Region-2 (DR – Standby)</h3>
+<p>Identical infrastructure, traffic enabled only during failover.</p>
+</div>
+
+</div>
+
+<script>
+const flows=document.getElementById("flows");
+const logBox=document.getElementById("log");
+const usersEl=document.getElementById("users");
+const dbEl=document.getElementById("db");
+
+const webIds=["web1","web2","web3"];
+const appIds=["app1","app2"];
+
+function center(el){
+  const r=el.getBoundingClientRect();
+  const p=flows.getBoundingClientRect();
+  return{x:r.left+r.width/2-p.left,y:r.top+r.height/2-p.top};
+}
+
+function draw(a,b,cls){
+  const l=document.createElementNS("http://www.w3.org/2000/svg","line");
+  l.setAttribute("x1",a.x);l.setAttribute("y1",a.y);
+  l.setAttribute("x2",b.x);l.setAttribute("y2",b.y);
+  l.setAttribute("class",cls);
+  flows.appendChild(l);
+}
+
+function redraw(){
+  flows.innerHTML="";
+  const browser=center(browserEl);
+  const lb=center(lbEl);
+
+  draw(browser,lb,"req");draw(lb,browser,"res");
+
+  const webs=webIds.map(id=>document.getElementById(id)).filter(n=>!n.classList.contains("hidden"));
+  const apps=appIds.map(id=>document.getElementById(id)).filter(n=>!n.classList.contains("hidden"));
+
+  webs.forEach(w=>{
+    draw(lb,center(w),"req");
+    draw(center(w),lb,"res");
+  });
+
+  apps.forEach(a=>{
+    webs.forEach(w=>{
+      draw(center(w),center(a),"req");
+      draw(center(a),center(w),"res");
+    });
+    draw(center(a),center(aiEl),"req");
+    draw(center(aiEl),center(a),"res");
+    draw(center(a),center(dbEl),"req");
+    draw(center(dbEl),center(a),"res");
+    draw(center(a),center(payEl),"req");
+    draw(center(payEl),center(a),"res");
+  });
+}
+
+const browserEl=document.getElementById("browser");
+const lbEl=document.getElementById("lb");
+const aiEl=document.getElementById("ai");
+const payEl=document.getElementById("pay");
+
+function log(m){
+  logBox.innerHTML+=`<br>[${new Date().toLocaleTimeString()}] ${m}`;
+  logBox.scrollTop=logBox.scrollHeight;
+}
+
+function scale(){
+  const users=+usersEl.value;
+  document.getElementById("uc").textContent=users;
+
+  const webCount=Math.ceil(users/300);
+  const appCount=Math.ceil(users/500);
+
+  webIds.forEach((id,i)=>document.getElementById(id).classList.toggle("hidden",i>=webCount));
+  appIds.forEach((id,i)=>document.getElementById(id).classList.toggle("hidden",i>=appCount));
+
+  if(users>800){
+    dbEl.className="node db db-fail";
+    log("❌ DB saturated → queue forming");
+    setTimeout(()=>{
+      log("✅ Read replica + cache enabled");
+      dbEl.className="node db db-ok";
+    },1800);
+  }else if(users>500){
+    dbEl.className="node db db-warn";
+    log("⚠ DB under heavy load");
+  }else{
+    dbEl.className="node db db-ok";
+  }
+
+  redraw();
+}
+
+function failover(){
+  document.getElementById("primary").classList.add("dim");
+  document.getElementById("dr").classList.remove("dim");
+  log("🌋 Region-1 down → traffic rerouted to DR");
+}
+
+usersEl.oninput=scale;
+scale();
+</script>
+
+</body>
+</html>

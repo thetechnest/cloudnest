@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NBKRIST – CloudNest | Cloud Foundations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+  rel="stylesheet">
+
+<style>
+/* ===== ORIGINAL BODY STYLE (UNCHANGED) ===== */
+:root{
+  --bg:#f7fbff;
+  --card:#ffffff;
+  --border:#dbeafe;
+  --primary:#2563eb;
+  --accent:#0ea5e9;
+  --text:#0f172a;
+  --muted:#475569;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:Inter, Arial;
+  color:var(--text);
+}
+
+/* ===== CLOUDNEST HEADER (NEW) ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:900;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  color:#000;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+  font-family:Poppins;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.btn-small{
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+  background:#0F1C2E;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+#pdfBtn{
+  background:#008CFF;
+  margin-right:10px;
+}
+
+/* ===== ORIGINAL CONTENT STYLE (UNCHANGED) ===== */
+.container{
+  max-width:1200px;
+  margin:30px auto;
+  padding:20px;
+}
+
+.intro{
+  background:#eef5ff;
+  border-left:6px solid var(--primary);
+  padding:18px;
+  border-radius:14px;
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:22px;
+  border:1px solid var(--border);
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.card h3{
+  margin-top:0;
+  margin-bottom:10px;
+  color:var(--primary);
+}
+
+.card p{
+  margin:0;
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+/* ===== CLOUDNEST FOOTER (NEW) ===== */
+footer{
+  text-align:center;
+  padding:28px;
+  font-size:14px;
+  color:#6B7A89;
+}
+
+/* DARK MODE (header/footer only) */
+.dark{
+  background:#0b1622;
+  color:#EAF2FB;
+}
+.dark header{background:#08111f;color:white}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER (REPLACED) ===== -->
+<header>
+  <a href="cloud-tools.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <svg width="46" height="46" viewBox="0 0 64 64">
+      <defs>
+        <linearGradient id="g1" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="#008CFF"/>
+          <stop offset="100%" stop-color="#00A8A8"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+        <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
+      </g>
+    </svg>
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Cloud Foundations – AWS & GCP</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
+</header>
+
+<!-- ===== ORIGINAL CONTENT (UNCHANGED) ===== -->
+<div class="container">
+
+<div class="intro">
+<b>Cloud Foundation</b> introduces the core principles of cloud computing—<b>scalability,
+elasticity, availability, resilience, and cost efficiency</b>—that explain why the cloud works the way it does.
+These concepts form the base for understanding every AWS service you will learn next.
+</div>
+
+<div class="grid">
+
+  <div class="card"><h3>Scalability</h3><p>Ability to handle increasing users, data, or traffic smoothly.</p></div>
+  <div class="card"><h3>Elasticity</h3><p>Automatically scale resources up and down based on demand.</p></div>
+  <div class="card"><h3>Availability</h3><p>Ensures systems remain accessible with minimal downtime.</p></div>
+  <div class="card"><h3>High Availability (HA)</h3><p>Redundancy across zones or regions to avoid failures.</p></div>
+  <div class="card"><h3>Agility</h3><p>Rapid development and deployment without long delays.</p></div>
+  <div class="card"><h3>Resilience</h3><p>Ability to recover quickly from failures.</p></div>
+  <div class="card"><h3>Fault Tolerance</h3><p>Continues operating even when components fail.</p></div>
+  <div class="card"><h3>Cost Efficiency</h3><p>Pay only for what you use instead of upfront investment.</p></div>
+<div class="card">
+  <h3>Global Reach</h3>
+  <p>
+    Cloud platforms provide worldwide regions and edge locations to deliver
+    applications closer to users with low latency and high availability.
+  </p>
+</div>
+
+</div>
+</div>
+
+<!-- ===== FOOTER (REPLACED) ===== -->
+<footer>
+© CloudNest • Cloud Foundations for AWS Learning | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("pdfBtn").onclick = () => window.print();
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>
