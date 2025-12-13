@@ -5,6 +5,10 @@
 <title>NBKRIST – CloudNest | Cloud Fundamentals MCQ Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+  rel="stylesheet">
+
 <style>
 :root{
   --bg:#f7fbff;
@@ -25,14 +29,55 @@ body{
   color:var(--text);
 }
 
+/* ===== UPDATED HEADER ONLY ===== */
 header{
-  background:linear-gradient(90deg,#2563eb,#0ea5e9);
-  color:white;
-  padding:18px 26px;
-  font-size:22px;
-  font-weight:700;
+  position:sticky;
+  top:0;
+  z-index:900;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
 }
 
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  color:#000;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+  font-family:Poppins;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.btn-small{
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+  background:#0F1C2E;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+#pdfBtn{
+  background:#008CFF;
+  margin-right:10px;
+}
+
+/* ===== ORIGINAL STYLES (UNCHANGED) ===== */
 .container{
   max-width:1100px;
   margin:20px auto;
@@ -63,9 +108,7 @@ header{
   background:#f9fbff;
 }
 
-.options input{
-  margin-right:10px;
-}
+.options input{margin-right:10px}
 
 .correct{
   border-color:var(--success)!important;
@@ -112,15 +155,41 @@ button:hover{background:#1d4ed8}
   font-weight:800;
   margin-top:20px;
 }
+
+/* ===== FOOTER ONLY ===== */
+footer{
+  text-align:center;
+  padding:28px;
+  font-size:14px;
+  color:#6B7A89;
+}
+
+/* Dark mode – header & footer only */
+.dark header{background:#08111f;color:white}
+.dark footer{color:#9ca3af}
 </style>
 </head>
 
 <body>
 
+<!-- ===== UPDATED HEADER ===== -->
 <header>
-NBKRIST – CloudNest | Cloud Fundamentals MCQ Quiz
+  <a href="cloud-tools.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">Cloud Fundamentals MCQ Quiz</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
 </header>
 
+<!-- ===== ORIGINAL CONTENT (UNCHANGED) ===== -->
 <div class="container">
 
 <div class="top-bar card">
@@ -257,7 +326,16 @@ ${opt}
 
 </div>
 
+<!-- ===== FOOTER ===== -->
+<footer>
+© CloudNest • Cloud Fundamentals Assessment | Authored by Hari Babu Mutchakala
+</footer>
+
 <script>
+document.getElementById("pdfBtn").onclick = () => window.print();
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+
 let seconds=0;
 setInterval(()=>{
   seconds++;

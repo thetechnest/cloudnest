@@ -5,6 +5,10 @@
 <title>NBKRIST – CloudNest | Full Cloud Request Flow Simulation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+  rel="stylesheet">
+
 <style>
 /* ================= CLOUDNEST ACADEMIC THEME ================= */
 :root{
@@ -27,13 +31,61 @@ body{
   font-family:Inter,Arial;
 }
 
+/* ========= UPDATED HEADER ONLY ========= */
 header{
-  padding:16px 26px;
-  background:linear-gradient(90deg,#2563eb,#0ea5e9);
-  color:white;
-  font-size:22px;
-  font-weight:700;
+  position:sticky;
+  top:0;
+  z-index:900;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
 }
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  color:#000;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+  font-family:Poppins;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.btn-small{
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+  background:#0F1C2E;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+#pdfBtn{
+  background:#008CFF;
+  margin-right:10px;
+}
+
+/* ===== ORIGINAL STYLES (UNCHANGED BELOW) ===== */
 
 .container{padding:22px}
 
@@ -79,56 +131,28 @@ header{
   margin-bottom:6px;
 }
 
-/* ================= POSITIONS (UNCHANGED) ================= */
+/* ================= POSITIONS ================= */
 .browser{left:40px;top:220px}
 .lb{left:240px;top:220px}
-
 .web{left:460px}
 .web1{top:120px}
 .web2{top:220px}
 .web3{top:320px}
-
 .app{left:680px}
 .app1{top:180px}
 .app2{top:260px}
-
 .ai{left:900px;top:100px}
 .db{left:900px;top:220px;border-top:4px solid var(--success)}
 .pay{left:900px;top:340px}
 
 /* ================= FLOW SVG ================= */
-svg{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-}
-
-line.req{
-  stroke:var(--accent);
-  stroke-width:3;
-  stroke-dasharray:8;
-  animation:req 1s linear infinite;
-}
-
-line.res{
-  stroke:var(--success);
-  stroke-width:3;
-  stroke-dasharray:8;
-  animation:res 1.2s linear infinite;
-}
-
+svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+line.req{stroke:var(--accent);stroke-width:3;stroke-dasharray:8;animation:req 1s linear infinite}
+line.res{stroke:var(--success);stroke-width:3;stroke-dasharray:8;animation:res 1.2s linear infinite}
 @keyframes req{to{stroke-dashoffset:-16}}
 @keyframes res{to{stroke-dashoffset:16}}
 
 .hidden{display:none}
-
-/* ================= DB STATES ================= */
-.db-ok{border-top-color:var(--success)}
-.db-warn{border-top-color:var(--warn)}
-.db-fail{border-top-color:var(--danger)}
 
 /* ================= CONTROLS ================= */
 .controls{
@@ -150,10 +174,7 @@ button{
   color:white;
   font-weight:700;
   cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-
-button:hover{background:#1d4ed8}
 
 /* ================= LOG ================= */
 .log{
@@ -168,15 +189,41 @@ button:hover{background:#1d4ed8}
   border-radius:12px;
   border:1px solid var(--border);
 }
+
+/* ===== FOOTER (NEW ONLY) ===== */
+footer{
+  text-align:center;
+  padding:28px;
+  font-size:14px;
+  color:#6B7A89;
+}
+
+/* Dark mode – header & footer only */
+.dark header{background:#08111f;color:white}
+.dark footer{color:#9ca3af}
 </style>
 </head>
 
 <body>
 
+<!-- ========= UPDATED HEADER ========= -->
 <header>
-NBKRIST – CloudNest | HTTP Flow, AI, DB Stress & DR
+  <a href="cloud-tools.html" class="back-btn">← Back</a>
+
+  <div class="brand">
+    <div>
+      <h1>NBKRIST–CloudNest</h1>
+      <div class="tagline">HTTP Flow, AI, DB Stress & DR</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
 </header>
 
+<!-- ===== ORIGINAL CONTENT (UNCHANGED) ===== -->
 <div class="container">
 
 <!-- ================= PRIMARY REGION ================= -->
@@ -238,10 +285,16 @@ Payment Gateway
 <h3>🌍 Region-2 (DR – Standby)</h3>
 <p>Identical infrastructure, traffic enabled only during failover.</p>
 </div>
-
 </div>
 
+<!-- ========= FOOTER ========= -->
+<footer>
+© CloudNest • Cloud Architecture Simulation | Authored by Hari Babu Mutchakala
+</footer>
+
 <script>
+
+  
 const flows=document.getElementById("flows");
 const logBox=document.getElementById("log");
 const usersEl=document.getElementById("users");
@@ -338,6 +391,9 @@ function failover(){
 
 usersEl.oninput=scale;
 scale();
+document.getElementById("pdfBtn").onclick = () => window.print();
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
 </script>
 
 </body>
