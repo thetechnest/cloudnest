@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cloud Fundamentals | Cloud Deployment Models</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate);}
+header{
+  position:sticky;top:0;background:#fff;
+  padding:10px 18px;display:flex;
+  justify-content:space-between;align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn{
+  padding:8px 14px;background:#eee;border-radius:8px;
+  text-decoration:none;font-weight:600;color:#000;
+}
+.brand h1{margin:0;font-family:Poppins;font-size:22px;}
+.tagline{font-size:13px;color:var(--muted);}
+#pdfBtn,#modeToggle{
+  padding:8px 12px;border:none;border-radius:8px;
+  color:#fff;font-weight:600;cursor:pointer;
+}
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{max-width:980px;margin:30px auto;padding:20px;}
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;padding:22px;border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{margin:10px 0;font-size:15px;line-height:1.6;}
+.tip{
+  background:#E8F4FF;padding:12px;
+  border-left:4px solid var(--teal);
+  border-radius:10px;margin:12px 0;font-size:14px;
+}
+.exam{
+  background:#FFF7ED;padding:10px;
+  border-left:4px solid #F59E0B;
+  border-radius:10px;font-size:14px;font-weight:600;
+}
+
+.img-block img{
+  width:100%;height:260px;object-fit:contain;
+  background:#fff;border-radius:12px;margin-top:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+table{width:100%;border-collapse:collapse;margin-top:10px;}
+th,td{border:1px solid #DCEAFF;padding:12px;text-align:left;}
+th{background:#E8F4FF;font-family:Poppins;}
+
+footer{text-align:center;padding:30px;font-size:14px;color:var(--muted);}
+
+.dark{background:#0a1627;color:#E9F2FA;}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .img-block img{background:#0b1f33;}
+.dark table th{background:#0b1f33;}
+</style>
+</head>
+
+<body>
+
+<header>
+<a class="back-btn" href="aimlunit1.html">← Back</a>
+<div class="brand">
+  <h1>NBKRIST–CloudNest</h1>
+  <div class="tagline">Understanding Cloud Deployment Models</div>
+</div>
+<div>
+  <button id="pdfBtn">⬇ PDF</button>
+  <button id="modeToggle">☀/🌙</button>
+</div>
+</header>
+
+<div class="container">
+
+<h2>Cloud Deployment Models</h2>
+
+<!-- INTRO -->
+<section class="section">
+<h3>Introduction</h3>
+<p>
+Deployment models define <b>where cloud infrastructure is located</b> and <b>who has access to it</b>.
+Choosing the right deployment model is crucial for balancing cost, security, performance, and compliance.
+Essentially, deployment models determine how cloud resources are made available to users and organizations.
+<div class="img-block">
+  <img src="deploymentmodels.png" alt="Public Cloud Diagram">
+</div>
+</p>
+</section>
+
+<!-- PUBLIC CLOUD -->
+<section class="section">
+<h3>1️⃣ Public Cloud</h3>
+
+<div class="desc">
+Public cloud resources are owned and operated by third-party providers.  
+Infrastructure is shared among multiple customers over the internet.  
+It offers high scalability and cost efficiency.
+</div>
+
+<div class="tip">
+<b>Examples:</b> AWS, Microsoft Azure, Google Cloud Platform<br>
+<b>Best For:</b> Startups, web apps, scalable workloads
+</div>
+<div class="tip">
+<b>Pros:</b> Cost Effective, Scalability, reliability, flexibility, and location independence<br>
+<b>Cons:</b> Shared Resources, Limited Control, Security Concerns, Compliance Issues
+</div>
+<div class="exam">
+📘 Exam Line: Public cloud provides services over the internet to multiple users.
+</div>
+
+<div class="img-block">
+  <img src="public.png" alt="Public Cloud Diagram">
+</div>
+</section>
+
+<!-- PRIVATE CLOUD -->
+<section class="section">
+<h3>2️⃣ Private Cloud</h3>
+
+<div class="desc">
+Private cloud infrastructure is dedicated to a single organization.  
+It can be hosted on-premises or by a third-party provider.  
+It provides greater control and security.
+</div>
+
+<div class="tip">
+<b>Examples:</b> VMware, OpenStack, Azure Stack<br>
+<b>Best For:</b> Banking, government, sensitive data
+</div>
+<div class="tip">
+<b>Pros:</b> Used for sensitive data, compliance, and security<br>
+<b>Cons:</b> Constly maintenance, higher costs, limited scalability
+</div>
+<div class="exam">
+📘 Exam Line: Private cloud is exclusively used by one organization.
+</div>
+
+<div class="img-block">
+  <img src="private.png" alt="Private Cloud Diagram">
+</div>
+</section>
+
+<!-- HYBRID CLOUD -->
+<section class="section">
+<h3>3️⃣ Hybrid Cloud</h3>
+
+<div class="desc">
+Hybrid cloud combines public and private cloud environments.  
+Data and applications can move between both clouds.  
+It offers flexibility and optimized resource usage.
+</div>
+
+<div class="tip">
+<b>Examples:</b> AWS Outposts, Azure Arc, Google Anthos<br>
+<b>Best For:</b> Legacy systems with cloud extension
+</div>
+<div class="tip">
+<b>Pros:</b> highly scalable, flexible, and optimized resource usage/cost Effective<br>
+<b>Cons:</b> requies high level of management and expertise, potential security risks
+</div>
+<div class="exam">
+📘 Exam Line: Hybrid cloud integrates public and private clouds.
+</div>
+
+<div class="img-block">
+  <img src="hybrid.png" alt="Hybrid Cloud Diagram">
+</div>
+</section>
+
+<!-- COMMUNITY CLOUD -->
+<section class="section">
+<h3>4️⃣ Community Cloud</h3>
+
+<div class="desc">
+Community cloud is shared by organizations with common concerns.  
+Infrastructure is jointly used by a specific group.  
+It balances collaboration and compliance.Business communities with shared goals often use community clouds to pool resources and expertise while adhering to specific regulatory or security requirements.
+</div>
+
+<div class="tip">
+<b>Examples:</b> Government departments, research institutions<br>
+<b>Best For:</b> Universities, healthcare groups
+</div>
+<div class="tip">
+<b>Pros:</b> flexibility and Scalability, more control over configuration and management<br>
+<b>Cons:</b> Sgaring of resources, potential conflicts in management and policies
+</div>
+<div class="exam">
+📘 Exam Line: Community cloud is shared among organizations with similar requirements.
+</div>
+
+<div class="img-block">
+  <img src="communitycloud.png" alt="Community Cloud Diagram">
+</div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section">
+<h3>Quick Comparison (Exam Ready)</h3>
+
+<table>
+<tr>
+  <th>Model</th>
+  <th>Ownership</th>
+  <th>Access</th>
+  <th>Cost</th>
+</tr>
+<tr>
+  <td>Public</td>
+  <td>Cloud Provider</td>
+  <td>Shared</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>Private</td>
+  <td>Single Organization</td>
+  <td>Restricted</td>
+  <td>High</td>
+</tr>
+<tr>
+  <td>Hybrid</td>
+  <td>Mixed</td>
+  <td>Controlled</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>Community</td>
+  <td>Group of Organizations</td>
+  <td>Limited Group</td>
+  <td>Shared</td>
+</tr>
+</table>
+</section>
+
+<!-- ✅ NEW SECTION: UNDERSTANDING QUESTIONS -->
+<section class="section">
+<h3>Check Your Understanding</h3>
+
+<details>
+  <summary>1. Which deployment model is best for a startup with limited budget?</summary>
+  <p>Public cloud, because it offers scalability and pay-as-you-go pricing.</p>
+</details>
+
+<details>
+  <summary>2. Why would a bank prefer a private cloud?</summary>
+  <p>For greater control, security, and compliance with regulations.</p>
+</details>
+
+<details>
+  <summary>3. When is a hybrid cloud the ideal choice?</summary>
+  <p>When an organization needs to combine on-premises systems with cloud scalability.</p>
+</details>
+
+<details>
+  <summary>4. What is the main advantage of a community cloud?</summary>
+  <p>Cost sharing and collaboration among organizations with similar requirements.</p>
+</details>
+
+<details>
+  <summary>5. Which model offers the highest scalability?</summary>
+  <p>Public cloud, due to virtually unlimited shared resources.</p>
+</details>
+</section>
+<!-- FINAL -->
+<section class="section">
+<h3>Final Takeaway</h3>
+<p>
+Each deployment model serves different business needs. Public cloud focuses on scalability and cost, private cloud emphasizes control and security, hybrid cloud offers flexibility, and community cloud supports collaboration. Understanding these models is essential for designing real-world cloud architectures and answering exam questions confidently.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE /Authored by Hari Babu Mutchakala..
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

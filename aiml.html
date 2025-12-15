@@ -1,325 +1,377 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NBKRIST-CloudNest | AI & ML Cloud Overview</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    :root{
-      --azure-blue:#008CFF;
-      --teal:#00A8A8;
-      --dark-slate:#0F1C2E;
-      --bg:#F7FBFF;
-      --muted:#6B7A89;
-      --card-bg:#fff;
-      --radius:14px;
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+      --card-bg: #fff;
+      --radius: 14px;
     }
 
-    body{
-      margin:0;
-      font-family:Inter, sans-serif;
-      background:var(--bg);
-      color:var(--dark-slate);
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--dark-slate);
     }
 
     /* Header */
-    header{
-      position:sticky;
-      top:0;
-      z-index:900;
-      background:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:10px 18px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     }
 
     /* Back Button */
-    .back-btn{
-      padding:8px 14px;
-      background:#eee;
-      color:#000;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand h1{margin:0;font-size:22px;font-family:Poppins}
-    .tagline{font-size:13px;color:var(--muted)}
-
-    .btn-small{
-      padding:8px 12px;
-      border-radius:8px;
-      font-weight:600;
-      background:var(--dark-slate);
-      color:white;
-      border:none;
-      cursor:pointer;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
     }
 
-    #pdfBtn{
-      background:#008CFF;
-      margin-right:10px;
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      font-family: Poppins
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .btn-small {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      background: var(--dark-slate);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
     }
 
     /* Container */
-    .container{
-      max-width:980px;
-      margin:30px auto;
-      padding:20px;
+    .container {
+      max-width: 980px;
+      margin: 30px auto;
+      padding: 20px;
     }
 
-    .menu-bar{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:22px;
+    .menu-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
     }
 
-    .menu-btn{
-      padding:10px 16px;
-      background:linear-gradient(90deg,var(--azure-blue),var(--teal));
-      border-radius:10px;
-      color:white;
-      font-weight:700;
-      text-decoration:none;
+    .menu-btn {
+      padding: 10px 16px;
+      background: linear-gradient(90deg, var(--azure-blue), var(--teal));
+      border-radius: 10px;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
     }
 
-    .section{
-      padding:22px;
-      background:white;
-      border-radius:var(--radius);
-      margin-bottom:28px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.06);
-      border-left:6px solid var(--azure-blue);
+    .section {
+      padding: 22px;
+      background: white;
+      border-radius: var(--radius);
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-left: 6px solid var(--azure-blue);
     }
 
-    .badge{
-      background:#CFF8F0;
-      padding:5px 12px;
-      border-radius:20px;
-      font-weight:600;
-      font-size:13px;
-      display:inline-block;
-      margin-bottom:10px;
+    .badge {
+      background: #CFF8F0;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-block;
+      margin-bottom: 10px;
     }
 
-    .img-block img{
-      width:100%;
-      border-radius:12px;
-      margin-top:16px;
+    .img-block img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 16px;
       height: 500px;
-      object-fit:cover;
-      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     }
 
-    details{
-      padding:12px;
-      background:#F0F8FF;
-      border-radius:10px;
-      margin-bottom:10px;
-      border:1px solid #DCEAFF;
+    details {
+      padding: 12px;
+      background: #F0F8FF;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #DCEAFF;
     }
 
-    summary{cursor:pointer;font-weight:700;}
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
 
-    footer{
-      text-align:center;
-      padding:28px;
-      font-size:14px;
-      color:var(--muted);
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     /* Dark mode */
-    .dark{
-      background:#0b1622;
-      color:#EAF2FB;
+    .dark {
+      background: #0b1622;
+      color: #EAF2FB;
     }
-    .dark header{background:#08111f;color:white;}
-    .dark .section{background:#102031;border-left-color:#2993ff;}
-    .dark .menu-btn{box-shadow:0 8px 18px rgba(0,0,0,0.4);}
-    .dark details{background:#071c2f;border:1px solid rgba(255,255,255,0.06);}
+
+    .dark header {
+      background: #08111f;
+      color: white;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark .menu-btn {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .dark details {
+      background: #071c2f;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-  <a href="index.html" class="back-btn">← Back</a>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="back-btn">← Back</a>
 
-  <div class="brand">
-    <svg width="46" height="46" viewBox="0 0 64 64">
-      <defs><linearGradient id="g1" x1="0%" x2="100%">
-        <stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/>
-      </linearGradient></defs>
-      <g fill="none" stroke="url(#g1)" stroke-width="2.6">
-        <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
-      </g>
-    </svg>
+    <div class="brand">
+      <svg width="46" height="46" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="g1" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#008CFF" />
+            <stop offset="100%" stop-color="#00A8A8" />
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g1)" stroke-width="2.6">
+          <path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3 1-2 3-6 8-6 4 0 7 2 8 6 3 1 6 4 6 7 0 4-4 7-8 7H18z" />
+        </g>
+      </svg>
+      <div>
+        <h1>NBKRIST–CloudNest</h1>
+        <div class="tagline">Empowering Learners for the Cloud Era</div>
+      </div>
+    </div>
+
     <div>
-      <h1>NBKRIST–CloudNest</h1>
-      <div class="tagline">Empowering Learners for the Cloud Era</div>
+      <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+      <button id="modeToggle" class="btn-small">☀/🌙</button>
     </div>
-  </div>
+  </header>
 
-  <div>
-    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
-    <button id="modeToggle" class="btn-small">☀/🌙</button>
-  </div>
-</header>
+  <!-- MAIN CONTENT -->
+  <div class="container">
 
-<!-- MAIN CONTENT -->
-<div class="container">
-
-  <!-- MENU -->
-  <nav class="menu-bar">
-    <a  style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn" href="aimlunit1.html">Unit I</a>
-    <a   style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn" href="aimlunit2.html">Unit II</a>
-    <a  style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn" href="aimlunit3.html">Unit III</a>
-    <a  style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn" href="aimlunit4.html">Unit IV</a>
-    <a  style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn" href="aimlunit5.html">Unit V</a>
+    <!-- MENU -->
+    <nav class="menu-bar">
+      <a  class="menu-btn"
+        href="aimlunit1.html">Unit I</a>
+      <a style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn"
+        href="aimlunit2.html">Unit II</a>
+      <a style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn"
+        href="aimlunit3.html">Unit III</a>
+      <a style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn"
+        href="aimlunit4.html">Unit IV</a>
+      <a style="pointer-events:none; opacity:0.5; cursor:not-allowed; text-decoration:none;" class="menu-btn"
+        href="aimlunit5.html">Unit V</a>
       <a class="menu-btn" href="aiccskillbuilder.html">AI/ML CC Skill Board</a>
-  </nav>
+    </nav>
 
-  <h2>AI & Machine Learning on the Cloud — Overview</h2>
-  <p>This page gives a clean overview of the complete AIML syllabus. Each unit includes a short introduction, real cloud images, and links to detailed unit pages.</p>
+    <h2>AI & Machine Learning on the Cloud — Overview</h2>
+    <p>This page gives a clean overview of the complete AIML syllabus. Each unit includes a short introduction, real
+      cloud images, and links to detailed unit pages.</p>
 
-  <!-- UNIT 1 -->
-  <section class="section">
-    <span class="badge">Unit I</span>
-    <h2>Introduction to Cloud Computing & AI Integration</h2>
-    <p>This unit explains how cloud computing and AI merge to build modern intelligent platforms. Students learn cloud basics, service models, deployment models, and how AI workloads run efficiently on cloud platforms.</p>
+    <!-- UNIT 1 -->
+    <section class="section">
+      <span class="badge">Unit I</span>
+      <h2>Introduction to Cloud Computing & AI Integration</h2>
+      <p>This unit explains how cloud computing and AI merge to build modern intelligent platforms. Students learn cloud
+        basics, service models, deployment models, and how AI workloads run efficiently on cloud platforms.</p>
 
-    <ul>
-      <li>Cloud Characteristics, Models & Service Types</li>
-      <li>IaaS, PaaS, SaaS</li>
-      <li>Public, Private, Hybrid & Community Cloud</li>
-      <li>AI + Cloud convergence & challenges</li>
-      <li>Cloud for AI: NLP, Vision, Analytics</li>
-      <li>AI on AWS, Azure, GCP</li>
-    </ul>
+      <ul>
+        <li>Cloud Characteristics, Models & Service Types</li>
+        <li>IaaS, PaaS, SaaS</li>
+        <li>Public, Private, Hybrid & Community Cloud</li>
+        <li>AI + Cloud convergence & challenges</li>
+        <li>Cloud for AI: NLP, Vision, Analytics</li>
+        <li>AI on AWS, Azure, GCP</li>
+      </ul>
 
-    <div class="img-block">
-      <img src="dsunit1.jpg" alt="Cloud AI Overview">
-    </div>
-  </section>
+      <div class="img-block">
+        <img src="dsunit1.jpg" alt="Cloud AI Overview">
+      </div>
+    </section>
 
-  <!-- UNIT 2 -->
-  <section class="section">
-    <span class="badge">Unit II</span>
-    <h2>Storage, Computing & Data Processing in Cloud</h2>
-    <p>This unit explains how cloud infrastructure handles large datasets, elastic compute, distributed processing and optimized resource management for AI workloads.</p>
+    <!-- UNIT 2 -->
+    <section class="section">
+      <span class="badge">Unit II</span>
+      <h2>Storage, Computing & Data Processing in Cloud</h2>
+      <p>This unit explains how cloud infrastructure handles large datasets, elastic compute, distributed processing and
+        optimized resource management for AI workloads.</p>
 
-    <ul>
-      <li>S3, Blob, BigQuery Storage</li>
-      <li>Elastic Computing & Virtualization</li>
-      <li>Hadoop & Spark Distributed Systems</li>
-      <li>Data Pipelines & Warehousing</li>
-      <li>Data Lakes & Cost Optimization</li>
-    </ul>
+      <ul>
+        <li>S3, Blob, BigQuery Storage</li>
+        <li>Elastic Computing & Virtualization</li>
+        <li>Hadoop & Spark Distributed Systems</li>
+        <li>Data Pipelines & Warehousing</li>
+        <li>Data Lakes & Cost Optimization</li>
+      </ul>
 
-    <div class="img-block">
-      <img src="aiml2.jpg" alt="Cloud Storage">
-    </div>
-  </section>
+      <div class="img-block">
+        <img src="aiml2.jpg" alt="Cloud Storage">
+      </div>
+    </section>
 
-  <!-- UNIT 3 -->
-  <section class="section">
-    <span class="badge">Unit III</span>
-    <h2>Cloud-based Machine Learning & Deep Learning</h2>
-    <p>Students learn how ML models are trained, deployed and monitored using cloud platforms. This unit introduces AutoML, GPUs/TPUs and experiment tracking.</p>
+    <!-- UNIT 3 -->
+    <section class="section">
+      <span class="badge">Unit III</span>
+      <h2>Cloud-based Machine Learning & Deep Learning</h2>
+      <p>Students learn how ML models are trained, deployed and monitored using cloud platforms. This unit introduces
+        AutoML, GPUs/TPUs and experiment tracking.</p>
 
-    <ul>
-      <li>AWS SageMaker, Azure ML, Vertex AI</li>
-      <li>Training & Deploying Models on Cloud</li>
-      <li>AutoML & Custom ML Pipelines</li>
-      <li>GPU/TPU Training</li>
-      <li>Notebook Integration (Colab, Jupyter)</li>
-    </ul>
+      <ul>
+        <li>AWS SageMaker, Azure ML, Vertex AI</li>
+        <li>Training & Deploying Models on Cloud</li>
+        <li>AutoML & Custom ML Pipelines</li>
+        <li>GPU/TPU Training</li>
+        <li>Notebook Integration (Colab, Jupyter)</li>
+      </ul>
 
-    <div class="img-block">
-      <img src="aimlunit3.jpg" alt="ML Cloud">
-    </div>
-  </section>
+      <div class="img-block">
+        <img src="aimlunit3.jpg" alt="ML Cloud">
+      </div>
+    </section>
 
-  <!-- UNIT 4 -->
-  <section class="section">
-    <span class="badge">Unit IV</span>
-    <h2>Advanced Cloud Concepts for AI</h2>
-    <p>This unit covers how production-scale AI systems use Docker, Kubernetes, serverless platforms, CI/CD, autoscaling and monitoring.</p>
+    <!-- UNIT 4 -->
+    <section class="section">
+      <span class="badge">Unit IV</span>
+      <h2>Advanced Cloud Concepts for AI</h2>
+      <p>This unit covers how production-scale AI systems use Docker, Kubernetes, serverless platforms, CI/CD,
+        autoscaling and monitoring.</p>
 
-    <ul>
-      <li>Containers & Docker for AI</li>
-      <li>Kubernetes Workflows</li>
-      <li>Serverless AI Pipelines</li>
-      <li>CI/CD for ML</li>
-      <li>Load Balancing & Autoscaling</li>
-      <li>Monitoring AI Workloads</li>
-    </ul>
+      <ul>
+        <li>Containers & Docker for AI</li>
+        <li>Kubernetes Workflows</li>
+        <li>Serverless AI Pipelines</li>
+        <li>CI/CD for ML</li>
+        <li>Load Balancing & Autoscaling</li>
+        <li>Monitoring AI Workloads</li>
+      </ul>
 
-    <div class="img-block">
-      <img src="aimlunit4.png" alt="AI + Cloud = The Future of Technology">
-  </section>
+      <div class="img-block">
+        <img src="aimlunit4.png" alt="AI + Cloud = The Future of Technology">
+    </section>
 
-  <!-- UNIT 5 -->
-  <section class="section">
-    <span class="badge">Unit V</span>
-    <h2>Security, Ethics & Case Studies in Cloud AI</h2>
-    <p>This unit explains governance, IAM, cost management, ethical issues & real-world deployment case studies.</p>
+    <!-- UNIT 5 -->
+    <section class="section">
+      <span class="badge">Unit V</span>
+      <h2>Security, Ethics & Case Studies in Cloud AI</h2>
+      <p>This unit explains governance, IAM, cost management, ethical issues & real-world deployment case studies.</p>
 
-    <ul>
-      <li>Cloud AI Security & Privacy</li>
-      <li>IAM & Role-Based Access</li>
-      <li>Cost Management for AI</li>
-      <li>Fairness & Ethical AI</li>
-      <li>Case Study: Healthcare AI</li>
-      <li>Case Study: Financial Analytics</li>
-    </ul>
+      <ul>
+        <li>Cloud AI Security & Privacy</li>
+        <li>IAM & Role-Based Access</li>
+        <li>Cost Management for AI</li>
+        <li>Fairness & Ethical AI</li>
+        <li>Case Study: Healthcare AI</li>
+        <li>Case Study: Financial Analytics</li>
+      </ul>
 
-    <div class="img-block">
-      <img src="aimlunit5.jpg" alt="Cloud Security">
-    </div>
-  </section>
+      <div class="img-block">
+        <img src="aimlunit5.jpg" alt="Cloud Security">
+      </div>
+    </section>
 
-  <!-- KEY QUESTIONS -->
-  <section class="section">
-    <h2>Key Questions — Click to Reveal Answers</h2>
+    <!-- KEY QUESTIONS -->
+    <section class="section">
+      <h2>Key Questions — Click to Reveal Answers</h2>
 
-    <details><summary>1. Why do we use cloud for AI/ML?</summary>
-      <p>Cloud provides GPUs/TPUs, scalable storage, global APIs, autoscaling and managed ML pipelines.</p>
-    </details>
+      <details>
+        <summary>1. Why do we use cloud for AI/ML?</summary>
+        <p>Cloud provides GPUs/TPUs, scalable storage, global APIs, autoscaling and managed ML pipelines.</p>
+      </details>
 
-    <details><summary>2. Which cloud is best for AI?</summary>
-      <p>AWS, Azure, and GCP — each has strong AI platforms.</p>
-    </details>
+      <details>
+        <summary>2. Which cloud is best for AI?</summary>
+        <p>AWS, Azure, and GCP — each has strong AI platforms.</p>
+      </details>
 
-    <details><summary>3. Do I need ML to learn cloud?</summary>
-      <p>No — cloud fundamentals come first.</p>
-    </details>
+      <details>
+        <summary>3. Do I need ML to learn cloud?</summary>
+        <p>No — cloud fundamentals come first.</p>
+      </details>
 
-    <details><summary>4. Does cloud help real-time AI?</summary>
-      <p>Yes — autoscaling + global endpoints enable real-time inference.</p>
-    </details>
-  </section>
+      <details>
+        <summary>4. Does cloud help real-time AI?</summary>
+        <p>Yes — autoscaling + global endpoints enable real-time inference.</p>
+      </details>
+    </section>
 
-</div>
+  </div>
 
-<footer>
-  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
-</footer>
+  <footer>
+    © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+  </footer>
 
-<!-- JS -->
-<script>
-  document.getElementById("pdfBtn").onclick = () => window.print();
-  document.getElementById("modeToggle").onclick = () => 
-    document.body.classList.toggle("dark");
-</script>
+  <!-- JS -->
+  <script>
+    document.getElementById("pdfBtn").onclick = () => window.print();
+    document.getElementById("modeToggle").onclick = () =>
+      document.body.classList.toggle("dark");
+  </script>
 
 </body>
+
 </html>

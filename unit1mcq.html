@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | MCQ Test – Unit I</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== EXACT BASE STYLE FROM REFERENCE ===== */
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+  --radius:14px;
+}
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate);}
+header{position:sticky;top:0;z-index:900;background:#fff;
+display:flex;align-items:center;justify-content:space-between;
+padding:10px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.06);}
+.back-btn{padding:8px 14px;background:#eee;color:#000;border-radius:8px;
+text-decoration:none;font-weight:600;}
+.brand{display:flex;align-items:center;gap:12px}
+.brand h1{margin:0;font-size:22px;font-family:Poppins}
+.tagline{font-size:13px;color:var(--muted)}
+.btn-small{padding:8px 12px;border-radius:8px;font-weight:600;
+background:var(--dark-slate);color:white;border:none;cursor:pointer;}
+#pdfBtn{background:#008CFF;margin-right:10px;}
+
+.container{max-width:980px;margin:30px auto;padding:20px;}
+.section{padding:22px;background:white;border-radius:var(--radius);
+margin-bottom:26px;box-shadow:0 8px 24px rgba(0,0,0,0.06);
+border-left:6px solid var(--azure-blue);}
+
+/* ===== MCQ STYLES ===== */
+.question{padding:16px;background:#F9FBFF;border-radius:10px;margin-bottom:18px;}
+.options label{display:block;padding:6px 8px;border-radius:6px;cursor:pointer;}
+.desc{font-size:13px;color:#475569;margin-left:24px;margin-bottom:6px;}
+.correct{background:#DCFCE7;color:#166534;font-weight:600;}
+.wrong{background:#FEE2E2;color:#991B1B;font-weight:600;}
+.explain{display:none;margin-top:10px;background:#E8F4FF;
+padding:10px;border-left:4px solid var(--teal);border-radius:8px;font-size:14px;}
+
+.actions{display:flex;gap:14px;flex-wrap:wrap;}
+.submit-btn,.reset-btn{
+padding:14px 22px;font-size:16px;border-radius:12px;border:none;
+font-weight:700;cursor:pointer;}
+.submit-btn{background:linear-gradient(90deg,var(--azure-blue),var(--teal));color:white;}
+.reset-btn{background:#475569;color:white;}
+.score{font-size:20px;font-weight:700;margin-top:18px;}
+
+footer{text-align:center;padding:28px;font-size:14px;color:var(--muted);}
+.dark{background:#0b1622;color:#EAF2FB;}
+.dark header{background:#08111f;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .explain{background:#0b1f33;}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER (UNCHANGED) -->
+<header>
+<a href="unit1assignment.html" class="back-btn">← Back</a>
+<div class="brand">
+<svg width="46" height="46" viewBox="0 0 64 64">
+<defs><linearGradient id="g1" x1="0%" x2="100%">
+<stop offset="0%" stop-color="#008CFF"/>
+<stop offset="100%" stop-color="#00A8A8"/>
+</linearGradient></defs>
+<g fill="none" stroke="url(#g1)" stroke-width="2.6">
+<path d="M18 36c-4-1-6-6-4-10 2-4 6-5 9-3
+1-2 3-6 8-6 4 0 7 2 8 6
+3 1 6 4 6 7 0 4-4 7-8 7H18z"/>
+</g></svg>
+<div>
+<h1>NBKRIST–CloudNest</h1>
+<div class="tagline">Empowering Learners for the Cloud Era</div>
+</div>
+</div>
+<div>
+<button id="pdfBtn" class="btn-small">⬇ PDF</button>
+<button id="modeToggle" class="btn-small">☀/🌙</button>
+</div>
+</header>
+
+<!-- CONTENT -->
+<div class="container">
+<section class="section">
+<h2>MCQ Test – Unit I (Cloud Computing & AI)</h2>
+
+<div id="quiz"></div>
+
+<div class="actions">
+<button class="submit-btn" onclick="submitTest()">Submit</button>
+<button class="reset-btn" onclick="location.reload()">Reset</button>
+</div>
+
+<div class="score" id="score"></div>
+</section>
+</div>
+
+<footer>
+© CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+const questions=[
+{q:"Which is a key characteristic of cloud computing?",o:["Manual provisioning","Elasticity","Fixed capacity","Local access"],a:1,e:"Elasticity allows resources to scale automatically based on demand."},
+{q:"Pay-as-you-go refers to?",o:["Fixed pricing","Usage-based billing","Free services","Annual contracts"],a:1,e:"Cloud users pay only for the resources they consume."},
+{q:"Which feature enables resource sharing?",o:["Elasticity","Resource pooling","Latency","Virtualization"],a:1,e:"Resource pooling allows multiple users to share cloud infrastructure."},
+{q:"On-demand self-service means?",o:["Manual request","Automatic provisioning","Local access","Limited usage"],a:1,e:"Users can provision resources automatically without provider interaction."},
+
+{q:"Which service model provides infrastructure like VMs?",o:["SaaS","PaaS","IaaS","FaaS"],a:2,e:"IaaS offers virtual machines, storage, and networking."},
+{q:"Gmail is an example of?",o:["IaaS","PaaS","SaaS","DaaS"],a:2,e:"SaaS provides complete applications over the internet."},
+{q:"PaaS mainly supports?",o:["End users","Developers","Network admins","Hardware vendors"],a:1,e:"PaaS provides platforms and tools for developers."},
+{q:"Which model offers maximum control to users?",o:["SaaS","PaaS","IaaS","FaaS"],a:2,e:"IaaS gives users control over OS and applications."},
+
+{q:"Which deployment model is shared by multiple organizations?",o:["Public","Private","Hybrid","Community"],a:3,e:"Community cloud is shared by organizations with common needs."},
+{q:"Public cloud example is?",o:["On-prem DC","AWS","Private VMware","College lab"],a:1,e:"AWS is a public cloud provider."},
+{q:"Hybrid cloud combines?",o:["Two public clouds","Public and private","Only private","Only SaaS"],a:1,e:"Hybrid cloud integrates public and private environments."},
+{q:"Private cloud offers?",o:["Shared access","High isolation","Low security","Public usage"],a:1,e:"Private cloud provides dedicated infrastructure."},
+
+{q:"AI and cloud convergence means?",o:["AI without cloud","Cloud + AI integration","Only storage","Only compute"],a:1,e:"AI relies on cloud infrastructure for scalability."},
+{q:"Main benefit of AI-cloud integration?",o:["High cost","Scalability","Manual effort","Limited access"],a:1,e:"Cloud provides scalable compute for AI workloads."},
+{q:"Major challenge of AI on cloud?",o:["No compute","Security & privacy","No storage","No networking"],a:1,e:"Sensitive AI data must be protected."},
+
+{q:"NLP mainly deals with?",o:["Images","Text & language","Signals","Networks"],a:1,e:"NLP processes human language."},
+{q:"Medical image analysis uses?",o:["NLP","Vision","Analytics","DevOps"],a:1,e:"Computer vision analyzes medical images."},
+{q:"Fraud detection belongs to?",o:["Gaming","Banking analytics","UI design","Networking"],a:1,e:"AI analytics detect anomalies in banking."},
+
+{q:"AWS ML service is?",o:["EC2","SageMaker","VPC","CloudFront"],a:1,e:"SageMaker is AWS’s ML platform."},
+{q:"Vertex AI belongs to?",o:["AWS","Azure","GCP","IBM"],a:2,e:"Vertex AI is Google Cloud’s ML platform."}
+];
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+let html=`<div class="question" data-ans="${q.a}">
+<b>${i+1}. ${q.q}</b>`;
+q.o.forEach((opt,j)=>{
+html+=`<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`;
+});
+html+=`<div class="explain">${q.e}</div></div>`;
+quiz.innerHTML+=html;
+});
+
+function submitTest(){
+let score=0;
+document.querySelectorAll(".question").forEach(q=>{
+const ans=q.dataset.ans;
+const sel=q.querySelector("input:checked");
+q.querySelectorAll("input").forEach(i=>i.disabled=true);
+q.querySelector(".explain").style.display="block";
+if(sel && sel.value==ans){score++;sel.parentElement.classList.add("correct");}
+else{
+if(sel) sel.parentElement.classList.add("wrong");
+q.querySelector(`input[value="${ans}"]`).parentElement.classList.add("correct");
+}
+});
+document.getElementById("score").innerText=`Your Score: ${score} / 20`;
+}
+
+document.getElementById("pdfBtn").onclick=()=>window.print();
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>

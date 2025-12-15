@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cloud Fundamentals | Cloud Service Models</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate);}
+header{position:sticky;top:0;background:#fff;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.back-btn{padding:8px 14px;background:#eee;border-radius:8px;text-decoration:none;font-weight:600;color:#000;}
+.brand h1{margin:0;font-family:Poppins;font-size:22px;}
+.tagline{font-size:13px;color:var(--muted);}
+#pdfBtn,#modeToggle{padding:8px 12px;border:none;border-radius:8px;color:#fff;font-weight:600;cursor:pointer;}
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{max-width:980px;margin:30px auto;padding:20px;}
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{margin:10px 0;font-size:15px;line-height:1.6;}
+.tip{background:#E8F4FF;padding:12px;border-left:4px solid var(--teal);border-radius:10px;margin:12px 0;font-size:14px;}
+.exam{background:#FFF7ED;padding:10px;border-left:4px solid #F59E0B;border-radius:10px;font-size:14px;font-weight:600;}
+
+.img-block img{
+  width:100%;
+  height:260px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:12px;
+  margin-top:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+footer{text-align:center;padding:30px;font-size:14px;color:var(--muted);}
+
+.dark{background:#0a1627;color:#E9F2FA;}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .img-block img{background:#0b1f33;}
+
+
+.img-block2{
+  display:flex;
+  gap:16px;              /* space between images */
+}
+
+.img-block2 img{
+  width:50%;             /* each image takes half width */
+  height:260px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:12px;
+  margin-top:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a class="back-btn" href="aimlunit1.html">← Back</a>
+<div class="brand">
+  <h1>NBKRIST–CloudNest</h1>
+  <div class="tagline">Understanding Cloud Service Models</div>
+</div>
+<div>
+  <button id="pdfBtn">⬇ PDF</button>
+  <button id="modeToggle">☀/🌙</button>
+</div>
+</header>
+
+<div class="container">
+
+<h2>Different Cloud Service Models</h2>
+
+<section class="section">
+<h3>Introduction</h3>
+<div class="img-block2">
+  <img src="offering.png" alt="SaaS Diagram">
+  <img src="offering2.png" alt="SaaS Diagram">
+</div>
+<p>
+Cloud service models define <b>what the cloud provider manages</b> and <b>what the customer controls</b>. 
+Understanding these models helps you decide which level of control, flexibility, and responsibility is required for an application.
+<br>Here the cloud Service Models are broadly classified into three main categories: IaaS, PaaS, and SaaS.The providers offer different levels of management and control based on these models, they offer databases, Web Servers, Application Servers, messaging services, storage,networking, and more to the customers as service and customers pay them as per the use.
+</p>
+<div class="img-block2">
+  <img src="model2.png" alt="SaaS Diagram">
+  <img src="diffmodels.png" alt="SaaS Diagram">
+</div>
+</section>
+
+<!-- IaaS -->
+<section class="section">
+<h3>1️⃣ Infrastructure as a Service (IaaS)</h3>
+
+<div class="desc">
+IaaS provides basic computing infrastructure such as virtual machines, storage, and networking.  
+The cloud provider manages the physical hardware, while the customer manages OS, runtime, and applications.  
+It offers maximum flexibility and control.
+<br><br> IaaS is the process of providing the hardware resources as a service to run applications. By using IaaS services, customers can avoid the cost and complexity of buying and managing their own physical servers and other data center infrastructure. Each resource is offered as a separate service component, and customers only need to rent a particular one for as long as they need it.
+</div>
+
+<div class="tip">
+<b>Examples:</b> AWS EC2, Azure Virtual Machines, Google Compute Engine<br>
+<b>Best For:</b> System administrators, custom architectures
+</div>
+
+<div class="exam">
+📘 Exam Line: IaaS delivers virtualized computing resources over the internet.
+</div>
+
+<div class="img-block">
+  <img src="iaasproviders.png" alt="IaaS Diagram">
+</div>
+</section>
+
+<!-- PaaS -->
+<section class="section">
+<h3>2️⃣ Platform as a Service (PaaS)</h3>
+
+<div class="desc">
+PaaS provides a ready-made platform for application development.  
+Developers focus only on code while the provider manages OS, runtime, and infrastructure.  
+It speeds up development and reduces operational complexity.
+<br><br>
+    PaaS provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app. PaaS can include tools for development, database management, business analytics, and more.
+
+</div>
+
+<div class="tip">
+<b>Examples:</b> Google App Engine, Azure App Service, AWS Elastic Beanstalk<br>
+<b>Best For:</b> Application developers
+</div>
+
+<div class="exam">
+📘 Exam Line: PaaS provides a development platform without managing infrastructure.
+</div>
+
+<div class="img-block">
+  <img src="paas.png" alt="PaaS Diagram">
+</div>
+</section>
+
+<!-- SaaS -->
+<section class="section">
+<h3>3️⃣ Software as a Service (SaaS)</h3>
+
+<div class="desc">
+SaaS delivers fully functional software applications over the internet.  
+Users simply access the application without worrying about installation or maintenance.  
+Everything is managed by the service provider.
+<br><br>
+    SaaS is a software distribution model in which applications are hosted by a service provider and made available to customers over the internet. SaaS eliminates the need for organizations to install and run applications on their own computers or data centers, reducing the expense of hardware acquisition, maintenance, and software licensing.
+</div>
+
+<div class="tip">
+<b>Examples:</b> Gmail, Google Docs, Salesforce, Office 365<br>
+<b>Best For:</b> End users
+</div>
+
+<div class="exam">
+📘 Exam Line: SaaS provides ready-to-use software applications over the internet.
+</div>
+
+<div class="img-block">
+  <img src="saas.png" alt="SaaS Diagram">
+</div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section">
+<h3>Service Models – Quick Comparison</h3>
+
+<div class="desc">
+<b>IaaS:</b> You manage applications & OS  
+<b>PaaS:</b> You manage only applications  
+<b>SaaS:</b> You only use the software
+<div class="img-block">
+  <img src="modelsComp.png" alt="SaaS Diagram">
+</div>
+</div>
+
+<div class="exam">
+📘 Memory Trick: <b>IaaS = Infrastructure</b>, <b>PaaS = Platform</b>, <b>SaaS = Software</b>
+</div>
+</section>
+
+<section class="section">
+<h3>Final Takeaway</h3>
+<p>
+Choosing the right service model depends on how much control and responsibility you want. 
+IaaS offers flexibility, PaaS boosts productivity, and SaaS maximizes simplicity. 
+A strong understanding of these models is essential for cloud architecture and exam success.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala.
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
