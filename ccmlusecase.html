@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI/ML Lifecycle | Cloud-Powered Healthcare</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .menu {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 14px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      box-shadow: 0 6px 18px rgba(0, 140, 255, .22);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: auto;
+      padding: 12px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .tip {
+      background: #E8F4FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .exam {
+      background: #FFF7ED;
+      padding: 10px;
+      border-left: 4px solid #F59E0B;
+      border-radius: 10px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    details {
+      background: #F0F8FF;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #DCEAFF;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header,
+    .dark .menubar {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+    }svg text {
+  font-family: Poppins;
+  font-size: 14px;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.node rect {
+  fill: url(#flowGrad);
+  box-shadow: 0 6px 16px rgba(0,0,0,.2);
+}
+
+.flow {
+  fill: none;
+  stroke: #008CFF;
+  stroke-width: 4;
+  marker-end: url(#arrow);
+  stroke-dasharray: 8;
+  animation: dash 2s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">AI / Cloud Architecture Learning Hub</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+
+<div class="container">
+
+<h2>AI / ML Lifecycle using Cloud (Healthcare Use Case)</h2>
+
+<section class="section">
+  <h3>Introduction</h3>
+  <p class="desc">
+    In large hospital research environments, AI/ML systems must process massive volumes of clinical data,
+    train complex models, and deploy them securely. Cloud computing enables every stage of the AI/ML lifecycle
+    with scalability, compliance, and cost efficiency.
+  </p>
+</section>
+<section class="section">
+  <h3>🔄 AI / ML Lifecycle – Animated Flow</h3>
+
+  <svg viewBox="0 0 1000 180" width="100%" height="180">
+    <defs>
+      <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#008CFF"/>
+        <stop offset="100%" stop-color="#00A8A8"/>
+      </linearGradient>
+
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3"
+        orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#008CFF"/>
+      </marker>
+    </defs>
+
+    <!-- Boxes -->
+    <g class="node">
+      <rect x="20" y="60" width="120" height="60" rx="14"/>
+      <text x="80" y="95">Data</text>
+    </g>
+
+    <g class="node">
+      <rect x="180" y="60" width="140" height="60" rx="14"/>
+      <text x="250" y="95">Preprocess</text>
+    </g>
+
+    <g class="node">
+      <rect x="360" y="60" width="140" height="60" rx="14"/>
+      <text x="430" y="95">Training</text>
+    </g>
+
+    <g class="node">
+      <rect x="540" y="60" width="140" height="60" rx="14"/>
+      <text x="610" y="95">LLM / RAG</text>
+    </g>
+
+    <g class="node">
+      <rect x="720" y="60" width="140" height="60" rx="14"/>
+      <text x="790" y="95">Deploy</text>
+    </g>
+
+    <!-- Flow Lines -->
+    <path class="flow" d="M140 90 L180 90"/>
+    <path class="flow" d="M320 90 L360 90"/>
+    <path class="flow" d="M500 90 L540 90"/>
+    <path class="flow" d="M680 90 L720 90"/>
+  </svg>
+
+  <div class="exam">
+    📘 Exam Tip: AI/ML lifecycle is iterative with continuous feedback and retraining.
+  </div>
+</section>
+<section class="section">
+  <h3>1️⃣ Data Collection</h3>
+  <p class="desc">
+    Medical data is collected from EHR systems, lab reports, imaging devices, wearables, and doctor notes.
+  </p>
+  <div class="tip"><b>Cloud:</b> AWS S3, GCP GCS, Azure Blob</div>
+  <div class="exam">📘 Exam Line: Cloud storage enables scalable and durable medical data ingestion.</div>
+</section>
+
+<section class="section">
+  <h3>2️⃣ Data Ingestion & Integration</h3>
+  <p class="desc">
+    Data from multiple hospital systems is ingested, standardized, and integrated into a unified data lake.
+  </p>
+  <div class="tip"><b>Cloud:</b> AWS Glue, Dataflow, Azure Data Factory</div>
+</section>
+
+<section class="section">
+  <h3>3️⃣ Data Cleaning & Preprocessing</h3>
+  <p class="desc">
+    Missing values are handled, sensitive information anonymized, and images/text normalized for ML readiness.
+  </p>
+  <div class="tip"><b>Cloud:</b> Spark on EMR, Dataproc, SageMaker Studio</div>
+</section>
+
+<section class="section">
+  <h3>4️⃣ Feature Engineering</h3>
+  <p class="desc">
+    Clinical indicators, statistical patterns, and embeddings from text and images are extracted as features.
+  </p>
+  <div class="tip"><b>Cloud:</b> Feature Store, GPU-enabled instances</div>
+</section>
+
+<section class="section">
+  <h3>5️⃣ Model Training (Disease Prediction)</h3>
+  <p class="desc">
+    ML and Deep Learning models are trained to predict diseases like diabetes, cancer, or heart conditions.
+  </p>
+  <div class="tip"><b>Cloud:</b> SageMaker, Vertex AI, Azure ML (GPU/TPU)</div>
+</section>
+
+<section class="section">
+  <h3>6️⃣ Model Evaluation & Validation</h3>
+  <p class="desc">
+    Models are evaluated using accuracy, recall, bias detection, and clinical validation metrics.
+  </p>
+</section>
+
+<section class="section">
+  <h3>7️⃣ LLM & RAG Pipeline</h3>
+  <p class="desc">
+    Large Language Models assist doctors by summarizing records and retrieving similar medical cases using RAG.
+  </p>
+  <div class="tip"><b>Cloud:</b> Azure OpenAI, AWS Bedrock, Vector Databases</div>
+</section>
+
+<section class="section">
+  <h3>8️⃣ Deployment & Inference</h3>
+  <p class="desc">
+    Trained models are deployed as APIs and integrated with hospital systems for real-time predictions.
+  </p>
+</section>
+
+<section class="section">
+  <h3>9️⃣ Monitoring & Continuous Learning</h3>
+  <p class="desc">
+    Model performance is monitored, drift detected, and models retrained periodically.
+  </p>
+</section>
+
+<section class="section">
+  <h3>Quick Quiz</h3>
+  <details>
+    <summary>Why is cloud essential for healthcare AI?</summary>
+    <p>It provides scalability, security, compliance, and GPU resources.</p>
+  </details>
+  <details>
+    <summary>What role does LLM play in hospitals?</summary>
+    <p>Clinical decision support and medical research assistance.</p>
+  </details>
+</section>
+
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

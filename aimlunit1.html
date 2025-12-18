@@ -29,6 +29,7 @@
     header {
       position: sticky;
       top: 0;
+      z-index: 1000;
       background: #fff;
       padding: 10px 18px;
       display: flex;
@@ -76,10 +77,49 @@
       background: #0F1C2E;
     }
 
+    /* 🌟 RICH HORIZONTAL MENU BAR */
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .menu {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px 14px;
+  display: flex;
+  gap: 5px;              /* 🔽 reduced spacing */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  padding: 10px 16px;    /* 🔽 reduced button width */
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13.5px;     /* optional: slightly compact */
+  letter-spacing: .25px;
+  box-shadow: 0 6px 18px rgba(0, 140, 255, .22);
+  transition: all .25s ease;
+}
+
+    .menu a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 140, 255, .35);
+    }
+
     .container {
       max-width: 980px;
-      margin: 30px auto;
-      padding: 20px;
+      margin: 2px auto;
+      padding: 10px;
     }
 
     h2,
@@ -94,31 +134,6 @@
       border-left: 6px solid var(--azure-blue);
       box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
       margin-bottom: 26px;
-    }
-
-    /* HORIZONTAL MENU */
-    .menu {
-      display: flex;
-      gap: 14px;
-      margin: 20px 0 30px;
-      flex-wrap: wrap;
-    }
-
-    .menu a {
-      flex: 1;
-      text-align: center;
-      padding: 12px;
-      background: linear-gradient(90deg, var(--azure-blue), var(--teal));
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-
-    .menu a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
     }
 
     .desc {
@@ -188,7 +203,8 @@
       color: #E9F2FA;
     }
 
-    .dark header {
+    .dark header,
+    .dark .menubar {
       background: #071322;
     }
 
@@ -213,8 +229,7 @@
     <a class="back-btn" href="aiml.html">← Back</a>
     <div class="brand">
       <h1>NBKRIST–CloudNest</h1>
-      <div class="tagline">Empowering Learners for the Cloud Era
-      </div>
+      <div class="tagline">Empowering Learners for the Cloud Era</div>
     </div>
     <div>
       <button id="pdfBtn">⬇ PDF</button>
@@ -222,20 +237,27 @@
     </div>
   </header>
 
+  <!-- 🌟 MENUBAR -->
+  <div class="menubar">
+    <nav class="menu">
+      <a href="ccservicemodel.html">Service Models</a>
+      <a href="ccdeploymentmodels.html">Deployment Models</a>
+      <a href="aiccconvergence.html">AI/CC Convergence</a>
+      <a href="providersai.html">Cloud Providers</a>
+      <a href="aiusecases.html">Use Cases</a>
+      <a href="ccmlusecase.html">CC-AI/ML for Healthcare</a>
+      <a href="unit1assignment.html">Assignment</a>
+    </nav>
+  </div>
+
+  <!-- 🔵 REST OF PAGE CONTENT — UNCHANGED -->
+  <!-- (your existing container, sections, quiz, footer remain exactly the same) -->
+
   <div class="container">
 
    
 
-    <!-- ✅ 5 BUTTON HORIZONTAL MENU -->
-    <nav class="menu">
 
-      <a href="ccservicemodel.html">Service Models</a>
-      <a href="ccdeploymentmodels.html">Deployment Models</a>
-      <a href="aiccconvergence.html">AI/CC Convergence </a>
-      <a href="providersai.html">Cloud providers</a>
-      <a href="aiusecases.html">Use Cases</a>
-       <a href="unit1assignment.html">Assignment</a>
-    </nav>
  <h2>Characteristics of Cloud Computing</h2>
     <section class="section">
       <h3>Introduction (Industry Perspective)</h3>
