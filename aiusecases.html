@@ -71,6 +71,27 @@ footer{text-align:center;padding:30px;font-size:14px;color:var(--muted);}
 .dark header{background:#071322;}
 .dark .section{background:#102031;border-left-color:#2993ff;}
 .dark details{background:#0b1f33;}
+
+.img-block img{
+  width:100%;
+  height:260px;
+  object-fit:contain;
+  background:#ffffff;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 10px 28px rgba(0,0,0,.08);
+}
+/* Responsive */
+@media(max-width:900px){
+  .content-wrap{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .img-block img{
+    height:220px;
+  }
+}
 </style>
 </head>
 
@@ -100,6 +121,14 @@ Artificial Intelligence achieves its full potential only when combined with Clou
 Cloud platforms provide the scalable compute, storage, and managed AI services required to deploy real-world AI solutions.
 Together, AI and Cloud enable intelligent systems across industries such as banking and healthcare.
 </p>
+
+<div class="img-block">
+      <img 
+        src="hybridarch.png" 
+        alt="Cloud Architecture Diagram"
+        loading="lazy"
+      />
+    </div>
 </section>
 
 <!-- NLP -->
