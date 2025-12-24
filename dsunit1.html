@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NBKRIST-CloudNest | Unit 1</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -19,381 +22,735 @@
     }
 
     /* Reset & base */
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       background: var(--bg);
       color: var(--dark-slate);
-      -webkit-font-smoothing:antialiased;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Header (fixed to top) */
-    header {
+    .header-shell {
       position: sticky;
       top: 0;
       z-index: 1000;
-      width: 100%;
+    }
+
+    /* Header */
+    header {
       background: white;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 12px 20px;
-      box-shadow: 0 2px 10px rgba(15,28,46,0.06);
-    }
-    .brand { display:flex; align-items:center; gap:12px; }
-    .brand svg { display:block; }
-    .brand h1 { margin:0; font-family:Poppins, Inter; font-size:20px; }
-    .tagline { font-size:13px; color:var(--muted); margin-top:2px; }
+      box-shadow: 0 2px 10px rgba(15, 28, 46, 0.06);
 
-    .header-controls { display:flex; gap:12px; align-items:center; }
-    .back-btn {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      text-decoration:none;
-      padding:9px 12px;
-      background:#eee;
-      color:#000;
-      border-radius:8px;
-      font-weight:600;
-      box-shadow:0 1px 2px rgba(0,0,0,0.04);
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
     }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand svg {
+      display: block;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins, Inter;
+      font-size: 20px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 9px 12px;
+      background: #eee;
+      color: #000;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
     #modeToggle {
-      padding:8px 12px;
-      border-radius:8px;
+      padding: 8px 12px;
+      border-radius: 8px;
       border: none;
-      font-weight:600;
-      background:var(--dark-slate);
-      color:white;
-      cursor:pointer;
+      font-weight: 600;
+      background: var(--dark-slate);
+      color: white;
+      cursor: pointer;
     }
 
     /* Page container */
     .container {
       max-width: 980px;
       margin: 18px auto 80px;
-      padding: 22px;
+      padding: 2px;
     }
 
     /* Menu bar */
     .menu-bar {
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
-      margin-bottom:22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      margin-bottom: 22px;
     }
+
     .menu-btn {
-      padding:9px 14px;
-      border-radius:10px;
-      font-weight:700;
-      color:white;
-      text-decoration:none;
-      background: linear-gradient(90deg,var(--azure-blue), var(--teal));
-      box-shadow:0 6px 18px rgba(3,115,255,0.08);
-      font-size:14px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--azure-blue), var(--teal));
+      box-shadow: 0 6px 18px rgba(3, 115, 255, 0.08);
+      font-size: 14px;
     }
 
     /* Sections */
     .section {
       background: var(--card-bg);
       border-radius: var(--radius);
-      padding:22px;
-      margin-bottom:28px;
-      border-left:6px solid var(--azure-blue);
-      box-shadow: 0 8px 30px rgba(15,28,46,0.05);
+      padding: 22px;
+      margin-bottom: 28px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 30px rgba(15, 28, 46, 0.05);
       transition: transform .12s ease;
     }
-    .section:hover { transform: translateY(-4px); }
 
-    .section h3 { margin:0 0 8px 0; font-size:18px; display:flex; align-items:center; gap:10px; }
-    .section p, .section ul { margin-top:8px; color:var(--dark-slate); line-height:1.55; }
-    .section ul { padding-left:18px; }
+    .section:hover {
+      transform: translateY(-4px);
+    }
+
+    .section h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section p,
+    .section ul {
+      margin-top: 8px;
+      color: var(--dark-slate);
+      line-height: 1.55;
+    }
+
+    .section ul {
+      padding-left: 18px;
+    }
 
     .tip {
-      margin-top:10px;
-      padding:10px 14px;
-      background:#E8F4FF;
-      border-left:4px solid var(--teal);
-      border-radius:8px;
-      font-size:14px;
-      color:var(--dark-slate);
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #E8F4FF;
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--dark-slate);
     }
 
     /* Image block - placed at BOTTOM of each section */
-    .img-block { margin-top:20px; text-align:center; }
+    .img-block {
+      margin-top: 20px;
+      text-align: center;
+    }
+
     .img-block img {
-      width:100%;
-      max-height:260px;
-      object-fit:cover;
-      border-radius:12px;
-      display:block;
-      box-shadow:0 8px 24px rgba(3,115,255,0.08);
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 8px 24px rgba(3, 115, 255, 0.08);
     }
 
     /* Practice Qs */
-    details { margin-top:12px; padding:10px 12px; border-radius:8px; background:#FBFBFE; border:1px solid #EEF5FF; }
-    summary { cursor:pointer; font-weight:600; }
+    details {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #FBFBFE;
+      border: 1px solid #EEF5FF;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
 
     /* Footer */
     footer {
-      text-align:center;
-      padding:26px 8px;
-      font-size:14px;
-      color:var(--muted);
-      margin-top:10px;
+      text-align: center;
+      padding: 26px 8px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
-    /* Responsive */
-    @media (max-width:720px){
-      .container { padding:16px; margin-top:12px; }
-      .brand h1 { font-size:18px;}
-      .menu-btn { font-size:13px; padding:8px 12px; }
-      .img-block img { max-height:180px; }
-      header { padding:10px 12px; }
+    /* ======= Horizontal Menu Bar ======= */
+    /* ======= Header-Attached Menu Bar ======= */
+    /* Menu (attached, no gap) */
+    .top-nav {
+      margin: 0;
+      padding: 0;
+
+      background:
+        linear-gradient(90deg,
+          rgba(0, 140, 255, 0) 0%,
+          rgba(0, 140, 255, 0.96) 12%,
+          rgba(0, 168, 168, 0.96) 88%,
+          rgba(0, 168, 168, 0) 100%);
+
+      backdrop-filter: blur(6px);
     }
+
+    /* container */
+    .top-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+    }
+
+    /* top items */
+    .top-nav>ul>li>a {
+      display: block;
+      padding: 14px 12px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* underline animation */
+    .top-nav>ul>li>a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 1px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: all .25s ease;
+      transform: translateX(-50%);
+    }
+
+    .top-nav>ul>li>a:hover::after {
+      width: 70%;
+    }
+
+    /* ======= Dropdown ======= */
+    .top-nav li {
+      position: relative;
+    }
+
+    .top-nav li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 14px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+      display: none;
+      padding: 10px 0;
+      margin-top: 2px;
+    }
+
+    .top-nav li:hover ul {
+      display: block;
+    }
+
+    /* dropdown items */
+    .top-nav li ul li a {
+      display: block;
+      padding: 11px 18px;
+      font-size: 14px;
+      color: var(--dark-slate);
+      text-decoration: none;
+    }
+
+    .top-nav li ul li a:hover {
+      background: #F1F7FF;
+      color: var(--azure-blue);
+    }
+
+    /* ======= Mobile ======= */
+    @media (max-width: 900px) {
+      .top-nav ul {
+        flex-wrap: wrap;
+        gap: 18px;
+        padding: 6px 14px;
+      }
+    }
+
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .top-nav ul {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+
+
+    /* Responsive */
+    @media (max-width:720px) {
+      .container {
+        padding: 16px;
+        margin-top: 12px;
+      }
+
+      .brand h1 {
+        font-size: 18px;
+      }
+
+      .menu-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .img-block img {
+        max-height: 180px;
+      }
+
+      header {
+        padding: 10px 12px;
+      }
+    }
+
+    /* =========================
+   DARK MODE (FIXED & CLEAN)
+========================= */
+.dark-mode {
+  --bg: #0F1C2E;
+  --card-bg: #16263f;
+  --dark-slate: #EAF0FF;
+  --muted: #A8B4C7;
+}
+
+/* Body */
+.dark-mode body {
+  background: var(--bg);
+  color: var(--dark-slate);
+}
+
+/* Header fix */
+.dark-mode header {
+  background: #111f35;
+  box-shadow: none;
+}
+
+/* Brand text */
+.dark-mode .brand h1,
+.dark-mode .tagline {
+  color: #fff;
+}
+
+/* Back button */
+.dark-mode .back-btn {
+  background: #223457;
+  color: #fff;
+}
+
+/* Top navigation – REMOVE blur in dark mode */
+.dark-mode .top-nav {
+  backdrop-filter: none;
+  background: linear-gradient(
+    90deg,
+    #0d1b30 0%,
+    #12284a 50%,
+    #0d1b30 100%
+  );
+}
+
+/* Top nav links */
+.dark-mode .top-nav > ul > li > a {
+  color: #EAF0FF;
+}
+
+/* Dropdown menu */
+.dark-mode .top-nav li ul {
+  background: #1b2f52;
+}
+
+.dark-mode .top-nav li ul li a {
+  color: #EAF0FF;
+}
+
+.dark-mode .top-nav li ul li a:hover {
+  background: #26406d;
+}
+
+/* Sections */
+.dark-mode .section {
+  background: var(--card-bg);
+  border-left-color: #4aa3ff;
+}
+
+/* Tip boxes */
+.dark-mode .tip {
+  background: #1f3a63;
+  color: #EAF0FF;
+}
+
   </style>
 </head>
+
 <body>
 
   <!-- HEADER (fixed top) -->
-  <header>
-    <!-- Back button (left) -->
-    <a class="back-btn" href="ds.html" title="Back to DS Overview">← Back</a>
 
-    <!-- Brand (center) -->
-    <div class="brand" aria-hidden="false">
-      <svg viewBox="0 0 64 64" width="46" height="46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
-        <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
-        </g>
-      </svg>
 
-      <div>
-        <h1 style="margin:0;font-family:Poppins,Inter;font-size:20px;">NBKRIST–CloudNest</h1>
-        <div class="tagline">Empowering Learners for the Cloud Era</div>
+
+  <div class="header-shell">
+
+    <header>
+      <!-- Back button (left) -->
+      <a class="back-btn" href="ds.html" title="Back to DS Overview">← Back</a>
+
+      <!-- Brand (center) -->
+      <div class="brand" aria-hidden="false">
+        <svg viewBox="0 0 64 64" width="46" height="46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0%" x2="100%">
+              <stop offset="0%" stop-color="#008CFF" />
+              <stop offset="100%" stop-color="#00A8A8" />
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z" />
+          </g>
+        </svg>
+
+        <div>
+          <h1 style="margin:0;font-family:Poppins,Inter;font-size:20px;">NBKRIST–CloudNest</h1>
+          <div class="tagline">Empowering Learners for the Cloud Era</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Controls (right) -->
-    <div class="header-controls">
-      <button id="modeToggle" aria-label="Toggle light/dark mode">☀ / 🌙</button>
-    </div>
-  </header>
+      <!-- Controls (right) -->
+      <div class="header-controls">
+        <button id="modeToggle" aria-label="Toggle light/dark mode">☀ / 🌙</button>
+      </div>
+    </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="container" role="main">
-    <!-- top menu -->
-    <nav class="menu-bar" aria-label="Unit navigation">
-      <a class="menu-btn" href="unit1.html">Unit I</a>
-      <a class="menu-btn" href="unit2.html">Unit II</a>
-      <a class="menu-btn" href="unit3.html">Unit III</a>
-      <a class="menu-btn" href="unit4.html">Unit IV</a>
-      <a class="menu-btn" href="unit5.html">Unit V</a>
+    <!-- HORIZONTAL MENU BAR -->
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li>
+          <a href="#">CloudNet</a>
+          <ul>
+          
+            <li><a href="dscldChars.html">Characteristics</a></li>
+            <li><a href="pdo.html">My Stories</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Cloud concepts and Technologies</a>
+          <ul>
+            <li><a href="vistualization.html">Virtualization</a></li>
+            <li><a href="#">Load balancing</a></li>
+            <li><a href="#">Scalability and Elasticity</a></li>
+             <li><a href="#">Replication and Fault tolerance</a></li>
+            <li><a href="#">Services Level Agreements, Billing</a></li>
+            <li><a href="#">Identity and Access Management</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Cloud Service Models</a>
+          <ul>
+            <li><a href="#">Service Models</a></li>
+            <li><a href="#">Deployment Models</a></li>
+            
+          </ul>
+        </li>
+
+   
+
+        <li>
+          <a href="#">Cloud Services and Platforms</a>
+          <ul>
+            <li><a href="#">Core Services</a></li>         
+            <li><a href="#">Application Services</a></li>
+                    <li><a href="#">Deployment and Management </a></li>
+            <li><a href="#">Identity and Access Management </a></li>
+            <li><a href="#">Cloud Softwares & frameworks</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Practice</a>
+          <ul>
+             <li><a href="#">Assignment Qs</a></li>
+            <li><a href="#">MCQs</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Interview Qs</a></li>
+          </ul>
+        </li>
+
+             <li>
+          <a href="#">Use Cases And Architectures</a>
+          <ul>
+            <li><a href="#">IaaS</a></li>
+            <li><a href="#">PaaS</a></li>
+            <li><a href="#">SaaS</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
 
-    <h2>UNIT I – Basics of Cloud Computing</h2>
+  </div>
+<main class="container" role="main">
 
-    <!-- Expert View -->
-    <section class="section" id="expert-view">
-      <h3>☁️ 🧠 Expert View</h3>
-      <div class="tip"><strong>Tip:</strong> Cloud provides the platform that makes modern AI/ML, big data and global apps possible — focus on infrastructure + automation.</div>
-      <p>As an experienced software professional, I can say cloud computing is an essential skill for modern software development. Without cloud platforms, it’s hard to imagine AI, Machine Learning, and Data Science reaching production scale. Cloud delivers flexible compute, large-scale storage, global networks, orchestration, and managed services that accelerate development and lower operational overhead. Mastering cloud fundamentals helps you design scalable, resilient, and cost-efficient software systems.</p>
+  <h2>Introduction to Cloud Computing</h2>
 
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/008CFF/FFFFFF?text=Cloud+Overview+(Replace+with+diagram)" alt="Cloud overview placeholder">
-      </div>
-    </section>
+  <!-- Expert View -->
+  <section class="section" id="expert-view">
+    <h3>☁️ 🧠 Expert View</h3>
+    <div class="tip"><strong>Tip:</strong> Cloud computing is not just a technology — it is a new way of thinking about IT.</div>
 
-    <!-- Intro -->
-    <section class="section" id="intro">
-      <h3>☁️ 🌥️ Introduction to Cloud Computing</h3>
-      <div class="tip"><strong>Tip:</strong> Remember “on-demand + pay-as-you-go + global access”.</div>
+    <p>
+      From real-world industry experience, cloud computing has fundamentally transformed how data science solutions are designed, developed, and scaled. Earlier, data teams spent months procuring servers and configuring environments just to begin data analysis. Today, cloud platforms allow data scientists to focus on data exploration, feature engineering, and model building instead of infrastructure management. Cloud computing has become the backbone for modern data science workflows, enabling large-scale data processing, advanced analytics, and AI/ML model training, while supporting globally accessible, data-driven applications.
+    </p>
+  </section>
 
-      <p>Cloud computing means accessing computing resources (servers, storage, databases, networking, analytics, etc.) over the internet. Organizations use cloud to avoid buying and maintaining physical hardware and to scale systems quickly as demand changes.</p>
+  <!-- Intro -->
+  <section class="section" id="intro">
+    <h3>☁️ 🌥️ What is Cloud Computing?</h3>
+    <div class="tip"><strong>Tip:</strong> Think of cloud as “renting computing power like electricity”.</div>
 
-      <h4>Key Concepts</h4>
-      <ul>
-        <li><strong>On-demand access:</strong> resources provisioned instantly.</li>
-        <li><strong>Pay-as-you-go:</strong> only pay for what you use.</li>
-        <li><strong>Global accessibility:</strong> reachable from anywhere.</li>
-        <li><strong>Shared infrastructure:</strong> multi-tenant resource pooling.</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/00A8A8/FFFFFF?text=Intro+Concepts+(Replace+image)" alt="Introduction placeholder">
-      </div>
-    </section>
-
-    <!-- Characteristics -->
-    <section class="section" id="characteristics">
-      <h3>☁️ ⚙️ Characteristics of Cloud Computing</h3>
-      <div class="tip"><strong>Tip:</strong> Elasticity and scalability are not the same — elasticity is automatic scaling, scalability is capacity to grow.</div>
-
-      <ul>
-        <li><strong>Elasticity:</strong> auto-scale resources up/down.</li>
-        <li><strong>Scalability:</strong> design to support growth.</li>
-        <li><strong>Resource Pooling:</strong> providers share infrastructure.</li>
-        <li><strong>Measured Service:</strong> monitoring & billing.</li>
-        <li><strong>Broad Network Access:</strong> devices & locations.</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/0066CC/FFFFFF?text=Elasticity+%26+Scalability" alt="Characteristics placeholder">
-      </div>
-    </section>
-
-    <!-- Deployment Models -->
-    <section class="section" id="deployment">
-      <h3>☁️ 🏗️ Cloud Deployment Models</h3>
-      <div class="tip"><strong>Tip:</strong> Use Private for sensitive data, Public for scale & cost savings, Hybrid for best of both.</div>
-
-      <p>Deployment models describe how cloud services are delivered and controlled.</p>
-      <ul>
-        <li><strong>Public Cloud:</strong> services offered by providers (AWS/Azure/GCP).</li>
-        <li><strong>Private Cloud:</strong> dedicated infrastructure for one org.</li>
-        <li><strong>Hybrid Cloud:</strong> mix of both; enables workload portability.</li>
-        <li><strong>Community Cloud:</strong> shared by similar organizations.</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/004C99/FFFFFF?text=Deployment+Models" alt="Deployment models placeholder">
-      </div>
-    </section>
-
-    <!-- Service Models -->
-    <section class="section" id="service-models">
-      <h3>☁️ 🧩 Cloud Service Models</h3>
-      <div class="tip"><strong>Tip:</strong> IaaS = raw infra, PaaS = platform for devs, SaaS = finished apps.</div>
-
-      <p>Service models define the level of abstraction:</p>
-      <ul>
-        <li><strong>IaaS:</strong> virtual machines, networking, storage.</li>
-        <li><strong>PaaS:</strong> managed runtimes, databases, dev platforms.</li>
-        <li><strong>SaaS:</strong> delivered software like email, CRM, office suites.</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/0099CC/FFFFFF?text=IaaS+PaaS+SaaS" alt="Service models placeholder">
-      </div>
-    </section>
-
-    <!-- Concepts & Technologies -->
-    <section class="section" id="concepts-tech">
-      <h3>☁️ 🔧 Cloud Concepts & Technologies</h3>
-      <div class="tip"><strong>Tip:</strong> Learn a few core techs well (virtualization, containers, networking) — they appear in every cloud job.</div>
-
-      <p>Important building blocks and technologies:</p>
-      <ul>
-        <li>Virtualization & hypervisors</li>
-        <li>Load balancing</li>
-        <li>Scalability & replication</li>
-        <li>Monitoring & observability</li>
-        <li>Software-defined networking (SDN), NFV</li>
-        <li>MapReduce & big-data processing</li>
-        <li>Identity and Access Management (IAM)</li>
-        <li>Service Level Agreements (SLAs) and billing</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/0077B6/FFFFFF?text=Core+Cloud+Technologies" alt="Core technologies placeholder">
-      </div>
-    </section>
-
-    <!-- Services & Platforms -->
-    <section class="section" id="services-platforms">
-      <h3>☁️ 🗄️ Cloud Services & Platforms</h3>
-      <div class="tip"><strong>Tip:</strong> Practice with one provider (AWS/Azure/GCP) and map concepts to others.</div>
-
-      <p>Cloud providers supply many managed services that developers use:</p>
-      <ul>
-        <li>Compute: VMs, Containers, Serverless (functions)</li>
-        <li>Storage: object, block, file storage</li>
-        <li>Databases: managed relational & NoSQL</li>
-        <li>CDN: content distribution</li>
-        <li>Analytics: data lakes, streaming, ML platforms</li>
-        <li>Identity & access (IAM), deployment & monitoring tools</li>
-        <li>Open-source private cloud options: OpenStack, CloudStack</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/005F73/FFFFFF?text=Services+%26+Platforms" alt="Services platforms placeholder">
-      </div>
-    </section>
-
-    <!-- Key Summary -->
-    <section class="section" id="key-summary">
-      <h3>☁️ 📌 Key Summary Points</h3>
-      <div class="tip"><strong>Tip:</strong> Keep the fundamentals strong — they reappear in advanced topics (AI/ML, Big Data, DevOps).</div>
-
-      <ul>
-        <li>Cloud computing offers elastic, scalable, and globally available IT resources.</li>
-        <li>Virtualization and containers enable efficient resource usage.</li>
-        <li>Service models (IaaS/PaaS/SaaS) represent increasing abstraction.</li>
-        <li>Providers offer managed services to accelerate development and reduce ops burden.</li>
-        <li>Understanding fundamentals is essential before advancing to AI/ML and big-data work.</li>
-      </ul>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/008CFF/FFFFFF?text=Summary" alt="Summary placeholder">
-      </div>
-    </section>
-
-    <!-- Practice Questions -->
-    <section class="section" id="practice-qs">
-      <h3>☁️ 📝 Practice Questions</h3>
-      <div class="tip"><strong>Tip:</strong> Try to answer before you click — then open the detail to compare.</div>
-      <p>Click a question to reveal its answer.</p>
-
-      <details>
-        <summary>1. What is cloud computing in simple words?</summary>
-        <div style="margin-top:8px">
-          <p>Cloud computing is accessing computing resources (servers, storage, applications) over the internet without owning the physical hardware.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>2. What is the difference between scalability and elasticity?</summary>
-        <div style="margin-top:8px">
-          <p>Scalability is the ability to increase capacity to handle growth. Elasticity means automatically adding/removing resources based on demand.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>3. What are the three main cloud service models?</summary>
-        <div style="margin-top:8px">
-          <p>IaaS (Infrastructure as a Service), PaaS (Platform as a Service), SaaS (Software as a Service).</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>4. What role does virtualization play in cloud computing?</summary>
-        <div style="margin-top:8px">
-          <p>Virtualization allows multiple virtual machines to run on a single physical machine, improving utilization and enabling isolation.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>5. Why is cloud important for AI/ML?</summary>
-        <div style="margin-top:8px">
-          <p>AI/ML needs elastic compute (GPUs/TPUs), distributed data stores, and scalable inference — all of which cloud platforms provide on demand.</p>
-        </div>
-      </details>
-
-      <div class="img-block" aria-hidden="true">
-        <img src="https://placehold.co/1000x260/004E89/FFFFFF?text=Practice+Questions" alt="Practice questions placeholder">
-      </div>
-    </section>
-
-    <!-- single back link at bottom for convenience -->
-    <p style="margin-top:6px">
-      <a class="back-btn" href="ds.html">← Back to DS Overview</a>
+    <p>
+      Cloud computing refers to delivering computing services such as servers, storage, databases, networking,
+      software, analytics, and intelligence over the internet. Instead of buying and maintaining physical data centers,
+      organizations use cloud resources on demand and pay only for what they consume.
     </p>
 
-  </main>
+    <p>
+      This approach brings flexibility, speed, cost efficiency, and global reach, making cloud computing
+      the foundation for modern digital transformation.
+    </p>
+  </section>
+
+   <section class="section">
+            <h3>Why Cloud matters for Data Scientists?</h3>
+            <p>
+            <ul>
+                <li>Cloud Computing gives data scientists instant access to scalable compute and storage, making it easy
+                    to process massive datasets without owning hardware.</li>
+                <li>It enables rapid experimentation by allowing models to be trained, tested, and deployed on demand
+                    using powerful CPUs and GPUs.</li>
+                <li>Cloud platforms provide ready-to-use analytics, AI/ML, and big data services that reduce setup time
+                    and accelerate insights.</li>
+                <li>Collaboration becomes seamless, as teams can share data, notebooks, and models securely from
+                    anywhere.</li>
+                <li>Pay-as-you-go pricing helps data scientists innovate cost-effectively, scaling resources up or down
+                    based on project needs.</li>
+            </ul>
+            </p>
+        </section>
+<section class="section">
+  <h3>Computing Evolution → Cloud Shift → Data Science Emergence</h3>
+  <div class="tip"><strong>Big Picture:</strong> Every major computing shift created a new discipline.</div>
+
+  <p>
+  <ul>
+    <li><strong>Traditional Computing Era:</strong> Computing began with standalone machines and on-premise servers, where capacity was fixed, expensive, and difficult to scale.</li>
+    <li><strong>Virtualization & Distributed Systems:</strong> To improve utilization, systems evolved toward virtualization and distributed processing, laying the groundwork for shared infrastructure.</li>
+    <li><strong>Cloud Computing Shift:</strong> Cloud transformed computing into an on-demand service model, offering elastic resources, global access, and pay-as-you-go pricing.</li>
+    <li><strong>Explosion of Data:</strong> With cloud scalability and affordability, organizations started generating and storing massive volumes of data from applications, users, and devices.</li>
+    <li><strong>Data Science Emergence:</strong> The need to extract value from this data led to data science, combining statistics, programming, and domain knowledge, powered by cloud platforms.</li>
+  </ul>
+  </p>
+</section>
+
+<section class="section">
+  <h3>How Cloud Computing Changed Computing & Enabled Data Science</h3>
+  <p>
+  <ul>
+    <li>Cloud computing transformed traditional computing by shifting from fixed, on-premise infrastructure to on-demand, internet-based resources accessible to anyone, anywhere.</li>
+    <li>It removed hardware and cost barriers, allowing organizations and individuals to store, process, and analyze massive volumes of data without owning physical servers.</li>
+    <li>The availability of elastic compute and scalable storage made large-scale data processing, experimentation, and iterative analysis practically feasible.</li>
+    <li>Cloud platforms introduced managed analytics, big-data frameworks, and AI/ML services, turning data science from a research-only discipline into an industry-scale practice.</li>
+    <li>By enabling pay-as-you-go computing, global collaboration, and rapid deployment, cloud computing provided the essential foundation on which modern Data Science ecosystems are built.</li>
+  </ul>
+  </p>
+</section>
+
+<section class="section">
+  <h3>From Infrastructure → Data → Analytics → Artificial Intelligence</h3>
+  <div class="tip"><strong>Concept Flow:</strong> Each stage builds the foundation for the next.</div>
+
+  <p>
+  <ul>
+    <li><strong>Infrastructure:</strong> Cloud computing first solved the problem of infrastructure by providing on-demand servers, storage, and networking without physical ownership.</li>
+    <li><strong>Data:</strong> With scalable infrastructure available, organizations began generating, collecting, and storing massive volumes of structured and unstructured data.</li>
+    <li><strong>Analytics:</strong> Cloud-based analytics platforms enabled processing, querying, and visualization of data to extract patterns, trends, and business insights.</li>
+    <li><strong>Artificial Intelligence:</strong> Once data and analytics matured, AI and machine learning models could be trained at scale using cloud compute power.</li>
+    <li><strong>Outcome:</strong> This progression transformed raw infrastructure into intelligent systems capable of prediction, automation, and decision-making.</li>
+  </ul>
+  </p>
+</section>
+
+
+<section class="section">
+  <h3>Cloud Computing and Data Science Go Hand-in-Hand</h3>
+  <div class="tip"><strong>Core Idea:</strong> Data Science thrives only when cloud provides scale and flexibility.</div>
+
+  <p>
+  <ul>
+    <li><strong>Scalability for Data Processing:</strong> Data science involves processing large datasets, which cloud platforms handle efficiently through elastic compute and storage.</li>
+    <li><strong>Faster Experimentation:</strong> Cloud enables rapid model training, testing, and iteration without long infrastructure setup times.</li>
+    <li><strong>Access to Advanced Tools:</strong> Managed cloud services provide built-in analytics, machine learning frameworks, and data pipelines.</li>
+    <li><strong>Collaboration and Accessibility:</strong> Teams can share data, notebooks, and models securely from anywhere using cloud environments.</li>
+    <li><strong>Cost-Effective Innovation:</strong> Pay-as-you-go pricing allows data scientists to experiment and innovate without heavy upfront investment.</li>
+  </ul>
+  </p>
+</section>
+
+
+  <!-- Points to Remember -->
+  <section class="section" id="points-to-remember">
+    <h3>☁️ 📌 Points to Remember</h3>
+    <div class="tip"><strong>Exam Tip:</strong> These points frequently appear in MCQs and short answers.</div>
+
+    <ul>
+      <li>Cloud computing eliminates upfront hardware investment.</li>
+      <li>Elasticity enables automatic scaling based on demand.</li>
+      <li>Pay-as-you-go pricing reduces operational cost.</li>
+      <li>Service models define responsibility sharing.</li>
+      <li>Cloud is essential for AI, ML, Big Data, and DevOps.</li>
+    </ul>
+  </section>
+
+  <!-- Summary -->
+  <section class="section" id="summary">
+    <h3>☁️ 🧾 Summary</h3>
+    <div class="tip"><strong>Concept Insight:</strong> Cloud is a foundation subject for advanced technologies.</div>
+
+    <p>
+      Cloud computing provides scalable, elastic, and cost-efficient computing resources over the internet.
+      It changes the traditional IT model by offering services on demand with minimal management overhead.
+      Understanding cloud fundamentals is critical before learning advanced domains such as
+      Data Science, AI/ML, Big Data, and Cloud-Native Development.
+    </p>
+  </section>
+<section class="section" id="general-quiz">
+  <h3>☁️ 🧠 General Quiz – Cloud Thinking for Data Scientists</h3>
+  <div class="tip">
+    <strong>Reflection Tip:</strong> These questions are meant to connect cloud concepts with your day-to-day data science thinking.
+  </div>
+
+  <details>
+    <summary>1. Before cloud computing, what was the biggest obstacle for starting a data science project?</summary>
+    <p>
+      Setting up and procuring infrastructure such as servers, storage, and computing environments before any data analysis could begin.
+    </p>
+  </details>
+
+  <details>
+    <summary>2. How did cloud computing change the way data scientists approach experimentation?</summary>
+    <p>
+      Cloud enabled rapid experimentation by allowing data scientists to provision compute instantly, try multiple models, and iterate without worrying about infrastructure limits.
+    </p>
+  </details>
+
+  <details>
+    <summary>3. Why is scalable infrastructure essential for modern data science workflows?</summary>
+    <p>
+      Because data volumes grow continuously, and scalable infrastructure allows data processing, feature engineering, and model training to expand seamlessly with data size.
+    </p>
+  </details>
+
+  <details>
+    <summary>4. In the journey from infrastructure → data → analytics → AI, where does a data scientist spend most effort?</summary>
+    <p>
+      On data understanding, preparation, analytics, and model building—while cloud handles the underlying infrastructure and scaling.
+    </p>
+  </details>
+
+  <details>
+    <summary>5. How did cloud computing contribute to the emergence of Data Science as an industry role?</summary>
+    <p>
+      By making large-scale data storage, processing, and analytics affordable and accessible, cloud transformed data science from academic research into an industry-wide practice.
+    </p>
+  </details>
+
+  <details>
+    <summary>6. Why is “pay-as-you-go” important specifically for data scientists?</summary>
+    <p>
+      It allows data scientists to experiment freely, run compute-intensive jobs when needed, and avoid the cost of idle infrastructure.
+    </p>
+  </details>
+
+  <details>
+    <summary>7. How does cloud allow data scientists to focus more on insight rather than engineering?</summary>
+    <p>
+      Cloud abstracts infrastructure management, enabling data scientists to concentrate on data exploration, feature engineering, and extracting meaningful insights.
+    </p>
+  </details>
+
+  <details>
+    <summary>8. Based on this page, complete this sentence: “Data Science thrives because cloud provides ______.”</summary>
+    <p>
+      Scalability, flexibility, affordability, and rapid access to computing resources.
+    </p>
+  </details>
+
+  <details>
+    <summary>9. Why is cloud considered the foundation for AI and ML after data science?</summary>
+    <p>
+      Because AI and ML require large datasets and massive compute power, which cloud platforms provide on demand at scale.
+    </p>
+  </details>
+
+  <details>
+    <summary>10. As a future data scientist, how would you personally benefit from cloud computing?</summary>
+    <p>
+      By gaining the ability to work on real-world datasets, experiment with models at scale, collaborate globally, and deploy data-driven solutions efficiently.
+    </p>
+  </details>
+</section>
+
+
+  <p>
+    <a class="back-btn" href="ds.html">← Back to DS Overview</a>
+  </p>
+
+</main>
 
   <!-- FOOTER -->
   <footer>
@@ -402,25 +759,18 @@
 
   <!-- JS: theme toggle -->
   <script>
-    (function(){
-      const btn = document.getElementById('modeToggle');
-      btn.addEventListener('click', function(){
-        document.documentElement.classList.toggle('dark-mode');
-        const dark = document.documentElement.classList.contains('dark-mode');
-        if(dark){
-          document.body.style.background = '#0F1C2E';
-          document.body.style.color = '#fff';
-          btn.style.background = '#fff';
-          btn.style.color = '#0F1C2E';
-        } else {
-          document.body.style.background = '';
-          document.body.style.color = '';
-          btn.style.background = '#0F1C2E';
-          btn.style.color = '#fff';
-        }
-      });
-    })();
+  (function () {
+    const btn = document.getElementById('modeToggle');
+
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark-mode');
+
+      const dark = document.documentElement.classList.contains('dark-mode');
+      btn.textContent = dark ? '🌙 Dark' : '☀ Light';
+    });
+  })();
   </script>
 
 </body>
+
 </html>
