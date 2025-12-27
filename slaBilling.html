@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Service Level Agreements & Billing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3,h4{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.expert,.tip,.exam{
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.expert{
+  background:#E8F4FF;
+  border-left:4px solid var(--teal);
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  font-weight:600;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #DCEAFF;
+  padding:12px;
+  text-align:left;
+}
+
+th{
+  background:#E8F4FF;
+  font-family:Poppins;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .expert,
+.dark .tip{background:#0b1f33;border-color:#1e3a5f;}
+.dark .exam{background:#1f1a0f;border-left-color:#fbbf24;}
+.dark table th{background:#0b1f33;}
+.dark table td{background:#102031;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Service Level Agreements (SLA) and Billing</h2>
+
+<!-- Expert Note -->
+<section class="section">
+<h3>🧠 Expert Note: Trust and Cost Drive Cloud Adoption</h3>
+<div class="expert">
+Organizations move to the cloud only when they trust service availability
+and clearly understand how they will be billed.
+SLA and Billing define that trust.
+</div>
+</section>
+
+<!-- SLA -->
+<section class="section">
+<h3>1️⃣ What is a Service Level Agreement (SLA)?</h3>
+<p class="desc">
+A Service Level Agreement (SLA) is a formal commitment by a cloud provider
+that defines expected service availability, performance, and reliability.
+</p>
+
+<div class="tip">
+<b>Simple Meaning:</b> SLA is a promise about uptime and service quality.
+</div>
+
+<ul class="desc">
+  <li>Defines uptime percentage (e.g., 99.9%)</li>
+  <li>Specifies responsibilities</li>
+  <li>Includes service credits for failures</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: SLA specifies guaranteed service availability and compensation.
+</div>
+</section>
+
+<!-- SLA Importance -->
+<section class="section">
+<h3>Why SLA is Important for Organizations</h3>
+
+<ul class="desc">
+  <li>Ensures business continuity</li>
+  <li>Builds customer trust</li>
+  <li>Supports mission-critical workloads</li>
+  <li>Reduces operational risk</li>
+</ul>
+
+<div class="expert">
+No SLA → No confidence in running production systems.
+</div>
+</section>
+
+<!-- Cloud SLA -->
+<section class="section">
+<h3>SLA in AWS, GCP, and Azure</h3>
+
+<table>
+<tr>
+  <th>Cloud Provider</th>
+  <th>Typical SLA (Compute)</th>
+</tr>
+<tr>
+  <td>AWS</td>
+  <td>99.99% (Multi-AZ services)</td>
+</tr>
+<tr>
+  <td>GCP</td>
+  <td>99.95%+</td>
+</tr>
+<tr>
+  <td>Azure</td>
+  <td>99.9% – 99.99%</td>
+</tr>
+</table>
+
+<div class="exam">
+📘 Higher availability requires multi-zone or multi-region deployment.
+</div>
+</section>
+
+<!-- Billing -->
+<section class="section">
+<h3>2️⃣ Cloud Billing – The Pay-As-You-Go Model</h3>
+<p class="desc">
+Cloud billing is based on usage. Organizations pay only for the resources
+they consume instead of investing in fixed infrastructure.
+</p>
+
+<div class="tip">
+<b>Traditional IT:</b> Capital Expenditure (CapEx)<br>
+<b>Cloud:</b> Operational Expenditure (OpEx)
+</div>
+
+<ul class="desc">
+  <li>Compute billed per second or minute</li>
+  <li>Storage billed per GB per month</li>
+  <li>Network billed per data transfer</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: Cloud billing follows a pay-as-you-go pricing model.
+</div>
+</section>
+
+<!-- Billing Tools -->
+<section class="section">
+<h3>Billing and Cost Management Services</h3>
+
+<div class="tip">
+<b>AWS:</b> Cost Explorer, Budgets, Pricing Calculator<br>
+<b>GCP:</b> Billing Reports, Cost Table<br>
+<b>Azure:</b> Cost Management + Billing
+</div>
+
+<p class="desc">
+These tools help organizations track usage, forecast costs,
+and avoid unexpected bills.
+</p>
+</section>
+
+<!-- Strategy -->
+<section class="section">
+<h3>Why Billing is a Strategic Keyword</h3>
+
+<ul class="desc">
+  <li>Controls operational expenses</li>
+  <li>Enables cost optimization</li>
+  <li>Supports scalable growth</li>
+  <li>Aligns IT spending with business value</li>
+</ul>
+
+<div class="expert">
+Cloud success is not just about technology — it’s about cost visibility.
+</div>
+</section>
+
+<!-- AI ML Context -->
+<section class="section">
+<h3>Importance for AI/ML & Data Science</h3>
+
+<ul class="desc">
+  <li>GPU usage can be expensive without monitoring</li>
+  <li>Training jobs must be cost-controlled</li>
+  <li>Inference scaling impacts billing</li>
+</ul>
+
+<div class="tip">
+<b>Example:</b> Turning off idle GPU instances saves thousands of rupees per day.
+</div>
+</section>
+
+<!-- Summary -->
+<section class="section">
+<h3>Final Summary</h3>
+<p class="desc">
+Service Level Agreements ensure trust and reliability,
+while cloud billing ensures flexibility and cost efficiency.
+Together, they form the foundation of sustainable cloud adoption
+for modern organizations and AI-driven systems.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

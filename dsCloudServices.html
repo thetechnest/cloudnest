@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3,h4{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.expert,.tip,.exam{
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.expert{
+  background:#E8F4FF;
+  border-left:4px solid var(--teal);
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  font-weight:600;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #DCEAFF;
+  padding:12px;
+  text-align:left;
+}
+
+th{
+  background:#E8F4FF;
+  font-family:Poppins;
+}
+
+details{
+  background:#F0F8FF;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:10px;
+  border:1px solid #DCEAFF;
+}
+
+summary{cursor:pointer;font-weight:700;}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .expert,
+.dark .tip,
+.dark details{background:#0b1f33;border-color:#1e3a5f;}
+.dark .exam{background:#1f1a0f;border-left-color:#fbbf24;}
+.dark table th{background:#0b1f33;}
+.dark table td{background:#102031;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Cloud Services</h2>
+
+<!-- Expert Note -->
+<section class="section">
+<h3>🧠 Expert Note: Cloud Services Simplify IT</h3>
+<div class="expert">
+Cloud services allow organizations to focus on innovation instead of managing hardware, servers, and data centers.
+They convert complex IT infrastructure into simple on-demand services.
+</div>
+</section>
+
+<!-- What is Cloud Service -->
+<section class="section">
+<h3>1️⃣ What is a Cloud Service?</h3>
+<p class="desc">
+Cloud services are IT resources managed by cloud providers such as AWS, Google Cloud, and Microsoft Azure,
+and delivered on-demand over the internet.
+</p>
+
+<p class="desc">
+Traditionally, organizations had to purchase servers, storage, networking equipment, and software before
+building any digital system. This approach was expensive, time-consuming, and difficult to scale.
+</p>
+
+<div class="tip">
+<b>Simple Meaning:</b> Cloud services let you rent IT resources instead of buying them.
+</div>
+
+<div class="exam">
+📘 Exam Line: Cloud services deliver computing resources on-demand via the internet.
+</div>
+</section>
+
+<!-- Examples -->
+<section class="section">
+<h3>2️⃣ Examples of Cloud Services</h3>
+
+<p class="desc">
+Cloud services are used for almost everything in modern IT systems—from running applications
+to storing data and performing analytics.
+</p>
+
+<ul class="desc">
+  <li>Virtual servers for running applications</li>
+  <li>Storage for files, images, and backups</li>
+  <li>Databases for applications</li>
+  <li>Big data and analytics services</li>
+  <li>AI and Machine Learning services</li>
+</ul>
+
+<div class="tip">
+<b>Real-life Example:</b> When you create an AWS EC2 instance, you are using a cloud service.
+</div>
+</section>
+
+<!-- Managed Services -->
+<section class="section">
+<h3>What are Cloud Managed Services?</h3>
+
+<p class="desc">
+Cloud services are also called <b>cloud managed services</b> because the underlying infrastructure
+is fully managed by the cloud provider.
+</p>
+
+<p class="desc">
+Hardware, operating systems, networking, and data center security are handled by AWS, GCP, or Azure.
+Users only consume services without worrying about infrastructure maintenance.
+</p>
+
+<div class="exam">
+📘 Cloud providers manage infrastructure; users manage applications and data.
+</div>
+</section>
+
+<!-- Providers -->
+<section class="section">
+<h3>3️⃣ How AWS, GCP, and Azure Provide Cloud Services</h3>
+
+<table>
+<tr>
+  <th>Service Category</th>
+  <th>AWS</th>
+  <th>GCP</th>
+  <th>Azure</th>
+</tr>
+<tr>
+  <td>Compute</td>
+  <td>EC2</td>
+  <td>Compute Engine</td>
+  <td>Virtual Machines</td>
+</tr>
+<tr>
+  <td>Storage</td>
+  <td>S3</td>
+  <td>Cloud Storage</td>
+  <td>Blob Storage</td>
+</tr>
+<tr>
+  <td>Database</td>
+  <td>RDS / DynamoDB</td>
+  <td>Cloud SQL / Firestore</td>
+  <td>Azure SQL / Cosmos DB</td>
+</tr>
+<tr>
+  <td>AI / ML</td>
+  <td>SageMaker</td>
+  <td>Vertex AI</td>
+  <td>Azure ML</td>
+</tr>
+</table>
+
+<div class="exam">
+📘 Exam Insight: Different cloud providers offer similar services with different names.
+</div>
+</section>
+
+<!-- Quiz -->
+<section class="section">
+<h3>Quick Quiz – Cloud Services</h3>
+
+<details>
+<summary>1. What is the primary benefit of cloud services?</summary>
+<p>On-demand access to IT resources without managing infrastructure.</p>
+</details>
+
+<details>
+<summary>2. Who manages hardware in cloud services?</summary>
+<p>The cloud service provider.</p>
+</details>
+
+<details>
+<summary>3. EC2, Compute Engine, and Azure VM belong to which category?</summary>
+<p>Compute services.</p>
+</details>
+
+<details>
+<summary>4. Are cloud services scalable?</summary>
+<p>Yes, they scale automatically based on demand.</p>
+</details>
+
+</section>
+
+<!-- Points to Ponder -->
+<section class="section">
+<h3>Points to Ponder 🧠</h3>
+
+<ul class="desc">
+<li>Cloud services remove the burden of infrastructure management.</li>
+<li>Different providers offer similar services with different names.</li>
+<li>Cloud services enable faster innovation and agility.</li>
+<li>Pay-as-you-go pricing is possible because services are measured.</li>
+<li>Managed services improve reliability and security.</li>
+</ul>
+
+<div class="exam">
+📘 Many cloud exam questions test understanding of service responsibility and provider management.
+</div>
+</section>
+
+<!-- Summary -->
+<section class="section">
+<h3>Final Summary</h3>
+<p class="desc">
+Cloud services transform traditional IT infrastructure into on-demand, scalable,
+and managed resources delivered over the internet.
+AWS, GCP, and Azure provide similar services that power modern digital applications.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

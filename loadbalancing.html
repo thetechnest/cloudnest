@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Load Balancing in Cloud Computing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3,h4{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.expert,.tip,.exam{
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.expert{
+  background:#E8F4FF;
+  border-left:4px solid var(--teal);
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  font-weight:600;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #DCEAFF;
+  padding:12px;
+  text-align:left;
+}
+
+th{
+  background:#E8F4FF;
+  font-family:Poppins;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .expert,
+.dark .tip{background:#0b1f33;border-color:#1e3a5f;}
+.dark .exam{background:#1f1a0f;border-left-color:#fbbf24;}
+.dark table th{background:#0b1f33;}
+.dark table td{background:#102031;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Load Balancing in Cloud Computing</h2>
+
+<!-- Expert Note -->
+<section class="section">
+<h3>🧠 Expert Note: Learn Load Balancing as a Foundational Cloud Skill</h3>
+<div class="expert">
+Load balancing is a must-know concept for aspiring cloud engineers, AI/ML engineers, and data scientists.
+Understanding how traffic is managed helps you design scalable APIs, ML inference endpoints, and large-scale web systems.
+</div>
+</section>
+
+<!-- What is Load Balancing -->
+<section class="section">
+<h3>1️⃣ What is Load Balancing?</h3>
+<p class="desc">
+Load balancing in cloud computing is the process of distributing incoming application or network traffic
+across multiple backend servers or resources to ensure no single system is overwhelmed. It improves
+availability, performance, and fault tolerance of applications. :contentReference[oaicite:0]{index=0}
+</p>
+
+<div class="tip">
+<b>Simple Example:</b> Many users visiting a website at the same time should be spread across many servers,
+not just one.
+</div>
+
+<img src="https://via.placeholder.com/800x300?text=Load+Balancing+Concept+Diagram" alt="Load Balancing Concept">
+
+<div class="exam">
+📘 In cloud exams: “Load balancing prevents overload and ensures high availability.”
+</div>
+</section>
+
+<!-- How Load Balancing Works -->
+<section class="section">
+<h3>2️⃣ How Load Balancers Work</h3>
+<p class="desc">
+A load balancer accepts incoming requests from clients and forwards them to healthy backend targets.
+It continuously checks the health of those targets so that only working servers receive traffic. :contentReference[oaicite:1]{index=1}
+</p>
+
+<img src="https://via.placeholder.com/800x300?text=Load+Balancer+Traffic+Flow" alt="Load Balancer Traffic Flow">
+
+<ul class="desc">
+  <li>Clients send requests to a single endpoint.</li>
+  <li>The load balancer distributes requests across many servers.</li>
+  <li>Unhealthy servers are detected and traffic is shifted to healthy ones.</li>
+</ul>
+
+<div class="exam">
+📘 Load balancers act like traffic managers for cloud services.
+</div>
+</section>
+
+<!-- AWS Load Balancing Types -->
+<section class="section">
+<h3>3️⃣ AWS Load Balancer Types</h3>
+<p class="desc">
+AWS Elastic Load Balancing offers multiple types of load balancers so you can match traffic patterns and
+application requirements:
+</p>
+
+<table>
+<tr><th>Load Balancer</th><th>Primary Layer</th><th>Best For</th></tr>
+<tr><td>Application Load Balancer (ALB)</td><td>Layer 7 (HTTP/HTTPS)</td><td>Web apps, microservices, APIs</td></tr>
+<tr><td>Network Load Balancer (NLB)</td><td>Layer 4 (TCP/UDP)</td><td>High-throughput, low-latency traffic</td></tr>
+<tr><td>Gateway Load Balancer (GLB)</td><td>Layer 3+ (IP)</td><td>Virtual appliances, firewalls</td></tr>
+</table>
+
+<div class="tip">
+📌 ALB looks at application traffic (URL, headers), NLB handles network traffic, and GLB routes packets at the gateway level. :contentReference[oaicite:2]{index=2}
+</div>
+
+<img src="https://via.placeholder.com/800x300?text=ALB+vs+NLB+vs+GLB+Illustration" alt="AWS Load Balancer Types">
+
+<div class="exam">
+📘 Note: Each load balancer type is optimized for specific use cases.
+</div>
+</section>
+
+<!-- Examples and Use Cases -->
+<section class="section">
+<h3>4️⃣ Cloud Examples & Use Cases</h3>
+
+<h4>🚀 Web Applications</h4>
+<p class="desc">
+You build a public web app that serves millions of users. A load balancer evenly distributes traffic so the
+app stays fast and available even during peak loads. (E.g., shopping site during sale)
+</p>
+
+<h4>🧠 AI/ML Inference Endpoints</h4>
+<p class="desc">
+Machine learning models deployed behind load balancers can handle sudden surges in inference requests
+(from apps or dashboards), improving reliability.
+</p>
+
+<h4>📊 Backend APIs</h4>
+<p class="desc">
+APIs serving data for mobile or analytics apps should use load balancers so that no single API server becomes
+overloaded and slow.
+</p>
+
+<div class="tip">
+<b>AWS Example:</b> Use ALB for REST API traffic, and NLB for high-throughput request streams. :contentReference[oaicite:3]{index=3}
+</div>
+</section>
+
+<!-- Algorithms -->
+<section class="section">
+<h3>5️⃣ Load Balancing Algorithms (Simplified)</h3>
+<p class="desc">
+Load balancers use algorithms to decide how to distribute requests. Common methods include:
+</p>
+
+<ul class="desc">
+  <li><b>Round Robin:</b> Sends requests in a fixed order.</li>
+  <li><b>Least Connections:</b> Sends to the server with fewest active sessions.</li>
+  <li><b>Hash-based routing:</b> Uses client IP or session info to choose a target. :contentReference[oaicite:4]{index=4}</li>
+</ul>
+
+</section>
+
+<!-- Summary -->
+<section class="section">
+<h3>Final Summary</h3>
+<p class="desc">
+Load balancing is essential for resilient cloud applications. It distributes traffic across many
+servers or services to ensure scalability, availability, and optimal performance. AWS provides ALB, NLB,
+and GLB options to match diverse workload needs.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

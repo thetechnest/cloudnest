@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Identity and Access Management Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3,h4{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.expert,.tip,.exam{
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.expert{
+  background:#E8F4FF;
+  border-left:4px solid var(--teal);
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  font-weight:600;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #DCEAFF;
+  padding:12px;
+  text-align:left;
+}
+
+th{
+  background:#E8F4FF;
+  font-family:Poppins;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .expert,
+.dark .tip{background:#0b1f33;border-color:#1e3a5f;}
+.dark .exam{background:#1f1a0f;border-left-color:#fbbf24;}
+.dark table th{background:#0b1f33;}
+.dark table td{background:#102031;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Identity and Access Management (IAM) Services</h2>
+
+<!-- Expert Note -->
+<section class="section">
+<h3>🧠 Expert Note: IAM Services Control the Cloud</h3>
+<div class="expert">
+IAM services are the control center of cloud security.
+They determine who can access resources, what actions are allowed,
+and how identities are managed across the organization.
+</div>
+</section>
+
+<!-- IAM Services -->
+<section class="section">
+<h3>1️⃣ What are IAM Services?</h3>
+<p class="desc">
+IAM services provide mechanisms to create identities, assign permissions,
+enforce security policies, and audit access to cloud resources.
+</p>
+
+<div class="tip">
+<b>Simple Meaning:</b> IAM services manage logins, permissions, and access rules.
+</div>
+
+<ul class="desc">
+  <li>User and role management</li>
+  <li>Permission enforcement</li>
+  <li>Authentication and authorization</li>
+  <li>Auditing and compliance</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: IAM services control authentication and authorization in the cloud.
+</div>
+</section>
+
+<!-- Core IAM Services -->
+<section class="section">
+<h3>2️⃣ Core IAM Services Provided by Cloud Platforms</h3>
+
+<h4>👤 Identity Management</h4>
+<p class="desc">
+Create and manage users, groups, and service identities.
+</p>
+
+<h4>🎭 Role-Based Access Control (RBAC)</h4>
+<p class="desc">
+Grant permissions using roles instead of static credentials.
+</p>
+
+<h4>📜 Policy Management</h4>
+<p class="desc">
+Define fine-grained permissions using allow/deny rules.
+</p>
+
+<h4>🔐 Authentication Services</h4>
+<p class="desc">
+Secure login using passwords, MFA, and federated identity.
+</p>
+
+<div class="tip">
+<b>Best Practice:</b> Use roles and policies instead of hardcoded credentials.
+</div>
+</section>
+
+<!-- Cloud Mapping -->
+<section class="section">
+<h3>3️⃣ IAM Services in AWS, GCP, and Azure</h3>
+
+<table>
+<tr>
+  <th>Service Area</th>
+  <th>AWS</th>
+  <th>GCP</th>
+  <th>Azure</th>
+</tr>
+<tr>
+  <td>IAM Core</td>
+  <td>AWS IAM</td>
+  <td>Cloud IAM</td>
+  <td>Azure AD (Entra ID)</td>
+</tr>
+<tr>
+  <td>Role Management</td>
+  <td>IAM Roles</td>
+  <td>IAM Roles</td>
+  <td>RBAC</td>
+</tr>
+<tr>
+  <td>MFA</td>
+  <td>IAM MFA</td>
+  <td>2-Step Verification</td>
+  <td>MFA</td>
+</tr>
+<tr>
+  <td>Audit Logs</td>
+  <td>CloudTrail</td>
+  <td>Cloud Audit Logs</td>
+  <td>Activity Logs</td>
+</tr>
+</table>
+
+<div class="exam">
+📘 All major cloud providers treat IAM as a foundational service.
+</div>
+</section>
+
+<!-- Use Cases -->
+<section class="section">
+<h3>4️⃣ Real-World Use Cases of IAM Services</h3>
+
+<ul class="desc">
+  <li>Allow developers to deploy apps but restrict billing access</li>
+  <li>Grant ML pipelines access to datasets securely</li>
+  <li>Enable single sign-on (SSO) for employees</li>
+  <li>Audit who accessed sensitive data</li>
+</ul>
+
+<div class="tip">
+<b>Example:</b> An ML training job assumes a role to read data from storage
+without exposing access keys.
+</div>
+</section>
+
+<!-- Strategic Importance -->
+<section class="section">
+<h3>5️⃣ Why IAM Services are Strategically Important</h3>
+
+<ul class="desc">
+  <li>Reduce security breaches</li>
+  <li>Support compliance and audits</li>
+  <li>Enable zero-trust security</li>
+  <li>Scale securely across teams</li>
+</ul>
+
+<div class="expert">
+Misconfigured IAM is the #1 cause of cloud security incidents.
+</div>
+</section>
+
+<!-- AI ML Context -->
+<section class="section">
+<h3>6️⃣ Importance of IAM Services for AI/ML & Data Science</h3>
+
+<ul class="desc">
+  <li>Protect sensitive training data</li>
+  <li>Secure model endpoints</li>
+  <li>Control access to ML pipelines</li>
+  <li>Enable secure automation</li>
+</ul>
+
+<div class="tip">
+<b>Example:</b> Restricting who can deploy or update ML models in production.
+</div>
+</section>
+
+<!-- Summary -->
+<section class="section">
+<h3>Final Summary</h3>
+<p class="desc">
+Identity and Access Management services form the backbone of cloud security.
+By controlling identities, permissions, and access paths,
+IAM services enable organizations to operate securely, scale safely,
+and comply confidently in the cloud.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

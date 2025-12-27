@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Scalability and Elasticity</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3,h4{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.expert,.tip,.exam{
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.expert{
+  background:#E8F4FF;
+  border-left:4px solid var(--teal);
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  font-weight:600;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #DCEAFF;
+  padding:12px;
+  text-align:left;
+}
+
+th{
+  background:#E8F4FF;
+  font-family:Poppins;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .expert,
+.dark .tip{background:#0b1f33;border-color:#1e3a5f;}
+.dark .exam{background:#1f1a0f;border-left-color:#fbbf24;}
+.dark table th{background:#0b1f33;}
+.dark table td{background:#102031;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Scalability and Elasticity in Cloud Computing</h2>
+
+<!-- Expert Note -->
+<section class="section">
+<h3>🧠 Expert Note: Core Cloud Superpowers</h3>
+<div class="expert">
+Scalability and Elasticity are fundamental cloud characteristics.
+Every AI/ML pipeline, data platform, and modern web application depends on these two concepts
+to handle growth, peak loads, and cost optimization.
+</div>
+</section>
+
+<!-- Scalability -->
+<section class="section">
+<h3>1️⃣ What is Scalability?</h3>
+<p class="desc">
+Scalability is the ability of a system to handle increased workload by adding more resources
+without affecting performance.
+</p>
+
+<div class="tip">
+<b>Simple Analogy:</b> Adding more classrooms when the number of students increases.
+</div>
+
+<ul class="desc">
+  <li>Plan for long-term growth</li>
+  <li>Handles increasing users or data</li>
+  <li>Resources are added deliberately</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: Scalability is the ability to handle growing workloads by adding resources.
+</div>
+</section>
+
+<!-- Types of Scalability -->
+<section class="section">
+<h3>Types of Scalability</h3>
+
+<h4>🔹 Vertical Scalability (Scale Up)</h4>
+<p class="desc">
+Increasing the capacity of an existing resource (CPU, RAM).
+</p>
+<div class="tip"><b>Example:</b> Upgrading a VM from 4 GB RAM to 16 GB RAM</div>
+
+<h4>🔹 Horizontal Scalability (Scale Out)</h4>
+<p class="desc">
+Adding more instances or servers to distribute workload.
+</p>
+<div class="tip"><b>Example:</b> Adding more EC2 instances behind a load balancer</div>
+</section>
+
+<!-- Elasticity -->
+<section class="section">
+<h3>2️⃣ What is Elasticity?</h3>
+<p class="desc">
+Elasticity is the ability of a system to automatically increase or decrease resources
+based on real-time demand.
+</p>
+
+<div class="tip">
+<b>Simple Analogy:</b> Stretching and shrinking a rubber band as needed.
+</div>
+
+<ul class="desc">
+  <li>Automatic and dynamic</li>
+  <li>Handles sudden traffic spikes</li>
+  <li>Optimizes cost</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: Elasticity automatically adjusts resources based on demand.
+</div>
+</section>
+
+<!-- Comparison -->
+<section class="section">
+<h3>Scalability vs Elasticity</h3>
+
+<table>
+<tr>
+  <th>Aspect</th>
+  <th>Scalability</th>
+  <th>Elasticity</th>
+</tr>
+<tr>
+  <td>Nature</td>
+  <td>Planned growth</td>
+  <td>Automatic adjustment</td>
+</tr>
+<tr>
+  <td>Time</td>
+  <td>Long-term</td>
+  <td>Short-term / real-time</td>
+</tr>
+<tr>
+  <td>Cost Impact</td>
+  <td>May stay allocated</td>
+  <td>Pay only when used</td>
+</tr>
+<tr>
+  <td>Cloud Feature</td>
+  <td>Scaling resources</td>
+  <td>Auto scaling</td>
+</tr>
+</table>
+
+<div class="exam">
+📘 Very Important: Scalability ≠ Elasticity (often confused in exams).
+</div>
+</section>
+
+<!-- Cloud Examples -->
+<section class="section">
+<h3>3️⃣ How Cloud Providers Enable These</h3>
+
+<div class="tip">
+<b>AWS:</b> Auto Scaling Groups, EC2, Lambda<br>
+<b>GCP:</b> Managed Instance Groups, Cloud Run<br>
+<b>Azure:</b> VM Scale Sets, Azure Functions
+</div>
+
+<ul class="desc">
+  <li>Auto scaling servers during traffic spikes</li>
+  <li>Scaling ML training clusters</li>
+  <li>Handling sudden API requests</li>
+  <li>Reducing cost during idle periods</li>
+</ul>
+
+<div class="exam">
+📘 Cloud enables elasticity because resources are virtual and metered.
+</div>
+</section>
+
+<!-- AI/ML Context -->
+<section class="section">
+<h3>4️⃣ Importance for AI/ML & Data Science</h3>
+
+<p class="desc">
+AI/ML workloads are unpredictable. Training jobs may need massive compute for a short time,
+while inference systems must scale instantly when users increase.
+</p>
+
+<ul class="desc">
+  <li>Scale GPU resources for model training</li>
+  <li>Elastic inference endpoints</li>
+  <li>Handle batch and real-time data</li>
+</ul>
+
+<div class="tip">
+<b>Example:</b> A chatbot suddenly getting 1 million users during an event.
+</div>
+</section>
+
+<!-- Summary -->
+<section class="section">
+<h3>Final Summary</h3>
+<p class="desc">
+Scalability allows systems to grow, while elasticity allows systems to adapt instantly.
+Together, they make cloud computing cost-efficient, resilient, and powerful—
+especially for AI/ML and data-driven applications.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
