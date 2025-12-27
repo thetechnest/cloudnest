@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Computing Interview Questions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .exam{background:#1f1a0f;}
+.dark .tip{background:#0b1f33;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Interview Readiness for Cloud Careers</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Cloud Computing – Interview Questions (Foundational)</h2>
+
+<!-- Q1 -->
+<section class="section">
+<h3>1️⃣ What is cloud computing?</h3>
+<p class="desc">
+Cloud computing means using servers, storage, and software over the internet
+instead of owning and maintaining physical hardware.
+</p>
+<div class="exam">📌 Asked in: Infosys, TCS</div>
+<div class="tip">💡 Trap: Interviewers expect clarity, not definition memorization.</div>
+</section>
+
+<!-- Q2 -->
+<section class="section">
+<h3>2️⃣ Is cloud always cheaper than on-premise?</h3>
+<p class="desc">
+Cloud reduces upfront cost, but improper usage and poor monitoring
+can make it expensive.
+</p>
+<div class="exam">📌 Asked in: AWS</div>
+<div class="tip">💡 Trap: “Cloud is always cheap” is a wrong answer.</div>
+</section>
+
+<!-- Q3 -->
+<section class="section">
+<h3>3️⃣ What problem does virtualization solve?</h3>
+<p class="desc">
+Virtualization improves hardware utilization by allowing multiple
+virtual machines to run on a single physical server.
+</p>
+<div class="exam">📌 Asked in: Google</div>
+<div class="tip">💡 Trap: Virtualization is not cloud itself.</div>
+</section>
+
+<!-- Q4 -->
+<section class="section">
+<h3>4️⃣ What happens if one cloud server fails?</h3>
+<p class="desc">
+Traffic is automatically redirected to another healthy server
+using replication and load balancing.
+</p>
+<div class="exam">📌 Asked in: Amazon</div>
+<div class="tip">💡 Trap: Tests availability concept.</div>
+</section>
+
+<!-- Q5 -->
+<section class="section">
+<h3>5️⃣ Difference between scalability and elasticity?</h3>
+<p class="desc">
+Scalability supports long-term growth, while elasticity
+handles sudden demand changes automatically.
+</p>
+<div class="exam">📌 Asked in: Google, AWS</div>
+<div class="tip">💡 Trap: Many candidates confuse both.</div>
+</section>
+
+<!-- Q6 -->
+<section class="section">
+<h3>6️⃣ Why do we need load balancing?</h3>
+<p class="desc">
+Load balancing distributes traffic across servers
+to prevent overload and improve availability.
+</p>
+<div class="exam">📌 Asked in: Infosys</div>
+<div class="tip">💡 Trap: Not just performance, but reliability.</div>
+</section>
+
+<!-- Q7 -->
+<section class="section">
+<h3>7️⃣ Can cloud work without internet?</h3>
+<p class="desc">
+No, because cloud services are accessed through the internet.
+</p>
+<div class="exam">📌 Asked in: TCS</div>
+<div class="tip">💡 Trap: Simple logic check.</div>
+</section>
+
+<!-- Q8 -->
+<section class="section">
+<h3>8️⃣ What is IAM?</h3>
+<p class="desc">
+IAM controls who can access cloud resources
+and what actions they can perform.
+</p>
+<div class="exam">📌 Asked in: AWS</div>
+<div class="tip">💡 Trap: IAM is security, not networking.</div>
+</section>
+
+<!-- Q9 -->
+<section class="section">
+<h3>9️⃣ Why is monitoring important?</h3>
+<p class="desc">
+Monitoring detects failures early
+and helps maintain system health.
+</p>
+<div class="exam">📌 Asked in: Google (SRE rounds)</div>
+<div class="tip">💡 Trap: Monitoring is more than logs.</div>
+</section>
+
+<!-- Q10 -->
+<section class="section">
+<h3>🔟 What is pay-as-you-go pricing?</h3>
+<p class="desc">
+Users pay only for the cloud resources they actually consume.
+</p>
+<div class="exam">📌 Asked in: AWS, Infosys</div>
+<div class="tip">💡 Trap: Not fixed monthly billing.</div>
+</section>
+
+<!-- Q11 -->
+<section class="section">
+<h3>1️⃣1️⃣ What is an SLA?</h3>
+<p class="desc">
+An SLA defines uptime and performance guarantees
+provided by the cloud vendor.
+</p>
+<div class="exam">📌 Asked in: Capgemini</div>
+<div class="tip">💡 Trap: SLA is not pricing.</div>
+</section>
+
+<!-- Q12 -->
+<section class="section">
+<h3>1️⃣2️⃣ Difference between public and private cloud?</h3>
+<p class="desc">
+Public cloud is shared among users,
+private cloud is dedicated to one organization.
+</p>
+<div class="exam">📌 Asked in: Infosys</div>
+<div class="tip">💡 Trap: Ownership vs access.</div>
+</section>
+
+<!-- Q13 -->
+<section class="section">
+<h3>1️⃣3️⃣ Why do AI/ML engineers use cloud?</h3>
+<p class="desc">
+Cloud provides scalable compute, storage,
+and GPUs on demand for training and inference.
+</p>
+<div class="exam">📌 Asked in: Google AI teams</div>
+<div class="tip">💡 Trap: Not just data storage.</div>
+</section>
+
+<!-- Q14 -->
+<section class="section">
+<h3>1️⃣4️⃣ What is the biggest cloud risk?</h3>
+<p class="desc">
+Security misconfiguration and uncontrolled billing.
+</p>
+<div class="exam">📌 Asked in: AWS</div>
+<div class="tip">💡 Trap: Cloud is powerful but needs discipline.</div>
+</section>
+
+<!-- Q15 -->
+<section class="section">
+<h3>1️⃣5️⃣ What is replication?</h3>
+<p class="desc">
+Maintaining multiple copies of data or services
+to improve availability.
+</p>
+<div class="exam">📌 Asked in: Accenture</div>
+<div class="tip">💡 Trap: Replication is not backup.</div>
+</section>
+
+<!-- Q16 -->
+<section class="section">
+<h3>1️⃣6️⃣ Is cloud secure?</h3>
+<p class="desc">
+Yes, when configured correctly using IAM,
+encryption, and monitoring.
+</p>
+<div class="exam">📌 Asked in: Infosys</div>
+<div class="tip">💡 Trap: Security is shared responsibility.</div>
+</section>
+
+<!-- Q17 -->
+<section class="section">
+<h3>1️⃣7️⃣ What is hybrid cloud?</h3>
+<p class="desc">
+A combination of public and private cloud environments.
+</p>
+<div class="exam">📌 Asked in: TCS</div>
+<div class="tip">💡 Trap: Not multi-cloud.</div>
+</section>
+
+<!-- Q18 -->
+<section class="section">
+<h3>1️⃣8️⃣ Why should freshers learn cloud?</h3>
+<p class="desc">
+Most modern applications, AI systems,
+and data platforms run on cloud infrastructure.
+</p>
+<div class="exam">📌 Asked in: HR + Technical rounds</div>
+<div class="tip">💡 Trap: Tests awareness and motivation.</div>
+</section>
+
+<!-- Q19 -->
+<section class="section">
+<h3>1️⃣9️⃣ What is cloud billing based on?</h3>
+<p class="desc">
+Billing is based on usage of compute, storage,
+network, and managed services.
+</p>
+<div class="exam">📌 Asked in: AWS</div>
+<div class="tip">💡 Trap: Not number of users.</div>
+</section>
+
+<!-- Q20 -->
+<section class="section">
+<h3>2️⃣0️⃣ Is cloud only for big companies?</h3>
+<p class="desc">
+No. Cloud is useful for startups, students,
+and enterprises alike.
+</p>
+<div class="exam">📌 Asked in: Infosys</div>
+<div class="tip">💡 Trap: Cloud democratizes technology.</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

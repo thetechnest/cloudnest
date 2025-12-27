@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Computing MCQ Assessment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.option{margin:6px 0;}
+
+.correct{color:#15803d;font-weight:600;}
+.wrong{color:#b91c1c;font-weight:600;}
+
+.explain{
+  margin-top:8px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+button{
+  padding:10px 18px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.submit-btn{background:#008CFF;color:#fff;}
+.reset-btn{background:#0F1C2E;color:#fff;margin-left:10px;}
+
+.result{
+  background:#E8F4FF;
+  padding:18px;
+  border-radius:12px;
+  margin-top:18px;
+  font-weight:600;
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .result{background:#0b1f33;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+<h2>Cloud Computing – MCQ Assessment (25 Marks)</h2>
+
+<div id="quiz"></div>
+
+<div class="section">
+  <button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+  <button class="reset-btn" onclick="resetQuiz()">Retry Quiz</button>
+  <div id="result" class="result" style="display:none;"></div>
+</div>
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE • MCQ Evaluation
+</footer>
+
+<script>
+const questions = [
+{q:"Which best defines cloud computing?",o:["On-demand IT resources","Manual servers","Local hosting","Standalone systems"],a:0,e:"Cloud provides on-demand IT resources over the internet."},
+{q:"Which is NOT a cloud characteristic?",o:["Elasticity","Scalability","Manual provisioning","Measured service"],a:2,e:"Cloud avoids manual provisioning."},
+{q:"Which cloud model is shared by multiple customers?",o:["Private","Public","Hybrid","Community"],a:1,e:"Public cloud is multi-tenant."},
+{q:"Which is an example of IaaS?",o:["Gmail","EC2","Google Docs","Salesforce"],a:1,e:"EC2 provides virtual machines."},
+{q:"Virtualization allows:",o:["One OS only","Multiple VMs","Manual scaling","Physical access"],a:1,e:"Virtualization enables multiple VMs on one machine."},
+
+{q:"Load balancing is used to:",o:["Store data","Distribute traffic","Encrypt data","Backup systems"],a:1,e:"Load balancers distribute incoming traffic."},
+{q:"Elasticity refers to:",o:["Fixed capacity","Manual upgrade","Auto scale up/down","High latency"],a:2,e:"Elasticity automatically adjusts resources."},
+{q:"Replication improves:",o:["Cost","Availability","Complexity","Latency only"],a:1,e:"Replication improves availability."},
+{q:"Monitoring helps to:",o:["Ignore failures","Detect issues","Increase downtime","Delete logs"],a:1,e:"Monitoring detects issues early."},
+{q:"SDN separates:",o:["Storage & compute","Control & data plane","User & data","VM & OS"],a:1,e:"SDN separates control and data planes."},
+
+{q:"MapReduce is used for:",o:["Networking","Big data processing","Security","IAM"],a:1,e:"MapReduce processes large datasets."},
+{q:"IAM controls:",o:["Cost","Access","Performance","Storage"],a:1,e:"IAM manages access control."},
+{q:"SLA defines:",o:["Billing","Uptime guarantee","Scaling","Virtualization"],a:1,e:"SLA defines service availability."},
+{q:"Cloud billing follows:",o:["CapEx","Fixed pricing","Pay-as-you-go","Free usage"],a:2,e:"Cloud uses pay-as-you-go billing."},
+{q:"Which is NOT a cloud deployment model?",o:["Public","Private","Hybrid","Offline"],a:3,e:"Offline is not a cloud model."},
+
+{q:"Compute service example:",o:["S3","EC2","RDS","CloudFront"],a:1,e:"EC2 provides compute."},
+{q:"Object storage example:",o:["EBS","S3","RAM","CPU"],a:1,e:"S3 is object storage."},
+{q:"NoSQL database example:",o:["MySQL","PostgreSQL","DynamoDB","Oracle"],a:2,e:"DynamoDB is NoSQL."},
+{q:"CDN improves:",o:["Security","Latency","Billing","Backup"],a:1,e:"CDN reduces latency."},
+{q:"Analytics services provide:",o:["VMs","Data insights","Security","IAM"],a:1,e:"Analytics turns data into insights."},
+
+{q:"Deployment services help in:",o:["Releasing apps","Scaling only","Billing","IAM"],a:0,e:"Deployment services release applications."},
+{q:"Management services monitor:",o:["Cost","Health","Logs","All"],a:3,e:"Management covers all aspects."},
+{q:"IAM services are related to:",o:["Compute","Security","Storage","Analytics"],a:1,e:"IAM is a security service."},
+{q:"OpenStack is:",o:["Public cloud","Private cloud software","Database","CDN"],a:1,e:"OpenStack builds private clouds."},
+{q:"Hybrid cloud combines:",o:["Public + Private","IaaS + PaaS","VM + Container","CPU + RAM"],a:0,e:"Hybrid combines public and private clouds."}
+];
+
+const quizDiv=document.getElementById("quiz");
+
+function loadQuiz(){
+  quizDiv.innerHTML="";
+  questions.forEach((q,i)=>{
+    let html=`<section class="section">
+      <h3>Q${i+1}. ${q.q}</h3>`;
+    q.o.forEach((op,j)=>{
+      html+=`<div class="option">
+        <input type="radio" name="q${i}" value="${j}"> ${op}
+      </div>`;
+    });
+    html+=`<div class="explain" id="exp${i}"></div></section>`;
+    quizDiv.innerHTML+=html;
+  });
+}
+loadQuiz();
+
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    const exp=document.getElementById(`exp${i}`);
+    if(sel){
+      if(+sel.value===q.a){
+        score++;
+        exp.innerHTML=`<span class="correct">✔ Correct</span> – ${q.e}`;
+      }else{
+        exp.innerHTML=`<span class="wrong">✖ Wrong</span> – ${q.e}`;
+      }
+    }else{
+      exp.innerHTML=`<span class="wrong">✖ Not Answered</span> – ${q.e}`;
+    }
+  });
+  const res=document.getElementById("result");
+  res.style.display="block";
+  res.innerHTML=`Total Score: <b>${score} / 25</b>`;
+}
+
+function resetQuiz(){
+  document.getElementById("result").style.display="none";
+  loadQuiz();
+}
+
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

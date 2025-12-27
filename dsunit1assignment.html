@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Computing – Question Bank</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.question{
+  margin-bottom:14px;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* 🌙 Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .exam{background:#1f1a0f;}
+.dark .tip{background:#0b1f33;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Cloud Computing – Question Bank (15 Questions)</h2>
+
+<!-- Section 1 -->
+<section class="section">
+<h3>Unit–I: Introduction to Cloud Computing</h3>
+
+<div class="question">1. Define cloud computing and explain its importance in modern IT systems.</div>
+<div class="question">2. Explain the key characteristics of cloud computing with suitable examples.</div>
+<div class="question">3. Compare Public Cloud, Private Cloud, and Hybrid Cloud models.</div>
+<div class="question">4. What are cloud services? Explain with real-world examples.</div>
+<div class="question">5. Explain how cloud-based services and applications benefit organizations.</div>
+
+<div class="exam">
+📘 Exam Focus: Definitions + characteristics are frequently asked short and long answers.
+</div>
+</section>
+
+<!-- Section 2 -->
+<section class="section">
+<h3>Unit–II: Cloud Concepts and Technologies</h3>
+
+<div class="question">6. Explain virtualization and its role in cloud computing.</div>
+<div class="question">7. What is load balancing? Why is it important in cloud environments?</div>
+<div class="question">8. Differentiate between scalability and elasticity.</div>
+<div class="question">9. Explain the importance of deployment, replication, and monitoring in cloud systems.</div>
+<div class="question">10. Describe Identity and Access Management (IAM) and its significance in cloud security.</div>
+
+<div class="tip">
+💡 AI/ML Context: These concepts directly impact ML model deployment, availability, and security.
+</div>
+</section>
+
+<!-- Section 3 -->
+<section class="section">
+<h3>Unit–III: Cloud Services and Platforms</h3>
+
+<div class="question">11. Explain compute services with examples from AWS, GCP, or Azure.</div>
+<div class="question">12. Compare storage services and database services in cloud computing.</div>
+<div class="question">13. Explain application services and content delivery services with use cases.</div>
+<div class="question">14. What are analytics services? How do they support data-driven decision making?</div>
+<div class="question">15. Explain open-source private cloud software and its role in hybrid cloud strategies.</div>
+
+<div class="exam">
+📘 Exam Focus: Service mapping questions are common in university exams and interviews.
+</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>
