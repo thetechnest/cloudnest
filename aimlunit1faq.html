@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Computing FAQs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:22px;
+}
+
+.question{
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.icon{
+  font-size:18px;
+  transition:transform .3s ease;
+}
+
+.answer{
+  display:none;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.punch{
+  background:#ECFEFF;
+  border-left:4px solid #0891B2;
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:700;
+}
+
+.toggle.active .answer{display:block;}
+.toggle.active .icon{transform:rotate(45deg);}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .exam{background:#1f1a0f;}
+.dark .tip{background:#0b1f33;}
+.dark .punch{background:#063e47;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="unit1assignment.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Cloud Computing FAQs – 5 Marks Ready</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+<h2>Cloud Computing – Frequently Asked Questions (AI/ML)</h2>
+
+<!-- FAQ 1 -->
+<section class="section toggle">
+<h3 class="question">1️⃣ What is Cloud Computing and why is it important? <span class="icon">➕</span></h3>
+<div class="answer">
+Cloud computing is the delivery of computing resources such as servers,
+storage, and software over the internet on a pay-as-you-go basis.
+It enables scalability, cost efficiency, and faster innovation.
+<div class="exam">📝 Exam Line: Cloud computing provides on-demand IT resources without infrastructure ownership.</div>
+<div class="tip">💡 Tip: Mention scalability + cost together.</div>
+<div class="punch">🎯 Punch Line: Cloud turns IT into a utility.</div>
+</div>
+</section>
+
+<!-- FAQ 2 -->
+<section class="section toggle">
+<h3 class="question">2️⃣ Explain the main characteristics of cloud computing. <span class="icon">➕</span></h3>
+<div class="answer">
+Key characteristics include on-demand self-service, broad network access,
+resource pooling, rapid elasticity, and measured service.
+<div class="exam">📝 Exam Line: These characteristics differentiate cloud from traditional IT.</div>
+<div class="tip">💡 Tip: Always write at least 4 characteristics.</div>
+<div class="punch">🎯 Punch Line: Elastic, shared, and metered.</div>
+</div>
+</section>
+
+<!-- FAQ 3 -->
+<section class="section toggle">
+<h3 class="question">3️⃣ What are IaaS, PaaS, and SaaS? Explain with examples. <span class="icon">➕</span></h3>
+<div class="answer">
+IaaS provides infrastructure, PaaS provides development platforms,
+and SaaS provides ready-to-use applications over the internet.
+<div class="exam">📝 Exam Line: Service models differ by control level.</div>
+<div class="tip">💡 Tip: Use “control” as comparison keyword.</div>
+<div class="punch">🎯 Punch Line: Control decreases from IaaS to SaaS.</div>
+</div>
+</section>
+
+<!-- FAQ 4 -->
+<section class="section toggle">
+<h3 class="question">4️⃣ Explain different cloud deployment models. <span class="icon">➕</span></h3>
+<div class="answer">
+Public cloud is shared, private cloud is dedicated,
+hybrid cloud combines both, and community cloud serves similar organizations.
+<div class="exam">📝 Exam Line: Deployment models define ownership and access.</div>
+<div class="tip">💡 Tip: Add one real-world example.</div>
+<div class="punch">🎯 Punch Line: Deployment is about who owns and who shares.</div>
+</div>
+</section>
+
+<!-- FAQ 5 -->
+<section class="section toggle">
+<h3 class="question">5️⃣ How does cloud support AI and ML workloads? <span class="icon">➕</span></h3>
+<div class="answer">
+Cloud provides scalable compute, GPUs, storage,
+and managed AI services for training and deployment.
+<div class="exam">📝 Exam Line: Cloud enables AI at scale.</div>
+<div class="tip">💡 Tip: Mention GPUs explicitly.</div>
+<div class="punch">🎯 Punch Line: No cloud, no scalable AI.</div>
+</div>
+</section>
+
+<!-- FAQ 6 -->
+<section class="section toggle">
+<h3 class="question">6️⃣ What are the challenges of AI and cloud convergence? <span class="icon">➕</span></h3>
+<div class="answer">
+Challenges include security risks, high cost if unmanaged,
+and shortage of skilled professionals.
+<div class="exam">📝 Exam Line: Challenges are technical and operational.</div>
+<div class="tip">💡 Tip: Do not write only technical issues.</div>
+<div class="punch">🎯 Punch Line: Power needs discipline.</div>
+</div>
+</section>
+
+<!-- FAQ 7 -->
+<section class="section toggle">
+<h3 class="question">7️⃣ Explain NLP use cases in cloud computing. <span class="icon">➕</span></h3>
+<div class="answer">
+Cloud-based NLP is used for chatbots, sentiment analysis,
+language translation, and document processing.
+<div class="exam">📝 Exam Line: NLP on cloud supports large-scale text processing.</div>
+<div class="tip">💡 Tip: Add “at scale”.</div>
+<div class="punch">🎯 Punch Line: NLP becomes powerful with scale.</div>
+</div>
+</section>
+
+<!-- FAQ 8 -->
+<section class="section toggle">
+<h3 class="question">8️⃣ Explain computer vision applications on cloud. <span class="icon">➕</span></h3>
+<div class="answer">
+Used in facial recognition, medical imaging,
+quality inspection, and smart surveillance systems.
+<div class="exam">📝 Exam Line: Cloud enables real-time vision processing.</div>
+<div class="tip">💡 Tip: Mention inference, not only training.</div>
+<div class="punch">🎯 Punch Line: Vision meets scalability in cloud.</div>
+</div>
+</section>
+
+<!-- FAQ 9 -->
+<section class="section toggle">
+<h3 class="question">9️⃣ Compare AWS, Azure, and GCP for AI workloads. <span class="icon">➕</span></h3>
+<div class="answer">
+AWS offers broad services, Azure excels in enterprise integration,
+and GCP is strong in analytics and ML research.
+<div class="exam">📝 Exam Line: Each provider has unique strengths.</div>
+<div class="tip">💡 Tip: Never claim one is best for all.</div>
+<div class="punch">🎯 Punch Line: Choose cloud based on use case.</div>
+</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.querySelectorAll(".question").forEach(q=>{
+  q.addEventListener("click",()=>{
+    q.parentElement.classList.toggle("active");
+  });
+});
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
