@@ -148,6 +148,25 @@ footer{
 .dark table th{background:#0b1f33;}
 .dark table td{background:#102031;}
 .dark footer{color:#9fb3c8;}
+
+.img {
+      width: 95%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Size variants */
+    .img-small {
+      height: 120px;
+    }
+
+    .img-medium {
+      height: 200px;
+    }
+
+    .img-large {
+      height: 820px;
+    }
 </style>
 </head>
 
@@ -192,7 +211,7 @@ availability, performance, and fault tolerance of applications. :contentReferenc
 not just one.
 </div>
 
-<img src="https://via.placeholder.com/800x300?text=Load+Balancing+Concept+Diagram" alt="Load Balancing Concept">
+<img src="lb2.png" class="img img-large"  alt="Load Balancing Concept">
 
 <div class="exam">
 📘 In cloud exams: “Load balancing prevents overload and ensures high availability.”
@@ -207,7 +226,7 @@ A load balancer accepts incoming requests from clients and forwards them to heal
 It continuously checks the health of those targets so that only working servers receive traffic. :contentReference[oaicite:1]{index=1}
 </p>
 
-<img src="https://via.placeholder.com/800x300?text=Load+Balancer+Traffic+Flow" alt="Load Balancer Traffic Flow">
+<img src="lb.png" class="img img-large" alt="Load Balancer Traffic Flow">
 
 <ul class="desc">
   <li>Clients send requests to a single endpoint.</li>
