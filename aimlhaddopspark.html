@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Distributed Computing with Hadoop & Spark</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .menu {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 6px 18px rgba(0, 140, 255, .22);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .tip {
+      background: #E8F4FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    details {
+      background: #F0F8FF;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #DCEAFF;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header,
+    .dark .menubar {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark details {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit2.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Distributed Computing & Big Data Platforms</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="menubar">
+  <nav class="menu">
+    <a href="#intro">Intro</a>
+    <a href="#cloudrole">Cloud Role</a>
+    <a href="#hadoop">Hadoop</a>
+    <a href="#spark">Spark</a>
+    <a href="#services">Cloud Services</a>
+    <a href="#mindmap">Mind Map</a>
+    <a href="#quiz">Scenario Quiz</a>
+    <a href="#summary">Summary</a>
+  </nav>
+</div>
+
+<div class="container">
+
+  <h2>Distributed Computing with Hadoop & Spark  
+    <br/>Powered by Cloud Computing</h2>
+
+  <!-- Intro -->
+  <section class="section" id="intro">
+    <h3>Why Distributed Computing Needs Cloud</h3>
+    <p class="desc">
+      Distributed computing solves problems that are too large for a single machine.
+      Cloud computing provides elastic infrastructure that makes distributed systems
+      practical, scalable, and cost-effective.
+    </p>
+    <div class="tip">
+      💡 Cloud turns distributed computing from a complex setup into a service.
+    </div>
+  </section>
+
+  <!-- Cloud Role -->
+  <section class="section" id="cloudrole">
+    <h3>How Cloud Computing Enables Distributed Processing</h3>
+    <ul>
+      <li>Elastic virtual machines form distributed clusters</li>
+      <li>Object storage acts as shared, fault-tolerant data lakes</li>
+      <li>Managed services remove operational complexity</li>
+      <li>Pay-as-you-go model reduces cost</li>
+    </ul>
+  </section>
+
+  <!-- Hadoop -->
+  <section class="section" id="hadoop">
+    <h3>Apache Hadoop – Distributed Storage & Batch Processing</h3>
+    <p class="desc">
+      Apache Hadoop is an open-source framework designed to store and process
+      massive datasets using distributed clusters of commodity hardware.
+      It was the first major platform to make big data processing practical.
+    </p>
+
+    <ul>
+      <li><b>HDFS</b> – Distributed file system with data replication</li>
+      <li><b>YARN</b> – Resource management and job scheduling</li>
+      <li><b>MapReduce</b> – Batch-oriented processing model</li>
+    </ul>
+
+    <p class="desc">
+      Hadoop excels at large-scale, fault-tolerant batch processing but is
+      slower for iterative and real-time workloads.
+    </p>
+
+    <div class="tip">
+      🐘 Hadoop is reliable, scalable, and cost-effective for batch analytics.
+    </div>
+  </section>
+
+  <!-- Spark -->
+  <section class="section" id="spark">
+    <h3>Apache Spark – Fast In-Memory Distributed Processing</h3>
+    <p class="desc">
+      Apache Spark is a distributed computing engine designed for speed.
+      Unlike Hadoop MapReduce, Spark processes data in memory, making it
+      significantly faster for iterative workloads.
+    </p>
+
+    <ul>
+      <li>In-memory computation</li>
+      <li>Supports batch, streaming, SQL, and machine learning</li>
+      <li>Runs on Hadoop, cloud storage, or standalone clusters</li>
+    </ul>
+
+    <p class="desc">
+      Spark is widely used for real-time analytics, data science,
+      and AI/ML pipelines in the cloud.
+    </p>
+
+    <div class="tip">
+      ⚡ Spark is the preferred engine for modern analytics and ML workloads.
+    </div>
+  </section>
+
+  <!-- Cloud Services -->
+  <section class="section" id="services">
+    <h3>Cloud Services Supporting Hadoop & Spark</h3>
+
+    <p class="desc"><b>AWS</b></p>
+    <ul>
+      <li>EC2 – Cluster compute nodes</li>
+      <li>S3 – Data lake storage</li>
+      <li>EMR – Managed Hadoop & Spark</li>
+    </ul>
+
+    <p class="desc"><b>GCP</b></p>
+    <ul>
+      <li>Compute Engine – Distributed compute</li>
+      <li>Cloud Storage – Data lake</li>
+      <li>Dataproc – Managed Hadoop & Spark</li>
+    </ul>
+
+    <p class="desc"><b>Azure</b></p>
+    <ul>
+      <li>Azure Virtual Machines – Compute layer</li>
+      <li>Azure Data Lake Storage – Big data storage</li>
+      <li>Azure Synapse Spark / HDInsight – Distributed processing</li>
+    </ul>
+  </section>
+
+  <!-- Mind Map -->
+  <section class="section" id="mindmap">
+    <h3>Focus Mind Map – Hadoop & Spark in Cloud</h3>
+
+    <svg viewBox="0 0 700 420" width="100%" height="auto">
+      <rect x="250" y="180" width="200" height="60" rx="12" fill="#008CFF"/>
+      <text x="350" y="215" text-anchor="middle" fill="#fff">Distributed Computing</text>
+
+      <rect x="60" y="60" width="220" height="60" rx="12" fill="#E8F4FF" stroke="#008CFF"/>
+      <text x="170" y="95" text-anchor="middle">Hadoop (Batch)</text>
+
+      <rect x="420" y="60" width="220" height="60" rx="12" fill="#E8F4FF" stroke="#008CFF"/>
+      <text x="530" y="95" text-anchor="middle">Spark (Fast / ML)</text>
+
+      <rect x="60" y="320" width="220" height="60" rx="12" fill="#E8F4FF" stroke="#008CFF"/>
+      <text x="170" y="355" text-anchor="middle">Storage (S3 / ADLS)</text>
+
+      <rect x="420" y="320" width="220" height="60" rx="12" fill="#E8F4FF" stroke="#008CFF"/>
+      <text x="530" y="355" text-anchor="middle">Cloud Compute (VMs)</text>
+
+      <line x1="260" y1="180" x2="170" y2="120" stroke="#555"/>
+      <line x1="440" y1="180" x2="530" y2="120" stroke="#555"/>
+      <line x1="260" y1="240" x2="170" y2="320" stroke="#555"/>
+      <line x1="440" y1="240" x2="530" y2="320" stroke="#555"/>
+    </svg>
+
+    <div class="tip">
+      📌 Remember: Hadoop stores & batches, Spark analyzes & learns.
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="section" id="quiz">
+    <h3>Testing & Reasoning – Identify the Service</h3>
+
+    <details>
+      <summary>1. You need reliable batch processing of petabytes of data.</summary>
+      <p>Apache Hadoop (via EMR / Dataproc / Synapse).</p>
+    </details>
+
+    <details>
+      <summary>2. You need fast, iterative processing for ML training.</summary>
+      <p>Apache Spark.</p>
+    </details>
+
+    <details>
+      <summary>3. You want managed Hadoop & Spark without cluster management.</summary>
+      <p>AWS EMR / GCP Dataproc / Azure Synapse Spark.</p>
+    </details>
+  </section>
+
+  <!-- Summary -->
+  <section class="section" id="summary">
+    <h3>Summary Overview</h3>
+    <p class="desc">
+      Cloud computing provides the foundation that makes distributed computing practical.
+      Hadoop enables large-scale batch processing, while Spark delivers fast,
+      in-memory analytics and machine learning. Together with cloud-managed services,
+      they form the backbone of modern big data architectures.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

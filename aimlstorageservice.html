@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Storage Services in Cloud Computing</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .menu {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 6px 18px rgba(0, 140, 255, .22);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .tip {
+      background: #E8F4FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    details {
+      background: #F0F8FF;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #DCEAFF;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header,
+    .dark .menubar {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark details {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit2.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Cloud Core Services • Storage</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="menubar">
+  <nav class="menu">
+    <a href="#intro">Intro</a>
+    <a href="#what">What</a>
+    <a href="#how">How</a>
+    <a href="#models">Models</a>
+    <a href="#advantages">Advantages</a>
+    <a href="#usecases">Use Cases</a>
+    <a href="#types">Types</a>
+    <a href="#services">S3 • Blob • BigQuery</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#summary">Summary</a>
+  </nav>
+</div>
+
+<div class="container">
+
+  <h2>Storage Services – The Memory System of Cloud Computing</h2>
+
+  <!-- Intro -->
+  <section class="section" id="intro">
+    <h3>Why Cloud Storage Is Essential</h3>
+    <p class="desc">
+      In cloud computing, storage plays the role of long-term memory.
+      Applications may come and go, compute may scale up and down,
+      but data must remain durable, secure, and always available.
+    </p>
+    <div class="tip">
+      💡 Key Line: <b>Compute runs the cloud, Storage remembers it.</b>
+    </div>
+  </section>
+
+  <!-- What -->
+  <section class="section" id="what">
+    <h3>What Is Cloud Storage?</h3>
+    <p class="desc">
+      Cloud Storage is a model of storing digital data on remote servers
+      maintained by third-party cloud providers.
+      These providers are responsible for hosting, managing, securing,
+      and making the data accessible over public or private internet connections.
+    </p>
+    <p class="desc">
+      By using cloud storage, organizations avoid owning and operating
+      physical data centers and move from a capital expenditure (CapEx)
+      model to an operational expenditure (OpEx) model.
+    </p>
+  </section>
+
+  <!-- How -->
+  <section class="section" id="how">
+    <h3>How Cloud Storage Works</h3>
+    <p class="desc">
+      Users upload data through web portals, APIs, or applications.
+      This data is stored on virtual machines running on physical servers.
+      Cloud providers replicate the data across multiple servers
+      and geographic locations to ensure availability and durability.
+    </p>
+    <div class="tip">
+      🌍 Replication + Redundancy = High Availability
+    </div>
+  </section>
+
+  <!-- Models -->
+  <section class="section" id="models">
+    <h3>Cloud Storage Deployment Models</h3>
+    <ul>
+      <li><b>Public Cloud</b> – Shared, elastic, pay-as-you-go</li>
+      <li><b>Private Cloud</b> – Dedicated, high control & compliance</li>
+      <li><b>Hybrid Cloud</b> – Sensitive data private, rest public</li>
+      <li><b>Multicloud</b> – Multiple providers for flexibility & resilience</li>
+    </ul>
+  </section>
+
+  <!-- Advantages -->
+  <section class="section" id="advantages">
+    <h3>Advantages of Cloud Storage</h3>
+    <ul>
+      <li><b>Total Cost of Ownership</b> – CapEx → OpEx</li>
+      <li><b>Elasticity</b> – Scale up or down on demand</li>
+      <li><b>Flexibility</b> – Access data anytime, anywhere</li>
+      <li><b>Security</b> – Encryption, IAM, zero-trust models</li>
+      <li><b>Sustainability</b> – Energy-efficient data centers</li>
+      <li><b>Redundancy</b> – Built-in disaster recovery</li>
+    </ul>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section" id="usecases">
+    <h3>How Cloud Storage Is Used</h3>
+    <ul>
+      <li><b>Backup</b> – Protect production data from failures & ransomware</li>
+      <li><b>Archiving</b> – Store historical data at low cost</li>
+      <li><b>Disaster Recovery</b> – Business continuity during failures</li>
+      <li><b>Data Processing</b> – Analytics, AI/ML workloads</li>
+      <li><b>Content Delivery</b> – Low-latency global access</li>
+    </ul>
+  </section>
+
+  <!-- Types -->
+  <section class="section" id="types">
+    <h3>Types of Cloud Storage</h3>
+    <p class="desc"><b>Object Storage</b> – Unstructured data, metadata-driven</p>
+    <p class="desc"><b>File Storage</b> – Folder-based shared file systems</p>
+    <p class="desc"><b>Block Storage</b> – High-performance, low-latency workloads</p>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <h3>Cloud Storage Services: S3, Blob, BigQuery</h3>
+
+    <p class="desc">
+      <b>Amazon S3 (AWS)</b> and <b>Azure Blob Storage</b> are object storage services
+      used for storing unstructured data such as images, videos, logs,
+      backups, and data lake files.
+    </p>
+
+    <p class="desc">
+      <b>BigQuery (GCP)</b> is a serverless data warehouse.
+      It stores structured data and allows users to run large-scale SQL analytics
+      without managing servers or storage infrastructure.
+    </p>
+
+    <div class="tip">
+      🧠 Architect Insight:<br>
+      S3 / Blob → Store objects<br>
+      BigQuery → Store + Analyze structured data
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="section" id="quiz">
+    <h3>Testing & Reasoning</h3>
+
+    <details>
+      <summary>1. Why do organizations prefer cloud storage?</summary>
+      <p>Because it is scalable, cost-effective, and highly available.</p>
+    </details>
+
+    <details>
+      <summary>2. Which storage type suits databases?</summary>
+      <p>Block storage.</p>
+    </details>
+
+    <details>
+      <summary>3. Is BigQuery just storage?</summary>
+      <p>No, it is a serverless data warehouse for analytics.</p>
+    </details>
+  </section>
+
+  <!-- Summary -->
+  <section class="section" id="summary">
+    <h3>Summary Overview</h3>
+    <p class="desc">
+      Cloud storage is the foundation for data-driven systems.
+      It enables durability, scalability, security, and global access to data.
+      Understanding storage models, types, and services is essential
+      for designing reliable cloud architectures.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>
