@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | MapReduce</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3,h4{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.7;}
+
+.expert,.tip,.exam{
+  padding:16px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14.5px;
+}
+
+.expert{
+  background:#E8F4FF;
+  border-left:4px solid var(--teal);
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  font-weight:600;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,td{
+  border:1px solid #DCEAFF;
+  padding:12px;
+}
+
+th{
+  background:#E8F4FF;
+  font-family:Poppins;
+}
+
+/* Quiz */
+.quiz-item{
+  background:#F0F8FF;
+  border-left:4px solid var(--azure-blue);
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+.quiz-q{font-weight:600;}
+
+.quiz-ans{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  font-size:14px;
+}
+
+.quiz-item:hover .quiz-ans{
+  max-height:120px;
+  margin-top:8px;
+}
+
+/* Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .expert,.dark .tip{background:#0b1f33;}
+.dark .exam{background:#1f1a0f;}
+.dark table th{background:#0b1f33;}
+.dark table td{background:#102031;}
+.dark footer{color:#9fb3c8;}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>MapReduce Programming Model</h2>
+
+<!-- Expert Note -->
+<section class="section">
+<h3>🧠 Expert Note: From Single Machine Thinking to Distributed Reality</h3>
+<div class="expert desc">
+When we start learning data processing, our mind naturally thinks in terms of a single machine:
+read data, process it, and produce output.
+
+But reality hits hard when data grows into gigabytes and terabytes.
+
+At first, MapReduce feels strange:
+<ul>
+<li>Why split data?</li>
+<li>Why process in parallel?</li>
+<li>Why can’t one powerful server do everything?</li>
+</ul>
+
+The breakthrough comes when we accept a key truth:
+<b>Big data problems are not solved by bigger machines, but by more machines working together.</b>
+
+MapReduce trains our mind to think in a distributed way.
+Once this shift happens, large-scale data processing stops being scary
+and starts becoming systematic and logical.This mindset is crucial for mastering modern data frameworks like Spark and cloud-native analytics.
+Think distributed, think parallel, and embrace the power of many over the might of one.
+</div>
+</section>
+
+<!-- What is MapReduce -->
+<section class="section">
+<h3>1️⃣ What is MapReduce?</h3>
+<p class="desc">
+MapReduce is a programming model used to process large datasets by dividing the work
+into two main phases—<b>Map</b> and <b>Reduce</b>—and executing them in parallel
+across a cluster of machines.
+</p>
+
+<div class="exam">
+📘 Exam Line: MapReduce is a distributed programming model for processing large datasets in parallel.
+</div>
+</section>
+
+<!-- Map Phase -->
+<section class="section">
+<h3>2️⃣ Map Phase</h3>
+<p class="desc">
+The Map phase processes input data and converts it into intermediate
+<b>key–value pairs</b>.
+</p>
+
+<div class="tip">
+<b>Example:</b>  
+Input: “cloud cloud data”  
+Output: (cloud,1), (cloud,1), (data,1)
+</div>
+
+<ul class="desc">
+  <li>Runs in parallel</li>
+  <li>Works on data blocks</li>
+  <li>No dependency between mappers</li>
+</ul>
+</section>
+
+<!-- Reduce Phase -->
+<section class="section">
+<h3>3️⃣ Reduce Phase</h3>
+<p class="desc">
+The Reduce phase aggregates intermediate key–value pairs
+to produce the final result.
+</p>
+
+<div class="tip">
+<b>Example:</b>  
+(cloud, [1,1]) → (cloud, 2)
+</div>
+
+<ul class="desc">
+  <li>Groups data by key</li>
+  <li>Performs aggregation</li>
+  <li>Produces final output</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: Reduce phase aggregates intermediate results generated by the Map phase.
+</div>
+</section>
+
+<!-- Workflow -->
+<section class="section">
+<h3>4️⃣ MapReduce Workflow</h3>
+
+<table>
+<tr>
+  <th>Step</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>Input Split</td>
+  <td>Large data split into smaller chunks</td>
+</tr>
+<tr>
+  <td>Map</td>
+  <td>Parallel processing of each split</td>
+</tr>
+<tr>
+  <td>Shuffle & Sort</td>
+  <td>Grouping intermediate keys</td>
+</tr>
+<tr>
+  <td>Reduce</td>
+  <td>Final aggregation and output</td>
+</tr>
+</table>
+</section>
+
+<!-- Cloud & Hadoop -->
+<section class="section">
+<h3>5️⃣ MapReduce in Hadoop & Cloud</h3>
+<p class="desc">
+MapReduce is the core processing engine of <b>Hadoop</b>.
+Cloud platforms make it easier by offering managed services.
+</p>
+
+<ul class="desc">
+  <li><b>AWS:</b> EMR (Elastic MapReduce)</li>
+  <li><b>GCP:</b> Dataproc</li>
+  <li><b>Azure:</b> HDInsight</li>
+</ul>
+
+<div class="tip">
+<b>Cloud Advantage:</b> No cluster setup, auto-scaling, pay-as-you-use.
+</div>
+</section>
+
+<!-- Comparison -->
+<section class="section">
+<h3>6️⃣ MapReduce vs Spark</h3>
+
+<table>
+<tr>
+  <th>Aspect</th>
+  <th>MapReduce</th>
+  <th>Spark</th>
+</tr>
+<tr>
+  <td>Processing</td>
+  <td>Disk-based</td>
+  <td>In-memory</td>
+</tr>
+<tr>
+  <td>Speed</td>
+  <td>Slower</td>
+  <td>Faster</td>
+</tr>
+<tr>
+  <td>Use Case</td>
+  <td>Batch processing</td>
+  <td>Batch + Streaming</td>
+</tr>
+</table>
+</section>
+
+<!-- Quiz -->
+<section class="section">
+<h3>🧩 Quick Quiz: MapReduce</h3>
+
+<div class="quiz-item">
+  <div class="quiz-q">1️⃣ What is the role of the Map function?</div>
+  <div class="quiz-ans">It converts input data into intermediate key–value pairs.</div>
+</div>
+
+<div class="quiz-item">
+  <div class="quiz-q">2️⃣ What happens in the Reduce phase?</div>
+  <div class="quiz-ans">Intermediate results are aggregated to produce final output.</div>
+</div>
+
+<div class="quiz-item">
+  <div class="quiz-q">3️⃣ Why is MapReduce scalable?</div>
+  <div class="quiz-ans">Because tasks run in parallel across multiple machines.</div>
+</div>
+
+<div class="quiz-item">
+  <div class="quiz-q">4️⃣ Which Hadoop service runs MapReduce on AWS?</div>
+  <div class="quiz-ans">Amazon EMR.</div>
+</div>
+
+<div class="quiz-item">
+  <div class="quiz-q">5️⃣ Is MapReduce suitable for real-time processing?</div>
+  <div class="quiz-ans">No, it is mainly designed for batch processing.</div>
+</div>
+
+</section>
+
+<!-- Summary -->
+<section class="section">
+<h3>Final Summary</h3>
+<p class="desc">
+MapReduce teaches us how to think beyond single-machine limits.
+It forms the foundation of distributed data processing
+and prepares us for advanced frameworks like Spark and cloud-native analytics.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
