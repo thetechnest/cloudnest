@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hadoop MapReduce Job Execution</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark table th {
+            background: #0b1f33;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Empowering Learners for Big Data & Hadoop</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Hadoop MapReduce Job Execution</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why Job Execution Matters</h3>
+            <p class="desc">
+                While learning Hadoop, many students focus only on writing Mapper and Reducer code. However, in real
+                projects, understanding <b>how a MapReduce job executes internally</b> is critical for performance
+                tuning, debugging failures, and designing efficient data pipelines.
+            </p>
+            <p class="desc">
+                MapReduce job execution defines how data moves from HDFS to Mappers, through shuffle and sort, and
+                finally into Reducers to produce output.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: MapReduce job execution explains the internal working of Hadoop processing.
+            </div>
+        </section>
+
+        <!-- FLOW -->
+        <section class="section">
+            <h3>High-Level MapReduce Job Flow</h3>
+            <ol>
+                <li>Job submission</li>
+                <li>Input splitting</li>
+                <li>Map task execution</li>
+                <li>Shuffle and sort</li>
+                <li>Reduce task execution</li>
+                <li>Output generation</li>
+            </ol>
+            <div class="exam">
+                📘 Exam Line: MapReduce follows the flow: Input → Map → Shuffle → Reduce → Output.
+            </div>
+        </section>
+
+        <!-- STEP 1 -->
+        <section class="section">
+            <h3>Step 1️⃣ Job Submission</h3>
+            <p class="desc">
+                The client submits a MapReduce job to the Hadoop cluster. Job configuration, input path, output path,
+                and Mapper/Reducer classes are provided.
+            </p>
+            <div class="tip">
+                <b>Component Involved:</b> YARN ResourceManager and JobTracker/ApplicationMaster.
+            </div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="section">
+            <h3>Step 2️⃣ Input Splitting</h3>
+            <p class="desc">
+                Input data stored in HDFS is divided into logical splits. Each split is processed by one Mapper.
+            </p>
+            <div class="tip">
+                <b>Key Concept:</b> One input split → One Mapper.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Input splits define parallelism in MapReduce.
+            </div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="section">
+            <h3>Step 3️⃣ Map Phase</h3>
+            <p class="desc">
+                The Mapper reads input records and converts them into intermediate key-value pairs.
+            </p>
+            <div class="tip">
+                <b>AI/ML Context:</b> Map phase performs data cleaning and feature extraction.
+            </div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section class="section">
+            <h3>Step 4️⃣ Shuffle and Sort</h3>
+            <p class="desc">
+                The shuffle phase transfers Mapper output to Reducers. The sort phase groups values by key.
+            </p>
+            <div class="tip">
+                <b>Why Important?</b> This is the most expensive phase in MapReduce.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Shuffle and sort groups mapper output by key before reduction.
+            </div>
+        </section>
+
+        <!-- STEP 5 -->
+        <section class="section">
+            <h3>Step 5️⃣ Reduce Phase</h3>
+            <p class="desc">
+                Reducers process grouped key-value pairs and produce final output.
+            </p>
+            <div class="tip">
+                <b>Example:</b> Word count aggregation.
+            </div>
+        </section>
+
+        <!-- STEP 6 -->
+        <section class="section">
+            <h3>Step 6️⃣ Output Generation</h3>
+            <p class="desc">
+                The final output is written back to HDFS in the specified output directory.
+            </p>
+            <div class="exam">
+                📘 Exam Line: Reduce output is stored in HDFS.
+            </div>
+        </section>
+
+        <!-- TABLE -->
+        <section class="section">
+            <h3>Components Involved in Job Execution</h3>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Role</th>
+                </tr>
+                <tr>
+                    <td>Client</td>
+                    <td>Submits job</td>
+                </tr>
+                <tr>
+                    <td>YARN</td>
+                    <td>Manages resources</td>
+                </tr>
+                <tr>
+                    <td>Mapper</td>
+                    <td>Processes input splits</td>
+                </tr>
+                <tr>
+                    <td>Reducer</td>
+                    <td>Aggregates results</td>
+                </tr>
+                <tr>
+                    <td>HDFS</td>
+                    <td>Stores input & output</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Quiz (Click to Reveal)</h3>
+
+            <details>
+                <summary>1️⃣ Which phase groups data by key?</summary>
+                <p>Shuffle and Sort.</p>
+            </details>
+
+            <details>
+                <summary>2️⃣ How many Mappers for one input split?</summary>
+                <p>One Mapper.</p>
+            </details>
+
+            <details>
+                <summary>3️⃣ Where is final output stored?</summary>
+                <p>HDFS.</p>
+            </details>
+
+            <details>
+                <summary>4️⃣ Which phase is most expensive?</summary>
+                <p>Shuffle phase.</p>
+            </details>
+
+            <details>
+                <summary>5️⃣ Why should engineers understand job execution?</summary>
+                <p>For performance tuning and debugging.</p>
+            </details>
+        </section>
+
+        <section class="section">
+            <h3>Final Summary</h3>
+            <p class="desc">
+                Hadoop MapReduce job execution defines how Big Data is processed step by step. Understanding this flow
+                is essential for writing efficient MapReduce programs and transitioning to advanced frameworks like
+                Apache Spark.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

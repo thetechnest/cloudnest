@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Distributed Computing | Foundations</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark table th {
+            background: #0b1f33;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Empowering Learners for Distributed & Data Systems</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>What is Distributed Computing?</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why Distributed Computing Emerged</h3>
+            <p class="desc">
+                Early in my career, most applications were designed to run on a single powerful server. Scaling meant
+                buying better hardware. This model worked until applications started serving millions of users and
+                processing enormous amounts of data.
+            </p>
+            <p class="desc">
+                At that point, a single machine became a bottleneck. Hardware failures caused downtime, costs increased,
+                and performance tuning reached its limits. This forced a fundamental shift in system design — moving
+                from one machine to many cooperating machines.
+            </p>
+            <p class="desc">
+                This shift is called <b>Distributed Computing</b>, where multiple independent computers work together
+                as a single system to solve large-scale problems.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: Distributed computing emerged to overcome scalability, performance, and reliability
+                limitations of single-machine systems.
+            </div>
+        </section>
+
+        <!-- DEFINITION -->
+        <section class="section">
+            <h3>Definition of Distributed Computing</h3>
+            <p class="desc">
+                Distributed computing is a computing model in which multiple autonomous computers communicate and
+                coordinate over a network to achieve a common goal.
+            </p>
+            <div class="exam">
+                📘 Exam Line: Distributed computing involves multiple computers working together as a single system.
+            </div>
+        </section>
+
+        <!-- WHY -->
+        <section class="section">
+            <h3>Why Distributed Computing is Needed</h3>
+            <ul>
+                <li><b>Scalability:</b> Handle growing users and data</li>
+                <li><b>Performance:</b> Parallel execution of tasks</li>
+                <li><b>Fault Tolerance:</b> System continues despite failures</li>
+                <li><b>Cost Efficiency:</b> Uses commodity hardware</li>
+            </ul>
+
+            <div class="tip">
+                <b>AI/ML Context:</b> Training large models requires distributing data and computation across machines.
+            </div>
+
+            <div class="exam">
+                📘 Exam Line: Distributed systems improve scalability, performance, and reliability.
+            </div>
+        </section>
+
+        <!-- TYPES -->
+        <section class="section">
+            <h3>Centralized vs Distributed Systems</h3>
+            <table>
+                <tr>
+                    <th>Centralized System</th>
+                    <th>Distributed System</th>
+                </tr>
+                <tr>
+                    <td>Single machine</td>
+                    <td>Multiple machines</td>
+                </tr>
+                <tr>
+                    <td>Limited scalability</td>
+                    <td>Highly scalable</td>
+                </tr>
+                <tr>
+                    <td>Single point of failure</td>
+                    <td>Fault tolerant</td>
+                </tr>
+                <tr>
+                    <td>Vertical scaling</td>
+                    <td>Horizontal scaling</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- RELATION -->
+        <section class="section">
+            <h3>Relation to Big Data, Hadoop & Spark</h3>
+            <p class="desc">
+                Big Data systems are built on top of distributed computing principles. Hadoop distributes storage and
+                computation, while Spark provides fast, in-memory distributed processing.
+            </p>
+            <div class="tip">
+                <b>Key Insight:</b> Big Data is an application of distributed computing at massive scale.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Hadoop and Spark are distributed computing frameworks for Big Data processing.
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Quiz (Click to Reveal)</h3>
+
+            <details>
+                <summary>1️⃣ Why is a single machine insufficient for modern applications?</summary>
+                <p>Due to scalability, performance, and reliability limitations.</p>
+            </details>
+
+            <details>
+                <summary>2️⃣ What is horizontal scaling?</summary>
+                <p>Adding more machines to handle increased workload.</p>
+            </details>
+
+            <details>
+                <summary>3️⃣ Which property handles failures?</summary>
+                <p>Fault tolerance.</p>
+            </details>
+
+            <details>
+                <summary>4️⃣ How is Big Data related to distributed computing?</summary>
+                <p>Big Data systems use distributed computing to process large datasets.</p>
+            </details>
+
+            <details>
+                <summary>5️⃣ Name one real-world example of distributed computing.</summary>
+                <p>Google search, Hadoop clusters, cloud computing platforms.</p>
+            </details>
+        </section>
+
+        <section class="section">
+            <h3>Final Summary</h3>
+            <p class="desc">
+                Distributed computing forms the foundation of modern Big Data, cloud platforms, and AI systems.
+                Understanding this concept is essential before learning Hadoop, Spark, and large-scale data
+                architectures.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

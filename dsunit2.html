@@ -1,11 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NBKRIST-CloudNest | Unit 2</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- ✅ SAME CSS AS UNIT-1 (UNCHANGED) -->
+  <!-- Paste the SAME <style> section from Unit-1 here -->
 
   <style>
     :root {
@@ -18,304 +24,728 @@
       --card-bg: #fff;
     }
 
-    * { box-sizing: border-box; }
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       background: var(--bg);
       color: var(--dark-slate);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header-shell {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     /* Header */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
       background: white;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 20px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 10px rgba(15, 28, 46, 0.06);
+
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
     }
 
-    .brand { display:flex; align-items:center; gap:12px; }
-    .brand h1 { font-family:Poppins;margin:0;font-size:20px; }
-    .tagline { font-size:13px;color:var(--muted); }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand svg {
+      display: block;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins, Inter;
+      font-size: 20px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
 
     .back-btn {
-      padding:9px 12px;
-      background:#eee;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      color:#000;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 9px 12px;
+      background: #eee;
+      color: #000;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     }
 
     #modeToggle {
-      padding:8px 12px;
-      border-radius:8px;
-      border:none;
-      font-weight:600;
-      background:var(--dark-slate);
-      color:white;
-      cursor:pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      background: var(--dark-slate);
+      color: white;
+      cursor: pointer;
     }
 
+    /* Page container */
     .container {
       max-width: 980px;
-      margin: 20px auto;
-      padding: 20px;
+      margin: 18px auto 80px;
+      padding: 2px;
     }
 
+    /* Menu bar */
     .menu-bar {
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:10px 0 24px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      margin-bottom: 22px;
     }
 
     .menu-btn {
-      padding:8px 14px;
-      border-radius:10px;
-      color:white;
-      font-weight:700;
-      text-decoration:none;
-      background:linear-gradient(90deg,var(--azure-blue),var(--teal));
+      padding: 9px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--azure-blue), var(--teal));
+      box-shadow: 0 6px 18px rgba(3, 115, 255, 0.08);
+      font-size: 14px;
     }
 
-    /* Section */
+    /* Sections */
     .section {
-      background:var(--card-bg);
-      padding:22px;
-      border-radius:var(--radius);
-      box-shadow:0 6px 22px rgba(0,0,0,0.06);
-      margin-bottom:28px;
-      border-left:6px solid var(--azure-blue);
-      transition:transform .12s ease;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 28px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 30px rgba(15, 28, 46, 0.05);
+      transition: transform .12s ease;
     }
-    .section:hover { transform:translateY(-4px); }
 
-    .section h3 { margin-top:0;display:flex;align-items:center;gap:10px;font-size:20px; }
-    .section ul { padding-left:20px;margin:10px 0; }
+    .section:hover {
+      transform: translateY(-4px);
+    }
+
+    .section h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section p,
+    .section ul {
+      margin-top: 8px;
+      color: var(--dark-slate);
+      line-height: 1.55;
+    }
+
+    .section ul {
+      padding-left: 18px;
+    }
 
     .tip {
-      margin-top:10px;
-      padding:10px 14px;
-      background:#E8F4FF;
-      border-left:4px solid var(--teal);
-      border-radius:8px;
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #E8F4FF;
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--dark-slate);
     }
 
+    /* Image block - placed at BOTTOM of each section */
     .img-block {
-      margin-top:20px;
+      margin-top: 20px;
+      text-align: center;
     }
+
     .img-block img {
-      width:100%;
-      border-radius:12px;
-      max-height:260px;
-      object-fit:cover;
-      box-shadow:0 6px 22px rgba(0,0,0,0.1);
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 8px 24px rgba(3, 115, 255, 0.08);
     }
 
+    /* Practice Qs */
+    details {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #FBFBFE;
+      border: 1px solid #EEF5FF;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Footer */
     footer {
-      text-align:center;
-      padding:28px 0;
-      font-size:14px;
-      color:var(--muted);
-      margin-top:30px;
+      text-align: center;
+      padding: 26px 8px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
-    @media(max-width:720px){
-      .brand h1{font-size:18px;}
-      .img-block img{max-height:180px;}
+    /* ======= Horizontal Menu Bar ======= */
+    /* ======= Header-Attached Menu Bar ======= */
+    /* Menu (attached, no gap) */
+    .top-nav {
+      margin: 0;
+      padding: 0;
+
+      background:
+        linear-gradient(90deg,
+          rgba(0, 140, 255, 0) 0%,
+          rgba(0, 140, 255, 0.96) 12%,
+          rgba(0, 168, 168, 0.96) 88%,
+          rgba(0, 168, 168, 0) 100%);
+
+      backdrop-filter: blur(6px);
+    }
+
+    /* container */
+    .top-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+    }
+
+    /* top items */
+    .top-nav>ul>li>a {
+      display: block;
+      padding: 14px 12px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* underline animation */
+    .top-nav>ul>li>a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 1px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: all .25s ease;
+      transform: translateX(-50%);
+    }
+
+    .top-nav>ul>li>a:hover::after {
+      width: 70%;
+    }
+
+    /* ======= Dropdown ======= */
+    .top-nav li {
+      position: relative;
+    }
+
+    .top-nav li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 14px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+      display: none;
+      padding: 10px 0;
+      margin-top: 2px;
+    }
+
+    .top-nav li:hover ul {
+      display: block;
+    }
+
+    /* dropdown items */
+    .top-nav li ul li a {
+      display: block;
+      padding: 11px 18px;
+      font-size: 14px;
+      color: var(--dark-slate);
+      text-decoration: none;
+    }
+
+    .top-nav li ul li a:hover {
+      background: #F1F7FF;
+      color: var(--azure-blue);
+    }
+
+    /* ======= Mobile ======= */
+    @media (max-width: 900px) {
+      .top-nav ul {
+        flex-wrap: wrap;
+        gap: 18px;
+        padding: 6px 14px;
+      }
+    }
+
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .top-nav ul {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+
+
+    /* Responsive */
+    @media (max-width:720px) {
+      .container {
+        padding: 16px;
+        margin-top: 12px;
+      }
+
+      .brand h1 {
+        font-size: 18px;
+      }
+
+      .menu-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .img-block img {
+        max-height: 180px;
+      }
+
+      header {
+        padding: 10px 12px;
+      }
+    }
+
+    /* =========================
+   DARK MODE (FIXED & CLEAN)
+========================= */
+    .dark-mode {
+      --bg: #0F1C2E;
+      --card-bg: #16263f;
+      --dark-slate: #EAF0FF;
+      --muted: #A8B4C7;
+    }
+
+    /* Body */
+    .dark-mode body {
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    /* Header fix */
+    .dark-mode header {
+      background: #111f35;
+      box-shadow: none;
+    }
+
+    /* Brand text */
+    .dark-mode .brand h1,
+    .dark-mode .tagline {
+      color: #fff;
+    }
+
+    /* Back button */
+    .dark-mode .back-btn {
+      background: #223457;
+      color: #fff;
+    }
+
+    /* Top navigation – REMOVE blur in dark mode */
+    .dark-mode .top-nav {
+      backdrop-filter: none;
+      background: linear-gradient(90deg,
+          #0d1b30 0%,
+          #12284a 50%,
+          #0d1b30 100%);
+    }
+
+    /* Top nav links */
+    .dark-mode .top-nav>ul>li>a {
+      color: #EAF0FF;
+    }
+
+    /* Dropdown menu */
+    .dark-mode .top-nav li ul {
+      background: #1b2f52;
+    }
+
+    .dark-mode .top-nav li ul li a {
+      color: #EAF0FF;
+    }
+
+    .dark-mode .top-nav li ul li a:hover {
+      background: #26406d;
+    }
+
+    /* Sections */
+    .dark-mode .section {
+      background: var(--card-bg);
+      border-left-color: #4aa3ff;
+    }
+
+    /* Tip boxes */
+    .dark-mode .tip {
+      background: #1f3a63;
+      color: #EAF0FF;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <a class="back-btn" href="ds.html">← Back</a>
+  <!-- HEADER (fixed top) -->
 
-  <div class="brand">
-    <svg viewBox="0 0 64 64" width="46" height="46" xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
-      <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round">
-        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
-      </g>
-    </svg>
-    <div>
-      <h1>NBKRIST–CloudNest</h1>
-      <div class="tagline">Empowering Learners for the Cloud Era</div>
-    </div>
+
+
+  <div class="header-shell">
+
+    <header>
+      <!-- Back button (left) -->
+      <a class="back-btn" href="ds.html" title="Back to DS Overview">← Back</a>
+
+      <!-- Brand (center) -->
+      <div class="brand" aria-hidden="false">
+        <svg viewBox="0 0 64 64" width="46" height="46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0%" x2="100%">
+              <stop offset="0%" stop-color="#008CFF" />
+              <stop offset="100%" stop-color="#00A8A8" />
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z" />
+          </g>
+        </svg>
+
+        <div>
+          <h1 style="margin:0;font-family:Poppins,Inter;font-size:20px;">NBKRIST–CloudNest</h1>
+          <div class="tagline">Empowering Learners for the Cloud Era</div>
+        </div>
+      </div>
+
+      <!-- Controls (right) -->
+      <div class="header-controls">
+        <button id="modeToggle" aria-label="Toggle light/dark mode">☀ / 🌙</button>
+      </div>
+    </header>
+
+    <!-- HORIZONTAL MENU BAR -->
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li>
+          <a href="#">BigDataNest</a>
+          <ul>
+
+            <li><a href="whatisbigdata.html">Big Data Fundamentals</a></li>
+            <li><a href="bigdata_ecosystem_overview.html">Big Data Ecosystem Overview</a></li>
+            <li><a href="bigdata_storage_concepts.html">Big Data Storage Concepts</a></li>
+            <li><a href="bigdata_computation_models.html">Big Data computation Models</a></li>
+            <li><a href="bigdata_reliance_on_cloud.html">Big Data Cloud Reliance</a></li>
+            <li><a href="case_study_bigdata_on_aws.html">Case Study: Big Data on AWS</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Distributed Computing</a>
+          <ul>
+            <li><a href="distributed_computing_intro.html">What is Distributed Computing</a></li>
+            <li><a href="distributed_system_characteristics.html">Distributed System Characteristics</a></li>
+                    <li><a href="distributed_computing_on_cloud.html">DC CC</a></li>
+
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Hadoop</a>
+          <ul>
+            <li><a href="apache_hadoop.html">Apache Hadoop</a></li>
+            <li><a href="hadoop_mapreduce_job_execution.html">Hadoop Map Reduce Job Execution</a></li>
+            <li><a href="hadoop_schedulers.html">Hadoop Schedulers</a></li>
+            <li><a href="hadoop_cluster_setup.html">Hadoop Cluster setup</a></li>
+            <li><a href="hadoop_and_cloud_computing.html">Hadoop and Cloud Computing</a></li>
+            <li><a href="hadoop_case_study_aws_banking.html">Case Study Hadoop on AWS</a></li>
+
+
+          </ul>
+        </li>
+
+
+
+
+
+        <li>
+          <a href="#">Cloud Application Design</a>
+          
+        </li>
+        <li>
+          <a href="#">Python</a>
+     
+        </li>
+
+        <li>
+          <a href="#">Practice</a>
+  
+        </li>
+
+      </ul>
+    </nav>
+
   </div>
 
-  <button id="modeToggle">☀ / 🌙</button>
-</header>
+  <main class="container" role="main">
 
-<main class="container">
+    <h2>Unit–2: Hadoop, Cloud Application Design & Python Basics</h2>
 
-  <!-- Menu -->
-  <div class="menu-bar">
-    <a class="menu-btn" href="unit1.html">Unit I</a>
-    <a class="menu-btn" href="unit2.html">Unit II</a>
-    <a class="menu-btn" href="unit3.html">Unit III</a>
-    <a class="menu-btn" href="unit4.html">Unit IV</a>
-    <a class="menu-btn" href="unit5.html">Unit V</a>
-  </div>
+    <!-- Expert View -->
+    <section class="section">
+      <h3>☁️ 🧠 Expert View</h3>
+      <div class="tip"><strong>Industry Insight:</strong> This unit forms the technical backbone of cloud-based data
+        processing.</div>
 
-  <h2>UNIT II – Hadoop, MapReduce & Python</h2>
+      <p>
+        In real-world cloud environments, Hadoop and Python work together to process massive datasets at scale.
+        Hadoop enables distributed storage and parallel computation, while Python provides simplicity and flexibility
+        for data manipulation, analytics, and automation. Modern cloud applications rely on well-defined reference
+        architectures and data storage strategies to ensure scalability, reliability, and performance.
+      </p>
+    </section>
 
-  <!-- SECTION 1 -->
-  <section class="section">
-    <h3>☁️ 🧠 Expert View</h3>
-    <div class="tip"><strong>Tip:</strong> Big Data + Cloud + Python = modern analytics powerhouse.</div>
+    <!-- Hadoop Introduction -->
+    <section class="section">
+      <h3>🐘 What is Apache Hadoop?</h3>
+      <div class="tip"><strong>Tip:</strong> Hadoop is designed for storing and processing Big Data.</div>
 
-    <p>Unit-2 introduces you to Hadoop, MapReduce, and Python — three pillars of modern large-scale data processing. Hadoop lets organizations store and process massive datasets across distributed clusters. MapReduce is a programming model for breaking tasks into parallel operations. Python acts as the glue language connecting cloud services, data pipelines, analytics frameworks, and automation scripts. These skills build the foundation for roles in Big Data Engineering, Cloud Automation, DevOps, and Data Science.</p>
+      <p>
+        Apache Hadoop is an open-source framework that allows distributed storage and processing of large datasets
+        across clusters of commodity hardware. It is fault-tolerant, scalable, and cost-effective.
+      </p>
 
-    <div class="img-block">
-      <img src="https://placehold.co/1000x260/008CFF/ffffff?text=Hadoop+%2B+Python+Overview" alt="">
-    </div>
-  </section>
+      <ul>
+        <li>HDFS – Distributed storage</li>
+        <li>MapReduce – Parallel processing</li>
+        <li>YARN – Resource management</li>
+      </ul>
+    </section>
 
-  <!-- Hadoop MapReduce -->
-  <section class="section">
-    <h3>☁️ 🔄 Hadoop & MapReduce</h3>
-    <div class="tip"><strong>Tip:</strong> Think of Map → Process pieces independently, Reduce → Combine results.</div>
+    <!-- MapReduce -->
+    <section class="section">
+      <h3>⚙️ Hadoop MapReduce Job Execution</h3>
+      <div class="tip"><strong>Concept:</strong> Divide → Process → Combine</div>
 
-    <p>Hadoop is an open-source framework used for distributed storage and processing of large datasets. MapReduce is the core model behind Hadoop’s parallel data processing.</p>
+      <ul>
+        <li><strong>Map Phase:</strong> Input data is split and processed in parallel</li>
+        <li><strong>Shuffle & Sort:</strong> Intermediate results are grouped</li>
+        <li><strong>Reduce Phase:</strong> Aggregated results are produced</li>
+        <li>Jobs execute close to data for efficiency</li>
+      </ul>
+    </section>
 
-    <ul>
-      <li><strong>Apache Hadoop:</strong> the ecosystem and HDFS storage.</li>
-      <li><strong>Job Execution:</strong> tasks split into Map tasks and Reduce tasks.</li>
-      <li><strong>Schedulers:</strong> FIFO, Capacity Scheduler, Fair Scheduler.</li>
-      <li><strong>Cluster Setup:</strong> multi-node distributed storage + compute.</li>
-    </ul>
+    <!-- Hadoop Schedulers -->
+    <section class="section">
+      <h3>📊 Hadoop Schedulers</h3>
+      <div class="tip"><strong>Exam Tip:</strong> Scheduler decides resource allocation.</div>
 
-    <div class="img-block">
-      <img src="https://placehold.co/1000x260/0077B6/ffffff?text=MapReduce+Flow+Diagram" alt="">
-    </div>
-  </section>
+      <ul>
+        <li><strong>FIFO Scheduler:</strong> Jobs executed in submission order</li>
+        <li><strong>Capacity Scheduler:</strong> Guaranteed capacity for organizations</li>
+        <li><strong>Fair Scheduler:</strong> Equal resource sharing among jobs</li>
+      </ul>
+    </section>
 
-  <!-- Cloud Application Design -->
-  <section class="section">
-    <h3>☁️ 🏗️ Cloud Application Design</h3>
-    <div class="tip"><strong>Tip:</strong> Use reference architectures — they reduce mistakes and improve scalability.</div>
+    <!-- Cluster Setup -->
+    <section class="section">
+      <h3>🖥️ Hadoop Cluster Setup</h3>
+      <ul>
+        <li>Single-node cluster – Learning & testing</li>
+        <li>Multi-node cluster – Production environments</li>
+        <li>Uses Master–Slave architecture</li>
+        <li>Configured using XML files</li>
+      </ul>
+    </section>
 
-    <p>Cloud-based applications follow structured reference architectures to handle data, compute, scaling, and deployment.</p>
+    <!-- Cloud Application Design -->
+    <section class="section">
+      <h3>☁️ Cloud Application Design</h3>
+      <div class="tip"><strong>Big Picture:</strong> Design for scale from day one.</div>
 
-    <ul>
-      <li>Reference architecture for cloud apps</li>
-      <li>Design methodologies</li>
-      <li>Data storage approaches (files, block, object, DB)</li>
-    </ul>
+      <ul>
+        <li>Loose coupling of components</li>
+        <li>Scalability and elasticity</li>
+        <li>Fault tolerance</li>
+        <li>Security and monitoring</li>
+      </ul>
+    </section>
 
-    <div class="img-block">
-      <img src="https://placehold.co/1000x260/00A8A8/ffffff?text=Cloud+Architecture" alt="">
-    </div>
-  </section>
+    <!-- Reference Architecture -->
+    <section class="section">
+      <h3>📐 Reference Architecture for Cloud Applications</h3>
+      <ul>
+        <li>Client Layer (Web/Mobile)</li>
+        <li>Application Layer (Services, APIs)</li>
+        <li>Data Layer (Databases, Data Lakes)</li>
+        <li>Infrastructure Layer (Compute, Network)</li>
+      </ul>
+    </section>
 
-  <!-- Python Basics -->
-  <section class="section">
-    <h3>☁️ 🐍 Python Basics</h3>
-    <div class="tip"><strong>Tip:</strong> Master the basics — they directly apply to cloud scripting and automation.</div>
+    <!-- Data Storage -->
+    <section class="section">
+      <h3>💾 Data Storage Approaches</h3>
+      <ul>
+        <li>Object Storage (S3, Blob)</li>
+        <li>Relational Databases</li>
+        <li>NoSQL Databases</li>
+        <li>Data Lakes & Warehouses</li>
+      </ul>
+    </section>
 
-    <p>Python is the most widely used language for automation, analytics, cloud scripting, and backend development.</p>
+    <!-- Python Basics -->
+    <section class="section">
+      <h3>🐍 Python Basics</h3>
+      <div class="tip"><strong>Why Python?</strong> Simple, powerful, cloud-friendly.</div>
 
-    <ul>
-      <li>Python installation & environment setup</li>
-      <li>Data types & data structures</li>
-      <li>Control flow (if, loops)</li>
-      <li>Functions & modules</li>
-      <li>Packages & virtual environments</li>
-      <li>File handling</li>
-      <li>Date/Time operations</li>
-      <li>Basics of classes (OOP)</li>
-    </ul>
+      <ul>
+        <li>Easy to learn & readable syntax</li>
+        <li>Rich ecosystem for data science</li>
+        <li>Widely used in cloud automation</li>
+      </ul>
+    </section>
 
-    <div class="img-block">
-      <img src="https://placehold.co/1000x260/004C99/ffffff?text=Python+Essentials" alt="">
-    </div>
-  </section>
+    <section class="section">
+      <h3>📦 Python Data Types & Structures</h3>
+      <ul>
+        <li>Numbers, Strings, Boolean</li>
+        <li>List, Tuple, Set, Dictionary</li>
+      </ul>
+    </section>
 
-  <!-- Summary -->
-  <section class="section">
-    <h3>☁️ 📌 Key Summary Points</h3>
-    <div class="tip"><strong>Tip:</strong> Combine Hadoop + Python + Cloud for real production workflows.</div>
+    <section class="section">
+      <h3>🔁 Control Flow & Functions</h3>
+      <ul>
+        <li>if, for, while</li>
+        <li>Functions and parameters</li>
+        <li>Reusable logic</li>
+      </ul>
+    </section>
 
-    <ul>
-      <li>Hadoop enables distributed processing of large datasets.</li>
-      <li>MapReduce performs parallel transformations and aggregations.</li>
-      <li>Python integrates cloud APIs, automation scripts, analytics, and ML workflows.</li>
-      <li>Cloud reference architectures simplify app design.</li>
-      <li>Python basics prepare you for cloud-based development.</li>
-    </ul>
+    <section class="section">
+      <h3>📁 Modules, Packages & File Handling</h3>
+      <ul>
+        <li>Code organization using modules</li>
+        <li>Reading/Writing files</li>
+        <li>Importing libraries</li>
+      </ul>
+    </section>
 
-    <div class="img-block">
-      <img src="https://placehold.co/1000x260/0066CC/ffffff?text=Unit+2+Summary" alt="">
-    </div>
-  </section>
+    <section class="section">
+      <h3>⏱️ Date, Time & Classes</h3>
+      <ul>
+        <li>Date & time manipulation</li>
+        <li>Object-Oriented Programming</li>
+        <li>Classes and objects</li>
+      </ul>
+    </section>
 
-  <!-- Practice Questions -->
-  <section class="section">
-    <h3>☁️ 📝 Practice Questions</h3>
-    <div class="tip"><strong>Tip:</strong> Try answering before expanding each question.</div>
+    <!-- Points -->
+    <section class="section">
+      <h3>📌 Points to Remember</h3>
+      <ul>
+        <li>Hadoop enables distributed processing</li>
+        <li>MapReduce works on key-value pairs</li>
+        <li>Cloud apps must be scalable</li>
+        <li>Python is cloud & data-friendly</li>
+      </ul>
+    </section>
 
-    <details>
-      <summary>1. What is Hadoop used for?</summary>
-      <p>Hadoop is used for distributed storage and large-scale processing of datasets using clusters of machines.</p>
-    </details>
+    <!-- Summary -->
+    <section class="section">
+      <h3>🧾 Summary</h3>
+      <p>
+        Unit-2 introduces the core technologies required for cloud-based data processing.
+        Hadoop handles large-scale data, cloud design ensures scalability, and Python
+        provides flexibility for analytics and automation.
+      </p>
+    </section>
 
-    <details>
-      <summary>2. What are Map and Reduce?</summary>
-      <p>Map processes data in parallel; Reduce aggregates or combines intermediate results.</p>
-    </details>
+    <!-- Quiz -->
+    <section class="section">
+      <h3>🧠 General Quiz – Unit 2</h3>
 
-    <details>
-      <summary>3. Why is Python popular in Cloud?</summary>
-      <p>Because it integrates easily with cloud SDKs, APIs, automation scripts, analytics, and ML frameworks.</p>
-    </details>
+      <details>
+        <summary>1. Why is Hadoop suitable for Big Data?</summary>
+        <p>Because it supports distributed storage and parallel processing.</p>
+      </details>
 
-    <details>
-      <summary>4. Name common Python data structures.</summary>
-      <p>Lists, tuples, dictionaries, sets.</p>
-    </details>
+      <details>
+        <summary>2. What role does MapReduce play?</summary>
+        <p>It processes data in parallel using map and reduce functions.</p>
+      </details>
 
-    <details>
-      <summary>5. What is a cloud reference architecture?</summary>
-      <p>A standard blueprint that guides the design of reliable, scalable cloud applications.</p>
-    </details>
+      <details>
+        <summary>3. Why is Python popular in cloud computing?</summary>
+        <p>Due to simplicity, flexibility, and rich libraries.</p>
+      </details>
 
-    <div class="img-block">
-      <img src="https://placehold.co/1000x260/005F73/ffffff?text=Practice+Questions" alt="">
-    </div>
-  </section>
+    </section>
 
-</main>
+    <p><a class="back-btn" href="ds.html">← Back to DS Overview</a></p>
 
-<footer>
-  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
-</footer>
+  </main>
 
-<script>
-const btn = document.getElementById('modeToggle');
-btn.onclick = () => {
-  document.body.classList.toggle('dark-mode');
-  if(document.body.classList.contains('dark-mode')){
-    document.body.style.background = '#0F1C2E';
-    document.body.style.color = '#fff';
-    btn.style.background = '#fff';
-    btn.style.color = '#0F1C2E';
-  } else {
-    document.body.style.background = '';
-    document.body.style.color = '';
-    btn.style.background = '#0F1C2E';
-    btn.style.color = '#fff';
-  }
-};
-</script>
+  <!-- FOOTER -->
+  <footer>
+    © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
+  </footer>
+
+  <!-- JS: theme toggle -->
+  <script>
+    (function () {
+      const btn = document.getElementById('modeToggle');
+
+      btn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark-mode');
+
+        const dark = document.documentElement.classList.contains('dark-mode');
+        btn.textContent = dark ? '🌙 Dark' : '☀ Light';
+      });
+    })();
+  </script>
 
 </body>
+
 </html>

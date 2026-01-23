@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hadoop Cluster Setup</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Empowering Learners for Hadoop & Big Data</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Hadoop Cluster Setup</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why Cluster Setup Matters</h3>
+            <p class="desc">
+                In real-world Big Data projects, Hadoop rarely runs on a single machine.
+                Understanding how to set up a Hadoop cluster helps engineers visualize
+                how data and computation are distributed across multiple nodes.
+            </p>
+            <p class="desc">
+                Cluster setup knowledge is essential for labs, cloud deployments (EC2),
+                and debugging issues related to NameNode, DataNode, and YARN services.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: Hadoop cluster setup defines how storage and processing are distributed.
+            </div>
+        </section>
+
+        <!-- TYPES -->
+        <section class="section">
+            <h3>Types of Hadoop Cluster Setups</h3>
+            <ul>
+                <li><b>Standalone (Local Mode):</b> Single JVM, used for learning</li>
+                <li><b>Pseudo-Distributed Mode:</b> All daemons on one machine</li>
+                <li><b>Fully Distributed Mode:</b> Multiple machines (production)</li>
+            </ul>
+            <div class="exam">
+                📘 Exam Line: Hadoop supports standalone, pseudo-distributed, and fully distributed modes.
+            </div>
+        </section>
+
+        <!-- PREREQ -->
+        <section class="section">
+            <h3>Prerequisites for Hadoop Cluster</h3>
+            <ul>
+                <li>Linux OS (Ubuntu / CentOS)</li>
+                <li>Java (JDK)</li>
+                <li>Password-less SSH</li>
+                <li>Proper hostname configuration</li>
+            </ul>
+
+            <div class="tip">
+                <b>Lab Tip:</b> Password-less SSH is mandatory for Hadoop daemon communication.
+            </div>
+        </section>
+
+        <!-- CONFIG FILES -->
+        <section class="section">
+            <h3>Important Hadoop Configuration Files</h3>
+            <ul>
+                <li><b>core-site.xml</b> – Default filesystem</li>
+                <li><b>hdfs-site.xml</b> – Replication & storage</li>
+                <li><b>mapred-site.xml</b> – MapReduce framework</li>
+                <li><b>yarn-site.xml</b> – Resource management</li>
+            </ul>
+
+            <div class="exam">
+                📘 Exam Line: Hadoop behavior is controlled using XML configuration files.
+            </div>
+        </section>
+
+        <!-- SINGLE NODE -->
+        <section class="section">
+            <h3>Single Node (Pseudo-Distributed) Cluster Setup</h3>
+            <ol>
+                <li>Install Java</li>
+                <li>Download & extract Hadoop</li>
+                <li>Configure XML files</li>
+                <li>Format NameNode</li>
+                <li>Start HDFS & YARN</li>
+            </ol>
+
+            <div class="tip">
+                <b>Learning Use:</b> Ideal for students and labs.
+            </div>
+        </section>
+
+        <!-- MULTI NODE -->
+        <section class="section">
+            <h3>Multi-Node Hadoop Cluster Setup</h3>
+            <ul>
+                <li><b>Master Node:</b> NameNode, ResourceManager</li>
+                <li><b>Worker Nodes:</b> DataNode, NodeManager</li>
+            </ul>
+
+            <p class="desc">
+                All nodes must share Hadoop binaries, users, and SSH access.
+                Hostnames must be resolvable across the cluster.
+            </p>
+
+            <div class="tip">
+                <b>Cloud Context:</b> EC2 instances are commonly used for multi-node clusters.
+            </div>
+
+            <div class="exam">
+                📘 Exam Line: Multi-node cluster separates master and worker responsibilities.
+            </div>
+        </section>
+
+        <!-- START SERVICES -->
+        <section class="section">
+            <h3>Starting Hadoop Services</h3>
+            <ul>
+                <li>Start HDFS daemons</li>
+                <li>Start YARN daemons</li>
+                <li>Verify via Web UI</li>
+            </ul>
+
+            <div class="tip">
+                <b>Verification:</b> NameNode UI (50070 / 9870), ResourceManager UI (8088).
+            </div>
+        </section>
+
+        <!-- AI ML -->
+        <section class="section">
+            <h3>Relevance to AI / ML Pipelines</h3>
+            <p class="desc">
+                Hadoop clusters store raw and processed data used for feature engineering
+                and model training. Understanding cluster setup ensures data reliability
+                and scalability in AI workflows.
+            </p>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Quiz (Click to Reveal)</h3>
+
+            <details>
+                <summary>1️⃣ Which mode is used for production?</summary>
+                <p>Fully Distributed Mode.</p>
+            </details>
+
+            <details>
+                <summary>2️⃣ Why is SSH required?</summary>
+                <p>For daemon communication across nodes.</p>
+            </details>
+
+            <details>
+                <summary>3️⃣ Which file defines HDFS replication?</summary>
+                <p>hdfs-site.xml.</p>
+            </details>
+
+            <details>
+                <summary>4️⃣ What is the role of worker nodes?</summary>
+                <p>Store data and execute tasks.</p>
+            </details>
+
+            <details>
+                <summary>5️⃣ Why format NameNode?</summary>
+                <p>To initialize HDFS metadata.</p>
+            </details>
+        </section>
+
+        <section class="section">
+            <h3>Final Summary</h3>
+            <p class="desc">
+                Hadoop cluster setup is the foundation of Big Data processing.
+                Mastering cluster modes, configuration files, and service startup
+                prepares students for real-world Hadoop, cloud, and AI deployments.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Distributed System Characteristics</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark table th {
+            background: #0b1f33;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Empowering Learners for Distributed & Data Systems</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Distributed System Characteristics</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why Characteristics Matter</h3>
+            <p class="desc">
+                While working on distributed applications, I learned that success does not depend on tools alone.
+                The real challenge lies in understanding the fundamental characteristics of distributed systems.
+                Ignoring these properties leads to poor performance, data inconsistency, and system failures.
+            </p>
+            <p class="desc">
+                These characteristics define how distributed systems behave under scale, failure, and load — and
+                they directly influence the design of Big Data platforms like Hadoop and Spark.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: Distributed system characteristics guide system design and reliability.
+            </div>
+        </section>
+
+        <!-- CHARACTERISTICS -->
+        <section class="section">
+            <h3>Key Characteristics of Distributed Systems</h3>
+            <table>
+                <tr>
+                    <th>Characteristic</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Scalability</td>
+                    <td>Ability to grow by adding more machines</td>
+                </tr>
+                <tr>
+                    <td>Fault Tolerance</td>
+                    <td>System continues to work despite failures</td>
+                </tr>
+                <tr>
+                    <td>Transparency</td>
+                    <td>System appears as a single entity to users</td>
+                </tr>
+                <tr>
+                    <td>Availability</td>
+                    <td>System remains accessible when needed</td>
+                </tr>
+                <tr>
+                    <td>Consistency</td>
+                    <td>All nodes see the same data state</td>
+                </tr>
+                <tr>
+                    <td>Performance</td>
+                    <td>Efficient use of distributed resources</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- SCALABILITY -->
+        <section class="section">
+            <h3>1️⃣ Scalability</h3>
+            <p class="desc">
+                Scalability refers to the system’s ability to handle increasing workloads by adding more nodes
+                instead of upgrading existing hardware.
+            </p>
+            <div class="tip">
+                <b>Big Data Context:</b> Hadoop scales by adding DataNodes to the cluster.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Scalability enables distributed systems to grow horizontally.
+            </div>
+        </section>
+
+        <!-- FAULT TOLERANCE -->
+        <section class="section">
+            <h3>2️⃣ Fault Tolerance</h3>
+            <p class="desc">
+                Failures are inevitable in distributed environments. Fault tolerance ensures the system continues
+                functioning even when some nodes fail.
+            </p>
+            <div class="tip">
+                <b>Big Data Context:</b> HDFS replicates data blocks to handle node failures.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Fault tolerance allows systems to survive partial failures.
+            </div>
+        </section>
+
+        <!-- TRANSPARENCY -->
+        <section class="section">
+            <h3>3️⃣ Transparency</h3>
+            <p class="desc">
+                Transparency hides the complexity of distributed systems, making them appear as a single unified
+                system to users and applications.
+            </p>
+            <div class="tip">
+                <b>Example:</b> Users interact with a cloud service without knowing where servers are located.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Transparency hides distribution from users.
+            </div>
+        </section>
+
+        <!-- AVAILABILITY -->
+        <section class="section">
+            <h3>4️⃣ Availability</h3>
+            <p class="desc">
+                Availability ensures that the system remains operational and accessible even during failures or
+                maintenance.
+            </p>
+            <div class="tip">
+                <b>Big Data Context:</b> Replication and failover improve availability.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Availability ensures continuous access to services.
+            </div>
+        </section>
+
+        <!-- CONSISTENCY -->
+        <section class="section">
+            <h3>5️⃣ Consistency</h3>
+            <p class="desc">
+                Consistency ensures that all users see the same data at the same time across distributed nodes.
+            </p>
+            <div class="tip">
+                <b>Design Trade-off:</b> Consistency is often balanced with availability (CAP theorem).
+            </div>
+            <div class="exam">
+                📘 Exam Line: Consistency ensures uniform data view across nodes.
+            </div>
+        </section>
+
+        <!-- PERFORMANCE -->
+        <section class="section">
+            <h3>6️⃣ Performance</h3>
+            <p class="desc">
+                Performance measures how efficiently a distributed system processes tasks and responds to requests.
+            </p>
+            <div class="tip">
+                <b>AI/ML Context:</b> Parallel execution improves model training speed.
+            </div>
+            <div class="exam">
+                📘 Exam Line: Performance is improved using parallelism and data locality.
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Quiz (Click to Reveal)</h3>
+
+            <details>
+                <summary>1️⃣ Which characteristic handles node failures?</summary>
+                <p>Fault tolerance.</p>
+            </details>
+
+            <details>
+                <summary>2️⃣ Which characteristic allows system growth?</summary>
+                <p>Scalability.</p>
+            </details>
+
+            <details>
+                <summary>3️⃣ What hides system complexity?</summary>
+                <p>Transparency.</p>
+            </details>
+
+            <details>
+                <summary>4️⃣ Which property ensures uptime?</summary>
+                <p>Availability.</p>
+            </details>
+
+            <details>
+                <summary>5️⃣ Which characteristic affects response time?</summary>
+                <p>Performance.</p>
+            </details>
+        </section>
+
+        <section class="section">
+            <h3>Final Summary</h3>
+            <p class="desc">
+                Distributed system characteristics define how large-scale systems behave in real-world environments.
+                Mastering these properties is essential for understanding Big Data platforms, cloud computing, and
+                AI-driven distributed architectures.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

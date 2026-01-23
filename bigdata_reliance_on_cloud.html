@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Big Data Reliance on Cloud</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark table th {
+            background: #0b1f33;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Empowering Learners for Big Data & Cloud Era</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Big Data Reliance on Cloud</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why Big Data Needs the Cloud</h3>
+            <p class="desc">
+                When organizations started generating data in terabytes and petabytes, it became clear that
+                traditional on-premise infrastructure could not keep up. Big Data systems require massive storage,
+                high compute power, and continuous scalability — all of which are naturally provided by cloud platforms.
+            </p>
+            <p class="desc">
+                Today, Big Data and cloud computing are inseparable. Cloud acts as the backbone that enables Big Data
+                to be stored, processed, and analyzed efficiently.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: Big Data relies heavily on cloud computing for scalability and cost efficiency.
+            </div>
+        </section>
+
+        <!-- STORAGE -->
+        <section class="section">
+            <h3>Cloud-Based Storage for Big Data</h3>
+            <p class="desc">
+                Big Data requires scalable and durable storage. Cloud object storage systems are designed to store
+                unlimited amounts of structured and unstructured data.
+            </p>
+            <ul>
+                <li>Amazon S3</li>
+                <li>Azure Data Lake Storage</li>
+                <li>Google Cloud Storage</li>
+            </ul>
+
+            <div class="tip">
+                <b>Big Data Context:</b> These storage systems act as data lakes for Hadoop and Spark.
+            </div>
+
+            <div class="exam">
+                📘 Exam Line: Cloud object storage provides scalable storage for Big Data.
+            </div>
+        </section>
+
+        <!-- COMPUTE -->
+        <section class="section">
+            <h3>Elastic Compute for Big Data Processing</h3>
+            <p class="desc">
+                Big Data workloads are compute-intensive and often unpredictable. Cloud computing provides elastic
+                compute resources that scale automatically based on workload.
+            </p>
+
+            <div class="tip">
+                <b>MapReduce Context:</b> Thousands of mapper and reducer tasks can run in parallel.
+            </div>
+
+            <div class="exam">
+                📘 Exam Line: Cloud elasticity supports parallel Big Data processing.
+            </div>
+        </section>
+
+        <!-- COST -->
+        <section class="section">
+            <h3>Cost Efficiency and Pay-As-You-Go</h3>
+            <p class="desc">
+                Big Data processing is not continuous. Cloud platforms allow organizations to pay only for the
+                resources they use, making Big Data affordable.
+            </p>
+
+            <div class="exam">
+                📘 Exam Line: Cloud reduces Big Data infrastructure cost using pay-as-you-go model.
+            </div>
+        </section>
+
+        <!-- MANAGED -->
+        <section class="section">
+            <h3>Managed Big Data Services on Cloud</h3>
+            <table>
+                <tr>
+                    <th>Cloud Provider</th>
+                    <th>Big Data Services</th>
+                </tr>
+                <tr>
+                    <td>AWS</td>
+                    <td>EMR, Glue, Athena</td>
+                </tr>
+                <tr>
+                    <td>Azure</td>
+                    <td>HDInsight, Synapse</td>
+                </tr>
+                <tr>
+                    <td>GCP</td>
+                    <td>Dataproc, BigQuery</td>
+                </tr>
+            </table>
+
+            <div class="tip">
+                <b>Advantage:</b> Managed services reduce operational complexity.
+            </div>
+        </section>
+
+        <!-- WITHOUT CLOUD -->
+        <section class="section">
+            <h3>Challenges of Big Data Without Cloud</h3>
+            <ul>
+                <li>High capital expenditure</li>
+                <li>Limited scalability</li>
+                <li>Complex cluster management</li>
+                <li>High risk of downtime</li>
+            </ul>
+
+            <div class="exam">
+                📘 Exam Line: Managing Big Data without cloud is complex and expensive.
+            </div>
+        </section>
+
+        <!-- COMPARISON -->
+        <section class="section">
+            <h3>Big Data On-Premise vs Big Data on Cloud</h3>
+            <table>
+                <tr>
+                    <th>Aspect</th>
+                    <th>On-Premise</th>
+                    <th>Cloud</th>
+                </tr>
+                <tr>
+                    <td>Scalability</td>
+                    <td>Limited</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr>
+                    <td>Cost</td>
+                    <td>High upfront</td>
+                    <td>Pay-as-you-go</td>
+                </tr>
+                <tr>
+                    <td>Maintenance</td>
+                    <td>Manual</td>
+                    <td>Managed</td>
+                </tr>
+                <tr>
+                    <td>Availability</td>
+                    <td>Lower</td>
+                    <td>High</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- AI ML -->
+        <section class="section">
+            <h3>Big Data, Cloud & AI / ML</h3>
+            <p class="desc">
+                AI and ML models require large datasets and powerful compute resources.
+                Cloud-based Big Data platforms make it possible to train, test, and deploy
+                models efficiently at scale.
+            </p>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Quiz (Click to Reveal)</h3>
+
+            <details>
+                <summary>1️⃣ Why does Big Data depend on cloud?</summary>
+                <p>For scalable storage and elastic compute.</p>
+            </details>
+
+            <details>
+                <summary>2️⃣ Name one cloud storage used for Big Data.</summary>
+                <p>Amazon S3 / Azure Data Lake / GCS.</p>
+            </details>
+
+            <details>
+                <summary>3️⃣ What pricing model supports Big Data workloads?</summary>
+                <p>Pay-as-you-go.</p>
+            </details>
+
+            <details>
+                <summary>4️⃣ Why are managed services important?</summary>
+                <p>They reduce operational complexity.</p>
+            </details>
+
+            <details>
+                <summary>5️⃣ How does cloud help AI/ML?</summary>
+                <p>By providing scalable data and compute resources.</p>
+            </details>
+        </section>
+
+        <section class="section">
+            <h3>Final Summary</h3>
+            <p class="desc">
+                Big Data relies on cloud computing for storage, processing, scalability, and cost efficiency.
+                Without cloud, managing Big Data becomes complex, expensive, and less reliable.
+                Cloud has become the foundation of modern Big Data and AI ecosystems.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

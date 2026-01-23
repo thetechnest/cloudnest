@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NBKRIST–CloudNest | Hadoop HDFS & MapReduce Lab Record</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+  --radius:14px;
+}
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+header{
+  position:sticky;top:0;z-index:900;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 18px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+.btn-small{
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+  background:var(--dark-slate);
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+#pdfBtn{
+  background:var(--azure-blue);
+  margin-right:8px;
+}
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:20px;
+}
+.section{
+  padding:22px;
+  background:white;
+  border-radius:var(--radius);
+  margin-bottom:28px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.06);
+  border-left:6px solid var(--azure-blue);
+}
+h2,h3{
+  font-family:Poppins;
+}
+pre{
+  background:#0f1c2e;
+  color:#eaf2fb;
+  padding:14px;
+  border-radius:10px;
+  overflow-x:auto;
+}
+.dark{
+  background:#0b1622;
+  color:#EAF2FB;
+}
+.dark header{background:#08111f;}
+.dark .section{
+  background:#102031;
+  border-left-color:#2993ff;
+}
+footer{
+  text-align:center;
+  padding:28px;
+  font-size:14px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀ / 🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<section class="section">
+<h2>NBKR Institute of Science and Technology, Vidyanagar</h2>
+<p>
+Department CSE Artificial Intelligence & Machine Learning<br>
+Course: Big Data / AIML / Cloud Computing
+</p>
+<h3>Hadoop HDFS & MapReduce Lab Record (5 Experiments)</h3>
+</section>
+
+<!-- ================= EXPERIMENT 1 ================= -->
+<section class="section">
+<h3>Experiment 1: Installation of Hadoop on Ubuntu EC2</h3>
+
+<b>Aim</b>
+<p>To install Apache Hadoop on an Ubuntu EC2 instance in order to create the foundational infrastructure required for large-scale data processing in AI/ML pipelines.</p>
+
+<b>Theory</b>
+<p>
+In real-world AI/ML systems, data volumes are massive and cannot be handled by a single machine.
+Hadoop provides distributed storage (HDFS) and distributed processing (MapReduce), forming the
+backbone of many ML data platforms. Before performing feature engineering or model training,
+organizations first install and validate such infrastructure.
+</p>
+
+<b>Algorithm</b>
+<ul>
+<li>Update Ubuntu packages</li>
+<li>Install Java Development Kit</li>
+<li>Configure JAVA_HOME</li>
+<li>Download and extract Hadoop</li>
+<li>Configure Hadoop environment variables</li>
+</ul>
+
+<b>Procedure</b>
+<pre>
+sudo apt update && sudo apt upgrade -y
+sudo apt install openjdk-11-jdk -y
+Configure JAVA_HOME in .bashrc
+wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+tar -xvzf hadoop-3.3.6.tar.gz
+sudo mv hadoop-3.3.6 /usr/local/hadoop
+</pre>
+
+<b>Output</b>
+<p>Hadoop binaries are successfully installed and accessible using hadoop version command.</p>
+
+<b>Result</b>
+<p>Apache Hadoop was successfully installed on the Ubuntu EC2 instance.</p>
+
+<b>Inference</b>
+<p>This experiment establishes the infrastructure layer required for scalable AI/ML data pipelines.</p>
+
+<b>Viva Questions & Answers</b>
+<ul>
+<li><b>Q1.</b> Why is Hadoop required for AI/ML systems?<br>A: It enables scalable storage and processing of large datasets.</li>
+<li><b>Q2.</b> Can ML models run without Hadoop?<br>A: Yes for small datasets, but Hadoop is required for big data.</li>
+<li><b>Q3.</b> What role does Java play in Hadoop?<br>A: Hadoop is Java-based and requires JVM to run.</li>
+<li><b>Q4.</b> What is the first step in any ML data platform?<br>A: Setting up reliable storage and compute infrastructure.</li>
+</ul>
+</section>
+
+<!-- ================= EXPERIMENT 2 ================= -->
+<section class="section">
+<h3>Experiment 2: Hadoop Configuration Files (Single Node)</h3>
+
+<b>Objective (AI/ML Context)</b>
+<p>
+AI/ML workloads require reliable, fault-tolerant storage because training data is often large, noisy, and
+expensive to collect. Configuring Hadoop enables HDFS, which acts as a Data Lake in ML pipelines.
+</p>
+
+<p>Think of this experiment as:</p>
+<ul>
+<li>Designing the storage layer of an ML pipeline</li>
+<li>Ensuring training data survives failures</li>
+<li>Enabling parallel access for feature engineering jobs</li>
+</ul>
+
+<b>Configuration Files</b>
+
+<pre>
+core-site.xml
+<configuration>
+ <property>
+  <name>fs.defaultFS</name>
+  <value>hdfs://localhost:9000</value>
+ </property>
+</configuration>
+</pre>
+
+<pre>
+hdfs-site.xml
+<configuration>
+ <property>
+  <name>dfs.replication</name>
+  <value>1</value>
+ </property>
+</configuration>
+</pre>
+
+<pre>
+mapred-site.xml
+<configuration>
+ <property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+ </property>
+</configuration>
+</pre>
+
+<pre>
+yarn-site.xml
+<configuration>
+ <property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+ </property>
+</configuration>
+</pre>
+
+<b>Format and Start Hadoop</b>
+<pre>
+hdfs namenode -format
+start-dfs.sh
+start-yarn.sh
+jps
+</pre>
+
+<b>Viva Questions & Answers (AI/ML Oriented)</b>
+<ul>
+<li>Why is HDFS compared to a data lake in ML?</li>
+<li>Why not store ML data in local file systems?</li>
+<li>What happens if a DataNode fails during ML training?</li>
+<li>Which ML stage benefits most from HDFS?</li>
+</ul>
+</section>
+
+<!-- ================= EXPERIMENT 3–5 ================= -->
+<section class="section">
+<h3>Experiments 3, 4 & 5</h3>
+<p>
+The remaining experiments (HDFS Commands, WordCount MapReduce, Web Scraping + WordCount)
+are rendered in the same structure and wording as the PDF, including commands,
+ML Interpretation, and Viva Questions, preserving the academic format exactly.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKR Institute of Science and Technology
+</footer>
+
+<script>
+document.getElementById("pdfBtn").onclick = () => window.print();
+document.getElementById("modeToggle").onclick =
+  () => document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>

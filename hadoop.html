@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hadoop on Ubuntu | Single Node Cluster</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .menu {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 14px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      letter-spacing: .25px;
+      box-shadow: 0 6px 18px rgba(0, 140, 255, .22);
+      transition: all .25s ease;
+    }
+
+    .menu a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 140, 255, .35);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 12px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      margin: 10px 0;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .tip {
+      background: #E8F4FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+
+    .exam {
+      background: #FFF7ED;
+      padding: 10px;
+      border-left: 4px solid #F59E0B;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 14px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header, .dark .menubar {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="index.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST – CloudNest</h1>
+    <div class="tagline">Enjoy the Journey of Hadoop & Big Data</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀ / 🌙</button>
+  </div>
+</header>
+
+<div class="menubar">
+  <nav class="menu">
+    <a href="#">Hadoop</a>
+    <a href="#">HDFS</a>
+    <a href="#">MapReduce</a>
+    <a href="#">YARN</a>
+    <a href="#">Hands-on</a>
+  </nav>
+</div>
+
+<div class="container">
+
+<h2>Hadoop on Ubuntu (Single Node Cluster)</h2>
+
+<section class="section">
+<h3>📌 Important Notes</h3>
+<div class="desc">
+• JDK 8 or 11 is recommended  
+<br>• Copy Java path – it is required during configuration  
+</div>
+</section>
+
+<section class="section">
+<h3>Step 1️⃣ – Update Ubuntu Packages</h3>
+<pre>sudo apt-get update</pre>
+</section>
+
+<section class="section">
+<h3>Step 2️⃣ – Install Java</h3>
+<pre>sudo apt-get install openjdk-11-jdk</pre>
+</section>
+
+<section class="section">
+<h3>Step 3️⃣ – Verify Java Version</h3>
+<pre>java -version</pre>
+</section>
+
+<section class="section">
+<h3>Step 4️⃣ – Find Java Path</h3>
+<pre>
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+</pre>
+</section>
+
+<section class="section">
+<h3>Step 5️⃣ – Create Hadoop User & Group</h3>
+<pre>
+sudo addgroup hadoop
+sudo adduser --ingroup hadoop hduser
+sudo adduser hduser sudo
+groups hduser
+</pre>
+<div class="tip">Expected Output: <b>hduser : hadoop sudo</b></div>
+</section>
+
+<section class="section">
+<h3>Step 6️⃣ – Install & Configure SSH</h3>
+<pre>
+sudo apt-get install ssh
+which ssh
+which sshd
+</pre>
+<pre>
+su hduser
+ssh-keygen -t rsa -P ""
+cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+ssh localhost
+</pre>
+</section>
+
+<section class="section">
+<h3>Step 7️⃣ – Hadoop Installation</h3>
+<pre>
+sudo mkdir -p /usr/local/hadoop
+wget http://mirrors.sonic.net/apache/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
+tar xvzf hadoop-2.6.5.tar.gz
+sudo mv * /usr/local/hadoop/
+sudo chown -R hduser:hadoop /usr/local/hadoop
+</pre>
+</section>
+
+<section class="section">
+<h3>Step 8️⃣ – Environment Variables (.bashrc)</h3>
+<pre>
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+export HADOOP_HOME=/usr/local/hadoop/hadoop-3.4.2
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS=" -Djava.library.path=$HADOOP_HOME/lib"
+export HADOOP_HOME_WARN_SUPPRESS=1
+export HADOOP_ROOT_LOGGER="WARN,DRFA"
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+</pre>
+<pre>source ~/.bashrc</pre>
+</section>
+
+<section class="section">
+<h3>📂 core-site.xml</h3>
+<pre>
+<configuration>
+ <property>
+  <name>hadoop.tmp.dir</name>
+  <value>/app/hadoop/tmp</value>
+ </property>
+
+ <property>
+  <name>fs.default.name</name>
+  <value>hdfs://localhost:54310</value>
+ </property>
+</configuration>
+</pre>
+</section>
+
+<section class="section">
+<h3>📂 hdfs-site.xml</h3>
+<pre>
+<configuration>
+ <property>
+  <name>dfs.replication</name>
+  <value>1</value>
+ </property>
+
+ <property>
+  <name>dfs.namenode.name.dir</name>
+  <value>file:/usr/local/hadoop_store/hdfs/namenode</value>
+ </property>
+
+ <property>
+  <name>dfs.datanode.data.dir</name>
+  <value>file:/usr/local/hadoop_store/hdfs/datanode</value>
+ </property>
+</configuration>
+</pre>
+</section>
+
+<section class="section">
+<h3>📂 yarn-site.xml</h3>
+<pre>
+<configuration>
+ <property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+ </property>
+
+ <property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>localhost</value>
+ </property>
+
+ <property>
+  <name>yarn.nodemanager.pmem-check-enabled</name>
+  <value>false</value>
+ </property>
+
+ <property>
+  <name>yarn.nodemanager.vmem-check-enabled</name>
+  <value>false</value>
+ </property>
+</configuration>
+</pre>
+</section>
+
+<section class="section">
+<h3>📂 mapred-site.xml</h3>
+<pre>
+<configuration>
+ <property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+ </property>
+</configuration>
+</pre>
+</section>
+
+<section class="section">
+<h3>▶️ Running Hadoop & MapReduce</h3>
+<pre>
+start-dfs.sh
+start-yarn.sh
+yarn application -list
+</pre>
+
+<pre>
+echo -e "hello hadoop\nhello mapreduce" > test.txt
+hdfs dfs -mkdir -p /wc/input
+hdfs dfs -put test.txt /wc/input
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar wordcount /wc/input /wc/output
+hdfs dfs -cat /wc/output/part-r-00000
+</pre>
+</section>
+
+<section class="section">
+<h3>🧠 Final Outcome</h3>
+<p>
+You have successfully installed Hadoop on Ubuntu (Single Node Cluster),
+configured all required files, started HDFS & YARN, and executed real
+MapReduce programs.
+</p>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

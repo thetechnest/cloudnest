@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DesignNest — Human-Centered Innovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#6C63FF;
+      --secondary:#00A8A8;
+      --dark:#0F1C2E;
+      --bg:#F7F9FF;
+      --card:#FFFFFF;
+      --muted:#6B7280;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+      background:linear-gradient(180deg,var(--bg),#EEF2FF 60%);
+      color:var(--dark)
+    }
+    .container{max-width:1100px;margin:auto;padding:24px}
+    header{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-family:Poppins;font-size:20px}
+    .tagline{font-size:13px;color:var(--muted)}
+    nav a{margin-left:18px;text-decoration:none;color:var(--dark);font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+    .hero h2{font-size:38px;margin:0 0 12px;line-height:1.1}
+    .hero p{color:var(--muted)}
+
+    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--secondary));border:none;color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 22px rgba(0,0,0,.06)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .feature h4{margin:0 0 8px}
+    .feature p{margin:0;color:var(--muted)}
+
+    footer{margin-top:48px;padding:28px 0;font-size:14px;color:var(--muted);display:flex;justify-content:space-between}
+
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div class="brand">
+    <h1>DesignNest</h1>
+    <div class="tagline">Human-Centered Innovation & Design Thinking</div>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Process</a>
+    <a href="#">Projects</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <h2>Learn Design Thinking — From Empathy to Innovation</h2>
+    <p>DesignNest introduces students to <strong>Design Thinking principles</strong>, enabling them to solve real-world problems through empathy, ideation, prototyping, and testing. The platform bridges creativity and engineering for modern product design.</p>
+    <button class="btn-primary">Start Exploring</button>
+
+    <div class="features">
+      <div class="feature card">
+        <h4>Empathy First</h4>
+        <p>Understand users deeply before defining problems.</p>
+      </div>
+      <div class="feature card">
+        <h4>Creative Ideation</h4>
+        <p>Generate innovative ideas using structured thinking.</p>
+      </div>
+      <div class="feature card">
+        <h4>Prototype & Test</h4>
+        <p>Build, test, and iterate rapidly with feedback.</p>
+      </div>
+    </div>
+  </div>
+
+  <aside class="card">
+    <h3 style="margin-top:0;font-family:Poppins">Design Thinking Lab</h3>
+    <p class="muted">A hands-on space where students practice empathy mapping, problem framing, rapid prototyping, and usability testing.</p>
+    <button class="btn-primary">View Labs</button>
+  </aside>
+</section>
+
+<!-- Design Thinking Stages -->
+<section style="margin-top:48px">
+  <div class="card">
+    <h3 style="margin-top:0;font-family:Poppins">Design Thinking Stages</h3>
+    <p style="color:var(--muted)">A human-centered, iterative approach that transforms understanding into innovation.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px">
+      <div class="card" style="text-align:center;background:linear-gradient(180deg,#EEF2FF,#FFFFFF)">
+        <div style="font-size:36px">🤝</div>
+        <h4>Empathize</h4>
+        <p style="color:var(--muted)">Understand user experiences, emotions, and motivations.</p>
+      </div>
+
+      <div class="card" style="text-align:center;background:linear-gradient(180deg,#E0F2F1,#FFFFFF)">
+        <div style="font-size:36px">🎯</div>
+        <h4>Define</h4>
+        <p style="color:var(--muted)">Synthesize findings to clearly define the core problem.</p>
+      </div>
+
+      <div class="card" style="text-align:center;background:linear-gradient(180deg,#FFF7ED,#FFFFFF)">
+        <div style="font-size:36px">💡</div>
+        <h4>Ideate</h4>
+        <p style="color:var(--muted)">Brainstorm and generate multiple creative solutions.</p>
+      </div>
+
+      <div class="card" style="text-align:center;background:linear-gradient(180deg,#F0FDF4,#FFFFFF)">
+        <div style="font-size:36px">🛠️</div>
+        <h4>Prototype</h4>
+        <p style="color:var(--muted)">Build tangible representations of selected ideas.</p>
+      </div>
+
+      <div class="card" style="text-align:center;background:linear-gradient(180deg,#FEF2F2,#FFFFFF)">
+        <div style="font-size:36px">🧪</div>
+        <h4>Test</h4>
+        <p style="color:var(--muted)">Refine solutions continuously through user feedback.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;text-align:center;color:var(--muted);font-size:14px">
+      ↺ Design Thinking is <strong>iterative</strong> — insights from testing often lead back to empathy and redefinition.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div>© DesignNest • Human-Centered Innovation | Authored by Hari Babu Mutchakala</div>
+  <div>Contact • Privacy • Terms</div>
+</footer>
+</div>
+</body>
+</html>
+4

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hadoop MapReduce WordCount – Complete Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+        header {
+            background: #1f2937;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 15px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1f2937;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+        }
+        pre {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 15px;
+            overflow-x: auto;
+            border-radius: 6px;
+        }
+        code {
+            color: #22d3ee;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #1f2937;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .note {
+            background: #ecfeff;
+            border-left: 5px solid #06b6d4;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Hadoop MapReduce WordCount</h1>
+    <p>Complete Java Code + Execution Guide</p>
+</header>
+
+<section>
+    <h2>1. What is WordCount?</h2>
+    <p>
+        WordCount is the <strong>hello-world program of Hadoop MapReduce</strong>.
+        It reads text data, splits it into words, and counts how many times each word appears.
+    </p>
+</section>
+
+<section>
+    <h2>2. Complete WordCount Java Program</h2>
+
+<pre><code>
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class WordCount {
+
+    public static class WordCountMapper
+            extends Mapper&lt;Object, Text, Text, IntWritable&gt; {
+
+        private final static IntWritable one = new IntWritable(1);
+        private Text word = new Text();
+
+        @Override
+        public void map(Object key, Text value, Context context)
+                throws IOException, InterruptedException {
+
+            StringTokenizer tokenizer = new StringTokenizer(value.toString());
+            while (tokenizer.hasMoreTokens()) {
+                word.set(tokenizer.nextToken());
+                context.write(word, one);
+            }
+        }
+    }
+
+    public static class WordCountReducer
+            extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+
+        private IntWritable result = new IntWritable();
+
+        @Override
+        public void reduce(Text key, Iterable&lt;IntWritable&gt; values,
+                           Context context)
+                throws IOException, InterruptedException {
+
+            int sum = 0;
+            for (IntWritable val : values) {
+                sum += val.get();
+            }
+            result.set(sum);
+            context.write(key, result);
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        if (args.length != 2) {
+            System.err.println("Usage: WordCount &lt;input path&gt; &lt;output path&gt;");
+            System.exit(-1);
+        }
+
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf, "Word Count");
+
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(WordCountMapper.class);
+        job.setReducerClass(WordCountReducer.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h2>3. Compile the Program</h2>
+<pre><code>
+export HADOOP_CLASSPATH=$(hadoop classpath)
+javac -classpath $HADOOP_CLASSPATH -d . WordCount.java
+</code></pre>
+</section>
+
+<section>
+    <h2>4. Create JAR File</h2>
+<pre><code>
+jar -cvf wordcount.jar *.class
+</code></pre>
+</section>
+
+<section>
+    <h2>5. Run WordCount Job</h2>
+<pre><code>
+hadoop jar wordcount.jar WordCount /wordcount/input /wordcount/output
+</code></pre>
+
+<div class="note">
+    ⚠ Output directory must <strong>not exist</strong> before running the job.
+</div>
+</section>
+
+<section>
+    <h2>6. View Output</h2>
+<pre><code>
+hdfs dfs -cat /wordcount/output/part-r-00000
+</code></pre>
+</section>
+
+<section>
+    <h2>7. Internal Working (Mapper → Reducer)</h2>
+    <ul>
+        <li><strong>Mapper:</strong> Splits each line into words and emits (word, 1)</li>
+        <li><strong>Shuffle & Sort:</strong> Groups values by key</li>
+        <li><strong>Reducer:</strong> Sums values for each word</li>
+    </ul>
+
+<pre><code>
+Input:
+hello hadoop hello
+
+Mapper Output:
+(hello,1) (hadoop,1) (hello,1)
+
+Reducer Output:
+hello   2
+hadoop  1
+</code></pre>
+</section>
+
+<section>
+    <h2>8. Interview Key Points</h2>
+    <ul>
+        <li>Why Hadoop uses Writable instead of primitive types</li>
+        <li>Role of shuffle and sort phase</li>
+        <li>Difference between Mapper and Reducer</li>
+        <li>Why output directory cannot already exist</li>
+        <li>How MapReduce scales across nodes</li>
+    </ul>
+</section>
+
+<footer>
+    <p>Hadoop MapReduce WordCount | Authrored by Hari Babu MUtchakala</p>
+</footer>
+
+</body>
+</html>
