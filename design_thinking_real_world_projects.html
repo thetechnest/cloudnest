@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Design Thinking – Real World Mini Projects</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 12px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* Project Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(0,0,0,.08);
+            text-decoration: none;
+            color: inherit;
+            transition: all .3s ease;
+            border-left: 5px solid var(--teal);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0,0,0,.15);
+        }
+
+        .card h4 {
+            margin-top: 0;
+            font-family: Poppins;
+            color: var(--dark-slate);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark .card {
+            background: #0b1f33;
+            color: #E9F2FA;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dt.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–DesignNest</h1>
+            <div class="tagline">Design Thinking • Real World Perspective</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Design Thinking – Real World Mini Projects</h2>
+
+        <!-- EXPERT VIEW -->
+        <section class="section">
+            <h3>Expert View – Why Design Decides the Future of a Project</h3>
+            <p class="desc">
+                Having seen and been deeply involved in designing real-world IT applications, I strongly believe
+                that the design approach determines the long-term success or failure of a project.
+                Over the years, I have worked with Test Driven Development (TDD), Domain Driven Design (DDD),
+                Business Driven Design (BDD), and multiple architectural and design patterns.
+            </p>
+            <p class="desc">
+                Technology stacks change, but design thinking remains constant. Projects that start with empathy,
+                clear problem definition, and iterative validation survive longer, scale better, and adapt faster.
+                Design Thinking is not an alternative to software design — it is the foundation of it.
+            </p>
+            <div class="exam">
+                📘 Key Insight: Poor design kills good code; good design saves average code.
+            </div>
+        </section>
+     <!-- SOFTWARE DESIGN THINKING -->
+        <section class="section">
+            <h3>Software Project Design Thinking – Industry Approach</h3>
+            <p class="desc">
+                In modern software engineering, Design Thinking blends naturally with established
+                development methodologies. Successful teams combine human-centered design
+                with technical rigor.
+            </p>
+
+            <ul>
+                <li><b>TDD (Test Driven Development):</b> Start with tests to define expected behavior</li>
+                <li><b>BDD (Business Driven Development):</b> Align features with business goals</li>
+                <li><b>DDD (Domain Driven Design):</b> Model software around real-world domains</li>
+                <li><b>Design Patterns:</b> Reusable solutions to recurring problems</li>
+            </ul>
+
+            <div class="exam">
+                📘 Exam Sentence: Design Thinking complements TDD, BDD, and DDD in modern software development.
+            </div>
+        </section>
+
+        <!-- TOOLS -->
+        <section class="section">
+            <h3>Tools Used in Design Thinking & Software Design</h3>
+            <ul>
+                <li>Figma / Balsamiq – UI prototyping</li>
+                <li>Jira / Azure Boards – User stories & backlog</li>
+                <li>Miro – Empathy maps & ideation</li>
+                <li>JUnit / PyTest – TDD</li>
+                <li>Cucumber – BDD</li>
+                <li>UML Diagrams – System modeling</li>
+            </ul>
+        </section>
+        <!-- PROJECT CARDS -->
+        <section class="section">
+            <h3>Real-World Mini Projects (Click to Explore)</h3>
+
+            <div class="cards">
+
+                <a href="design_thinking_case_study.html" class="card">
+                    <h4>Improving College Canteen Food Ordering System</h4>
+                    <p>
+                        Redesign the canteen experience using Design Thinking to reduce waiting time,
+                        improve accuracy, and enhance student satisfaction.
+                    </p>
+                </a>
+
+                <a href="design_thinking_smart_parking.html" class="card">
+                    <h4>Smart Campus Parking System</h4>
+                    <p>
+                        Apply user-centered design to solve parking congestion using sensors,
+                        mobile apps, and real-time updates.
+                    </p>
+                </a>
+
+                <a href="design_thinking_healthcare_queue.html" class="card">
+                    <h4>Hospital Queue Management System</h4>
+                    <p>
+                        Improve patient experience by redesigning appointment and queue handling
+                        using empathy-driven solutions.
+                    </p>
+                </a>
+
+                <a href="design_thinking_elearning.html" class="card">
+                    <h4>Personalized E-Learning Platform</h4>
+                    <p>
+                        Design an adaptive learning platform that adjusts content based on
+                        student behavior and feedback.
+                    </p>
+                </a>
+
+            </div>
+        </section>
+
+   
+
+        <!-- INSPIRATION -->
+        <section class="section">
+            <h3>Why This Matters for Students</h3>
+            <p class="desc">
+                These projects help students think like product designers, architects, and problem solvers.
+                Design Thinking prepares you not just to write code, but to build solutions that matter.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>
