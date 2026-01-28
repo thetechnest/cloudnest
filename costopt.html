@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CloudNest | Cost Optimization in Cloud Computing</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: var(--azure-blue);
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: var(--dark-slate);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 14px auto;
+            padding: 10px;
+        }
+
+        h2, h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .img-wrapper img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* Dark Mode */
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a class="back-btn" href="#">← Back</a>
+    <div class="brand">
+        <h1>NBKRIST–CloudNest</h1>
+        <div class="tagline">Cloud Foundations • Cost Optimization</div>
+    </div>
+    <div>
+        <button id="pdfBtn">⬇ PDF</button>
+        <button id="modeToggle">☀/🌙</button>
+    </div>
+</header>
+
+<div class="container">
+
+    <h2>Cost Optimization in Cloud Computing</h2>
+
+    <section class="section">
+        <h3>What is Cost Optimization?</h3>
+        <p class="desc">
+            Cost optimization in cloud computing is the practice of
+            <b>reducing unnecessary cloud spend while maintaining performance,
+            reliability, and scalability</b>.
+        </p>
+        <p class="desc">
+            Unlike traditional data centers, cloud costs are dynamic.
+            Poor design decisions can silently increase monthly bills.
+        </p>
+        <div class="tip">
+            💡 Key Idea: Cost optimization is a <b>continuous process</b>, not a one-time activity.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Why Cost Optimization is Critical</h3>
+        <ul>
+            <li>Pay-as-you-go pricing can lead to unexpected bills</li>
+            <li>Over-provisioning wastes resources</li>
+            <li>Idle services still generate costs</li>
+            <li>AI/ML workloads can scale costs rapidly</li>
+        </ul>
+        <div class="tip">
+            ⚠️ Cloud bills grow faster than infrastructure if not monitored.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Core Cost Optimization Strategies</h3>
+        <p class="desc"><b>1. Right Sizing</b> – Match resources to actual workload needs.</p>
+        <p class="desc"><b>2. Elastic Scaling</b> – Scale up during peak, scale down during low usage.</p>
+        <p class="desc"><b>3. Resource Scheduling</b> – Shut down unused resources.</p>
+        <p class="desc"><b>4. Storage Tiering</b> – Use cheaper storage for infrequently accessed data.</p>
+        <p class="desc"><b>5. Monitoring & Alerts</b> – Track usage and spending in real time.</p>
+    </section>
+
+    <section class="section">
+        <h3>AWS Cost Optimization Mapping</h3>
+        <ul>
+            <li><b>Right Sizing:</b> AWS Compute Optimizer</li>
+            <li><b>Reserved Capacity:</b> Reserved Instances, Savings Plans</li>
+            <li><b>Auto Scaling:</b> EC2 Auto Scaling Groups</li>
+            <li><b>Storage Optimization:</b> S3 Lifecycle Policies</li>
+            <li><b>Monitoring:</b> AWS Cost Explorer, CloudWatch</li>
+        </ul>
+        <div class="tip">
+            💰 AWS Insight: Savings Plans provide flexibility across instance families.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>GCP Cost Optimization Mapping</h3>
+        <ul>
+            <li><b>Right Sizing:</b> Recommender API</li>
+            <li><b>Automatic Discounts:</b> Sustained Use Discounts</li>
+            <li><b>Committed Usage:</b> Committed Use Discounts</li>
+            <li><b>Auto Scaling:</b> Managed Instance Groups</li>
+            <li><b>Monitoring:</b> Cloud Billing Reports</li>
+        </ul>
+        <div class="tip">
+            💡 GCP Advantage: Automatic discounts without upfront commitment.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Cost Optimization Architecture</h3>
+
+        <div class="img-wrapper">
+            <!-- Replace src with your PNG -->
+            <img src="images/cost-optimization-architecture.png"
+                 alt="Cloud Cost Optimization Architecture">
+        </div>
+
+        <div class="tip">
+            🧠 Architecture Focus: Visibility → Control → Automation
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Cost Optimization in the AI/ML Era</h3>
+        <p class="desc">
+            AI/ML workloads amplify cloud costs due to compute-intensive training,
+            frequent retraining, and large datasets.
+        </p>
+        <ul>
+            <li>Use spot/preemptible instances for training</li>
+            <li>Separate training and inference workloads</li>
+            <li>Monitor model usage and performance drift</li>
+        </ul>
+        <div class="tip">
+            🎯 Future Insight: Cost-aware AI systems will dominate by 2026.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Summary</h3>
+        <p class="desc">
+            Cost optimization is a shared responsibility between architects,
+            developers, and operations teams.
+            Mastering cost optimization is essential for building
+            <b>sustainable and scalable cloud systems</b>.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+    document.getElementById("modeToggle").onclick = () =>
+        document.body.classList.toggle("dark");
+
+    document.getElementById("pdfBtn").onclick = () =>
+        window.print();
+</script>
+
+</body>
+</html>

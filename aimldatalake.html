@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CloudNest | Data Lake in AI/ML – AWS & GCP</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: var(--azure-blue);
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: var(--dark-slate);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 14px auto;
+            padding: 10px;
+        }
+
+        h2, h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .img-wrapper img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* Dark Mode */
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a class="back-btn" href="#">← Back</a>
+    <div class="brand">
+        <h1>NBKRIST–CloudNest</h1>
+        <div class="tagline">Cloud & AI Foundations • Data Lake</div>
+    </div>
+    <div>
+        <button id="pdfBtn">⬇ PDF</button>
+        <button id="modeToggle">☀/🌙</button>
+    </div>
+</header>
+
+<div class="container">
+
+    <h2>Data Lake in AI/ML: AWS & GCP Perspective</h2>
+
+    <section class="section">
+        <h3>What is a Data Lake?</h3>
+        <p class="desc">
+            A Data Lake is a centralized repository that stores
+            <b>raw, semi-structured, and structured data</b> at scale.
+            Data is stored in its original format and transformed only when needed.
+        </p>
+        <div class="tip">
+            💡 Data Lakes follow <b>Schema-on-Read</b>, unlike Data Warehouses.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Why Data Lake Over Data Warehouse?</h3>
+        <p class="desc">
+            Traditional data warehouses are optimized for reporting and analytics.
+            AI/ML pipelines require flexibility, scale, and raw data access.
+        </p>
+        <ul>
+            <li>Stores raw data for future unknown use cases</li>
+            <li>Handles large volumes of unstructured data</li>
+            <li>Cost-effective storage</li>
+            <li>Supports rapid experimentation</li>
+        </ul>
+        <div class="tip">
+            🧠 Key Difference: Data Warehouses answer <b>known questions</b>;
+            Data Lakes enable <b>unknown discoveries</b>.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Role of Data Lake in the AI/ML Pipeline</h3>
+        <p class="desc">
+            The data lake acts as the <b>single source of truth</b>
+            for all AI/ML workloads.
+        </p>
+        <ul>
+            <li>Ingests raw data from multiple sources</li>
+            <li>Stores historical and streaming data</li>
+            <li>Feeds training, validation, and inference pipelines</li>
+            <li>Enables reproducibility and auditing</li>
+        </ul>
+        <div class="tip">
+            🎯 Without a data lake, scalable AI systems are nearly impossible.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Ways Data Lake is Used in AI/ML Pipelines</h3>
+        <p class="desc">
+            Data lakes can be used in multiple stages of the AI/ML lifecycle:
+        </p>
+        <ul>
+            <li><b>Training Data Source</b> – Raw data for model training</li>
+            <li><b>Feature Engineering</b> – Batch feature computation</li>
+            <li><b>Model Evaluation</b> – Historical data replay</li>
+            <li><b>Inference Logs</b> – Feedback and drift detection</li>
+            <li><b>Compliance & Audits</b> – Model traceability</li>
+        </ul>
+        <div class="tip">
+            📊 Data Lakes power both <b>offline</b> and <b>online</b> ML workflows.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Building a Data Lake in AWS</h3>
+        <ul>
+            <li><b>Storage:</b> Amazon S3</li>
+            <li><b>Metadata:</b> AWS Glue Data Catalog</li>
+            <li><b>Security:</b> IAM, S3 Policies</li>
+            <li><b>Governance:</b> Lake Formation</li>
+        </ul>
+        <div class="tip">
+            🧱 AWS Data Lake = S3 + Glue + Lake Formation
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Building a Data Lake in GCP</h3>
+        <ul>
+            <li><b>Storage:</b> Google Cloud Storage (GCS)</li>
+            <li><b>Metadata:</b> Dataplex / Data Catalog</li>
+            <li><b>Security:</b> IAM</li>
+            <li><b>Analytics:</b> BigQuery external tables</li>
+        </ul>
+        <div class="tip">
+            🧱 GCP Data Lake = GCS + Dataplex + BigQuery
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Ingesting Data into Data Lake (AWS)</h3>
+        <ul>
+            <li><b>Batch:</b> AWS Glue, AWS DataSync</li>
+            <li><b>Streaming:</b> Kinesis Data Streams / Firehose</li>
+            <li><b>Databases:</b> AWS DMS</li>
+            <li><b>IoT:</b> AWS IoT Core</li>
+        </ul>
+        <div class="tip">
+            📥 Ingestion must support both batch and real-time data.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Processing Data from Data Lake (AWS)</h3>
+        <ul>
+            <li><b>Batch Processing:</b> AWS Glue (Spark)</li>
+            <li><b>Ad-hoc Queries:</b> Amazon Athena</li>
+            <li><b>ML Processing:</b> SageMaker Processing Jobs</li>
+            <li><b>Streaming:</b> Kinesis Analytics</li>
+        </ul>
+        <div class="tip">
+            🔄 Transform raw data into ML-ready datasets.
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>What Comes Next in the AI/ML Pipeline?</h3>
+        <p class="desc">
+            After data is processed in the data lake,
+            the next stages in the AI/ML pipeline are:
+        </p>
+        <ul>
+            <li>Feature Store creation</li>
+            <li>Model training and validation</li>
+            <li>Model deployment and inference</li>
+            <li>Monitoring and continuous learning</li>
+        </ul>
+        <div class="tip">
+            🚀 Data Lake → Feature Store → Model → System
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>Data Lake Architecture in AI/ML</h3>
+        <div class="img-wrapper">
+            <!-- Replace with actual diagram -->
+            <img src="images/datalake-aiml-architecture.png"
+                 alt="Data Lake in AI ML Pipeline">
+        </div>
+        <div class="tip">
+            🧠 Think of the Data Lake as the <b>foundation layer</b> of AI systems.
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+    document.getElementById("modeToggle").onclick = () =>
+        document.body.classList.toggle("dark");
+
+    document.getElementById("pdfBtn").onclick = () =>
+        window.print();
+</script>
+
+</body>
+</html>
