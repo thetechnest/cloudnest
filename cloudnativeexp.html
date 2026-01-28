@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cloud-Native Microservices | Real Experience</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark table th {
+            background: #0b1f33;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Learning Cloud Architecture from Real Experience</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Cloud-Native Microservices – My Real Project Experience</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why I Am Sharing This Story</h3>
+            <p class="desc">
+                When I teach cloud computing, students often understand individual services
+                like storage, containers, or Kubernetes, but struggle to connect them into
+                a complete system. So I decided to share one of my own real project experiences.
+            </p>
+            <p class="desc">
+                This project helped me deeply understand how cloud architecture,
+                microservices design, deployment, and customer interaction work together.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: Cloud architecture is about design decisions, not just services.
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section class="section">
+            <h3>Microservices Architecture – How We Designed It</h3>
+            <p class="desc">
+                The application was built using a microservices approach.
+                Instead of a single monolithic application, we divided responsibilities
+                into independent services.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Responsibility</th>
+                </tr>
+                <tr>
+                    <td>Producer Service</td>
+                    <td>Processes incoming data and generates output files</td>
+                </tr>
+                <tr>
+                    <td>Consumer Service</td>
+                    <td>Reads data files and performs further processing</td>
+                </tr>
+            </table>
+
+            <div class="tip">
+                <b>Design Lesson:</b> Each microservice should do one job and do it well.
+            </div>
+        </section>
+
+        <!-- DATA EXCHANGE -->
+        <section class="section">
+            <h3>Data Exchange Using Cloud Storage</h3>
+            <p class="desc">
+                One important design choice we made was to avoid direct communication
+                between services. Instead, the producer service stored data files
+                in cloud object storage.
+            </p>
+            <p class="desc">
+                The consumer service later pulled these files asynchronously.
+                This removed tight coupling between services.
+            </p>
+
+            <div class="exam">
+                📘 Exam Line: Cloud storage can act as an asynchronous communication layer.
+            </div>
+        </section>
+
+        <!-- DEPLOYMENT -->
+        <section class="section">
+            <h3>How We Deployed This on Google Cloud Platform (GCP)</h3>
+            <p class="desc">
+                Each microservice was containerized using Docker and deployed on
+                Google Kubernetes Engine (GKE).
+            </p>
+
+            <ul>
+                <li>Docker ensured consistency across environments</li>
+                <li>Kubernetes handled scaling and self-healing</li>
+                <li>IAM controlled secure access to storage and services</li>
+            </ul>
+
+            <div class="tip">
+                <b>Cloud Principle:</b> Let the platform manage infrastructure complexity.
+            </div>
+        </section>
+
+        <!-- CUSTOMER -->
+        <section class="section">
+            <h3>Customer Interaction Layer</h3>
+            <p class="desc">
+                Customers never interacted with backend services directly.
+                They accessed the system through a web application and APIs.
+            </p>
+
+            <ul>
+                <li>Frontend exposed through API Gateway</li>
+                <li>Authentication handled securely</li>
+                <li>Backend services remained private</li>
+            </ul>
+
+            <div class="exam">
+                📘 Exam Line: API Gateway separates customers from internal microservices.
+            </div>
+        </section>
+
+        <!-- LEARNING -->
+        <section class="section">
+            <h3>Key Learning for Students</h3>
+            <ul>
+                <li>Always design for failure</li>
+                <li>Loose coupling improves reliability</li>
+                <li>Cloud-native means automation and scalability</li>
+                <li>Architecture matters more than tools</li>
+            </ul>
+
+            <div class="tip">
+                <b>Mentor Advice:</b> Think like an architect, not just a programmer.
+            </div>
+        </section>
+        <!-- GCP SERVICES -->
+        <section class="section">
+            <h3>GCP Services Used – Complete Cloud-Native Stack</h3>
+
+            <p class="desc">
+                To make this project successful and production-ready, we carefully selected
+                Google Cloud services based on responsibility. Each service was chosen
+                not randomly, but to align with cloud-native architecture principles.
+            </p>
+
+            <!-- TABLE -->
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>GCP Services Used</th>
+                    <th>Purpose in Project</th>
+                </tr>
+
+                <tr>
+                    <td><b>Serverless</b></td>
+                    <td>
+                        Cloud Run<br>
+                        Cloud Functions
+                    </td>
+                    <td>
+                        Hosting frontend APIs, lightweight backend tasks,
+                        event-driven processing
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Virtual Machines</b></td>
+                    <td>
+                        Compute Engine
+                    </td>
+                    <td>
+                        Legacy workloads, admin tools, jump hosts,
+                        specialized processing
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Kubernetes</b></td>
+                    <td>
+                        Google Kubernetes Engine (GKE)
+                    </td>
+                    <td>
+                        Running producer & consumer microservices,
+                        autoscaling, self-healing
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Storage</b></td>
+                    <td>
+                        Cloud Storage
+                    </td>
+                    <td>
+                        Asynchronous data exchange between microservices
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Build & CI/CD</b></td>
+                    <td>
+                        Cloud Build<br>
+                        Artifact Registry
+                    </td>
+                    <td>
+                        Build Docker images, store artifacts,
+                        automate deployments
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Networking</b></td>
+                    <td>
+                        API Gateway<br>
+                        Cloud Load Balancer
+                    </td>
+                    <td>
+                        Secure customer access,
+                        routing traffic to services
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Monitoring & Logs</b></td>
+                    <td>
+                        Cloud Monitoring<br>
+                        Cloud Logging
+                    </td>
+                    <td>
+                        Observe system health,
+                        detect failures, analyze performance
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Security</b></td>
+                    <td>
+                        IAM<br>
+                        Secret Manager
+                    </td>
+                    <td>
+                        Access control, credential protection,
+                        least-privilege security
+                    </td>
+                </tr>
+            </table>
+
+            <div class="tip">
+                <b>Architectural Insight:</b> A successful cloud-native system
+                combines serverless, containers, and VMs — not just one model.
+            </div>
+
+            <div class="exam">
+                📘 Exam Line: Cloud-native architecture uses the right cloud service
+                for the right responsibility.
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE DIAGRAM -->
+        <section class="section">
+            <h3>High-Level Cloud-Native Architecture Diagram (GCP)</h3>
+
+            <pre style="background:#F0F8FF;padding:14px;border-radius:10px;font-size:13px;">
+ Users / Customers
+        |
+        v
++--------------------+
+|  Web / Mobile App  |
+| (Cloud Run / UI)   |
++--------------------+
+        |
+        v
++--------------------+
+|   API Gateway      |
+| Authentication     |
++--------------------+
+        |
+        v
++-----------------------------+
+|   Load Balancer             |
++-----------------------------+
+        |
+        v
++-------------------------------------------+
+| Google Kubernetes Engine (GKE)             |
+|                                           |
+|  +-------------------+   +--------------+ |
+|  | Producer Service  |   | Consumer     | |
+|  | (Docker Pod)      |   | Service      | |
+|  +-------------------+   +--------------+ |
+|           |                       ^       |
+|           v                       |       |
+|     +-------------------------------+     |
+|     |     Cloud Storage Bucket      |     |
+|     | (Async Data Exchange Layer)   |     |
+|     +-------------------------------+     |
++-------------------------------------------+
+        |
+        v
++---------------------------+
+| Databases / Analytics     |
++---------------------------+
+
+ CI/CD PIPELINE
+ ----------------
+ Developer
+    |
+    v
+ Cloud Build → Artifact Registry → GKE Deployment
+
+ OBSERVABILITY
+ ----------------
+ Cloud Logging + Cloud Monitoring + Alerts
+    </pre>
+
+            <div class="tip">
+                <b>How to Read This Diagram:</b>
+                Customers interact only with APIs. Microservices communicate indirectly
+                through storage. Kubernetes manages scaling and failures automatically.
+            </div>
+
+            <div class="exam">
+                📘 Exam Tip: Always explain cloud architecture layer by layer
+                (User → API → Services → Storage → Monitoring).
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Check Your Understanding</h3>
+
+            <details>
+                <summary>Why did we avoid direct service-to-service calls?</summary>
+                <p>To reduce coupling and improve fault tolerance.</p>
+            </details>
+
+            <details>
+                <summary>Why use Kubernetes?</summary>
+                <p>For scaling, self-healing, and service orchestration.</p>
+            </details>
+
+            <details>
+                <summary>What role does cloud storage play here?</summary>
+                <p>It acts as a durable, asynchronous data exchange layer.</p>
+            </details>
+        </section>
+
+        <!-- IMPORTANT POINTS -->
+        <section class="section">
+            <h3>Important Points to Observe</h3>
+            <ul>
+                <li>Services were loosely coupled to avoid cascading failures</li>
+                <li>Cloud storage acted as a durable integration layer</li>
+                <li>Kubernetes ensured self-healing and scalability</li>
+                <li>Security was enforced using IAM and network isolation</li>
+                <li>Customers were isolated from internal services using API layers</li>
+            </ul>
+
+            <div class="exam">
+                📘 Exam Insight: Cloud-native design focuses on resilience, scalability, and security.
+            </div>
+        </section>
+
+        <!-- SUMMARY -->
+        <section class="section">
+            <h3>Summary – High-Level Architectural Insight</h3>
+            <p class="desc">
+                This cloud-native project succeeded because it followed fundamental
+                distributed system and cloud design principles. Instead of building a
+                tightly coupled application, we designed independent microservices,
+                asynchronous communication, and platform-managed deployments.
+            </p>
+            <p class="desc">
+                The architecture allowed the system to scale seamlessly, recover from failures,
+                and evolve without impacting customers. By leveraging managed cloud services,
+                containerization, and Kubernetes orchestration, the team could focus on business
+                logic rather than infrastructure issues.
+            </p>
+
+            <div class="tip">
+                <b>Final Takeaway:</b> A successful cloud-native system is designed to fail safely,
+                scale automatically, and evolve continuously.
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE • Shared from Real Cloud Experience|Authored by Hari Babu Mutchakala
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cloud-Native Microservices on AWS | Real Experience</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a class="back-btn" href="dsunit2.html">← Back</a>
+    <div class="brand">
+        <h1>NBKRIST–CloudNest</h1>
+        <div class="tagline">Cloud-Native Architecture on AWS</div>
+    </div>
+    <div>
+        <button id="pdfBtn">⬇ PDF</button>
+        <button id="modeToggle">☀/🌙</button>
+    </div>
+</header>
+
+<div class="container">
+
+<h2>Cloud-Native Microservices on AWS – Real Project Design</h2>
+<!-- MENTOR NOTE -->
+<section class="section">
+    <h3>Mentor Note – Encouraging Students to Experiment on AWS</h3>
+
+    <p class="desc">
+        Though I have not worked on this exact cloud-native application in a real-time
+        production environment using AWS, I strongly encourage students to experiment
+        with this same use case on AWS.
+    </p>
+
+    <p class="desc">
+        AWS is a market leader in cloud computing and provides a rich ecosystem of
+        managed services that closely map to the architectural concepts discussed here.
+        By implementing this project on AWS, students can gain hands-on exposure to
+        industry-standard tools and practices.
+    </p>
+
+    <p class="desc">
+        My intention in presenting this AWS design is to help students understand
+        how cloud-native architecture principles remain the same, even when the
+        underlying cloud platform changes.
+    </p>
+
+    <div class="tip">
+        <b>Learning Advice:</b> Do not focus on memorizing services. Focus on understanding
+        architecture, design trade-offs, and failure handling.
+    </div>
+
+    <div class="exam">
+        📘 Exam Insight: Cloud platforms differ in services, but cloud-native design
+        principles remain consistent.
+    </div>
+</section>
+
+<section class="section">
+<h3>AWS Services Used – Complete Cloud-Native Stack</h3>
+
+<table>
+<tr>
+<th>Category</th>
+<th>AWS Services</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td><b>Serverless</b></td>
+<td>AWS Lambda<br>AWS App Runner</td>
+<td>Event-driven processing, lightweight APIs</td>
+</tr>
+
+<tr>
+<td><b>Virtual Machines</b></td>
+<td>Amazon EC2</td>
+<td>Legacy workloads, admin tools, jump servers</td>
+</tr>
+
+<tr>
+<td><b>Kubernetes</b></td>
+<td>Amazon EKS</td>
+<td>Running producer & consumer microservices</td>
+</tr>
+
+<tr>
+<td><b>Storage</b></td>
+<td>Amazon S3</td>
+<td>Asynchronous data exchange between services</td>
+</tr>
+
+<tr>
+<td><b>Build & CI/CD</b></td>
+<td>AWS CodeBuild<br>Amazon ECR</td>
+<td>Build Docker images and deploy to EKS</td>
+</tr>
+
+<tr>
+<td><b>Networking</b></td>
+<td>Amazon API Gateway<br>Application Load Balancer</td>
+<td>Secure customer access and traffic routing</td>
+</tr>
+
+<tr>
+<td><b>Monitoring</b></td>
+<td>Amazon CloudWatch</td>
+<td>Logs, metrics, alarms, performance tracking</td>
+</tr>
+
+<tr>
+<td><b>Security</b></td>
+<td>AWS IAM<br>AWS Secrets Manager</td>
+<td>Access control and secret management</td>
+</tr>
+</table>
+
+<div class="tip">
+<b>Architectural Insight:</b> AWS supports hybrid cloud-native designs using serverless, containers, and VMs together.
+</div>
+
+<div class="exam">
+📘 Exam Line: AWS cloud-native architecture uses managed services to improve scalability and reliability.
+</div>
+</section>
+
+<section class="section">
+<h3>High-Level Cloud-Native Architecture Diagram (AWS)</h3>
+
+<pre style="background:#F0F8FF;padding:14px;border-radius:10px;font-size:13px;">
+ Users
+   |
+   v
++----------------------+
+| Web / Mobile Client  |
++----------------------+
+           |
+           v
++----------------------+
+| Amazon API Gateway   |
++----------------------+
+           |
+           v
++----------------------+
+| Application Load     |
+| Balancer (ALB)       |
++----------------------+
+           |
+           v
++----------------------------------+
+| Amazon EKS (Kubernetes Cluster)  |
+|                                  |
+|  +------------------+            |
+|  | Producer Service |            |
+|  | (Docker Pod)     |            |
+|  +------------------+            |
+|           |                      |
+|           v                      |
+|        Amazon S3                 |
+|  (Async Data Exchange Layer)     |
+|           ^                      |
+|  +------------------+            |
+|  | Consumer Service |            |
+|  | (Docker Pod)     |            |
+|  +------------------+            |
++----------------------------------+
+           |
+           v
++----------------------+
+| Databases / Analytics|
++----------------------+
+
+ CI/CD PIPELINE
+ ----------------
+ Developer
+   |
+   v
+ AWS CodeBuild → Amazon ECR → Amazon EKS
+
+ OBSERVABILITY
+ ----------------
+ Amazon CloudWatch (Logs, Metrics, Alarms)
+</pre>
+
+<div class="tip">
+<b>Teaching Tip:</b> This diagram is exam-friendly and easy to redraw.
+</div>
+
+</section>
+
+<section class="section">
+<h3>Summary – Designing Cloud-Native Systems on AWS</h3>
+<p class="desc">
+This project demonstrates how the same cloud-native principles apply across platforms.
+On AWS, we achieved scalability, fault tolerance, and security by combining Amazon EKS,
+Amazon S3, serverless services, and managed CI/CD pipelines.
+</p>
+
+<div class="tip">
+<b>Final Takeaway:</b> Learn architecture first. Cloud platforms are just implementations.
+</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

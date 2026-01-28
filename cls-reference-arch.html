@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reference Architecture | Cloud Applications (AWS)</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 2px auto;
+            padding: 10px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            border: 1px solid #DCEAFF;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #E8F4FF;
+            font-family: Poppins;
+        }
+
+        details {
+            background: #F0F8FF;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #DCEAFF;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark table th {
+            background: #0b1f33;
+        }
+
+        .dark details {
+            background: #0b1f33;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="back-btn" href="dsunit2.html">← Back</a>
+        <div class="brand">
+            <h1>NBKRIST–CloudNest</h1>
+            <div class="tagline">Empowering Learners for Cloud & Distributed Systems</div>
+        </div>
+        <div>
+            <button id="pdfBtn">⬇ PDF</button>
+            <button id="modeToggle">☀/🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h2>Reference Architecture for Cloud Applications</h2>
+
+        <!-- INTRO -->
+        <section class="section">
+            <h3>Expert View – Why Reference Architecture Matters</h3>
+            <p class="desc">
+                While designing cloud applications at scale, I observed that ad-hoc architectures often lead to
+                scalability issues, security vulnerabilities, and high operational costs.
+            </p>
+            <p class="desc">
+                Reference architectures solve this problem by providing a standardized, proven blueprint that follows
+                cloud best practices and real-world production patterns.
+            </p>
+            <div class="exam">
+                📘 Exam Insight: Reference architecture provides a reusable blueprint for cloud application design.
+            </div>
+        </section>
+
+        <!-- DEFINITION -->
+        <section class="section">
+            <h3>What is Reference Architecture?</h3>
+            <p class="desc">
+                Reference Architecture for Cloud Applications is a predefined architectural template that illustrates
+                how cloud services should be organized to build scalable, secure, and reliable applications.
+            </p>
+            <div class="exam">
+                📘 Exam Line: Reference architecture is a standard blueprint for designing cloud-based applications.
+            </div>
+        </section>
+
+        <!-- COMPONENTS -->
+        <section class="section">
+            <h3>Core Components of Cloud Reference Architecture</h3>
+            <table>
+                <tr>
+                    <th>Layer</th>
+                    <th>AWS Services</th>
+                </tr>
+                <tr>
+                    <td>Presentation Layer</td>
+                    <td>S3, CloudFront, EC2</td>
+                </tr>
+                <tr>
+                    <td>Application Layer</td>
+                    <td>EC2, Auto Scaling, Lambda</td>
+                </tr>
+                <tr>
+                    <td>Data Layer</td>
+                    <td>RDS, DynamoDB, S3</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td>IAM, Security Groups, WAF</td>
+                </tr>
+            </table>
+
+            <div class="tip">
+                <b>AWS Insight:</b> Each layer is designed to scale and fail independently.
+            </div>
+        </section>
+
+        <!-- 3 TIER -->
+        <section class="section">
+            <h3>3-Tier Reference Architecture (AWS)</h3>
+            <ul>
+                <li>Presentation Tier – User interface</li>
+                <li>Application Tier – Business logic</li>
+                <li>Data Tier – Persistent storage</li>
+            </ul>
+
+            <div class="exam">
+                📘 Exam Line: AWS reference architectures commonly follow a 3-tier model.
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="section">
+            <h3>Key Benefits of Reference Architecture</h3>
+            <ul>
+                <li>High availability</li>
+                <li>Scalability</li>
+                <li>Security by design</li>
+                <li>Cost optimization</li>
+                <li>Faster development</li>
+            </ul>
+
+            <div class="tip">
+                <b>Industry Context:</b> Most enterprise cloud systems are built using reference architectures.
+            </div>
+        </section>
+
+        <!-- WELL ARCHITECTED -->
+        <section class="section">
+            <h3>AWS Well-Architected Framework</h3>
+            <p class="desc">
+                AWS reference architectures align with the Well-Architected Framework which ensures operational
+                excellence, security, reliability, performance efficiency, and cost optimization.
+            </p>
+            <div class="exam">
+                📘 Exam Line: AWS reference architectures follow the Well-Architected Framework principles.
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="section">
+            <h3>Quick Quiz (Click to Reveal)</h3>
+
+            <details>
+                <summary>1️⃣ What is reference architecture?</summary>
+                <p>A standardized blueprint for cloud application design.</p>
+            </details>
+
+            <details>
+                <summary>2️⃣ Which AWS model is commonly used?</summary>
+                <p>3-Tier Architecture.</p>
+            </details>
+
+            <details>
+                <summary>3️⃣ Name one benefit of reference architecture.</summary>
+                <p>Scalability and reliability.</p>
+            </details>
+
+            <details>
+                <summary>4️⃣ Which framework guides AWS architectures?</summary>
+                <p>AWS Well-Architected Framework.</p>
+            </details>
+
+            <details>
+                <summary>5️⃣ Is reference architecture reusable?</summary>
+                <p>Yes, it is reusable across projects.</p>
+            </details>
+        </section>
+
+        <section class="section">
+            <h3>Final Summary</h3>
+            <p class="desc">
+                Reference Architecture for Cloud Applications provides a structured and reliable approach to building
+                scalable cloud systems. Understanding it is essential before designing advanced cloud-native,
+                serverless, or microservices-based architectures.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala!!
+    </footer>
+
+    <script>
+        document.getElementById("modeToggle").onclick = () => document.body.classList.toggle("dark");
+        document.getElementById("pdfBtn").onclick = () => window.print();
+    </script>
+
+</body>
+
+</html>

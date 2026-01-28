@@ -113,8 +113,9 @@ function login(){
     let user = document.getElementById("username").value.trim();
     let pass = document.getElementById("password").value.trim();
     let errorBox = document.getElementById("errorMsg");
-
-    if(user === VALID_USERNAME && pass === VALID_PASSWORD){
+alert("hello-----"+user.toLowerCase() +"------"+pass.toLowerCase() );
+    if( user.toLowerCase() === VALID_USERNAME.toLowerCase() &&
+        pass.toLowerCase() === VALID_PASSWORD.toLowerCase()){
         errorBox.style.display = "none";
 
         // SUCCESS → Redirect to target page
