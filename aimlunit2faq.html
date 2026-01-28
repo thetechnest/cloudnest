@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Storage & Big Data FAQs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:22px;
+}
+.question{
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.icon{
+  font-size:18px;
+  transition:transform .3s ease;
+}
+.answer{
+  display:none;
+  margin-top:14px;
+  line-height:1.6;
+}
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:600;
+}
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+.punch{
+  background:#ECFEFF;
+  border-left:4px solid #0891B2;
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:700;
+}
+
+.toggle.active .answer{display:block;}
+.toggle.active .icon{transform:rotate(45deg);}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .exam{background:#1f1a0f;}
+.dark .tip{background:#0b1f33;}
+.dark .punch{background:#063e47;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="unit2assignment.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Unit III FAQs – Storage & Big Data (5 Marks Ready)</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+<h2>Cloud Storage & Big Data – Frequently Asked Questions</h2>
+
+<!-- FAQ 1 -->
+<section class="section toggle">
+<h3 class="question">1️⃣ What are cloud storage services? <span class="icon">➕</span></h3>
+<div class="answer">
+Cloud storage services provide scalable, durable, and on-demand data storage over the internet.
+Examples include Amazon S3, Azure Blob Storage, and Google BigQuery.
+<div class="exam">📝 Exam Line: Cloud storage offers elastic and highly available data storage.</div>
+<div class="tip">💡 Tip: Mention durability and scalability.</div>
+<div class="punch">🎯 Punch Line: Storage without limits.</div>
+</div>
+</section>
+
+<!-- FAQ 2 -->
+<section class="section toggle">
+<h3 class="question">2️⃣ Explain Amazon S3 and Azure Blob Storage. <span class="icon">➕</span></h3>
+<div class="answer">
+Amazon S3 and Azure Blob Storage are object storage services used for storing unstructured data,
+backups, media files, and big data workloads.
+<div class="exam">📝 Exam Line: Object storage is optimized for scale and durability.</div>
+<div class="tip">💡 Tip: Use the term “object storage”.</div>
+<div class="punch">🎯 Punch Line: Objects, not files.</div>
+</div>
+</section>
+
+<!-- FAQ 3 -->
+<section class="section toggle">
+<h3 class="question">3️⃣ What is virtualization and elastic computing? <span class="icon">➕</span></h3>
+<div class="answer">
+Virtualization allows multiple virtual machines to run on a single physical system,
+while elastic computing dynamically scales resources based on demand.
+<div class="exam">📝 Exam Line: Elasticity ensures optimal resource usage.</div>
+<div class="tip">💡 Tip: Differentiate static vs dynamic.</div>
+<div class="punch">🎯 Punch Line: Scale when needed.</div>
+</div>
+</section>
+
+<!-- FAQ 4 -->
+<section class="section toggle">
+<h3 class="question">4️⃣ What is Hadoop and why is it used? <span class="icon">➕</span></h3>
+<div class="answer">
+Hadoop is a distributed computing framework used to store and process large datasets
+across clusters using HDFS and MapReduce.
+<div class="exam">📝 Exam Line: Hadoop enables distributed batch processing.</div>
+<div class="tip">💡 Tip: Mention HDFS + MapReduce.</div>
+<div class="punch">🎯 Punch Line: Big data, distributed.</div>
+</div>
+</section>
+
+<!-- FAQ 5 -->
+<section class="section toggle">
+<h3 class="question">5️⃣ Explain Apache Spark and its advantages. <span class="icon">➕</span></h3>
+<div class="answer">
+Apache Spark is an in-memory distributed processing engine that supports faster data analytics
+compared to traditional Hadoop MapReduce.
+<div class="exam">📝 Exam Line: Spark provides faster processing using in-memory computation.</div>
+<div class="tip">💡 Tip: Highlight speed advantage.</div>
+<div class="punch">🎯 Punch Line: Faster than Hadoop.</div>
+</div>
+</section>
+
+<!-- FAQ 6 -->
+<section class="section toggle">
+<h3 class="question">6️⃣ What are data ingestion and processing pipelines? <span class="icon">➕</span></h3>
+<div class="answer">
+Data pipelines automate the collection, ingestion, processing, and transformation
+of data from multiple sources into storage or analytics systems.
+<div class="exam">📝 Exam Line: Pipelines enable automated data flow.</div>
+<div class="tip">💡 Tip: Mention batch and streaming.</div>
+<div class="punch">🎯 Punch Line: Data flows automatically.</div>
+</div>
+</section>
+
+<!-- FAQ 7 -->
+<section class="section toggle">
+<h3 class="question">7️⃣ What is a data lake? <span class="icon">➕</span></h3>
+<div class="answer">
+A data lake is a centralized repository that stores structured, semi-structured,
+and unstructured data in raw format.
+<div class="exam">📝 Exam Line: Data lakes store raw data at scale.</div>
+<div class="tip">💡 Tip: Mention “raw data”.</div>
+<div class="punch">🎯 Punch Line: Store first, analyze later.</div>
+</div>
+</section>
+
+<!-- FAQ 8 -->
+<section class="section toggle">
+<h3 class="question">8️⃣ Differentiate data lake and data warehouse. <span class="icon">➕</span></h3>
+<div class="answer">
+Data lakes store raw data for flexible analytics, while data warehouses store
+processed and structured data for reporting.
+<div class="exam">📝 Exam Line: Warehouses are structured; lakes are flexible.</div>
+<div class="tip">💡 Tip: Use “schema-on-read vs schema-on-write”.</div>
+<div class="punch">🎯 Punch Line: Raw vs refined.</div>
+</div>
+</section>
+
+<!-- FAQ 9 -->
+<section class="section toggle">
+<h3 class="question">9️⃣ Why is cost optimization important in cloud computing? <span class="icon">➕</span></h3>
+<div class="answer">
+Cost optimization helps reduce unnecessary spending by efficiently managing
+storage, compute, and data processing resources.
+<div class="exam">📝 Exam Line: Cloud cost must be continuously monitored.</div>
+<div class="tip">💡 Tip: Mention pay-as-you-go.</div>
+<div class="punch">🎯 Punch Line: Unused resources cost money.</div>
+</div>
+</section>
+
+<!-- FAQ 10 -->
+<section class="section toggle">
+<h3 class="question">🔟 What are common cloud cost optimization strategies? <span class="icon">➕</span></h3>
+<div class="answer">
+Strategies include right-sizing resources, using auto-scaling,
+choosing appropriate storage tiers, and monitoring usage.
+<div class="exam">📝 Exam Line: Optimization is a continuous process.</div>
+<div class="tip">💡 Tip: List at least three strategies.</div>
+<div class="punch">🎯 Punch Line: Optimize or overspend.</div>
+</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.querySelectorAll(".question").forEach(q=>{
+  q.addEventListener("click",()=>{
+    q.parentElement.classList.toggle("active");
+  });
+});
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

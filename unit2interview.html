@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NBKRIST–CloudNest | Unit III Real-Time Interview & Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate);}
+header{
+  position:sticky;top:0;z-index:1000;background:#fff;
+  padding:10px 18px;display:flex;justify-content:space-between;
+  align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn{padding:8px 14px;background:#eee;border-radius:8px;
+  text-decoration:none;font-weight:600;color:#000;}
+.brand h1{margin:0;font-family:Poppins;font-size:22px;}
+.tagline{font-size:13px;color:var(--muted);}
+#pdfBtn,#modeToggle{
+  padding:8px 12px;border:none;border-radius:8px;
+  color:#fff;font-weight:600;cursor:pointer;
+}
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{max-width:1000px;margin:10px auto;padding:12px;}
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;padding:22px;border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:24px;
+}
+
+.question{cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.icon{font-size:18px;transition:transform .3s;}
+.answer{display:none;margin-top:16px;line-height:1.8;}
+
+.block{
+  margin-top:12px;padding:14px;border-radius:12px;font-size:15px;
+}
+.problem{background:#F0F8FF;border-left:4px solid var(--teal);}
+.cloud{background:#ECFEFF;border-left:4px solid #0891B2;}
+.solution{background:#F5F3FF;border-left:4px solid #7C3AED;}
+.arch{background:#FFF7ED;border-left:4px solid #F59E0B;font-weight:600;}
+.cost{background:#ECFDF5;border-left:4px solid #10B981;}
+
+.toggle.active .answer{display:block;}
+.toggle.active .icon{transform:rotate(45deg);}
+
+footer{text-align:center;padding:30px;font-size:14px;color:var(--muted);}
+
+.dark{background:#0a1627;color:#E9F2FA;}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="unit2assignment.html" class="back-btn">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Unit III – Real-Time Design & Interview Mastery</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+<h2>Real-Time Cloud + AI/ML Design Questions (5 Marks Focus)</h2>
+
+<!-- USE CASE 1 -->
+<section class="section toggle">
+<h3 class="question">
+1️⃣ Banking: Real-Time Fraud Detection System <span class="icon">➕</span>
+</h3>
+<div class="answer">
+
+<div class="block problem">
+<b>Problem Context:</b><br>
+A bank processes millions of transactions per day. Fraudulent transactions must be
+detected within seconds to prevent financial loss and protect customers.
+</div>
+
+<div class="block cloud">
+<b>Cloud Characteristics Used:</b><br>
+On-demand self-service (instant scaling), elasticity (traffic spikes), high availability,
+measured service (pay only for processed transactions).
+</div>
+
+<div class="block solution">
+<b>Cloud-Based Solution Explanation:</b><br>
+Transaction requests are received through APIs and streamed in real time.
+AWS Kinesis ingests high-volume data streams. Lambda functions process events instantly
+and invoke a trained ML model hosted on Amazon SageMaker for fraud prediction.
+Suspicious transactions are stored and alerts are triggered automatically.
+</div>
+
+<div class="block arch">
+<b>One-line Architecture:</b><br>
+API Gateway → Kinesis → Lambda → SageMaker → DynamoDB → SNS
+</div>
+
+<div class="block cost">
+<b>Cost Optimization & Reason:</b><br>
+Serverless services avoid idle infrastructure costs.
+Kinesis scales automatically during peak hours.
+<b>Reason:</b> Banking traffic is unpredictable and latency-sensitive.<br>
+<b>GCP:</b> Pub/Sub + Vertex AI can serve a similar role.
+</div>
+
+</div>
+</section>
+
+<!-- USE CASE 2 -->
+<section class="section toggle">
+<h3 class="question">
+2️⃣ Automobile: Predictive Maintenance Using Sensor Data <span class="icon">➕</span>
+</h3>
+<div class="answer">
+
+<div class="block problem">
+<b>Problem Context:</b><br>
+Automobile manufacturers want to predict vehicle component failures before breakdowns
+to reduce maintenance cost and improve customer satisfaction.
+</div>
+
+<div class="block cloud">
+<b>Cloud Characteristics Used:</b><br>
+Broad network access (IoT connectivity), scalability, resource pooling, elasticity.
+</div>
+
+<div class="block solution">
+<b>Cloud-Based Solution Explanation:</b><br>
+Vehicle sensors continuously send telemetry data to AWS IoT Core.
+Data is stored in Amazon S3 as a data lake. AWS Glue cleans and prepares data.
+ML models are trained using SageMaker to predict failures and dashboards visualize insights.
+</div>
+
+<div class="block arch">
+<b>One-line Architecture:</b><br>
+IoT Core → S3 → Glue → SageMaker → QuickSight
+</div>
+
+<div class="block cost">
+<b>Cost Optimization & Reason:</b><br>
+S3 lifecycle policies reduce storage cost.
+Spot instances reduce ML training expenses.<br>
+<b>Reason:</b> Large-scale sensor data suits low-cost object storage.<br>
+<b>GCP:</b> Pub/Sub + BigQuery ML alternative.
+</div>
+
+</div>
+</section>
+
+<!-- USE CASE 3 -->
+<section class="section toggle">
+<h3 class="question">
+3️⃣ Healthcare: AI-Based Medical Image Diagnosis <span class="icon">➕</span>
+</h3>
+<div class="answer">
+
+<div class="block problem">
+<b>Problem Context:</b><br>
+Hospitals need AI-assisted diagnosis from X-rays and MRI scans to support doctors
+and reduce diagnosis time while ensuring data privacy.
+</div>
+
+<div class="block cloud">
+<b>Cloud Characteristics Used:</b><br>
+High availability, scalability, security, rapid elasticity.
+</div>
+
+<div class="block solution">
+<b>Cloud-Based Solution Explanation:</b><br>
+Medical images are securely uploaded to S3.
+GPU-based SageMaker instances train deep learning models.
+Inference APIs serve predictions to doctors through secure applications.
+CloudWatch monitors performance and compliance.
+</div>
+
+<div class="block arch">
+<b>One-line Architecture:</b><br>
+Secure Upload → S3 → SageMaker (GPU) → API Gateway → Lambda
+</div>
+
+<div class="block cost">
+<b>Cost Optimization & Reason:</b><br>
+GPU instances used only during training.
+Inference runs on smaller instances.<br>
+<b>Reason:</b> Training is compute-intensive, inference is lightweight.<br>
+<b>GCP:</b> Vision AI + Vertex AI.
+</div>
+
+</div>
+</section>
+
+<!-- USE CASE 4 -->
+<section class="section toggle">
+<h3 class="question">
+4️⃣ Enterprise: Data Lake for AI & Analytics <span class="icon">➕</span>
+</h3>
+<div class="answer">
+
+<div class="block problem">
+<b>Problem Context:</b><br>
+An enterprise receives data from multiple sources and wants a unified platform
+for analytics and AI model development.
+</div>
+
+<div class="block cloud">
+<b>Cloud Characteristics Used:</b><br>
+Resource pooling, measured service, scalability, schema-on-read.
+</div>
+
+<div class="block solution">
+<b>Cloud-Based Solution Explanation:</b><br>
+Raw data is ingested into S3 as a data lake.
+AWS Glue catalogs metadata.
+Athena queries data on demand.
+SageMaker trains ML models directly from the lake.
+</div>
+
+<div class="block arch">
+<b>One-line Architecture:</b><br>
+S3 → Glue Catalog → Athena → SageMaker → QuickSight
+</div>
+
+<div class="block cost">
+<b>Cost Optimization & Reason:</b><br>
+Athena charges per query, no always-on cluster.<br>
+<b>Reason:</b> Pay only when data is queried.<br>
+<b>GCP:</b> BigQuery serverless warehouse.
+</div>
+
+</div>
+</section>
+
+<!-- USE CASE 5 -->
+<section class="section toggle">
+<h3 class="question">
+5️⃣ MLOps: Continuous Model Deployment & Monitoring <span class="icon">➕</span>
+</h3>
+<div class="answer">
+
+<div class="block problem">
+<b>Problem Context:</b><br>
+A company wants to continuously deploy, monitor, and improve ML models
+without downtime.
+</div>
+
+<div class="block cloud">
+<b>Cloud Characteristics Used:</b><br>
+Automation, elasticity, high availability, measured service.
+</div>
+
+<div class="block solution">
+<b>Cloud-Based Solution Explanation:</b><br>
+Code changes trigger CI/CD pipelines.
+Models are trained, versioned, deployed automatically.
+Monitoring detects drift and performance degradation.
+</div>
+
+<div class="block arch">
+<b>One-line Architecture:</b><br>
+CodeCommit → CodePipeline → SageMaker → CloudWatch
+</div>
+
+<div class="block cost">
+<b>Cost Optimization & Reason:</b><br>
+Auto-scaling endpoints avoid over-provisioning.<br>
+<b>Reason:</b> Traffic varies across time.<br>
+<b>GCP:</b> Vertex AI Pipelines.
+</div>
+
+</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.querySelectorAll(".question").forEach(q=>{
+  q.addEventListener("click",()=>q.parentElement.classList.toggle("active"));
+});
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

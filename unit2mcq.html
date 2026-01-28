@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NBKRIST–CloudNest | Unit III MCQ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+  --radius:14px;
+}
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+header{
+  position:sticky; top:0; z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+.brand h1{margin:0;font-family:Poppins;font-size:22px;}
+.tagline{font-size:13px;color:var(--muted);}
+.btn-small{
+  padding:8px 12px;border:none;border-radius:8px;
+  color:#fff;font-weight:600;cursor:pointer;
+}
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{max-width:980px;margin:20px auto;padding:12px;}
+.section{
+  background:#fff;padding:22px;border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:20px;
+}
+.question{font-weight:600;margin-bottom:10px;}
+.options label{
+  display:block;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:8px;
+  cursor:pointer;
+  border:1px solid #ddd;
+}
+.correct{background:#E6FFFA;border-color:#10B981;}
+.wrong{background:#FEE2E2;border-color:#EF4444;}
+
+.controls{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+}
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+.submit{background:linear-gradient(90deg,#008CFF,#00A8A8);color:white;}
+.reset{background:#eee;}
+
+.score{
+  font-size:20px;
+  font-weight:700;
+  text-align:center;
+  margin-top:20px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.dark{background:#0a1627;color:#E9F2FA;}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="cloudunit3.html" class="back-btn">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Unit III – MCQ Test</div>
+  </div>
+  <div>
+    <button id="pdfBtn" class="btn-small">⬇ PDF</button>
+    <button id="modeToggle" class="btn-small">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Unit III – Cloud Storage & Big Data (25 MCQs)</h2>
+
+<form id="quizForm">
+
+<!-- QUESTIONS -->
+<script>
+const questions = [
+["Amazon S3 is a type of?",["Block storage","File storage","Object storage","Cache"],2],
+["Azure Blob Storage is used for?",["Object storage","Relational data","OS files","Caching"],0],
+["BigQuery is mainly used for?",["Transaction processing","Analytics","VM hosting","Networking"],1],
+["Virtualization enables?",["One OS per machine","Multiple VMs on one machine","Manual scaling","Direct hardware access"],1],
+["Elastic computing refers to?",["Fixed resources","Automatic scaling","Manual allocation","Hardware upgrade"],1],
+["Hadoop is used for?",["Image rendering","Distributed data processing","Networking","Security"],1],
+["HDFS stands for?",["High Data File System","Hadoop Distributed File System","Hybrid DFS","Hosted DFS"],1],
+["Spark is faster than Hadoop because it uses?",["Disk only","In-memory processing","Manual execution","Single node"],1],
+["MapReduce has how many phases?",["1","2","3","4"],1],
+["Data ingestion means?",["Data deletion","Collecting data from sources","Encrypting data","Archiving"],1],
+["Batch processing is suitable for?",["Real-time alerts","Large historical data","Low latency","Streaming"],1],
+["Streaming pipelines process data?",["Periodically","In real-time","Manually","Offline"],1],
+["A data lake stores data in?",["Processed format","Raw format","Encrypted only","Relational tables"],1],
+["Data warehouse is optimized for?",["Raw storage","Analytics & reporting","Streaming","Backups"],1],
+["Schema-on-read applies to?",["Data lake","Data warehouse","Databases","OLTP"],0],
+["Schema-on-write applies to?",["Data lake","Data warehouse","Object storage","Cache"],1],
+["Cloud cost optimization means?",["Buying more resources","Reducing unnecessary cost","Ignoring billing","Fixed pricing"],1],
+["Right-sizing means?",["Over provisioning","Matching resources to demand","Disabling VMs","Using maximum size"],1],
+["Auto-scaling helps in?",["Security","Cost optimization","Encryption","Manual billing"],1],
+["Cold storage is used for?",["Frequently accessed data","Archived data","Live streaming","Databases"],1],
+["Compute services mainly provide?",["Storage","Virtual machines","Analytics","Networking"],1],
+["CDN is used for?",["Database queries","Global content delivery","VM creation","Security"],1],
+["Analytics services are used to?",["Store files","Analyze data","Host OS","Manage users"],1],
+["OpenStack is an example of?",["Public cloud","Private cloud software","SaaS","PaaS"],1],
+["Main goal of cloud storage is?",["Manual backup","Scalability and durability","Local access","Offline use"],1]
+];
+
+document.write(questions.map((q,i)=>`
+<section class="section">
+<div class="question">${i+1}. ${q[0]}</div>
+<div class="options">
+${q[1].map((opt,j)=>`
+<label>
+<input type="radio" name="q${i}" value="${j}"> ${opt}
+</label>`).join("")}
+</div>
+</section>
+`).join(""));
+</script>
+
+<div class="controls">
+  <button type="button" class="submit" onclick="submitQuiz()">Submit</button>
+  <button type="reset" class="reset" onclick="location.reload()">Reset</button>
+</div>
+
+<div id="score" class="score"></div>
+
+</form>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE | Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    const radios=document.getElementsByName("q"+i);
+    radios.forEach(r=>{
+      if(r.checked){
+        if(parseInt(r.value)===q[2]){
+          score++;
+          r.parentElement.classList.add("correct");
+        }else{
+          r.parentElement.classList.add("wrong");
+        }
+      }
+      if(parseInt(r.value)===q[2]){
+        r.parentElement.classList.add("correct");
+      }
+      r.disabled=true;
+    });
+  });
+  document.getElementById("score").innerText =
+    `Your Score: ${score} / ${questions.length}`;
+}
+
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
