@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cloud Computing Reference Architecture</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #008CFF;
+            --secondary: #00A8A8;
+            --dark: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark);
+        }
+
+        header {
+            background: #fff;
+            padding: 14px 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+            position: sticky;
+            top: 0;
+        }
+
+        h1 {
+            font-family: Poppins;
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 28px;
+        }
+
+        h2, h3 {
+            font-family: Poppins;
+        }
+
+        .desc {
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 12px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--secondary);
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        img {
+            width: 100%;
+            margin: 16px 0;
+            border-radius: 10px;
+            border: 1px dashed #ccc;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Cloud Computing Reference Architecture</h1>
+    <div class="tagline">Structured View of NIST Cloud Architecture</div>
+</header>
+
+<div class="container">
+
+    <!-- INTRO -->
+    <section class="section">
+        <h2>Introduction</h2>
+        <img src="placeholder-intro.png" alt="Reference Architecture Overview">
+        <p class="desc">
+            Cloud Computing Reference Architecture is a tool used to describe, discuss, and develop system-specific
+            cloud architectures using a common conceptual framework.
+        </p>
+        <p class="desc">
+            The NIST Cloud Computing Reference Architecture provides a **vendor-neutral**, **high-level conceptual
+            model** that helps in understanding cloud roles, activities, functions, and relationships.
+        </p>
+        <div class="exam">
+            📘 Exam Line: NIST Cloud Reference Architecture is a vendor-neutral conceptual framework.
+        </div>
+    </section>
+
+    <!-- CLOUD CONSUMER -->
+    <section class="section">
+        <h2>Cloud Consumer</h2>
+        <img src="placeholder-consumer.png" alt="Cloud Consumer">
+        <p class="desc">
+            A cloud consumer can be an individual, organization, or user group that consumes cloud services.
+            Consumers use cloud services to meet business or personal requirements without managing underlying
+            infrastructure.
+        </p>
+    </section>
+
+    <!-- CLOUD PROVIDER -->
+    <section class="section">
+        <h2>Cloud Provider</h2>
+        <img src="placeholder-provider.png" alt="Cloud Provider">
+        <p class="desc">
+            A cloud provider is responsible for delivering cloud services over the internet. This includes
+            service deployment, orchestration, cloud service management, and ensuring security and privacy.
+        </p>
+
+        <h3>Service Deployment Models</h3>
+        <img src="placeholder-deployment.png" alt="Deployment Models">
+        <ul>
+            <li>Public Cloud</li>
+            <li>Private Cloud</li>
+            <li>Hybrid Cloud</li>
+            <li>Community Cloud</li>
+        </ul>
+
+        <h3>Service Orchestration</h3>
+        <img src="placeholder-orchestration.png" alt="Service Orchestration">
+        <p class="desc">
+            Cloud providers use cloud operating systems such as OpenStack or CloudStack to orchestrate services.
+            These platforms are built on:
+        </p>
+        <ul>
+            <li><b>Virtualization:</b> Hypervisors enable IaaS service delivery</li>
+            <li><b>Multitenancy:</b> Multiple customers share the same physical resources securely</li>
+        </ul>
+    </section>
+
+    <!-- CLOUD SERVICE MANAGEMENT -->
+    <section class="section">
+        <h2>Cloud Service Management</h2>
+        <img src="placeholder-management.png" alt="Cloud Management Interfaces">
+        <p class="desc">
+            Cloud providers offer multiple interfaces to provision and manage cloud resources.
+        </p>
+        <ul>
+            <li>Web Portal (GUI)</li>
+            <li>Cloud Shell</li>
+            <li>Cloud SDK</li>
+            <li>Cloud CLI</li>
+        </ul>
+
+        <div class="tip">
+            <b>Practical Insight:</b> Cloud adoption involves provisioning, access control, integration,
+            monitoring, budgeting, and governance.
+        </div>
+    </section>
+
+    <!-- SECURITY & PRIVACY -->
+    <section class="section">
+        <h2>Security and Privacy</h2>
+        <img src="placeholder-security.png" alt="Shared Responsibility Model">
+        <p class="desc">
+            Cloud security is governed by the Shared Responsibility Model, which clearly defines responsibilities
+            between the provider and the consumer.
+        </p>
+
+        <h3>IaaS Responsibility</h3>
+        <ul>
+            <li><b>Provider:</b> Hardware and hypervisor security</li>
+            <li><b>Consumer:</b> Operating system security and patching</li>
+        </ul>
+
+        <h3>PaaS Responsibility</h3>
+        <ul>
+            <li><b>Provider:</b> Infrastructure and OS security</li>
+            <li><b>Consumer:</b> Application configuration and compliance</li>
+        </ul>
+
+        <h3>SaaS Responsibility</h3>
+        <ul>
+            <li><b>Provider:</b> End-to-end infrastructure security</li>
+            <li><b>Consumer:</b> Configuration, customization, and data governance</li>
+        </ul>
+    </section>
+
+    <!-- CLOUD BROKER -->
+    <section class="section">
+        <h2>Cloud Broker</h2>
+        <img src="placeholder-broker.png" alt="Cloud Broker">
+        <p class="desc">
+            A cloud broker acts as an intermediary between cloud providers and consumers.
+        </p>
+        <ul>
+            <li><b>Intermediation:</b> Adds value such as identity management or monitoring</li>
+            <li><b>Aggregation:</b> Combines multiple services (e.g., SaaS platforms, cloud marketplaces)</li>
+            <li><b>Arbitrage:</b> Dynamically selects best services from multiple providers</li>
+        </ul>
+    </section>
+
+    <!-- CLOUD AUDITOR -->
+    <section class="section">
+        <h2>Cloud Auditor</h2>
+        <img src="placeholder-auditor.png" alt="Cloud Auditor">
+        <p class="desc">
+            A cloud auditor provides independent assurance by evaluating security, privacy,
+            performance, and compliance of cloud services.
+        </p>
+    </section>
+
+    <!-- CLOUD CARRIER -->
+    <section class="section">
+        <h2>Cloud Carrier</h2>
+        <img src="placeholder-carrier.png" alt="Cloud Carrier">
+        <p class="desc">
+            A cloud carrier is responsible for providing connectivity and transport of cloud services.
+            This includes network, telecom, and internet access infrastructure.
+        </p>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="section">
+        <h2>Final Summary</h2>
+        <p class="desc">
+            The Cloud Computing Reference Architecture provides a structured and standardized way to
+            understand cloud ecosystems. It clearly defines roles, responsibilities, and interactions,
+            making it essential for cloud architects, administrators, and students.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+</body>
+</html>
