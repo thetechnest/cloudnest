@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Linux Users, Permissions & Processes</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+    }
+
+    .menu {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .tip {
+      background: #E8F4FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    details {
+      background: #F0F8FF;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #DCEAFF;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    code {
+      background: #eef6ff;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header,
+    .dark .menubar {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="linux-basics.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Linux Users, Permissions & Process Control</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="menubar">
+  <nav class="menu">
+    <a href="#theory">Concepts</a>
+    <a href="#users">Users & Groups</a>
+    <a href="#sudo">sudo & su</a>
+    <a href="#ssh">SSH</a>
+    <a href="#permissions">Permissions</a>
+    <a href="#process">Processes</a>
+    <a href="#env">Environment</a>
+    <a href="#shell">Shell Script</a>
+  </nav>
+</div>
+
+<div class="container">
+
+  <h2>Linux Users, Permissions & Processes – Zero to Hero</h2>
+
+  <!-- THEORY -->
+  <section class="section" id="theory">
+    <h3>Core Concepts (Read Before Practice)</h3>
+    <p class="desc">
+      Linux is a <b>multi-user operating system</b>. Every action is performed by a user,
+      controlled by permissions, and executed as a process.
+      Understanding these concepts is mandatory for Hadoop, Cloud, and DevOps.
+    </p>
+    <ul>
+      <li><b>User</b> – Who is performing the action</li>
+      <li><b>Group</b> – Collection of users</li>
+      <li><b>sudo</b> – Temporary admin power</li>
+      <li><b>su</b> – Switch user</li>
+      <li><b>SSH</b> – Secure remote access</li>
+      <li><b>Permissions</b> – Who can read/write/execute</li>
+      <li><b>Process</b> – A running program</li>
+    </ul>
+    <div class="tip">
+      💡 Hadoop failures usually come from <b>permission or user mistakes</b>, not Hadoop itself.
+    </div>
+  </section>
+
+  <!-- USERS -->
+  <section class="section" id="users">
+    <h3>Users & Groups</h3>
+    <details>
+      <summary>whoami</summary>
+      <p><code>whoami</code></p>
+      <p>Shows the current logged-in user.</p>
+    </details>
+
+    <details>
+      <summary>id</summary>
+      <p><code>id</code></p>
+      <p>Displays user ID, group ID, and groups.</p>
+    </details>
+
+    <details>
+      <summary>groups</summary>
+      <p><code>groups</code></p>
+      <p>Shows which groups the user belongs to.</p>
+    </details>
+  </section>
+
+  <!-- SUDO -->
+  <section class="section" id="sudo">
+    <h3>sudo and su</h3>
+    <details>
+      <summary>sudo</summary>
+      <p><code>sudo apt update</code></p>
+      <p>Runs a command with administrator privileges.</p>
+    </details>
+
+    <details>
+      <summary>su</summary>
+      <p><code>su - hduser</code></p>
+      <p>Switches to another user.</p>
+    </details>
+  </section>
+
+  <!-- SSH -->
+  <section class="section" id="ssh">
+    <h3>SSH – Secure Shell</h3>
+    <details>
+      <summary>ssh localhost</summary>
+      <p><code>ssh localhost</code></p>
+      <p>Connects to the local machine securely.</p>
+    </details>
+
+    <details>
+      <summary>ssh user@ip</summary>
+      <p><code>ssh ubuntu@3.110.x.x</code></p>
+      <p>Connects to a remote cloud VM.</p>
+    </details>
+  </section>
+
+  <!-- PERMISSIONS -->
+  <section class="section" id="permissions">
+    <h3>Permissions: chmod & chown</h3>
+    <details>
+      <summary>chmod</summary>
+      <p><code>chmod 755 file.sh</code></p>
+      <p>Sets read/write/execute permissions.</p>
+    </details>
+
+    <details>
+      <summary>chown</summary>
+      <p><code>sudo chown hduser:hadoop file.txt</code></p>
+      <p>Changes file owner and group.</p>
+    </details>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <h3>Processes: ps, grep, kill</h3>
+    <details>
+      <summary>ps -ef</summary>
+      <p><code>ps -ef</code></p>
+      <p>Lists all running processes.</p>
+    </details>
+
+    <details>
+      <summary>grep</summary>
+      <p><code>ps -ef | grep java</code></p>
+      <p>Filters output to show Java processes.</p>
+    </details>
+
+    <details>
+      <summary>kill</summary>
+      <p><code>kill 1234</code></p>
+      <p>Stops a process using PID.</p>
+    </details>
+  </section>
+
+  <!-- ENV -->
+  <section class="section" id="env">
+    <h3>Environment Variables (.bashrc, echo, classpath)</h3>
+    <details>
+      <summary>.bashrc</summary>
+      <p><code>nano ~/.bashrc</code></p>
+      <p>Startup configuration for shell.</p>
+    </details>
+
+    <details>
+      <summary>echo</summary>
+      <p><code>echo $JAVA_HOME</code></p>
+      <p>Prints environment variable value.</p>
+    </details>
+
+    <details>
+      <summary>Classpath</summary>
+      <p><code>hadoop classpath</code></p>
+      <p>Shows Hadoop Java classpath.</p>
+    </details>
+  </section>
+
+  <!-- SHELL -->
+  <section class="section" id="shell">
+    <h3>Basic Shell Scripting</h3>
+
+    <details>
+      <summary>Script 1: Hello Script</summary>
+      <pre><code>
+#!/bin/bash
+echo "Hello Hadoop Students"
+      </code></pre>
+      <p>Prints a message.</p>
+    </details>
+
+    <details>
+      <summary>Script 2: Check Java</summary>
+      <pre><code>
+#!/bin/bash
+java -version
+      </code></pre>
+      <p>Checks Java installation.</p>
+    </details>
+
+    <div class="tip">
+      🧠 If you understand this page, you are <b>Linux confident</b>.
+      Hadoop, Cloud, and DevOps will feel natural.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>
