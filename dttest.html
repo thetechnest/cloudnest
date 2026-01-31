@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Test – Design Thinking | ResultPulse</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        /* ===== CloudNest Header ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        /* ===== Layout ===== */
+        .container {
+            max-width: 980px;
+            margin: 6px auto;
+            padding: 12px;
+        }
+
+        h2, h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        ul li {
+            margin: 6px 0;
+        }
+
+        .highlight {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .test-box {
+            background: #F0F9FF;
+            padding: 16px;
+            border-left: 4px solid #38BDF8;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .image-box {
+            margin: 18px 0;
+            padding: 26px;
+            border: 2px dashed #c7d9ec;
+            border-radius: 16px;
+            background: #f8fbff;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ===== Dark Mode ===== */
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark .test-box {
+            background: #0b2a44;
+            border-left-color: #38BDF8;
+        }
+
+        .dark .image-box {
+            background: #0b1f33;
+            border-color: #2c6fb7;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a class="back-btn" href="dtresultsplus.html">← Back</a>
+
+    <div class="brand">
+        <h1>NBKRIST–DesignNest</h1>
+        <div class="tagline">Human-Centered Design for Smart Education</div>
+    </div>
+
+    <div>
+        <button id="pdfBtn">⬇ PDF</button>
+        <button id="modeToggle">☀ / 🌙</button>
+    </div>
+</header>
+
+<div class="container">
+
+    <h2>Test Stage – Design Thinking</h2>
+
+    <!-- WHAT IS TEST -->
+    <section class="section">
+        <h3>What is the Test Stage?</h3>
+        <p class="desc">
+            The Test stage evaluates the prototype by involving real users to
+            understand how well the solution addresses their needs. It is not
+            limited to functional correctness, but focuses on usability,
+            clarity, and user experience.
+        </p>
+
+        <div class="highlight">
+            🔁 Testing in Design Thinking is about <b>learning and improving</b>,
+            not about finding faults.
+        </div>
+    </section>
+
+    <!-- TYPES OF TESTS -->
+    <section class="section">
+        <h3>Types of Tests Conducted in Design Thinking</h3>
+
+        <div class="test-box">
+            👥 <b>User Usability Testing</b><br>
+            Observing how students interact with ResultPulse dashboards and
+            identifying confusion or ease of use.
+        </div>
+
+        <div class="test-box">
+            🧠 <b>Comprehension Testing</b><br>
+            Checking whether students understand insights, graphs, and analytics
+            without external explanation.
+        </div>
+
+        <div class="test-box">
+            🎯 <b>Goal-Oriented Testing</b><br>
+            Verifying whether students can identify strengths and weaknesses
+            using the system.
+        </div>
+
+        <div class="test-box">
+            📋 <b>Feedback-Based Testing</b><br>
+            Collecting verbal and written feedback from students and faculty.
+        </div>
+    </section>
+
+    <!-- USER INVOLVEMENT -->
+    <section class="section">
+        <h3>User Involvement in the Test Stage</h3>
+        <p class="desc">
+            Testing was conducted by actively involving NBKRIST students and
+            faculty members to ensure realistic evaluation.
+        </p>
+
+        <ul>
+            <li>Students used the prototype during simulated result scenarios</li>
+            <li>Faculty reviewed analytics and interpretation accuracy</li>
+            <li>Users were encouraged to speak freely about their experience</li>
+            <li>Observations were recorded without interference</li>
+        </ul>
+
+        <div class="image-box">
+            👨‍🎓 Student Testing & Feedback Session Placeholder  
+            <br>
+            <small>(Observe → Listen → Refine)</small>
+        </div>
+    </section>
+
+    <!-- FEEDBACK LOOP -->
+    <section class="section">
+        <h3>Feedback Loop & Iteration</h3>
+        <p class="desc">
+            Feedback obtained during testing was analyzed and used to refine
+            the prototype iteratively. This feedback loop ensures continuous
+            improvement of the solution.
+        </p>
+
+        <ul>
+            <li>Simplified dashboard labels based on student feedback</li>
+            <li>Improved graph readability and color usage</li>
+            <li>Added explanatory tooltips for analytics</li>
+            <li>Refined navigation flow for clarity</li>
+        </ul>
+
+        <div class="highlight">
+            🔄 Test → Learn → Improve → Retest
+        </div>
+    </section>
+
+    <!-- WHY TEST IS IMPORTANT -->
+    <section class="section">
+        <h3>Why the Test Stage is Critical</h3>
+        <p class="desc">
+            Without testing, design decisions remain assumptions. The Test stage
+            validates ideas with real users and ensures that the solution delivers
+            actual value.
+        </p>
+
+        <ul>
+            <li>Reduces risk of user rejection</li>
+            <li>Improves user satisfaction</li>
+            <li>Ensures alignment with real needs</li>
+            <li>Completes the Design Thinking lifecycle</li>
+        </ul>
+
+        <div class="highlight">
+            ✅ Testing confirms whether ResultPulse truly reduces confusion and stress.
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+    document.getElementById("modeToggle").onclick = () =>
+        document.body.classList.toggle("dark");
+
+    document.getElementById("pdfBtn").onclick = () =>
+        window.print();
+</script>
+
+</body>
+</html>

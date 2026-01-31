@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ResultPulse – Enhanced</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+}
+
+header {
+    background: #0F1C2E;
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #008CFF;
+    color: white;
+}
+
+.pass { color: green; font-weight: bold; }
+.fail { color: red; font-weight: bold; }
+
+.summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: #E8F4FF;
+    border-radius: 8px;
+}
+
+.chart {
+    margin-top: 20px;
+}
+
+.bar {
+    background: #008CFF;
+    margin: 6px 0;
+    color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    text-align: right;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ResultPulse</h1>
+<p>Smart Results & Performance Insights</p>
+</header>
+
+<div class="container">
+<h2>Select Student</h2>
+
+<select id="studentSelect" onchange="loadResult()">
+<option value="">-- Select Student --</option>
+</select>
+
+<div id="resultArea"></div>
+</div>
+
+<footer>
+© NBKRIST CSE – ResultPulse Enhanced Demo
+</footer>
+
+<script>
+/* ---------------- STUDENT DATA ---------------- */
+const students = {
+    S101: {
+        name: "Akhil Kumar",
+        marks: {
+            "DS": 78,
+            "DBMS": 85,
+            "OS": 72,
+            "Java": 88,
+            "Maths": 69
+        }
+    },
+    S102: {
+        name: "Bhavya Reddy",
+        marks: {
+            "DS": 90,
+            "DBMS": 92,
+            "OS": 86,
+            "Java": 95,
+            "Maths": 88
+        }
+    },
+    S103: {
+        name: "Charan Teja",
+        marks: {
+            "DS": 65,
+            "DBMS": 70,
+            "OS": 60,
+            "Java": 74,
+            "Maths": 58
+        }
+    }
+};
+
+/* Populate dropdown */
+const select = document.getElementById("studentSelect");
+Object.keys(students).forEach(id => {
+    const opt = document.createElement("option");
+    opt.value = id;
+    opt.textContent = students[id].name;
+    select.appendChild(opt);
+});
+
+/* ---------------- LOGIC ---------------- */
+function loadResult() {
+    const id = select.value;
+    if (!id) return;
+
+    const s = students[id];
+    let total = 0, count = 0;
+    let strengths = [], improvements = [];
+
+    let html = `<h3>${s.name}</h3><table>
+    <tr><th>Subject</th><th>Marks</th><th>Status</th></tr>`;
+
+    for (let sub in s.marks) {
+        let m = s.marks[sub];
+        total += m;
+        count++;
+
+        if (m >= 75) strengths.push(sub);
+        if (m < 65) improvements.push(sub);
+
+        html += `<tr>
+            <td>${sub}</td>
+            <td>${m}</td>
+            <td class="${m>=40?'pass':'fail'}">${m>=40?'PASS':'FAIL'}</td>
+        </tr>`;
+    }
+
+    html += "</table>";
+
+    const percent = (total/(count*100)*100).toFixed(2);
+    const cgpa = (percent/10).toFixed(2);
+    const rank = calculateRank(id);
+
+    html += `
+    <div class="summary">
+        <p><b>Total:</b> ${total}</p>
+        <p><b>Percentage:</b> ${percent}%</p>
+        <p><b>CGPA:</b> ${cgpa}</p>
+        <p><b>Class Rank:</b> ${rank}</p>
+        <p><b>Strengths:</b> ${strengths.join(", ") || "None"}</p>
+        <p><b>Needs Improvement:</b> ${improvements.join(", ") || "None"}</p>
+    </div>`;
+
+    html += `<h3>Performance Chart</h3><div class="chart">`;
+    for (let sub in s.marks) {
+        html += `<div class="bar" style="width:${s.marks[sub]}%">${sub} - ${s.marks[sub]}</div>`;
+    }
+    html += `</div>`;
+
+    document.getElementById("resultArea").innerHTML = html;
+}
+
+/* ---------------- RANK LOGIC ---------------- */
+function calculateRank(selectedId) {
+    const totals = Object.keys(students).map(id => {
+        let sum = 0;
+        for (let s in students[id].marks) sum += students[id].marks[s];
+        return { id, sum };
+    });
+
+    totals.sort((a,b)=>b.sum-a.sum);
+    return totals.findIndex(s=>s.id===selectedId)+1;
+}
+</script>
+
+</body>
+</html>

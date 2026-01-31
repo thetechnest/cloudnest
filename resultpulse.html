@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ResultPulse – Smart Student Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #0F1C2E;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #0F1C2E;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #008CFF;
+            color: white;
+        }
+
+        .summary {
+            margin-top: 20px;
+            padding: 15px;
+            background: #E8F4FF;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ResultPulse</h1>
+    <p>Smart Student Results & Performance Insights</p>
+</header>
+
+<div class="container">
+    <h2>Select Student</h2>
+
+    <select id="studentSelect" onchange="loadResult()">
+        <option value="">-- Select Student --</option>
+    </select>
+
+    <div id="resultArea"></div>
+</div>
+
+<footer>
+    © NBKRIST CSE – ResultPulse Demo
+</footer>
+
+<script>
+    /* -----------------------------
+       Hardcoded Student Results
+    ------------------------------*/
+    const students = {
+        "S101": {
+            name: "Akhil Kumar",
+            semester: "Semester 3",
+            marks: {
+                "Data Structures": 78,
+                "DBMS": 85,
+                "Operating Systems": 72,
+                "Java Programming": 88,
+                "Mathematics": 69
+            }
+        },
+        "S102": {
+            name: "Bhavya Reddy",
+            semester: "Semester 3",
+            marks: {
+                "Data Structures": 90,
+                "DBMS": 92,
+                "Operating Systems": 86,
+                "Java Programming": 95,
+                "Mathematics": 88
+            }
+        },
+        "S103": {
+            name: "Charan Teja",
+            semester: "Semester 3",
+            marks: {
+                "Data Structures": 65,
+                "DBMS": 70,
+                "Operating Systems": 60,
+                "Java Programming": 74,
+                "Mathematics": 58
+            }
+        }
+    };
+
+    /* Populate dropdown */
+    const select = document.getElementById("studentSelect");
+    for (let id in students) {
+        const option = document.createElement("option");
+        option.value = id;
+        option.textContent = students[id].name + " (" + id + ")";
+        select.appendChild(option);
+    }
+
+    function loadResult() {
+        const id = select.value;
+        if (!id) return;
+
+        const student = students[id];
+        let total = 0;
+        let count = 0;
+
+        let table = `
+            <h3>${student.name} – ${student.semester}</h3>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                </tr>
+        `;
+
+        for (let subject in student.marks) {
+            const marks = student.marks[subject];
+            total += marks;
+            count++;
+            table += `
+                <tr>
+                    <td>${subject}</td>
+                    <td>${marks}</td>
+                </tr>
+            `;
+        }
+
+        const percentage = (total / (count * 100) * 100).toFixed(2);
+        const cgpa = (percentage / 10).toFixed(2);
+
+        table += `</table>`;
+
+        table += `
+            <div class="summary">
+                <p><b>Total Marks:</b> ${total}</p>
+                <p><b>Percentage:</b> ${percentage}%</p>
+                <p><b>CGPA (Approx):</b> ${cgpa}</p>
+            </div>
+        `;
+
+        document.getElementById("resultArea").innerHTML = table;
+    }
+</script>
+
+</body>
+</html>

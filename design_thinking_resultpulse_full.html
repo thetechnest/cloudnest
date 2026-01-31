@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Thinking Case Study – ResultPulse</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --azure-blue:#008CFF;
+    --teal:#00A8A8;
+    --dark-slate:#0F1C2E;
+    --bg:#F7FBFF;
+    --muted:#6B7A89;
+}
+body {
+    margin:0;
+    font-family:Inter;
+    background:var(--bg);
+    color:var(--dark-slate);
+}
+header {
+    position:sticky; top:0; z-index:1000;
+    background:#fff;
+    padding:10px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn {
+    padding:8px 14px;
+    background:#eee;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    color:#000;
+}
+.brand h1 {
+    margin:0;
+    font-family:Poppins;
+    font-size:22px;
+}
+.tagline { font-size:13px; color:var(--muted); }
+#pdfBtn,#modeToggle {
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+#pdfBtn { background:var(--azure-blue); margin-right:10px; }
+#modeToggle { background:var(--dark-slate); }
+
+.container {
+    max-width:980px;
+    margin:6px auto;
+    padding:12px;
+}
+h2,h3 { font-family:Poppins; }
+
+.section {
+    background:#fff;
+    padding:22px;
+    border-radius:14px;
+    border-left:6px solid var(--azure-blue);
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+    margin-bottom:26px;
+}
+
+table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+th,td {
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+th { background:var(--azure-blue); color:#fff; }
+
+.pass { color:green; font-weight:600; }
+.fail { color:red; font-weight:600; }
+
+.bar {
+    background:var(--azure-blue);
+    color:#fff;
+    margin:6px 0;
+    padding:6px;
+    border-radius:6px;
+    text-align:right;
+}
+
+.feedback {
+    background:#FFF7ED;
+    border-left:4px solid #F59E0B;
+    padding:15px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+footer {
+    text-align:center;
+    padding:30px;
+    font-size:14px;
+    color:var(--muted);
+}
+
+.dark { background:#0a1627; color:#E9F2FA; }
+.dark header { background:#071322; }
+.dark .section { background:#102031; border-left-color:#2993ff; }
+</style>
+</head>
+
+<body>
+
+<header>
+<a class="back-btn" href="dtresultsplus.html">← Back</a>
+<div class="brand">
+    <h1>NBKRIST–DesignNest</h1>
+    <div class="tagline">Empowering Learners with Design Thinking</div>
+</div>
+<div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀ / 🌙</button>
+</div>
+</header>
+
+<div class="container">
+
+<h2>Design Thinking – ResultPulse Demo</h2>
+
+<section class="section">
+<h3>Select Student</h3>
+
+<select id="studentSelect">
+    <option value="">-- Select Student --</option>
+</select>
+
+<div id="resultArea"></div>
+</section>
+
+<section class="section">
+<h3>🚀 Future Extensions</h3>
+<ul>
+<li>Semester-wise result analysis</li>
+<li>Faculty evaluator feedback module</li>
+<li>AI-based personalized study recommendations</li>
+<li>OBE / NBA outcome mapping</li>
+<li>Cloud deployment using AWS or GCP</li>
+</ul>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ---------- DATA ---------- */
+    const students = {
+        S101: { name:"Akhil Kumar", marks:{DS:78, DBMS:85, OS:72, Java:88, Maths:69} },
+        S102: { name:"Bhavya Reddy", marks:{DS:90, DBMS:92, OS:86, Java:95, Maths:88} },
+        S103: { name:"Charan Teja", marks:{DS:65, DBMS:70, OS:60, Java:74, Maths:58} }
+    };
+
+    const sel = document.getElementById("studentSelect");
+    const resultArea = document.getElementById("resultArea");
+
+    /* Populate dropdown */
+    Object.keys(students).forEach(id => {
+        const opt = document.createElement("option");
+        opt.value = id;
+        opt.textContent = students[id].name;
+        sel.appendChild(opt);
+    });
+
+    sel.addEventListener("change", loadResult);
+
+    function loadResult() {
+        const id = sel.value;
+        if (!id) { resultArea.innerHTML = ""; return; }
+
+        const s = students[id];
+        let total = 0, strong = [], weak = [], count = 0;
+
+        let html = `<h3>${s.name}</h3>
+        <table>
+        <tr><th>Subject</th><th>Marks</th><th>Status</th></tr>`;
+
+        for (let sub in s.marks) {
+            const m = s.marks[sub];
+            total += m; count++;
+
+            if (m >= 75) strong.push(sub);
+            if (m < 65) weak.push(sub);
+
+            html += `<tr>
+                <td>${sub}</td>
+                <td>${m}</td>
+                <td class="${m >= 40 ? 'pass' : 'fail'}">${m >= 40 ? 'PASS' : 'FAIL'}</td>
+            </tr>`;
+        }
+        html += `</table>`;
+
+        const percentage = (total / (count * 100) * 100).toFixed(2);
+        const cgpa = (percentage / 10).toFixed(2);
+        const rank = calculateRank(id);
+
+        html += `
+        <div class="section">
+            <h3>📊 Result Summary</h3>
+            <p><b>Total Marks:</b> ${total}</p>
+            <p><b>Percentage:</b> ${percentage}%</p>
+            <p><b>CGPA:</b> ${cgpa}</p>
+            <p><b>Class Rank:</b> ${rank}</p>
+            <p><b>Strengths:</b> ${strong.join(", ") || "None"}</p>
+            <p><b>Weaknesses:</b> ${weak.join(", ") || "None"}</p>
+        </div>
+
+        <div class="feedback">
+            <h3>🧠 Why Marks Were Lost & How to Improve</h3>
+            <ul>
+                ${weak.map(w => `<li><b>${w}</b>: Weak conceptual clarity and insufficient practice.</li>`).join("")}
+            </ul>
+            <p><b>Evaluator Suggestion:</b> Focus on fundamentals, practice previous papers, and improve answer structure.</p>
+        </div>
+
+        <h3>📈 Performance Visualization</h3>
+        `;
+
+        for (let sub in s.marks) {
+            html += `<div class="bar" style="width:${s.marks[sub]}%">${sub} - ${s.marks[sub]}</div>`;
+        }
+
+        resultArea.innerHTML = html;
+    }
+
+    function calculateRank(selectedId) {
+        const totals = Object.keys(students).map(id => {
+            let sum = 0;
+            for (let s in students[id].marks) sum += students[id].marks[s];
+            return { id, sum };
+        });
+        totals.sort((a, b) => b.sum - a.sum);
+        return totals.findIndex(s => s.id === selectedId) + 1;
+    }
+
+    document.getElementById("modeToggle").onclick = () =>
+        document.body.classList.toggle("dark");
+
+    document.getElementById("pdfBtn").onclick = () =>
+        window.print();
+});
+</script>
+
+</body>
+</html>

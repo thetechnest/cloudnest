@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Design Thinking Case Study – ResultPulse</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --azure-blue: #008CFF;
+            --teal: #00A8A8;
+            --dark-slate: #0F1C2E;
+            --bg: #F7FBFF;
+            --muted: #6B7A89;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter;
+            background: var(--bg);
+            color: var(--dark-slate);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        .back-btn {
+            padding: 8px 14px;
+            background: #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-family: Poppins;
+            font-size: 22px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        #pdfBtn,
+        #modeToggle {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #pdfBtn {
+            background: #008CFF;
+            margin-right: 10px;
+        }
+
+        #modeToggle {
+            background: #0F1C2E;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 4px auto;
+            padding: 12px;
+        }
+
+        h2,
+        h3 {
+            font-family: Poppins;
+        }
+
+        .section {
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid var(--azure-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+            margin-bottom: 26px;
+        }
+
+        .desc {
+            margin: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tip {
+            background: #E8F4FF;
+            padding: 12px;
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .exam {
+            background: #FFF7ED;
+            padding: 10px;
+            border-left: 4px solid #F59E0B;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        pre {
+            background: #F0F8FF;
+            padding: 14px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .dark {
+            background: #0a1627;
+            color: #E9F2FA;
+        }
+
+        .dark header {
+            background: #071322;
+        }
+
+        .dark .section {
+            background: #102031;
+            border-left-color: #2993ff;
+        }
+
+        .dark pre {
+            background: #0b1f33;
+        }
+        /* ===== Design Thinking Stage Menu ===== */
+/* =============================
+   DESIGN THINKING MENU – SEA / SKY BLUE THEME
+============================== */
+
+.dt-menu {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0 26px;
+}
+
+.dt-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 14px 12px;
+    border-radius: 16px;
+    border: 1px solid #B6D8F2;
+    font-family: Poppins;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #063970;
+    background: linear-gradient(180deg, #F4FAFF, #EAF4FF);
+    box-shadow: 0 10px 22px rgba(0, 110, 190, 0.15);
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.dt-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 110, 190, 0.22);
+    background: linear-gradient(180deg, #E3F2FF, #D7ECFF);
+}
+
+/* Individual Rich Sea / Sky Accents */
+
+.dt-empathize {
+    border-left: 6px solid #4FA3E3; /* sea blue */
+}
+
+.dt-define {
+    border-left: 6px solid #6BB7E9; /* sky blue */
+}
+
+.dt-ideate {
+    border-left: 6px solid #4FC3C8; /* aqua sea */
+}
+
+.dt-proto {
+    border-left: 6px solid #5DA9E9; /* ocean blue */
+}
+
+.dt-test {
+    border-left: 6px solid #3B82F6; /* deep sky blue */
+}
+
+/* Dark Mode Harmony */
+
+.dark .dt-btn {
+    background: linear-gradient(180deg, #102A43, #163B5C);
+    color: #E6F4FF;
+    border-color: #1E4D7B;
+    box-shadow: 0 10px 24px rgba(0, 140, 255, 0.25);
+}
+
+.dark .dt-btn:hover {
+    background: linear-gradient(180deg, #163F63, #1E517F);
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a class="back-btn" href="design_thinking_real_world_projects.html">← Back</a>
+    <div class="brand">
+        <h1>NBKRIST–DesignNest</h1>
+        <div class="tagline">Human-Centered Design for Smart Education</div>
+    </div>
+    <div>
+        <button id="pdfBtn">⬇ PDF</button>
+        <button id="modeToggle">☀ / 🌙</button>
+    </div>
+</header>
+
+<div class="container">
+
+  
+
+    <!-- Horizontal Stage Menu -->
+ <div class="dt-menu">
+    <a href="empathize.html" class="dt-btn dt-empathize">💙 Empathize</a>
+    <a href="define.html" class="dt-btn dt-define">🧩 Define</a>
+    <a href="ideate.html" class="dt-btn dt-ideate">💡 Ideate</a>
+    <a href="design_thinking_resultpulse_full.html" class="dt-btn dt-proto">🛠 Prototype</a>
+    <a href="dttest.html" class="dt-btn dt-test">✅ Test</a>
+</div>
+
+    <h2>Design Thinking – Case Study</h2>
+
+    <!-- PROJECT -->
+    <section class="section">
+        <h3>Selected Mini Project</h3>
+        <p class="desc"><b>ResultPulse – Smart Student Results & Performance Insights Platform</b></p>
+        <div class="exam">
+            📘 Exam Insight: This project is ideal for 10–15 mark Design Thinking questions.
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section">
+        <h3>Introduction</h3>
+        <p class="desc">
+            Traditional result systems only display marks, which often creates confusion, anxiety, and lack of clarity
+            among students. ResultPulse applies Design Thinking to transform raw academic results into meaningful
+            insights that help students understand their performance and plan improvements.
+        </p>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section">
+        <h3>Problem Statement</h3>
+        <p class="desc">
+            Students need a transparent, analytical, and user-friendly digital platform to view academic results
+            and performance insights, because conventional result systems only show marks without explaining
+            progress, strengths, or areas for improvement.
+        </p>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section class="section">
+        <h3>Objectives</h3>
+        <ul>
+            <li>Reduce result-related stress and confusion</li>
+            <li>Provide performance insights instead of raw marks</li>
+            <li>Enable students to track academic progress</li>
+        </ul>
+    </section>
+
+    <!-- DESIGN THINKING -->
+    <section class="section">
+    <h3>Design Thinking Approach</h3>
+    <!-- Image Placeholder -->
+    <div class="dt-image-box">
+        📊 Design Thinking Diagram / Workflow - NBKRIST DesignNest  
+        <br>
+        <small><img src="dtbanana.png" alt="Design Thinking Diagram" width="100%"></small>
+    </div>
+
+    <p class="desc"><b>1️⃣ Empathize</b></p>
+    <ul>
+        <li>Interacted with students during result declaration</li>
+        <li>Identified fear, stress, and lack of clarity</li>
+        <li>Collected feedback from faculty</li>
+    </ul>
+
+    <p class="desc"><b>2️⃣ Define</b></p>
+    <p class="desc">
+        The core problem is the absence of analytical and student-centric result interpretation.
+    </p>
+
+    <p class="desc"><b>3️⃣ Ideate</b></p>
+    <ul>
+        <li>Result dashboard instead of PDF</li>
+        <li>Subject-wise performance graphs</li>
+        <li>Class average comparison</li>
+    </ul>
+
+    <p class="desc"><b>4️⃣ Prototype</b></p>
+    <p class="desc">
+        Designed a web-based prototype using HTML, CSS, JavaScript, ReactJS, Java (Spring Boot), and MySQL
+        to visualize results and insights.
+    </p>
+
+    <p class="desc"><b>5️⃣ Test</b></p>
+    <p class="desc">
+        Tested the system with students and refined UI, graphs, and insights based on feedback.
+    </p>
+</section>
+
+
+    <!-- SOLUTION -->
+    <section class="section">
+        <h3>Proposed Solution</h3>
+        <p class="desc">
+            ResultPulse is a smart web application that presents academic results with analytics, comparisons,
+            and progress tracking to help students understand and improve their academic performance.
+        </p>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section">
+        <h3>Expected Benefits</h3>
+        <ul>
+            <li>Clear understanding of academic performance</li>
+            <li>Improved student motivation</li>
+            <li>Data-driven self-evaluation</li>
+            <li>Reduced result-day anxiety</li>
+        </ul>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="section">
+        <h3>Conclusion</h3>
+        <p class="desc">
+            ResultPulse demonstrates how Design Thinking transforms traditional result systems into meaningful,
+            student-centered digital experiences by focusing on empathy, innovation, and iterative improvement.
+        </p>
+    </section>
+
+    <!-- EXAM TIP -->
+    <section class="section">
+        <h3>⭐ Exam Tip</h3>
+        <div class="tip">
+            Always highlight <b>Empathize → Define → Ideate → Prototype → Test</b> clearly to score full marks.
+        </div>
+    </section>
+
+    <!-- DIAGRAMS -->
+    <section class="section">
+        <h3>Design Thinking Diagrams (Exam Friendly)</h3>
+
+        <pre>
+Empathize → Define → Ideate → Prototype → Test
+        </pre>
+
+        <pre>
+Traditional Results → Confusion & Stress
+            ↓
+        Design Thinking
+            ↓
+    ResultPulse Platform
+            ↓
+   Insights, Confidence & Improvement
+        </pre>
+    </section>
+
+</div>
+
+<footer>
+    © CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+    document.getElementById("modeToggle").onclick = () =>
+        document.body.classList.toggle("dark");
+
+    document.getElementById("pdfBtn").onclick = () =>
+        window.print();
+</script>
+
+</body>
+</html>
