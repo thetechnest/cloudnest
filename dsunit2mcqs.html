@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NBKRIST–CloudNest | Cloud Computing MCQ Test</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#008CFF;
+  --dark:#0F1C2E;
+  --bg:#F7FBFF;
+  --correct:#16a34a;
+  --wrong:#dc2626;
+}
+
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark);overflow-x:hidden}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:#fff;padding:10px 18px;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn{padding:8px 14px;background:#eee;border-radius:8px;text-decoration:none;font-weight:600;color:#000}
+.brand{text-align:center}
+.brand h1{margin:0;font-family:Poppins;font-size:22px}
+.tagline{font-size:13px;color:#6B7A89}
+.actions button{padding:8px 12px;border:none;border-radius:8px;color:#fff;font-weight:600;cursor:pointer}
+#pdfBtn{background:#008CFF} #modeToggle{background:#0F1C2E}
+
+/* LAYOUT */
+.container{max-width:900px;margin:12px auto;padding:12px}
+.paper{background:#fff;padding:26px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.question{margin-bottom:26px}
+.q-text{font-weight:600;margin-bottom:6px}
+.options label{display:block;padding:4px 0;cursor:pointer}
+
+.correct{color:var(--correct);font-weight:600}
+.wrong{color:var(--wrong);font-weight:600}
+
+.explanation{
+  display:none;margin-top:6px;
+  padding:10px;border-left:4px solid #64748b;
+  background:#f1f5f9;border-radius:8px;font-size:14px
+}
+
+.buttons{display:flex;gap:16px;margin-top:24px}
+.buttons button{padding:10px 22px;border:none;border-radius:10px;font-weight:600;cursor:pointer}
+.submit{background:#008CFF;color:#fff}
+.reset{background:#0F1C2E;color:#fff}
+
+.result{margin-top:18px;font-size:18px;font-weight:700}
+
+/* FLOWER CONFETTI */
+.flower{
+  position:fixed;top:-20px;
+  font-size:24px;
+  animation:fall linear forwards;
+  pointer-events:none;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit1.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div class="actions">
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+<h2>Cloud Computing – MCQ Question Paper</h2>
+
+<form id="quizForm" class="paper"></form>
+</div>
+
+<footer style="text-align:center;padding:30px;font-size:14px;color:#6B7A89">
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+const data = [
+["Apache Hadoop is mainly designed for?",["Real-time OLTP","Distributed big data processing","Mobile apps","Gaming"],1,"Hadoop processes large datasets in distributed batch mode."],
+["Which Hadoop component stores data?",["YARN","MapReduce","HDFS","Hive"],2,"HDFS stores data across cluster nodes."],
+["Reduce phase performs?",["Splitting","Aggregation","Scheduling","Replication"],1,"Reduce aggregates intermediate results."],
+["Which scheduler uses queues?",["FIFO","Capacity","Deadline","Round Robin"],1,"Capacity scheduler allocates resources using queues."],
+["NameNode is responsible for?",["Processing","Metadata","Scheduling","Security"],1,"NameNode manages metadata."],
+["Cloud reference architecture provides?",["Hardware specs","Blueprint","Syntax","Cost"],1,"It gives a conceptual blueprint."],
+["Who delivers cloud services?",["Consumer","Provider","Auditor","Carrier"],1,"Cloud Provider delivers services."],
+["Maximum control is in?",["SaaS","PaaS","IaaS","FaaS"],2,"IaaS gives maximum control."],
+["Physical security is managed by?",["User","Developer","CSP","Auditor"],2,"CSP handles physical security."],
+["Public + Private cloud is?",["Community","Hybrid","Multi","Edge"],1,"Hybrid combines public and private clouds."],
+["Object storage best for?",["OS files","Large unstructured data","Cache","Logs"],1,"Object storage suits unstructured data."],
+["Microservices improve?",["Monolith","Scalability","Hardware","Manual deploy"],1,"Microservices improve scalability."],
+["Elasticity means?",["Fixed resources","Auto scaling","Encryption","Billing"],1,"Elasticity is automatic scaling."],
+["Pay-as-you-go reduces?",["Security","Capital cost","Latency","Availability"],1,"It reduces upfront capital cost."],
+["Traffic distribution service?",["IAM","Load Balancer","CDN","DNS"],1,"Load balancer distributes traffic."],
+["Python is?",["Low level","Compiled","Interpreted","Assembly"],2,"Python is an interpreted language."],
+["Key-value structure?",["List","Tuple","Dict","Set"],2,"Dictionary stores key-value pairs."],
+["Function keyword?",["func","define","def","function"],2,"def defines functions."],
+["File handling used for?",["RAM","Persistence","Network","CPU"],1,"File handling stores persistent data."],
+["Date/time module?",["os","sys","datetime","math"],2,"datetime handles date & time."],
+["Hadoop workload?",["OLTP","Small files","Batch","Gaming"],2,"Hadoop is for batch processing."],
+["Complete software model?",["IaaS","PaaS","SaaS","CaaS"],2,"SaaS delivers complete software."],
+["Access control service?",["IAM","CDN","LB","ASG"],0,"IAM manages access control."],
+["Compliance audit role?",["Consumer","Broker","Auditor","Carrier"],2,"Cloud Auditor performs audits."],
+["Cloud helps by?",["More hardware","Less scale","Flexibility","No network"],2,"Cloud enables flexibility and scalability."]
+];
+
+const form=document.getElementById("quizForm");
+
+data.forEach((q,i)=>{
+  form.innerHTML+=`
+  <div class="question">
+    <div class="q-text">${i+1}. ${q[0]}</div>
+    ${q[1].map((o,j)=>`
+      <label><input type="radio" name="q${i}" value="${j}"> ${String.fromCharCode(65+j)}. ${o}</label>
+    `).join("")}
+    <div class="explanation" id="exp${i}"><b>Explanation:</b> ${q[3]}</div>
+  </div>`;
+});
+
+form.innerHTML+=`
+<div class="buttons">
+<button type="button" class="submit" onclick="submitQuiz()">Submit</button>
+<button type="button" class="reset" onclick="resetQuiz()">Reset</button>
+</div>
+<div class="result" id="result"></div>`;
+
+function submitQuiz(){
+  let score=0;
+  data.forEach((q,i)=>{
+    document.getElementById("exp"+i).style.display="block";
+    document.querySelectorAll(`input[name="q${i}"]`).forEach(o=>{
+      o.parentElement.classList.remove("correct","wrong");
+      if(o.value==q[2]) o.parentElement.classList.add("correct");
+    });
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    if(sel){
+      if(sel.value==q[2]) score++;
+      else sel.parentElement.classList.add("wrong");
+    }
+  });
+  document.getElementById("result").innerText=`Your Score: ${score} / 25`;
+  flowers();
+}
+
+function resetQuiz(){
+  form.reset();
+  document.getElementById("result").innerText="";
+  document.querySelectorAll(".correct,.wrong").forEach(e=>e.classList.remove("correct","wrong"));
+  document.querySelectorAll(".explanation").forEach(e=>e.style.display="none");
+}
+
+function flowers(){
+  for(let i=0;i<40;i++){
+    const f=document.createElement("div");
+    f.className="flower";
+    f.innerText=["🌸","🌼","🌺","🌷","💐"][Math.floor(Math.random()*5)];
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=(3+Math.random()*2)+"s";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),5000);
+  }
+}
+
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
+gi

@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NBKRIST–CloudNest | Cloud Computing Syllabus FAQs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --azure-blue:#008CFF;
+  --teal:#00A8A8;
+  --dark-slate:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark-slate);
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.back-btn{
+  padding:8px 14px;
+  background:#eee;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+}
+
+.brand h1{
+  margin:0;
+  font-family:Poppins;
+  font-size:22px;
+}
+
+.tagline{
+  font-size:13px;
+  color:var(--muted);
+}
+
+#pdfBtn,#modeToggle{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#pdfBtn{background:#008CFF;margin-right:10px;}
+#modeToggle{background:#0F1C2E;}
+
+.container{
+  max-width:980px;
+  margin:6px auto;
+  padding:12px;
+}
+
+h2,h3{font-family:Poppins;}
+
+.section{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-left:6px solid var(--azure-blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:26px;
+}
+
+.desc{font-size:15px;line-height:1.6;}
+
+.focus{
+  margin-top:10px;
+  padding-left:18px;
+}
+
+.focus li{margin-bottom:6px;}
+
+.exam{
+  background:#FFF7ED;
+  border-left:4px solid #F59E0B;
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:600;
+}
+
+.tip{
+  background:#F0F8FF;
+  border-left:4px solid var(--teal);
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* Dark Mode */
+.dark{
+  background:#0a1627;
+  color:#E9F2FA;
+}
+.dark header{background:#071322;}
+.dark .section{background:#102031;border-left-color:#2993ff;}
+.dark .exam{background:#1f1a0f;}
+.dark .tip{background:#0b1f33;}
+.dark footer{color:#9fb3c8;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="dsunit2.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Empowering Learners for the Cloud Era</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+<h2>Cloud Computing – Syllabus Based FAQs (JNTUA Oriented)</h2>
+
+<!-- ================= Hadoop & MapReduce ================= -->
+
+<section class="section">
+<h3>1️⃣ What is Apache Hadoop?</h3>
+<p class="desc">
+Apache Hadoop is an open-source framework that allows storage and processing
+of large datasets across clusters of computers using distributed computing.
+</p>
+<ul class="focus">
+  <li>Designed for big data processing</li>
+  <li>Runs on commodity hardware</li>
+  <li>Fault tolerant by design</li>
+  <li>Scales horizontally</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Apache Hadoop is a distributed framework for storage and processing of big data.
+</div>
+</section>
+
+<section class="section">
+<h3>2️⃣ What is Hadoop MapReduce?</h3>
+<p class="desc">
+MapReduce is a programming model used in Hadoop to process large data sets
+in parallel across distributed nodes.
+</p>
+<ul class="focus">
+  <li>Map phase processes input data</li>
+  <li>Reduce phase aggregates results</li>
+  <li>Runs in parallel</li>
+  <li>Improves performance</li>
+</ul>
+<div class="exam">
+📘 Exam Line: MapReduce processes data using Map and Reduce functions in a distributed manner.
+</div>
+</section>
+
+<section class="section">
+<h3>3️⃣ Explain Hadoop MapReduce Job Execution</h3>
+<p class="desc">
+A MapReduce job follows a sequence of steps starting from input splitting
+to final output generation.
+</p>
+<ul class="focus">
+  <li>Input split</li>
+  <li>Map execution</li>
+  <li>Shuffle and sort</li>
+  <li>Reduce execution</li>
+  <li>Output storage</li>
+</ul>
+<div class="exam">
+📘 Exam Line: MapReduce job execution involves mapping, shuffling, and reducing phases.
+</div>
+</section>
+
+<section class="section">
+<h3>4️⃣ What are Hadoop Schedulers?</h3>
+<p class="desc">
+Schedulers decide how cluster resources are allocated to jobs in Hadoop.
+</p>
+<ul class="focus">
+  <li>FIFO Scheduler</li>
+  <li>Fair Scheduler</li>
+  <li>Capacity Scheduler</li>
+  <li>Improves cluster utilization</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Hadoop schedulers manage resource allocation among jobs.
+</div>
+</section>
+
+<section class="section">
+<h3>5️⃣ Explain Hadoop Cluster Setup</h3>
+<p class="desc">
+A Hadoop cluster consists of multiple nodes working together to store and
+process data.
+</p>
+<ul class="focus">
+  <li>NameNode & DataNode</li>
+  <li>ResourceManager & NodeManager</li>
+  <li>Single-node or multi-node setup</li>
+  <li>High availability support</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Hadoop cluster setup enables distributed data storage and processing.
+</div>
+</section>
+
+<!-- ================= Cloud Application Design ================= -->
+
+<section class="section">
+<h3>6️⃣ What is Cloud Application Reference Architecture?</h3>
+<p class="desc">
+Reference architecture provides a blueprint for designing cloud-based applications.
+</p>
+<ul class="focus">
+  <li>Frontend layer</li>
+  <li>Backend services</li>
+  <li>Database layer</li>
+  <li>Security & monitoring</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Reference architecture defines standard structure for cloud applications.
+</div>
+</section>
+
+<section class="section">
+<h3>7️⃣ What are Cloud Application Design Methodologies?</h3>
+<p class="desc">
+Cloud application design methodologies guide how applications are built
+to leverage cloud characteristics.
+</p>
+<ul class="focus">
+  <li>Microservices architecture</li>
+  <li>Event-driven design</li>
+  <li>Scalable and elastic design</li>
+  <li>Fault-tolerant design</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Cloud design methodologies ensure scalability and resilience.
+</div>
+</section>
+
+<section class="section">
+<h3>8️⃣ Explain Data Storage Approaches in Cloud</h3>
+<p class="desc">
+Cloud applications use different storage models depending on data type and usage.
+</p>
+<ul class="focus">
+  <li>Object storage</li>
+  <li>Block storage</li>
+  <li>File storage</li>
+  <li>SQL & NoSQL databases</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Cloud storage approaches support structured and unstructured data.
+</div>
+</section>
+<!-- REFERENCE ARCHITECTURE RELATED QUESTIONS -->
+
+<section class="section">
+<h3>📌 What is Cloud Computing Reference Architecture?</h3>
+<p class="desc">
+Cloud Computing Reference Architecture provides a high-level *blueprint* or structural framework that
+helps describe how different components of a cloud system relate to one another and how they should interact.
+It sets common standards for designing, communicating, and implementing cloud services across providers.
+</p>
+
+<ul class="focus">
+  <li>Defines roles, components, and interactions in a cloud environment</li>
+  <li>Helps standardize cloud design choices</li>
+  <li>Aids architects and engineers in planning robust solutions</li>
+  <li>Commonly referenced in NIST and industry models</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: Reference Architecture is a blueprint defining cloud actors and their interactions.  
+</div>
+</section>
+
+<section class="section">
+<h3>📌 Who are the Major Actors in Cloud Reference Architecture?</h3>
+<p class="desc">
+Cloud reference models identify multiple *actors* — entities or stakeholders that play specific roles in cloud computing.
+According to standard models, these include consumers, providers, carriers, brokers, and auditors that work together
+to deliver cloud services. :contentReference[oaicite:0]{index=0}
+</p>
+
+<ul class="focus">
+  <li><b>Cloud Consumer</b>: Uses cloud services provided by CSPs</li>
+  <li><b>Cloud Provider</b>: Delivers and manages cloud services</li>
+  <li><b>Cloud Carrier</b>: Provides transport and connectivity</li>
+  <li><b>Cloud Broker</b>: Manages service negotiation or composition</li>
+  <li><b>Cloud Auditor</b>: Conducts independent assessments & audits</li>
+</ul>
+
+<div class="tip">
+💡 Cloud Carrier ensures connectivity between providers and users, while brokers may combine services from multiple CSPs. :contentReference[oaicite:1]{index=1}
+</div>
+
+<div class="exam">
+📘 Exam Line: Key actors include consumer, provider, carrier, broker, and auditor.  
+</div>
+</section>
+
+<section class="section">
+<h3>📌 What are Cloud Service Models, Deployment Models & Shared Responsibility Model?</h3>
+<p class="desc">
+Cloud service models define the level of abstraction offered to users, while deployment models define where and how
+cloud resources are deployed. These models also influence how security responsibilities are shared between users
+and providers. :contentReference[oaicite:2]{index=2}
+</p>
+
+<ul class="focus">
+  <li><b>Service Models</b> – IaaS, PaaS, SaaS determine who manages which parts of the stack.</li>
+  <ul>
+    <li>IaaS – infrastructure is managed by the provider; users manage OS & applications. :contentReference[oaicite:3]{index=3}</li>
+    <li>PaaS – provider manages infrastructure and runtime platform. :contentReference[oaicite:4]{index=4}</li>
+    <li>SaaS – provider delivers complete software; users just use it. :contentReference[oaicite:5]{index=5}</li>
+  </ul>
+  <li><b>Deployment Models</b> – Public, Private, Hybrid, Community, Multi-cloud define control, ownership, and access. :contentReference[oaicite:6]{index=6}</li>
+  <li><b>Shared Responsibility Model</b> – Security and compliance tasks are split between the user and provider. :contentReference[oaicite:7]{index=7}</li>
+</ul>
+
+<div class="exam">
+📘 Exam Line: Shared responsibility model shows what security tasks the CSP and user handle for each service model.  
+</div>
+
+<div class="tip">
+💡 In IaaS, users manage OS & applications; in SaaS, users mainly configure usage while CSP handles most security. :contentReference[oaicite:8]{index=8}
+</div>
+</section>
+
+<!-- ================= Python Basics ================= -->
+
+<section class="section">
+<h3>9️⃣ What is Python and why is it important?</h3>
+<p class="desc">
+Python is a high-level, interpreted programming language widely used
+in cloud, AI, and data science.
+</p>
+<ul class="focus">
+  <li>Simple syntax</li>
+  <li>Cross-platform</li>
+  <li>Large standard library</li>
+  <li>Cloud & AI friendly</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Python is a versatile programming language used in cloud computing.
+</div>
+</section>
+
+<section class="section">
+<h3>🔟 Explain Python Data Types and Data Structures</h3>
+<p class="desc">
+Python supports built-in data types and data structures to store and manipulate data.
+</p>
+<ul class="focus">
+  <li>int, float, string</li>
+  <li>list, tuple, set, dictionary</li>
+  <li>Dynamic typing</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Python provides built-in data types and data structures.
+</div>
+</section>
+
+<section class="section">
+<h3>1️⃣1️⃣ What is Control Flow in Python?</h3>
+<p class="desc">
+Control flow determines the execution order of statements in a Python program.
+</p>
+<ul class="focus">
+  <li>if–else</li>
+  <li>for and while loops</li>
+  <li>break and continue</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Control flow controls the execution sequence of a program.
+</div>
+</section>
+
+<section class="section">
+<h3>1️⃣2️⃣ Explain Python Functions, Modules, and Packages</h3>
+<p class="desc">
+Functions modularize code, modules organize functions, and packages group modules.
+</p>
+<ul class="focus">
+  <li>Reusable code</li>
+  <li>Better maintainability</li>
+  <li>Supports large applications</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Functions and modules support modular programming in Python.
+</div>
+</section>
+
+<section class="section">
+<h3>1️⃣3️⃣ What is File Handling in Python?</h3>
+<p class="desc">
+File handling allows reading and writing data to files using Python programs.
+</p>
+<ul class="focus">
+  <li>Read, write, append modes</li>
+  <li>Text and binary files</li>
+  <li>Data persistence</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Python file handling enables persistent data storage.
+</div>
+</section>
+
+<section class="section">
+<h3>1️⃣4️⃣ Explain Date and Time Operations in Python</h3>
+<p class="desc">
+Python provides modules to work with dates and time efficiently.
+</p>
+<ul class="focus">
+  <li>datetime module</li>
+  <li>Timestamp handling</li>
+  <li>Time difference calculation</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Python supports date and time manipulation using standard libraries.
+</div>
+</section>
+
+<section class="section">
+<h3>1️⃣5️⃣ What are Classes and Objects in Python?</h3>
+<p class="desc">
+Classes and objects support object-oriented programming in Python.
+</p>
+<ul class="focus">
+  <li>Encapsulation</li>
+  <li>Reusability</li>
+  <li>Real-world modeling</li>
+</ul>
+<div class="exam">
+📘 Exam Line: Python supports object-oriented programming using classes and objects.
+</div>
+</section>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE / Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>
