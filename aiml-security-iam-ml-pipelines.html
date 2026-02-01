@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Security & IAM in ML Pipelines</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 14px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .block {
+      margin-top: 12px;
+      padding: 12px;
+      background: #F0F8FF;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark .block {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Security • IAM • MLOps</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Security & IAM in Machine Learning Pipelines</h2>
+
+  <!-- INTRO -->
+  <section class="section">
+    <h3>1️⃣ Why Security is Critical in ML Pipelines</h3>
+    <p class="desc">
+      ML pipelines handle sensitive data, trained models, and prediction APIs.
+      A security breach can lead to data leaks, model theft, or incorrect predictions.
+    </p>
+    <div class="block">
+      Exam Point: ML security is not optional; it is a production requirement.
+    </div>
+  </section>
+
+  <!-- IAM -->
+  <section class="section">
+    <h3>2️⃣ Identity & Access Management (IAM)</h3>
+    <p class="desc">
+      IAM controls who can access data, models, training jobs, and deployment endpoints.
+      Cloud platforms follow the principle of <b>least privilege</b>.
+    </p>
+    <div class="block">
+      Example (AWS): Separate IAM roles for data ingestion, training, deployment, and monitoring.
+    </div>
+  </section>
+
+  <!-- PIPELINE SECURITY -->
+  <section class="section">
+    <h3>3️⃣ Security Across ML Pipeline Stages</h3>
+
+    <p class="desc"><b>Data Ingestion:</b> Secure data using encrypted storage and private network access.</p>
+    <p class="desc"><b>Training:</b> Run training jobs in isolated environments with restricted roles.</p>
+    <p class="desc"><b>Deployment:</b> Protect endpoints using authentication and network policies.</p>
+    <p class="desc"><b>Monitoring:</b> Audit logs and alerts for suspicious activity.</p>
+
+    <div class="block">
+      AWS Tools: IAM, VPC, KMS, CloudTrail, Security Groups.
+    </div>
+  </section>
+
+  <!-- ELASTICITY & AVAILABILITY -->
+  <section class="section">
+    <h3>4️⃣ Security with Elasticity & High Availability</h3>
+    <p class="desc">
+      Auto-scaling ML endpoints must remain secure even when scaling dynamically.
+      IAM roles and policies are attached to services, not individual servers.
+    </p>
+    <div class="block">
+      Exam Point: Security policies scale automatically with cloud elasticity.
+    </div>
+  </section>
+
+  <!-- CI/CD -->
+  <section class="section">
+    <h3>5️⃣ Security in CI/CD & MLOps</h3>
+    <p class="desc">
+      CI/CD pipelines automate training and deployment.
+      Security ensures only validated models reach production.
+    </p>
+    <div class="block">
+      Secure Pipeline: CodeCommit → CodeBuild → SageMaker Pipeline → Model Registry → Approval → Deployment.
+    </div>
+  </section>
+
+  <!-- REAL TIME -->
+  <section class="section">
+    <h3>6️⃣ Real-Time Example: Predictive Maintenance</h3>
+    <p class="desc">
+      Vehicle sensor data is encrypted, models are trained with restricted access,
+      and inference APIs are protected using IAM-based authentication.
+    </p>
+    <div class="block">
+      GCP Line: Use IAM, VPC Service Controls, and Vertex AI security policies.
+    </div>
+  </section>
+
+  <!-- EXAM -->
+  <section class="section">
+    <h3>7️⃣ How to Write This in Exam (10–15 Marks)</h3>
+    <ul class="desc">
+      <li>Define ML pipeline security</li>
+      <li>Explain IAM and least privilege</li>
+      <li>Describe security at each pipeline stage</li>
+      <li>Mention CI/CD security</li>
+      <li>Add real-time example</li>
+    </ul>
+    <div class="block">
+      Final Line: Secure ML pipelines ensure trustworthy and reliable AI systems.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

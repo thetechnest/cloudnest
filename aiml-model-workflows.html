@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Model Workflows</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    ul, ol {
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Model Workflows • MLOps Thinking</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Model Workflows – From Idea to Production</h2>
+
+  <section class="section">
+    <h3>1️⃣ What is a Model Workflow?</h3>
+    <p class="desc">
+      A model workflow defines the **end-to-end process**
+      of building a machine learning model —
+      starting from problem definition and data collection
+      to deployment, monitoring, and continuous improvement.
+      <!-- Model Workflow Visuals -->
+<div style="margin:20px 0; text-align:center;">
+  <img src="machine-learning-life-cycle.png"
+       alt="Machine Learning Life Cycle"
+       style="max-width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.15); margin-bottom:20px;">
+       
+  <img src="2-ML-Lifecycle.jpg"
+       alt="End-to-End ML Lifecycle"
+       style="max-width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+</div>
+
+    </p>
+    <div class="hero">
+      💡 Model Workflow = ML + Engineering + Operations
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ Why Model Workflows Matter</h3>
+    <p class="desc">
+      In industry, ML failures rarely happen due to algorithms.
+      They happen due to poor workflows — no versioning,
+      no monitoring, and no retraining.
+    </p>
+    <ul class="desc">
+      <li>Ensures repeatability</li>
+      <li>Improves collaboration</li>
+      <li>Makes ML production-ready</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ High-Level Model Workflow Stages</h3>
+    <ol class="desc">
+      <li>Problem Definition</li>
+      <li>Data Ingestion</li>
+      <li>Data Preparation & Feature Engineering</li>
+      <li>Model Training</li>
+      <li>Model Evaluation</li>
+      <li>Model Registration</li>
+      <li>Deployment</li>
+      <li>Monitoring & Retraining</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ Training Workflow (Cloud Perspective)</h3>
+    <p class="desc">
+      Training workflows automate how models are built and validated
+      using scalable cloud infrastructure.
+    </p>
+    <ul class="desc">
+      <li>Trigger training when new data arrives</li>
+      <li>Use CPUs, GPUs, or TPUs</li>
+      <li>Track metrics and experiments</li>
+    </ul>
+    <div class="hero">
+      Training workflows remove manual effort
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ Deployment Workflow</h3>
+    <p class="desc">
+      Deployment workflows define how a trained model
+      is safely released into production.
+    </p>
+    <ul class="desc">
+      <li>Deploy as real-time or batch service</li>
+      <li>Version control models</li>
+      <li>Rollback on failure</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ Monitoring & Feedback Workflow</h3>
+    <p class="desc">
+      Once deployed, models must be continuously monitored.
+    </p>
+    <ul class="desc">
+      <li>Accuracy monitoring</li>
+      <li>Data drift detection</li>
+      <li>Performance & latency tracking</li>
+    </ul>
+    <div class="hero">
+      🔁 Monitoring closes the ML feedback loop
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ Simple Automobile Example</h3>
+    <p class="desc">
+      <b>Use Case:</b> Vehicle engine health prediction.
+    </p>
+    <ul class="desc">
+      <li>Data: Engine temperature, vibration, RPM</li>
+      <li>Training: Predict failure probability</li>
+      <li>Deployment: Real-time alerts</li>
+      <li>Monitoring: Retrain when accuracy drops</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>8️⃣ Common Workflow Mistakes</h3>
+    <ul class="desc">
+      <li>Training models manually</li>
+      <li>No model versioning</li>
+      <li>No retraining strategy</li>
+      <li>No monitoring after deployment</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>9️⃣ Your Takeaway</h3>
+    <p class="desc">
+      A true ML professional doesn’t just build models —
+      they design **robust model workflows**.
+      Mastering workflows prepares you for
+      real-world ML systems and MLOps roles.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

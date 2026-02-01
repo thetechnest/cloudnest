@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Cloud ML Case Studies – Algorithms & MLOps</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 14px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .case {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 30px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .block {
+      margin-top: 12px;
+      padding: 12px;
+      background: #F0F8FF;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .case {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark .block {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Cloud ML • Algorithms • Elasticity • CI/CD</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Case Study Questions – Cloud ML with Algorithms & MLOps</h2>
+
+  <!-- CASE 1 -->
+  <div class="case">
+    <h3>Case Study 1: Predictive Maintenance – Automobile Industry</h3>
+
+    <p class="desc"><b>Problem:</b> Predict engine failure using continuous sensor data.</p>
+
+    <p class="desc"><b>ML Algorithm:</b>  
+      <b>LSTM (Long Short-Term Memory)</b> for time-series sensor data.
+    </p>
+
+    <div class="block">
+      <b>Why this Algorithm?</b><br>
+      Engine data is sequential and temporal. LSTM captures long-term dependencies
+      and trends better than traditional regression.
+    </div>
+
+    <div class="block">
+      <b>How it Works?</b><br>
+      Sliding time windows → Feature sequences → LSTM training →
+      Failure probability output.
+    </div>
+
+    <p class="desc"><b>AWS Architecture:</b><br>
+      Sensors → IoT Core → Kinesis → S3 → SageMaker (GPU Training) →
+      Auto-scaling Endpoint → Alerts
+    </p>
+
+    <div class="block">
+      <b>Elasticity & Availability:</b><br>
+      SageMaker endpoint auto-scales based on traffic and runs across multiple AZs.
+    </div>
+
+    <div class="block">
+      <b>CI/CD (MLOps):</b><br>
+      CodeCommit → CodeBuild (train) → SageMaker Pipeline →
+      Model Registry → Blue/Green deployment.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Pub/Sub → GCS → Vertex AI LSTM pipeline with autoscaling.
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="case">
+    <h3>Case Study 2: Fraud Detection – Banking</h3>
+
+    <p class="desc"><b>ML Algorithm:</b> Random Forest / XGBoost</p>
+
+    <div class="block">
+      <b>Why?</b> Handles imbalanced data, non-linear patterns, and feature interactions well.
+    </div>
+
+    <p class="desc"><b>AWS Architecture:</b><br>
+      API Gateway → Lambda → SageMaker Endpoint → DynamoDB
+    </p>
+
+    <div class="block">
+      <b>Elasticity:</b> Lambda + endpoint auto-scale for transaction spikes.
+    </div>
+
+    <div class="block">
+      <b>CI/CD:</b> Git commit triggers retraining when fraud patterns drift.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Cloud Functions + Vertex AI endpoint.
+    </div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="case">
+    <h3>Case Study 3: Customer Churn Prediction – Telecom</h3>
+
+    <p class="desc"><b>ML Algorithm:</b> Logistic Regression / Gradient Boosting</p>
+
+    <div class="block">
+      <b>Why?</b> Interpretable model helps business teams understand churn drivers.
+    </div>
+
+    <p class="desc"><b>AWS Architecture:</b><br>
+      CRM → S3 → SageMaker Training → Batch Transform → BI Tools
+    </p>
+
+    <div class="block">
+      <b>Elasticity:</b> Batch jobs scale compute only during execution.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> BigQuery ML / Vertex AI batch prediction.
+    </div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="case">
+    <h3>Case Study 4: Image-Based Defect Detection</h3>
+
+    <p class="desc"><b>ML Algorithm:</b> CNN (ResNet / EfficientNet)</p>
+
+    <div class="block">
+      <b>Why?</b> CNNs extract spatial features from images effectively.
+    </div>
+
+    <p class="desc"><b>AWS Architecture:</b><br>
+      Cameras → S3 → SageMaker GPU Training →
+      Multi-AZ Endpoint → QC System
+    </p>
+
+    <div class="block">
+      <b>Availability:</b> Multi-AZ deployment ensures zero downtime.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Vertex AI Vision with GPU/TPU.
+    </div>
+  </div>
+
+  <!-- CASE 5 -->
+  <div class="case">
+    <h3>Case Study 5: Vehicle Health Dashboard</h3>
+
+    <p class="desc"><b>ML Algorithm:</b> Random Forest + Threshold Rules</p>
+
+    <div class="block">
+      <b>Why?</b> Combines ML prediction with rule-based alerts for reliability.
+    </div>
+
+    <p class="desc"><b>AWS Architecture:</b><br>
+      Kinesis → S3 → SageMaker → API Gateway → Dashboard
+    </p>
+
+    <div class="block">
+      <b>CI/CD:</b> Dashboard + ML model version updated independently.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Pub/Sub + Vertex AI + Looker.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

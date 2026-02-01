@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CloudNest | JNTU Important Questions – Cloud ML</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#008CFF;
+  --teal:#00A8A8;
+  --dark:#0F1C2E;
+  --bg:#F7FBFF;
+  --muted:#6B7A89;
+}
+body{
+  margin:0;
+  font-family:Inter;
+  background:var(--bg);
+  color:var(--dark);
+}
+header{
+  position:sticky;top:0;z-index:1000;
+  background:#fff;padding:10px 18px;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.back-btn{
+  padding:8px 14px;background:#eee;border-radius:8px;
+  text-decoration:none;font-weight:600;color:#000;
+}
+.brand h1{margin:0;font-family:Poppins;font-size:22px}
+.tagline{font-size:13px;color:var(--muted)}
+#pdfBtn,#modeToggle{
+  padding:8px 12px;border:none;border-radius:8px;
+  color:#fff;font-weight:600;cursor:pointer
+}
+#pdfBtn{background:var(--blue);margin-right:10px}
+#modeToggle{background:#0F1C2E}
+
+.menubar{
+  background:#fff;border-bottom:1px solid #E5F0FF;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+.menu{
+  max-width:1100px;margin:auto;
+  padding:10px;display:flex;gap:10px;
+  justify-content:center;flex-wrap:wrap;
+}
+.menu a{
+  padding:10px 18px;border-radius:999px;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  color:#fff;text-decoration:none;font-weight:600;
+  font-size:13px;
+}
+
+.container{
+  max-width:1000px;margin:14px auto;padding:10px
+}
+h2,h3{font-family:Poppins}
+
+.qa{
+  background:#fff;padding:22px;border-radius:14px;
+  border-left:6px solid var(--blue);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:22px;
+}
+.answer{
+  font-size:15px;line-height:1.7;margin-top:8px
+}
+.impact{
+  background:#F0F8FF;padding:10px;
+  border-left:4px solid var(--teal);
+  border-radius:10px;margin-top:10px;
+  font-size:14px;font-weight:600;
+}
+
+footer{
+  text-align:center;padding:30px;
+  font-size:14px;color:var(--muted)
+}
+
+.dark{background:#0a1627;color:#E9F2FA}
+.dark header,.dark .menubar{background:#071322}
+.dark .qa{background:#102031;border-left-color:#2993ff}
+.dark .impact{background:#0b1f33}
+</style>
+</head>
+
+<body>
+
+<header>
+<a class="back-btn" href="aiml.html">← Back</a>
+<div class="brand">
+  <h1>NBKRIST–CloudNest</h1>
+  <div class="tagline">JNTU Important Questions • Cloud ML</div>
+</div>
+<div>
+  <button id="pdfBtn">⬇ PDF</button>
+  <button id="modeToggle">☀/🌙</button>
+</div>
+</header>
+
+<!-- Horizontal Menu -->
+<div class="menubar">
+  <nav class="menu">
+    <a href="aiml-cloud-ml-faqs.html">Deep Technical FAQs</a>
+    <a href="aiml-cloud-ml-mcqs.html">Deep Technical MCQs</a>
+    <a href="aiml-2marks-cloud-ml-questions.html">Understanding Deep Dive</a>
+    <a href="aiml-cloud-ml-case-studies.html">Case Studies</a>
+    <a href="aiml-vertex-vs-sagemaker-vs-azureml.html">vertex-vs-sagemaker-vs-azureml</a>
+    <a href="#">Assignments</a>
+  </nav>
+</div>
+
+<div class="container">
+
+<h2>Important 5-Marks Questions (JNTU Ananthapur)</h2>
+
+<div class="qa">
+<h3>1️⃣ What is a Cloud Machine Learning service?</h3>
+<div class="answer">
+Cloud ML services provide managed platforms to build, train, deploy, and monitor
+machine learning models without managing hardware or infrastructure.
+They help in faster development, scalability, and reliability.
+</div>
+<div class="impact">Impact: Cloud ML converts ideas into real-world AI systems.</div>
+</div>
+
+<div class="qa">
+<h3>2️⃣ Explain AWS SageMaker.</h3>
+<div class="answer">
+AWS SageMaker is a fully managed service that supports data preparation,
+model training, hyperparameter tuning, deployment, and monitoring
+from a single platform.
+</div>
+<div class="impact">Impact: SageMaker simplifies the complete ML lifecycle.</div>
+</div>
+
+<div class="qa">
+<h3>3️⃣ What is Azure Machine Learning?</h3>
+<div class="answer">
+Azure ML is a cloud service used to build, train, and deploy ML models
+with strong enterprise integration and security features.
+</div>
+<div class="impact">Impact: Preferred in enterprise and corporate environments.</div>
+</div>
+
+<div class="qa">
+<h3>4️⃣ What is GCP Vertex AI?</h3>
+<div class="answer">
+Vertex AI is Google Cloud’s unified ML platform that supports AutoML,
+custom training, pipelines, and deployment in a single environment.
+</div>
+<div class="impact">Impact: Simplifies ML workflows using a single platform.</div>
+</div>
+
+<div class="qa">
+<h3>5️⃣ Explain training and deployment of ML models on cloud.</h3>
+<div class="answer">
+Training uses scalable cloud compute resources to build models.
+Deployment makes the trained model available as an API or batch job
+for real-time or offline predictions.
+</div>
+<div class="impact">Impact: Deployment brings business value to ML.</div>
+</div>
+
+<div class="qa">
+<h3>6️⃣ What is AutoML?</h3>
+<div class="answer">
+AutoML automates algorithm selection, feature engineering,
+and hyperparameter tuning with minimal coding.
+</div>
+<div class="impact">Impact: Enables quick model development for beginners.</div>
+</div>
+
+<div class="qa">
+<h3>7️⃣ What is Custom ML?</h3>
+<div class="answer">
+Custom ML allows developers to design their own algorithms,
+model architectures, and training logic for better control and performance.
+</div>
+<div class="impact">Impact: Used in real production ML systems.</div>
+</div>
+
+<div class="qa">
+<h3>8️⃣ Why are GPUs and TPUs used in ML?</h3>
+<div class="answer">
+GPUs and TPUs perform parallel processing which reduces
+training time for deep learning models significantly.
+</div>
+<div class="impact">Impact: Makes large-scale AI training practical.</div>
+</div>
+
+<div class="qa">
+<h3>9️⃣ What is experiment tracking and model evaluation?</h3>
+<div class="answer">
+Experiment tracking records parameters and results of different models.
+Model evaluation measures performance using metrics before deployment.
+</div>
+<div class="impact">Impact: Helps select the best performing model.</div>
+</div>
+
+<div class="qa">
+<h3>🔟 Why integrate notebooks with cloud storage?</h3>
+<div class="answer">
+Notebook integration with cloud storage allows scalable data access,
+persistent storage, and easy collaboration among teams.
+</div>
+<div class="impact">Impact: Turns experiments into team-based ML projects.</div>
+</div>
+
+</div>
+
+<footer>
+© CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>{
+  document.body.classList.toggle("dark");
+}
+document.getElementById("pdfBtn").onclick=()=>window.print();
+</script>
+
+</body>
+</html>

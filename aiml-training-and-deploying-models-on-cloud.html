@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Training and Deploying Models on Cloud</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-radius: 10px;
+      border-left: 4px solid var(--teal);
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit3.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Cloud ML • Training & Deployment</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Training and Deploying Models on Cloud – Zero to Hero Guide</h2>
+
+  <section class="section">
+    <h3>1️⃣ Why Cloud Training & Deployment Matter</h3>
+    <p class="desc">
+      Training a model on a laptop is not enough.
+      Real-world ML must handle large data, scale automatically,
+      retrain continuously, and serve predictions reliably.
+    </p>
+    <div class="hero">
+      💡 Cloud ML turns experiments into production systems
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ High-Level Cloud ML Lifecycle</h3>
+    <p class="desc">
+      Data → Training → Validation → Model Registry →
+      Deployment → Inference → Monitoring → Retraining
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ Step-by-Step: Training Models on Cloud</h3>
+    <ol class="desc">
+      <li>Store data in cloud storage (object storage)</li>
+      <li>Launch managed training jobs</li>
+      <li>Use scalable compute (CPU / GPU / TPU)</li>
+      <li>Track experiments and metrics</li>
+      <li>Select best-performing model</li>
+    </ol>
+    <div class="hero">
+      Training becomes reproducible and scalable
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ Step-by-Step: Deploying Models on Cloud</h3>
+    <ol class="desc">
+      <li>Package model as a service</li>
+      <li>Deploy to a managed endpoint</li>
+      <li>Expose REST API for predictions</li>
+      <li>Scale automatically based on traffic</li>
+      <li>Secure endpoints with IAM</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ Real-Time vs Batch Deployment</h3>
+    <ul class="desc">
+      <li><b>Real-Time:</b> Instant predictions (alerts, dashboards)</li>
+      <li><b>Batch:</b> Large-scale offline predictions</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ What Makes You a HERO?</h3>
+    <p class="desc">
+      You become an ML hero when you:
+    </p>
+    <ul class="desc">
+      <li>Automate training pipelines</li>
+      <li>Version and track models</li>
+      <li>Monitor accuracy and drift</li>
+      <li>Retrain models proactively</li>
+    </ul>
+    <div class="hero">
+      🚀 Hero ML engineers build systems, not just models
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ Common Mistakes Without Cloud</h3>
+    <ul class="desc">
+      <li>Manual training on local machines</li>
+      <li>No version control for models</li>
+      <li>Deployment failures</li>
+      <li>No monitoring after release</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>8️⃣ Exam & Interview Ready Summary</h3>
+    <p class="desc">
+      Training and deploying models on cloud is the foundation
+      of modern AI systems.
+      Mastering this makes you industry-ready,
+      capable of designing scalable, reliable ML solutions.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

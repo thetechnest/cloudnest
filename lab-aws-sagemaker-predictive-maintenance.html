@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Hands-On Lab – AWS SageMaker</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .lab {
+      background: #F0F8FF;
+      padding: 14px;
+      border-radius: 10px;
+      border-left: 4px solid var(--teal);
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Hands-On ML Lab • AWS SageMaker</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Hands-On Lab: Predictive Maintenance & Vehicle Health using AWS SageMaker</h2>
+
+  <section class="section">
+    <h3>🎯 Lab Objective</h3>
+    <p class="desc">
+      Build an end-to-end ML system that predicts vehicle component failure
+      using sensor telemetry, deploy it on SageMaker,
+      and consume predictions via APIs.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>🧱 Lab Architecture Overview</h3>
+    <p class="desc">
+      Vehicle Sensors → S3 → SageMaker Studio → Training Job →
+      Model Registry → Endpoint → Dashboard / Alerts
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>STEP 1️⃣: Dataset Preparation (Simulated Vehicle Telemetry)</h3>
+    <div class="lab">
+      Sensors: Engine Temp, Vibration, RPM, Oil Pressure, Fault Code<br>
+      Target: Failure (0 / 1) or Remaining Useful Life (RUL)
+    </div>
+    <p class="desc">
+      Upload CSV files to an S3 bucket:
+      <b>s3://vehicle-telemetry/raw/</b>
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>STEP 2️⃣: Launch SageMaker Studio</h3>
+    <div class="lab">
+      AWS Console → SageMaker → Studio → Launch<br>
+      Create Jupyter Notebook (Python)
+    </div>
+    <p class="desc">
+      Perform EDA, visualize trends,
+      and understand failure patterns.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>STEP 3️⃣: Feature Engineering</h3>
+    <p class="desc">
+      Engineer meaningful features:
+    </p>
+    <ul>
+      <li>Rolling averages of temperature</li>
+      <li>Vibration spikes</li>
+      <li>Fault frequency counts</li>
+      <li>Engine stress index</li>
+    </ul>
+    <div class="lab">
+      Output → s3://vehicle-telemetry/processed/
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>STEP 4️⃣: Model Training (SageMaker Training Job)</h3>
+    <p class="desc">
+      Use XGBoost or Random Forest
+      via SageMaker built-in algorithms.
+    </p>
+    <div class="lab">
+      Choose instance: ml.m5.xlarge<br>
+      Enable CloudWatch logs
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>STEP 5️⃣: Hyperparameter Tuning</h3>
+    <p class="desc">
+      Automatically test multiple model configurations
+      to find the best accuracy.
+    </p>
+    <div class="lab">
+      Learning rate, depth, number of estimators
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>STEP 6️⃣: Model Registration</h3>
+    <p class="desc">
+      Register the best model into
+      SageMaker Model Registry.
+    </p>
+    <div class="lab">
+      Versioning + Approval workflow
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>STEP 7️⃣: Deployment</h3>
+    <p class="desc">
+      Deploy model as a real-time endpoint.
+    </p>
+    <div class="lab">
+      Endpoint: ml.t2.medium<br>
+      REST API for predictions
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>STEP 8️⃣: Inference & Vehicle Health Scoring</h3>
+    <p class="desc">
+      Send live vehicle telemetry →
+      get failure probability.
+    </p>
+    <div class="lab">
+      Output: Healthy / Warning / Critical
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>STEP 9️⃣: Monitoring & Retraining</h3>
+    <p class="desc">
+      Monitor drift, accuracy, and latency.
+      Retrain models periodically using new data.
+    </p>
+    <div class="lab">
+      CloudWatch + scheduled retraining
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>❌ What Happens Without SageMaker?</h3>
+    <ul>
+      <li>Manual server setup</li>
+      <li>No reproducibility</li>
+      <li>No CI/CD for ML</li>
+      <li>Unstable deployments</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>✅ Final Learning Outcome</h3>
+    <p class="desc">
+      After this lab, you can confidently say:
+      <br><b>“I can design, train, deploy, and operate ML systems in the cloud.”</b>
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

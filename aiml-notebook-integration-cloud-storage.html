@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Notebook Integration with Cloud Storage</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #E2ECF7;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #E8F4FF;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark th {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit3.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Notebooks • Cloud Storage • ML</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Integration of Notebooks (Jupyter, Colab) with Cloud Storage</h2>
+
+  <section class="section">
+    <h3>1️⃣ What Are Notebooks in Machine Learning?</h3>
+    <p class="desc">
+      Notebooks such as Jupyter and Colab provide an interactive environment
+      where code, output, visualizations, and explanations coexist.
+      They are widely used for experimentation, analysis, and prototyping.
+    </p>
+    <div class="hero">
+      💡 Notebooks = Code + Data + Thinking in one place
+    </div>
+    <!-- Jupyter Notebook Illustration -->
+<div style="margin:22px 0; text-align:center;">
+  <img src="jupyter.jpg"
+       alt="Jupyter Notebook Environment"
+       style="max-width:100%;
+              border-radius:14px;
+              box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+</div>
+
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ Why Integrate Notebooks with Cloud Storage?</h3>
+    <p class="desc">
+      Local storage is unreliable and not scalable.
+      Cloud storage enables notebooks to work with large datasets,
+      share results, and support collaboration.
+    </p>
+    <ul class="desc">
+      <li>Persistent storage</li>
+      <li>Scalability</li>
+      <li>Team collaboration</li>
+      <li>Security and access control</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ Notebook + Cloud Storage Workflow</h3>
+    <p class="desc">
+      Notebook → Read data from cloud storage →
+      Process & train model →
+      Save outputs back to cloud storage →
+      Share with team
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ Cloud Storage Options</h3>
+    <table>
+      <tr>
+        <th>Cloud</th>
+        <th>Storage Service</th>
+        <th>Used With</th>
+      </tr>
+      <tr>
+        <td>AWS</td>
+        <td>Amazon S3</td>
+        <td>Jupyter (SageMaker)</td>
+      </tr>
+      <tr>
+        <td>Azure</td>
+        <td>Azure Blob Storage</td>
+        <td>Azure ML Notebooks</td>
+      </tr>
+      <tr>
+        <td>GCP</td>
+        <td>Google Cloud Storage / Drive</td>
+        <td>Colab / Vertex AI</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ Real-Time Industry Workflow</h3>
+    <p class="desc">
+      In real projects, notebooks are connected directly
+      to cloud storage for data ingestion and model output.
+    </p>
+    <ul class="desc">
+      <li>Read training data from cloud buckets</li>
+      <li>Train models in notebook environment</li>
+      <li>Save models, logs, and metrics to cloud storage</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ Automobile Example</h3>
+    <p class="desc">
+      <b>Use Case:</b> Vehicle health prediction.
+    </p>
+    <ul class="desc">
+      <li>Telemetry data stored in cloud storage</li>
+      <li>Notebook reads data for analysis</li>
+      <li>Model trained and saved back to cloud</li>
+      <li>Results shared with engineers</li>
+    </ul>
+    <div class="hero">
+      🚗 Notebook + Cloud Storage = Collaborative ML
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ Common Mistakes Without Integration</h3>
+    <ul class="desc">
+      <li>Data loss when sessions end</li>
+      <li>No versioning of results</li>
+      <li>Hard to collaborate</li>
+      <li>Limited scalability</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>8️⃣ Your  Takeaway</h3>
+    <p class="desc">
+      Integrating notebooks with cloud storage
+      transforms isolated experiments into
+      scalable, collaborative ML workflows.
+      This skill is essential for modern ML engineers.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

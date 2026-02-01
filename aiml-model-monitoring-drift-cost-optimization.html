@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Model Monitoring, Drift & Cost Optimization</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 14px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .case {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 30px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .block {
+      margin-top: 12px;
+      padding: 12px;
+      background: #F0F8FF;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .case {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark .block {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Model Monitoring • Drift • Cost Optimization</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Model Monitoring, Drift Detection & Cost Optimization (Case-wise)</h2>
+
+  <!-- CASE 1 -->
+  <div class="case">
+    <h3>Case 1: Predictive Maintenance – Automobile</h3>
+
+    <p class="desc"><b>Model Monitoring:</b></p>
+    <div class="block">
+      Monitor prediction confidence, latency, and error rates using SageMaker Model Monitor
+      and CloudWatch dashboards.
+    </div>
+
+    <p class="desc"><b>Drift Detection:</b></p>
+    <div class="block">
+      Detect data drift when sensor distributions (temperature, vibration) change;
+      trigger retraining when drift exceeds threshold.
+    </div>
+
+    <p class="desc"><b>Cost Optimization:</b></p>
+    <div class="block">
+      Use spot instances for training, auto-scale endpoints,
+      and batch inference for non-critical predictions.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Vertex AI Model Monitoring + autoscaling endpoints.
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="case">
+    <h3>Case 2: Fraud Detection – Banking</h3>
+
+    <p class="desc"><b>Model Monitoring:</b></p>
+    <div class="block">
+      Track precision, recall, and false positives to avoid blocking valid transactions.
+    </div>
+
+    <p class="desc"><b>Drift Detection:</b></p>
+    <div class="block">
+      Monitor concept drift as fraud patterns evolve; retrain models frequently.
+    </div>
+
+    <p class="desc"><b>Cost Optimization:</b></p>
+    <div class="block">
+      Serverless inference using Lambda reduces idle compute cost during low traffic.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Vertex AI + Cloud Functions with usage-based pricing.
+    </div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="case">
+    <h3>Case 3: Customer Churn Prediction – Telecom</h3>
+
+    <p class="desc"><b>Model Monitoring:</b></p>
+    <div class="block">
+      Monitor accuracy decay over monthly prediction cycles.
+    </div>
+
+    <p class="desc"><b>Drift Detection:</b></p>
+    <div class="block">
+      Detect drift when customer behavior changes due to new plans or offers.
+    </div>
+
+    <p class="desc"><b>Cost Optimization:</b></p>
+    <div class="block">
+      Prefer batch predictions over real-time endpoints to reduce inference cost.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> BigQuery ML batch predictions.
+    </div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="case">
+    <h3>Case 4: Image-Based Defect Detection – Manufacturing</h3>
+
+    <p class="desc"><b>Model Monitoring:</b></p>
+    <div class="block">
+      Track image classification accuracy and inference latency.
+    </div>
+
+    <p class="desc"><b>Drift Detection:</b></p>
+    <div class="block">
+      Detect drift when lighting, camera angle, or product type changes.
+    </div>
+
+    <p class="desc"><b>Cost Optimization:</b></p>
+    <div class="block">
+      Train with GPUs only when needed and use CPU inference for low throughput.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Vertex AI Vision with GPU/TPU optimization.
+    </div>
+  </div>
+
+  <!-- CASE 5 -->
+  <div class="case">
+    <h3>Case 5: Vehicle Health Dashboard – Fleet Management</h3>
+
+    <p class="desc"><b>Model Monitoring:</b></p>
+    <div class="block">
+      Monitor API latency, prediction trends, and alert accuracy.
+    </div>
+
+    <p class="desc"><b>Drift Detection:</b></p>
+    <div class="block">
+      Drift occurs when new vehicle models or sensors are introduced.
+    </div>
+
+    <p class="desc"><b>Cost Optimization:</b></p>
+    <div class="block">
+      Scale dashboards independently from ML inference services.
+    </div>
+
+    <div class="block">
+      <b>GCP Line:</b> Looker + Vertex AI with independent scaling.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

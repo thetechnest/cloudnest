@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Vertex AI vs SageMaker vs Azure ML</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #E2ECF7;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #E8F4FF;
+    }
+
+    .tip {
+      background: #F0F8FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark th {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml-jntu-important-questions.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Cloud ML Platforms • Comparison</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Vertex AI vs SageMaker vs Azure ML</h2>
+
+  <section class="section">
+    <h3>1️⃣ Why Compare Cloud ML Platforms?</h3>
+    <p>
+      In real-world projects, engineers must choose the right ML platform
+      based on data volume, enterprise integration, automation, and scale.
+      This comparison helps students understand **when and why** to use
+      each platform.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ High-Level Comparison</h3>
+
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>AWS SageMaker</th>
+        <th>Azure ML</th>
+        <th>GCP Vertex AI</th>
+      </tr>
+      <tr>
+        <td>Cloud Provider</td>
+        <td>AWS</td>
+        <td>Microsoft Azure</td>
+        <td>Google Cloud</td>
+      </tr>
+      <tr>
+        <td>Primary Strength</td>
+        <td>End-to-end MLOps</td>
+        <td>Enterprise integration</td>
+        <td>Data + ML unification</td>
+      </tr>
+      <tr>
+        <td>AutoML Support</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Strong (Core focus)</td>
+      </tr>
+      <tr>
+        <td>Custom Training</td>
+        <td>Very strong</td>
+        <td>Strong</td>
+        <td>Strong</td>
+      </tr>
+      <tr>
+        <td>MLOps & Pipelines</td>
+        <td>Native & advanced</td>
+        <td>DevOps aligned</td>
+        <td>Pipeline-based</td>
+      </tr>
+      <tr>
+        <td>Ease for Beginners</td>
+        <td>Moderate</td>
+        <td>Easy</td>
+        <td>Easy</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ Industry Usage Perspective</h3>
+    <ul>
+      <li><b>SageMaker:</b> Large-scale ML systems, predictive maintenance, fraud detection</li>
+      <li><b>Azure ML:</b> Enterprise apps, ERP/CRM integration, corporate analytics</li>
+      <li><b>Vertex AI:</b> Data-heavy ML, AutoML-driven solutions, analytics-first ML</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ Automobile Domain Example</h3>
+    <ul>
+      <li><b>SageMaker:</b> Fleet-wide predictive maintenance with continuous retraining</li>
+      <li><b>Azure ML:</b> Engine health alerts integrated with enterprise dashboards</li>
+      <li><b>Vertex AI:</b> Brake or sensor failure prediction using large telemetry datasets</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ Exam-Oriented Key Points</h3>
+    <div class="tip">
+      🔑 SageMaker = Best for full MLOps<br>
+      🔑 Azure ML = Best for enterprise integration<br>
+      🔑 Vertex AI = Best for data-driven ML & AutoML
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ Which One Should You Learn First?</h3>
+    <ul>
+      <li>If you want strong MLOps → SageMaker</li>
+      <li>If you want enterprise ML → Azure ML</li>
+      <li>If you want AutoML & data focus → Vertex AI</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ Summary</h3>
+    <p>
+      All three platforms solve the same ML lifecycle problem
+      but with different strengths.
+      Understanding their differences makes you
+      an industry-ready ML engineer who can choose the right tool
+      for the right problem.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

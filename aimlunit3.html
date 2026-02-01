@@ -1,215 +1,347 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIML Unit-3 | NBKRIST-CloudNest</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Cloud ML Platforms</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
+
   <style>
-    :root{
-      --azure-blue:#008CFF;
-      --teal:#00A8A8;
-      --dark-slate:#0F1C2E;
-      --mint:#CFF8F0;
-      --muted:#6B7A89;
-      --radius:14px;
-      --bg:#F7FBFF;
-      --card-bg:#FFFFFF;
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
     }
 
-    body{margin:0;font-family:Inter;background:var(--bg);color:var(--dark-slate)}
-    *{box-sizing:border-box}
-
-    header{
-      position:sticky;top:0;z-index:1200;
-      background:var(--card-bg);
-      padding:10px 20px;
-      box-shadow:0 2px 10px rgba(15,28,46,0.06);
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand h1{margin:0;font-family:Poppins;font-size:20px}
-    .tagline{font-size:13px;color:var(--muted)}
-    .back-btn{
-      padding:8px 12px;background:#eee;border-radius:8px;
-      color:#000;text-decoration:none;font-weight:600
-    }
-    #modeToggle{
-      padding:8px 12px;border:none;border-radius:8px;
-      background:var(--dark-slate);color:white;font-weight:600;cursor:pointer
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
     }
 
-    .container{max-width:960px;margin:30px auto;padding:20px}
-
-    .section{
-      background:var(--card-bg);padding:22px;border-radius:var(--radius);
-      margin-bottom:28px;border-left:6px solid var(--azure-blue);
-      box-shadow:0 8px 24px rgba(0,0,0,0.05)
-    }
-    h2,h3{font-family:Poppins;margin-top:0}
-    .badge{
-      display:inline-block;padding:5px 12px;border-radius:20px;
-      background:var(--mint);color:var(--dark-slate);
-      font-size:13px;font-weight:600;margin-bottom:10px
-    }
-    .img-block img{
-      width:100%;height:260px;object-fit:cover;
-      border-radius:12px;margin-top:12px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08)
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
     }
 
-    details{background:#F4FBFF;padding:12px;border-radius:10px;
-      margin-bottom:10px;border:1px solid rgba(0,0,0,0.05)}
-    summary{font-weight:700;cursor:pointer}
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
 
-    footer{text-align:center;margin-top:40px;padding:20px;color:var(--muted)}
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .menubar {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5F0FF;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .menu {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--azure-blue), var(--teal));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 6px 18px rgba(0, 140, 255, .22);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2,
+    h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .tip {
+      background: #E8F4FF;
+      padding: 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    details {
+      background: #F0F8FF;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #DCEAFF;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header,
+    .dark .menubar {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark details {
+      background: #0b1f33;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <a class="back-btn" href="aiml.html">← Back</a>
-
-  <div class="brand">
-    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true">
-      <defs><linearGradient id="g1" x1="0%" x2="100%"><stop offset="0%" stop-color="#008CFF"/><stop offset="100%" stop-color="#00A8A8"/></linearGradient></defs>
-      <g fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 36c-4-1-6-6-4-10 1.7-3.4 5.8-4.8 9-3 1-2 3.5-6 8-6 4 0 7 2 8 6 3 .6 6 3.6 6 7 0 4-4 7-8 7H18z"/>
-      </g>
-      <g fill="none" stroke="#0F1C2E" stroke-width="1.6" opacity="0.9">
-        <path d="M20 40c6 4 18 6 28 0" />
-        <path d="M22 44c6 3 16 4 26 0" opacity="0.6" />
-      </g>
-    </svg>
-    <div>
+  <header>
+    <a class="back-btn" href="aiml.html">← Back</a>
+    <div class="brand">
       <h1>NBKRIST–CloudNest</h1>
-      <div class="tagline">Empowering Learners for the Cloud Era</div>
+      <div class="tagline">Cloud ML • AI Engineering</div>
     </div>
+    <div>
+      <button id="pdfBtn">⬇ PDF</button>
+      <button id="modeToggle">☀/🌙</button>
+    </div>
+  </header>
+
+  <div class="menubar">
+    <nav class="menu">
+      <a href="aiml-model-workflows.html">Model Workflow</a>
+      <a href="aiml-aws-sagemaker.html">AWS SageMaker</a>
+      <a href="aiml-azure-ml.html">Azure ML</a>
+      <a href="aiml-gcp-vertex-ai.html">Vertex AI</a>
+      <a href="aiml-training-and-deploying-models-on-cloud.html">Training & Deploy</a>
+      <a href="aiml-automl-vs-custom-ml.html">AutoML-CustomML</a>
+      <a href="aiml-gpus-tpus-for-model-training.html">GPU / TPU</a>
+      <a href="aiml-experiment-tracking-and-model-evaluation.html">Experiment Tracking</a>
+      <a href="aiml-notebook-integration-cloud-storage.html">Notebooks</a>
+      <a href="aiml-jntu-important-questions.html">Testing</a>
+      <a href="lab-aws-sagemaker-predictive-maintenance.html">HandsOn</a>
+
+    </nav>
   </div>
 
-  <button id="modeToggle">☀ / 🌙</button>
-</header>
+  <div class="container">
 
+    <h2>Cloud Machine Learning Platforms (AWS • Azure • GCP)</h2>
 
-<div class="container">
+    <section class="section">
+      <h3>Expert View – ML Architect Perspective</h3>
+      <p class="desc">
+        In modern enterprises, machine learning is not built on a laptop.
+        It is engineered as a <b>cloud-native pipeline</b> that handles data ingestion,
+        training, experimentation, deployment, monitoring, and continuous improvement.
+      </p>
+      <div class="tip">
+        💡 Key Insight: Cloud ML platforms convert ML models into scalable production systems.
+      </div>
+    </section>
 
-  <h2>UNIT-3 — Cloud‑based Machine Learning & Deep Learning</h2>
-  <p>This unit explores how cloud platforms provide specialized tools, services, and infrastructure for large‑scale ML and DL workloads, including AutoML, managed training, GPUs/TPUs, and production deployment pipelines.</p>
+    <section class="section" id="aws">
+      <h3>1️⃣ ML Services on AWS – SageMaker</h3>
+      <p class="desc">
+        Amazon SageMaker provides a fully managed environment for building,
+        training, tuning, and deploying machine learning models at scale.
+      </p>
+      <div class="tip">Use cases: Fraud detection, recommendation systems, NLP models</div>
+    </section>
 
-  <!-- SECTION 1 -->
-  <section class="section">
-    <span class="badge">Section 1</span>
-    <h3>Managed ML Services on AWS, Azure & GCP</h3>
-    <p>Cloud providers offer full end‑to‑end ML platforms that simplify training, hyperparameter tuning, deployment, and monitoring.</p>
-    <ul>
-      <li>AWS SageMaker: Training, AutoML, pipelines, endpoints</li>
-      <li>Azure Machine Learning: Designer, compute clusters, MLOps</li>
-      <li>GCP Vertex AI: Unified ML platform, pipelines, model registry</li>
-    </ul>
-    <div class="img-block"><img src="https://placehold.co/1200x260/003366/FFFFFF?text=Cloud+ML+Platforms" alt="cloud ml platforms"></div>
-  </section>
+    <section class="section" id="azure">
+      <h3>2️⃣ Azure Machine Learning</h3>
+      <p class="desc">
+        Azure ML enables end-to-end ML lifecycle management with
+        pipelines, model registries, and MLOps integration.
+      </p>
+      <div class="tip">Enterprise focus: Governance, security, CI/CD for ML</div>
+    </section>
 
-  <!-- SECTION 2 -->
-  <section class="section">
-    <span class="badge">Section 2</span>
-    <h3>Training & Deploying ML Models on Cloud</h3>
-    <p>Cloud ML services provide large compute clusters and managed training environments that scale automatically.</p>
-    <ul>
-      <li>Training jobs on GPU/TPU nodes</li>
-      <li>Distributed training using Horovod, DeepSpeed, or PyTorch DDP</li>
-      <li>Model deployment via serverless or Kubernetes endpoints</li>
-      <li>A/B testing & canary rollout for ML updates</li>
-    </ul>
-    <div class="img-block"><img src="https://placehold.co/1200x260/005599/FFFFFF?text=Cloud+Training+%26+Deployment" alt="Training"></div>
-  </section>
+    <section class="section" id="gcp">
+      <h3>3️⃣ Google Vertex AI</h3>
+      <p class="desc">
+        Vertex AI unifies AutoML and custom training workflows
+        with strong integration into BigQuery and data pipelines.
+      </p>
+      <div class="tip">Strength: Data-driven ML and scalable training</div>
+    </section>
 
-  <!-- SECTION 3 -->
-  <section class="section">
-    <span class="badge">Section 3</span>
-    <h3>AutoML & Custom ML Workflow</h3>
-    <p>AutoML automates feature engineering, model selection, and hyper‑parameter tuning while still allowing custom pipelines.</p>
-    <ul>
-      <li>AutoML for tabular, vision & NLP workloads</li>
-      <li>Feature stores for consistent training‑inference data</li>
-      <li>Model tuning with Bayesian optimization</li>
-      <li>Pipeline automation using Vertex Pipelines / Azure ML Pipelines</li>
-    </ul>
-    <div class="img-block"><img src="https://placehold.co/1200x260/0077AA/FFFFFF?text=AutoML+Pipeline" alt="AutoML"></div>
-  </section>
+    <section class="section" id="training">
+      <h3>4️⃣ Training & Deploying Models on Cloud</h3>
+      <p class="desc">
+        Cloud platforms support distributed training,
+        scalable endpoints, batch predictions,
+        and real-time inference.
+      </p>
+      <div class="tip">Production ML requires deployment, monitoring, and versioning</div>
+    </section>
 
-  <!-- SECTION 4 -->
-  <section class="section">
-    <span class="badge">Section 4</span>
-    <h3>GPUs / TPUs for Deep Learning</h3>
-    <p>Deep learning requires heavy computation. Cloud provides specialized hardware for fast training.</p>
-    <ul>
-      <li>NVIDIA GPUs for large‑batch training</li>
-      <li>Google TPUs for transformer‑based models</li>
-      <li>Elastic GPU clusters</li>
-      <li>Spot GPUs for cost‑efficient experimentation</li>
-    </ul>
-    <div class="img-block"><img src="https://placehold.co/1200x260/0088CC/FFFFFF?text=GPU+TPU+Compute" alt="gpu tpu"></div>
-  </section>
+    <section class="section" id="automl">
+      <h3>5️⃣ AutoML & Custom ML Workflows</h3>
+      <p class="desc">
+        AutoML simplifies model creation for beginners,
+        while custom workflows give experts full control
+        over algorithms and architectures.
+      </p>
+      <div class="tip">AutoML for speed • Custom ML for control</div>
+    </section>
 
-  <!-- SECTION 5 -->
-  <section class="section">
-    <span class="badge">Section 5</span>
-    <h3>Notebook Integration with Cloud Services</h3>
-    <p>Cloud‑based notebooks allow seamless access to datasets, storage, and compute.</p>
-    <ul>
-      <li>Jupyter notebooks with cloud storage mounted</li>
-      <li>Google Colab + BigQuery integration</li>
-      <li>SageMaker notebooks with S3 access</li>
-      <li>Azure ML notebooks with compute clusters</li>
-    </ul>
-    <div class="img-block"><img src="https://placehold.co/1200x260/00AACC/FFFFFF?text=Cloud+Notebooks" alt="notebooks"></div>
-  </section>
+    <section class="section" id="accelerators">
+      <h3>6️⃣ GPUs & TPUs for Model Training</h3>
+      <p class="desc">
+        Hardware accelerators significantly reduce training time
+        for deep learning and large-scale models.
+      </p>
+      <div class="tip">GPUs for flexibility • TPUs for optimized deep learning</div>
+    </section>
 
-  <!-- SUMMARY -->
-  <section class="section">
-    <h3>Key Summary Points</h3>
-    <ul>
-      <li>Cloud platforms provide powerful managed services for ML & DL workflows.</li>
-      <li>GPU/TPU compute enables fast training of large neural models.</li>
-      <li>AutoML accelerates experimentation while custom pipelines offer flexibility.</li>
-      <li>Model deployment is simplified using serverless, containers, or Kubernetes.</li>
-      <li>Integrated notebooks allow smooth development with cloud data sources.</li>
-    </ul>
-  </section>
+    <section class="section" id="tracking">
+      <h3>7️⃣ Experiment Tracking & Model Evaluation</h3>
+      <p class="desc">
+        Experiment tracking records parameters, metrics,
+        datasets, and model versions to ensure reproducibility.
+      </p>
+      <div class="tip">Critical for comparing models and improving accuracy</div>
+    </section>
 
-  <!-- PRACTICE QUESTIONS -->
-  <section class="section">
-    <h3>Practice & Interview Questions</h3>
+    <section class="section" id="notebooks">
+      <h3>8️⃣ Notebook Integration (Jupyter & Colab)</h3>
+      <p class="desc">
+        Notebooks allow interactive development and analysis,
+        while cloud storage enables collaboration and persistence.
+      </p>
+      <div class="tip">Notebook + Cloud Storage = Collaborative ML</div>
+    </section>
 
-    <details><summary>1. What is the role of SageMaker / Vertex AI / Azure ML?</summary>
-      <p>They are managed ML platforms providing tools for training, tuning, deployment, and monitoring.</p></details>
+    <section class="section">
+      <h3>Testing & Reasoning</h3>
+      <details>
+        <summary>Why cloud ML instead of local training?</summary>
+        <p>Scalability, speed, collaboration, and production readiness.</p>
+      </details>
+      <details>
+        <summary>When should AutoML be used?</summary>
+        <p>When speed and simplicity matter more than fine-grained control.</p>
+      </details>
+      <details>
+        <summary>Why experiment tracking is important?</summary>
+        <p>It ensures reproducibility and systematic model improvement.</p>
+      </details>
+    </section>
 
-    <details><summary>2. Why are GPUs important for deep learning?</summary>
-      <p>They enable parallel computation required for neural networks, reducing training time significantly.</p></details>
+    <section class="section">
+      <h3>Summary Overview</h3>
+      <p class="desc">
+        Cloud ML platforms transform machine learning
+        into a disciplined engineering practice.
+        Mastering these tools prepares students
+        for real-world AI industry roles.
+      </p>
+    </section>
 
-    <details><summary>3. What is AutoML?</summary>
-      <p>AutoML automates data prep, model selection, and hyperparameter tuning.</p></details>
+  </div>
 
-    <details><summary>4. What is model deployment?</summary>
-      <p>Making a trained model available as an API endpoint for real‑time predictions.</p></details>
+  <footer>
+    © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+  </footer>
 
-    <details><summary>5. What is the purpose of a feature store?</summary>
-      <p>To ensure consistent features are used during both training and inference.</p></details>
-
-  </section>
-
-</div>
-
-<footer>
-  © CloudNest • Empowering Learners for the Cloud Era | Authored by Hari Babu Mutchakala
-</footer>
-
-<script>
-  const btn = document.getElementById('modeToggle');
-  btn.onclick = () =>{
-    document.body.classList.toggle('dark');
-  }
-</script>
+  <script>
+    document.getElementById("modeToggle").onclick = () =>
+      document.body.classList.toggle("dark");
+    document.getElementById("pdfBtn").onclick = () => window.print();
+  </script>
 
 </body>
+
 </html>

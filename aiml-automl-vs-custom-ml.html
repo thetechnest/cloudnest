@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | AutoML and Custom ML</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #E2ECF7;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #E8F4FF;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark th {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">AutoML • Custom ML • Cloud AI</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>AutoML and Custom ML – AWS, Azure & GCP</h2>
+
+  <section class="section">
+    <h3>1️⃣ What is AutoML?</h3>
+    <p class="desc">
+      AutoML automatically handles feature selection,
+      algorithm choice, and hyperparameter tuning.
+      It allows users to build ML models with minimal coding.
+    </p>
+    <div class="hero">
+      AutoML = Speed + Simplicity
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ What is Custom ML?</h3>
+    <p class="desc">
+      Custom ML gives full control over data preprocessing,
+      algorithms, neural network architectures,
+      and training logic.
+    </p>
+    <div class="hero">
+      Custom ML = Control + Optimization
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ AutoML vs Custom ML (Core Difference)</h3>
+    <table>
+      <tr>
+        <th>Aspect</th>
+        <th>AutoML</th>
+        <th>Custom ML</th>
+      </tr>
+      <tr>
+        <td>Coding Effort</td>
+        <td>Very Low</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Flexibility</td>
+        <td>Limited</td>
+        <td>Full Control</td>
+      </tr>
+      <tr>
+        <td>Time to Model</td>
+        <td>Fast</td>
+        <td>Slower</td>
+      </tr>
+      <tr>
+        <td>Best For</td>
+        <td>Beginners, POCs</td>
+        <td>Production-grade ML</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ How AWS, Azure & GCP Support AutoML</h3>
+    <ul class="desc">
+      <li><b>AWS:</b> SageMaker Autopilot</li>
+      <li><b>Azure:</b> Azure ML AutoML</li>
+      <li><b>GCP:</b> Vertex AI AutoML</li>
+    </ul>
+    <div class="hero">
+      Same goal, different cloud implementations
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ How AWS, Azure & GCP Support Custom ML</h3>
+    <ul class="desc">
+      <li><b>AWS:</b> SageMaker Training Jobs, Pipelines</li>
+      <li><b>Azure:</b> Custom scripts, ML pipelines</li>
+      <li><b>GCP:</b> Vertex AI custom training & pipelines</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ Automobile Domain Example</h3>
+    <p class="desc">
+      <b>Problem:</b> Predict engine failure in cars.
+    </p>
+    <ul class="desc">
+      <li><b>AutoML:</b> Quickly build a baseline failure prediction model</li>
+      <li><b>Custom ML:</b> Build LSTM-based time-series model for higher accuracy</li>
+    </ul>
+    <div class="hero">
+      Industry approach: AutoML → Custom ML
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ When Should YOU Use What?</h3>
+    <ul class="desc">
+      <li>Learning ML → AutoML</li>
+      <li>Hackathons / Demos → AutoML</li>
+      <li>Enterprise Production → Custom ML</li>
+      <li>Research & Optimization → Custom ML</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>8️⃣ Your Takeaway</h3>
+    <p class="desc">
+      AutoML helps you start fast,
+      Custom ML helps you scale deep.
+      A true ML engineer knows how to use both
+      depending on the business problem.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

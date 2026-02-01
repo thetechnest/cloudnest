@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | 2 Marks Questions – Cloud ML</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 14px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .qa {
+      background: #fff;
+      padding: 18px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .tip {
+      background: #F0F8FF;
+      padding: 10px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .qa {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark .tip {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml-jntu-important-questions.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Cloud ML • 2 Marks Revision</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Important 2 Marks Questions – Cloud Machine Learning</h2>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>1️⃣ What is a cloud ML platform?</h3>
+    <div class="answer">
+      A cloud ML platform is a managed service that allows building, training,
+      deploying, and monitoring ML models at scale.
+      <div class="tip">Tip to remember: Cloud ML = ML + Scalability + Automation</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>2️⃣ What is the role of SageMaker in ML?</h3>
+    <div class="answer">
+      SageMaker provides end-to-end ML lifecycle support including training,
+      deployment, monitoring, and retraining.
+      <div class="tip">Tip to remember: SageMaker = Full MLOps on AWS</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>3️⃣ Why is model deployment important?</h3>
+    <div class="answer">
+      Deployment makes a trained model available for real-time or batch predictions
+      through APIs.
+      <div class="tip">Tip to remember: No deployment = No business value</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>4️⃣ What is AutoML?</h3>
+    <div class="answer">
+      AutoML automates algorithm selection, feature engineering,
+      and hyperparameter tuning.
+      <div class="tip">Tip to remember: AutoML = Speed over control</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>5️⃣ What is Custom ML?</h3>
+    <div class="answer">
+      Custom ML allows full control over data preprocessing,
+      algorithms, and model architecture.
+      <div class="tip">Tip to remember: Custom ML = Control over performance</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>6️⃣ Why are GPUs used in ML training?</h3>
+    <div class="answer">
+      GPUs perform parallel computation which significantly
+      reduces deep learning training time.
+      <div class="tip">Tip to remember: GPU = Parallel processing</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>7️⃣ What is experiment tracking?</h3>
+    <div class="answer">
+      Experiment tracking records model parameters, datasets,
+      and metrics to compare and reproduce results.
+      <div class="tip">Tip to remember: No tracking = No reproducibility</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>8️⃣ What is model evaluation?</h3>
+    <div class="answer">
+      Model evaluation measures how well a model performs
+      on unseen data using metrics.
+      <div class="tip">Tip to remember: Accuracy alone is not enough</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>9️⃣ Why integrate notebooks with cloud storage?</h3>
+    <div class="answer">
+      Integration enables scalable data access,
+      persistence, and collaboration.
+      <div class="tip">Tip to remember: Notebook + Cloud = Team ML</div>
+    </div>
+  </div>
+
+  <div class="qa" onclick="toggle(this)">
+    <h3>🔟 What is MLOps?</h3>
+    <div class="answer">
+      MLOps is the practice of automating and managing
+      the ML lifecycle in production.
+      <div class="tip">Tip to remember: MLOps = DevOps for ML</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+function toggle(el){
+  const ans = el.querySelector(".answer");
+  ans.style.display = ans.style.display === "block" ? "none" : "block";
+}
+document.getElementById("modeToggle").onclick = () =>
+  document.body.classList.toggle("dark");
+document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Experiment Tracking & Model Evaluation</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #E2ECF7;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #E8F4FF;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+
+    .dark th {
+      background: #0b1f33;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit3.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">MLOps • Experiments & Evaluation</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Experiment Tracking and Model Evaluation – Zero to Hero</h2>
+
+  <section class="section">
+    <h3>1️⃣ What is Experiment Tracking?</h3>
+    <p class="desc">
+      Experiment tracking is the process of recording
+      <b>every ML experiment</b> — including datasets,
+      features, algorithms, parameters, metrics, and outputs —
+      so results can be compared and reproduced.
+    </p>
+    <div class="hero">
+      💡 If you can’t reproduce it, it’s not real ML
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ Why Experiment Tracking is Critical</h3>
+    <ul class="desc">
+      <li>Compare multiple model versions</li>
+      <li>Avoid repeating failed experiments</li>
+      <li>Enable team collaboration</li>
+      <li>Support audits and compliance</li>
+    </ul>
+    <!-- Model Lifecycle Diagram -->
+<div style="margin:22px 0; text-align:center;">
+  <img src="modellifecycle.jpg"
+       alt="Model Lifecycle Diagram"
+       style="max-width:100%;
+              border-radius:14px;
+              box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+</div>
+
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ What Should Be Tracked?</h3>
+    <table>
+      <tr>
+        <th>Component</th>
+        <th>Examples</th>
+      </tr>
+      <tr>
+        <td>Data</td>
+        <td>Dataset version, size, source</td>
+      </tr>
+      <tr>
+        <td>Features</td>
+        <td>Scaling, encoding, transformations</td>
+      </tr>
+      <tr>
+        <td>Model</td>
+        <td>Algorithm, architecture</td>
+      </tr>
+      <tr>
+        <td>Parameters</td>
+        <td>Learning rate, depth, epochs</td>
+      </tr>
+      <tr>
+        <td>Metrics</td>
+        <td>Accuracy, F1, RMSE, AUC</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ What is Model Evaluation?</h3>
+    <p class="desc">
+      Model evaluation measures how well a trained model
+      performs on unseen data and whether it is
+      good enough for real-world deployment.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ Common Evaluation Metrics</h3>
+    <table>
+      <tr>
+        <th>Problem Type</th>
+        <th>Metrics</th>
+      </tr>
+      <tr>
+        <td>Classification</td>
+        <td>Accuracy, Precision, Recall, F1-score, AUC</td>
+      </tr>
+      <tr>
+        <td>Regression</td>
+        <td>MAE, MSE, RMSE, R²</td>
+      </tr>
+      <tr>
+        <td>Time-Series</td>
+        <td>MAPE, RMSE</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ Industry Workflow: Evaluation → Decision</h3>
+    <p class="desc">
+      In industry, the best model is not always the most accurate.
+      Engineers consider:
+    </p>
+    <ul class="desc">
+      <li>Latency</li>
+      <li>Cost</li>
+      <li>Stability</li>
+      <li>Interpretability</li>
+    </ul>
+    <div class="hero">
+      🚀 Best model = Best business trade-off
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ Automobile Example</h3>
+    <p class="desc">
+      <b>Use Case:</b> Predict engine failure in vehicles.
+    </p>
+    <ul class="desc">
+      <li>Experiment 1: Logistic Regression – Fast, less accurate</li>
+      <li>Experiment 2: Random Forest – Balanced performance</li>
+      <li>Experiment 3: LSTM – High accuracy, higher cost</li>
+    </ul>
+    <p class="desc">
+      Final model selected based on accuracy + latency trade-off.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>8️⃣ Common Mistakes Without Tracking</h3>
+    <ul class="desc">
+      <li>No record of what worked</li>
+      <li>Cannot explain results</li>
+      <li>Hard to debug failures</li>
+      <li>Impossible collaboration</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>9️⃣ Your Takeaway</h3>
+    <p class="desc">
+      Experiment tracking and model evaluation
+      separate hobby ML from professional ML.
+      Mastering these skills makes you
+      an industry-ready ML engineer.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

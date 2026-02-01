@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | Azure Machine Learning</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azure-blue: #008CFF;
+      --teal: #00A8A8;
+      --dark-slate: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark-slate);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: #008CFF;
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--azure-blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .quiz {
+      background: #F0F8FF;
+      padding: 12px;
+      border-radius: 10px;
+      border-left: 4px solid var(--teal);
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit3.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">Azure ML • Cloud AI</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Azure Machine Learning – Industry-Ready Cloud ML</h2>
+
+  <section class="section">
+    <h3>1️⃣ What is Azure Machine Learning?</h3>
+    <p class="desc">
+      Azure Machine Learning is a cloud-based service from Microsoft
+      that helps you build, train, deploy, and manage machine learning models
+      in a secure and scalable way.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>2️⃣ Why Azure ML Matters to You</h3>
+    <p class="desc">
+      Modern companies don’t want models running only on laptops.
+      They want ML systems that integrate with enterprise applications,
+      databases, and dashboards.
+    </p>
+    <ul>
+      <li>Enterprise-grade security</li>
+      <li>MLOps and automation</li>
+      <li>Easy integration with Azure services</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>3️⃣ How Azure ML is Used in Real Time</h3>
+    <p class="desc">
+      Azure ML supports both real-time and batch inference.
+      Models can be deployed as web services
+      and consumed by applications.
+    </p>
+    <ul>
+      <li>Real-time scoring via REST APIs</li>
+      <li>Batch predictions for large datasets</li>
+      <li>Monitoring and retraining</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>4️⃣ Procedure: End-to-End ML Workflow</h3>
+    <ol>
+      <li>Create Azure ML Workspace</li>
+      <li>Upload data to Azure Blob Storage</li>
+      <li>Use Azure ML Studio / Notebooks</li>
+      <li>Train model using compute clusters</li>
+      <li>Register best model</li>
+      <li>Deploy as a web service</li>
+      <li>Monitor performance</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h3>5️⃣ Real-Time Automobile Example (Easy)</h3>
+    <p class="desc">
+      <b>Use Case:</b> Predict engine overheating in cars.
+    </p>
+    <ul>
+      <li>Input: Engine temperature, RPM, coolant level</li>
+      <li>Model: Classification (Safe / Warning / Critical)</li>
+      <li>Output: Alert sent to driver dashboard</li>
+    </ul>
+    <p class="desc">
+      Azure ML deploys the model as an API
+      which the car monitoring system calls in real time.
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>6️⃣ Quick Quiz 📝</h3>
+    <div class="quiz">
+      1. What is the role of Azure ML Workspace?<br>
+      2. How is a trained model used in real time?<br>
+      3. Which Azure service stores ML datasets?<br>
+      4. Why is monitoring important in ML?
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>7️⃣ Points to Ponder 🤔</h3>
+    <ul>
+      <li>Can ML models fail after deployment?</li>
+      <li>How often should models be retrained?</li>
+      <li>What happens if data distribution changes?</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>8️⃣ Summary</h3>
+    <p class="desc">
+      Azure Machine Learning transforms machine learning
+      into a reliable, enterprise-grade system.
+      Learning Azure ML prepares you to build
+      real-world AI applications in the cloud.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>
