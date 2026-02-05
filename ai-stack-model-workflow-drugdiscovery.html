@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | AI Stack + Model Workflow – Drug Discovery</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn, #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 12px auto;
+      padding: 12px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .imgbox {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .imgbox img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    ul, ol {
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aiml-model-workflows.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">AI Stack + Model Workflow • Living ML Systems</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Building a Drug Discovery AI System  
+      <br><span style="font-size:16px;color:#6B7A89">Where AI Stack and Model Workflow Move Together</span>
+  </h2>
+
+  <!-- Expert View -->
+  <section class="section">
+    <h3>👨‍💼 Expert View – How ML Engineers Must Think</h3>
+    <p class="desc">
+      Having seen multiple evolutions in the AI/ML industry, one lesson stands out:
+      <b>successful AI systems are not built by focusing on models alone</b>.
+    </p>
+    <p class="desc">
+      Real-world ML engineers must design systems where
+      <b>AI stack layers and ML workflows evolve together</b>.
+      Infrastructure decisions affect training,
+      data decisions affect evaluation,
+      orchestration affects quality,
+      and applications determine impact.
+    </p>
+    <div class="hero">
+      💡 This is Full-Stack AI + Living MLOps, not notebook ML.
+    </div>
+  </section>
+
+  <!-- System Story -->
+  <section class="section">
+    <h3>🌍 The Problem We Are Solving</h3>
+    <p class="desc">
+      Imagine building an AI system that helps researchers
+      discover cancer drugs by reading and understanding
+      <b>every scientific paper published worldwide</b>.
+    </p>
+    <p class="desc">
+      This system must continuously ingest new research,
+      reason over it, cite evidence, and improve over time.
+      Achieving this requires AI stack layers and ML workflows
+      to work <b>hand-in-hand</b>.
+    </p>
+  </section>
+
+  <!-- Image 1 -->
+  <div class="imgbox">
+    <img src="ailivesystem.png" alt="AI Stack and Model Workflow Overview">
+  </div>
+
+  <!-- Unified Flow -->
+  <section class="section">
+    <h3>🔁 Unified Flow: AI Stack × Model Workflow</h3>
+    <p class="desc">
+      The ML workflow is not separate from the AI stack.
+      Each workflow stage activates a different layer of the stack:
+    </p>
+    <ol class="desc">
+      <li><b>Data →</b> Global research papers stored in cloud storage</li>
+      <li><b>Features →</b> Embeddings created using GPU-backed infrastructure</li>
+      <li><b>Train →</b> Models trained and tuned on SageMaker / Azure ML / Vertex AI</li>
+      <li><b>Evaluate →</b> Metrics tracked and compared automatically</li>
+      <li><b>Deploy →</b> Models served as scalable endpoints</li>
+      <li><b>Monitor →</b> Drift and accuracy tracked continuously</li>
+      <li><b>Retrain →</b> New data triggers pipelines again</li>
+    </ol>
+    <div class="hero">
+      🔄 This loop never stops — the system stays alive.
+    </div>
+  </section>
+
+  <!-- Image 2 -->
+  <div class="imgbox">
+    <img src="aistack.png" alt="Drug Discovery ML Lifecycle">
+  </div>
+
+  <!-- Orchestration -->
+  <section class="section">
+    <h3>🧠 Orchestration – The Brain of the System</h3>
+    <p class="desc">
+      Drug discovery is not a single prompt problem.
+      The system must plan, retrieve, reason, verify, and respond.
+    </p>
+    <p class="desc">
+      Orchestration connects:
+      <b>models + data + tools + workflows</b>
+      into an intelligent execution graph.
+    </p>
+    <ul class="desc">
+      <li>Break user queries into subtasks</li>
+      <li>Retrieve relevant documents (RAG)</li>
+      <li>Run reasoning and review loops</li>
+      <li>Trigger retraining when confidence drops</li>
+    </ul>
+    <div class="hero">
+      Without orchestration, AI remains a demo — not a system.
+    </div>
+  </section>
+
+  <!-- Application -->
+  <section class="section">
+    <h3>🖥️ Application Layer – Where Value Is Created</h3>
+    <p class="desc">
+      The final system is exposed through a Full-Stack application
+      (for example, MERN).
+    </p>
+    <ul class="desc">
+      <li>React UI for researchers</li>
+      <li>Node/Express APIs calling ML endpoints</li>
+      <li>Secure integrations with lab systems</li>
+      <li>Feedback captured for retraining</li>
+    </ul>
+    <div class="hero">
+      Applications turn intelligence into adoption.
+    </div>
+  </section>
+<section class="section">
+  <h3>🚀 End-to-End Implementation using SageMaker, Azure ML & Vertex AI</h3>
+
+  <p class="desc">
+    Let us now see how the <b>AI Stack and Model Workflow come together</b>
+    in a real production-grade Drug Discovery system using
+    cloud-native ML platforms.
+    This is where ML engineering becomes <b>real system engineering</b>.
+  </p>
+
+  <div class="hero">
+    🎯 Goal: Build a living AI system that continuously reads global cancer research,
+    reasons over it, and improves over time.
+  </div>
+
+  <h4>🔁 Unified Cloud Workflow</h4>
+  <ol class="desc">
+    <li><b>Data Ingestion</b> – Research papers (PDFs, datasets, images) stored in cloud object storage</li>
+    <li><b>Feature Engineering</b> – Text cleaned, chunked, embedded using GPU-based compute</li>
+    <li><b>Training</b> – Models trained and tuned on managed ML platforms</li>
+    <li><b>Evaluation</b> – Metrics tracked, experiments compared automatically</li>
+    <li><b>Deployment</b> – Models exposed as secure, scalable endpoints</li>
+    <li><b>Monitoring</b> – Drift, accuracy, latency continuously observed</li>
+    <li><b>Retraining</b> – New scientific data automatically triggers pipelines</li>
+  </ol>
+
+  <h4>☁️ How Each Cloud Platform Plays the Role</h4>
+
+  <ul class="desc">
+    <li>
+      <b>AWS SageMaker</b> – 
+      S3 stores papers, SageMaker Processing cleans data,
+      Training Jobs build models,
+      Pipelines automate retraining,
+      Endpoints serve predictions to applications.
+    </li>
+    <li>
+      <b>Azure ML</b> – 
+      Blob Storage holds datasets,
+      Azure ML Compute runs experiments,
+      ML Pipelines manage lifecycle,
+      Managed Endpoints expose models securely.
+    </li>
+    <li>
+      <b>GCP Vertex AI</b> – 
+      Cloud Storage stores research,
+      Vertex AI Training handles scaling,
+      Pipelines orchestrate workflows,
+      Prediction services power applications.
+    </li>
+  </ul>
+
+  <div class="hero">
+    💡 Same workflow, different cloud — the engineering thinking remains identical.
+  </div>
+
+  <h4>🧠 Where Orchestration Becomes Critical</h4>
+  <p class="desc">
+    Drug discovery queries are complex:
+    the system must retrieve evidence, reason step-by-step,
+    validate answers, and cite sources.
+    Orchestration connects <b>models, data, tools, and retraining triggers</b>
+    into a single intelligent workflow.
+  </p>
+
+  <h4>🖥️ Application Integration (Full-Stack)</h4>
+  <p class="desc">
+    The ML system finally connects to a Full-Stack application (e.g., MERN):
+  </p>
+  <ul class="desc">
+    <li>Researchers search cancer drugs via UI</li>
+    <li>APIs call SageMaker / Azure ML / Vertex AI endpoints</li>
+    <li>Results include evidence and confidence</li>
+    <li>User feedback feeds back into retraining pipelines</li>
+  </ul>
+
+  <div class="hero">
+    🧬 This is not a static model — it is a continuously evolving AI scientist.
+  </div>
+</section>
+
+<!-- Image Placeholder -->
+<div class="imgbox">
+  <img src="sage.png"
+       alt="End-to-End Drug Discovery ML Architecture on Cloud">
+</div>
+
+  <!-- Cloud Role -->
+  <section class="section">
+    <h3>☁️ Why Cloud Is Non-Negotiable</h3>
+    <p class="desc">
+      Without cloud platforms like AWS SageMaker,
+      Azure ML, and GCP Vertex AI,
+      this system cannot exist.
+    </p>
+    <ul class="desc">
+      <li>Elastic GPUs for training & embeddings</li>
+      <li>Managed pipelines and endpoints</li>
+      <li>Monitoring, security, compliance</li>
+      <li>Global scale and reliability</li>
+    </ul>
+  </section>
+
+  <!-- Takeaway -->
+  <section class="section">
+    <h3>🎯 Final Takeaway for ML Engineers</h3>
+    <p class="desc">
+      ML engineers who understand only models build experiments.
+      ML engineers who understand
+      <b>AI stack + workflows together</b>
+      build systems that change industries.
+    </p>
+    <div class="hero">
+      🚀 This is the mindset required to work on real AI platforms.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudNest | AI Tech Stack – Full Stack AI/ML</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #008CFF;
+      --teal: #00A8A8;
+      --dark: #0F1C2E;
+      --bg: #F7FBFF;
+      --muted: #6B7A89;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: var(--bg);
+      color: var(--dark);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .back-btn {
+      padding: 8px 14px;
+      background: #eee;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Poppins;
+      font-size: 22px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #pdfBtn,
+    #modeToggle {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #pdfBtn {
+      background: var(--blue);
+      margin-right: 10px;
+    }
+
+    #modeToggle {
+      background: #0F1C2E;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    h2, h3 {
+      font-family: Poppins;
+    }
+
+    .section {
+      background: #fff;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid var(--blue);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+      margin-bottom: 26px;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: #F0F8FF;
+      padding: 14px;
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    ul, ol {
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .dark {
+      background: #0a1627;
+      color: #E9F2FA;
+    }
+
+    .dark header {
+      background: #071322;
+    }
+
+    .dark .section {
+      background: #102031;
+      border-left-color: #2993ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="aimlunit3.html">← Back</a>
+  <div class="brand">
+    <h1>NBKRIST–CloudNest</h1>
+    <div class="tagline">AI Tech Stack • Full Stack AI/ML Thinking</div>
+  </div>
+  <div>
+    <button id="pdfBtn">⬇ PDF</button>
+    <button id="modeToggle">☀/🌙</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>AI Tech Stack – Building Complete AI Systems</h2>
+
+  <!-- Expert Section -->
+  <section class="section">
+    <h3>👨‍💼 Expert Perspective</h3>
+    <p class="desc">
+      Having seen different evolutions in the AI/ML industry, one thing is clear:
+      <b>success does not come from building models alone</b>.
+      Real-world AI requires building <b>complete AI systems</b>.
+    </p>
+    <p class="desc">
+      ML Engineers must balance hardware needs, model size, specialized data like RAG,
+      and orchestration logic — all while ensuring quality, speed, accuracy, safety,
+      and compliance.
+    </p>
+    <div class="hero">
+      💡 This is the true Full Stack of AI/ML.
+    </div>
+  </section>
+
+  <!-- What is AI Stack -->
+  <section class="section">
+    <h3>1️⃣ What is an AI Tech Stack?</h3>
+    <p class="desc">
+      An AI Tech Stack is a structured, layered architecture that defines
+      how AI systems are built, deployed, and operated in production.
+      It integrates hardware, models, data, orchestration, and applications
+      into one cohesive system.
+    </p>
+  </section>
+
+  <!-- Image Placeholder -->
+  <section class="section">
+    <h3>🖼️ AI Stack Overview (Visual)</h3>
+    <div style="text-align:center;">
+      <img src="aistack.png"
+           alt="AI Tech Stack"
+           style="max-width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+    </div>
+  </section>
+
+  <!-- Layers -->
+  <section class="section">
+    <h3>2️⃣ The Five Layers of AI Stack</h3>
+    <ol class="desc">
+      <li><b>Infrastructure</b> – GPUs, CPUs, TPUs, Cloud / On-prem</li>
+      <li><b>Models</b> – LLMs, SLMs, open vs proprietary</li>
+      <li><b>Data</b> – Datasets, pipelines, vector DBs, RAG</li>
+      <li><b>Orchestration</b> – Planning, reasoning, tool calling</li>
+      <li><b>Applications</b> – Interfaces, integrations, user workflows</li>
+    </ol>
+  </section>
+
+  <!-- Infrastructure -->
+  <section class="section">
+    <h3>3️⃣ Infrastructure Layer</h3>
+    <p class="desc">
+      AI models require specialized hardware like GPUs.
+      Cloud enables elastic scaling — something impossible with traditional servers.
+    </p>
+    <ul class="desc">
+      <li>On-prem: High cost, limited scale</li>
+      <li>Cloud: Elastic, scalable, cost-effective</li>
+      <li>Local: Small models, experimentation</li>
+    </ul>
+    <div class="hero">
+      Without cloud, modern AI at scale is impossible.
+    </div>
+  </section>
+
+  <!-- Model -->
+  <section class="section">
+    <h3>4️⃣ Model Layer</h3>
+    <p class="desc">
+      Model choice depends on size, specialization, and openness.
+      Larger models offer reasoning power, while smaller models offer efficiency.
+    </p>
+    <div class="hero">
+      Model is important — but never sufficient alone.
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section class="section">
+    <h3>5️⃣ Data Layer (RAG & Beyond)</h3>
+    <p class="desc">
+      Models have knowledge cutoffs.
+      Real-world AI systems rely on external data using retrieval systems (RAG).
+    </p>
+    <ul class="desc">
+      <li>Data sources & pipelines</li>
+      <li>Vector databases</li>
+      <li>Embedding & retrieval</li>
+    </ul>
+  </section>
+
+  <!-- Orchestration -->
+  <section class="section">
+    <h3>6️⃣ Orchestration Layer</h3>
+    <p class="desc">
+      Complex AI tasks require breaking problems into steps:
+      planning, execution, review, and feedback.
+    </p>
+    <div class="hero">
+      Orchestration turns models into problem solvers.
+    </div>
+  </section>
+
+  <!-- Application -->
+  <section class="section">
+    <h3>7️⃣ Application Layer</h3>
+    <p class="desc">
+      This layer defines how users interact with AI systems.
+      Interfaces, multimodal inputs, revisions, and integrations matter.
+    </p>
+  </section>
+
+  <!-- Quiz -->
+  <section class="section">
+  <h3>8️⃣ Quick Quiz (Test Your Understanding)</h3>
+
+  <details>
+    <summary>1️⃣ Why is infrastructure critical for AI?</summary>
+    <p class="desc">
+      AI models, especially large language models, require specialized hardware
+      such as GPUs or TPUs. Without the right infrastructure, models cannot scale,
+      perform efficiently, or serve real-time users.
+    </p>
+  </details>
+
+  <details>
+    <summary>2️⃣ What is RAG?</summary>
+    <p class="desc">
+      RAG (Retrieval-Augmented Generation) enhances models by supplying external,
+      up-to-date data through retrieval systems, overcoming knowledge cutoffs.
+    </p>
+  </details>
+
+  <details>
+    <summary>3️⃣ Why are models alone insufficient?</summary>
+    <p class="desc">
+      Models cannot solve real problems alone. They require infrastructure,
+      data pipelines, orchestration logic, and applications to function
+      reliably in production environments.
+    </p>
+  </details>
+
+  <details>
+    <summary>4️⃣ What role does orchestration play?</summary>
+    <p class="desc">
+      Orchestration breaks complex user requests into manageable steps
+      such as planning, tool execution, reasoning, and review, enabling
+      higher quality AI outputs.
+    </p>
+  </details>
+
+  <details>
+    <summary>5️⃣ Why is cloud preferred for AI workloads?</summary>
+    <p class="desc">
+      Cloud platforms provide elastic access to GPUs, scalable storage,
+      high availability, and cost optimization that on-prem systems
+      cannot easily offer.
+    </p>
+  </details>
+
+  <details>
+    <summary>6️⃣ What is the purpose of vector databases?</summary>
+    <p class="desc">
+      Vector databases store embeddings of data, allowing fast semantic
+      retrieval to provide relevant context to AI models during inference.
+    </p>
+  </details>
+
+  <details>
+    <summary>7️⃣ How does orchestration improve quality?</summary>
+    <p class="desc">
+      By enabling feedback loops such as self-review and correction,
+      orchestration improves accuracy, reliability, and safety of AI responses.
+    </p>
+  </details>
+
+  <details>
+    <summary>8️⃣ Why do AI systems need interfaces?</summary>
+    <p class="desc">
+      Interfaces define how users interact with AI systems, allowing inputs,
+      revisions, citations, and integrations with other tools.
+    </p>
+  </details>
+
+  <details>
+    <summary>9️⃣ What affects AI cost and latency?</summary>
+    <p class="desc">
+      Hardware choice, model size, orchestration complexity, data retrieval,
+      and deployment strategy all directly impact AI cost and response time.
+    </p>
+  </details>
+
+  <details>
+    <summary>🔟 Why must ML engineers think in systems?</summary>
+    <p class="desc">
+      Real-world AI success depends on how infrastructure, models, data,
+      orchestration, and applications work together as a unified system.
+    </p>
+  </details>
+
+</section>
+
+
+  <!-- Focus -->
+  <section class="section">
+    <h3>9️⃣ Focus Points</h3>
+    <ul class="desc">
+      <li>AI is a system, not a model</li>
+      <li>Cloud enables scale and flexibility</li>
+      <li>RAG extends model knowledge</li>
+      <li>Orchestration enables complex reasoning</li>
+      <li>Applications define real value</li>
+    </ul>
+  </section>
+
+  <!-- Summary -->
+  <section class="section">
+    <h3>🔟 Summary</h3>
+    <p class="desc">
+      Building AI systems requires mastering the full AI tech stack.
+      From infrastructure to applications, every decision impacts
+      quality, speed, cost, and safety.
+    </p>
+    <div class="hero">
+      🚀 Full Stack AI thinking is the future of ML Engineering.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © CloudNest • NBKRIST CSE • Authored by Hari Babu Mutchakala
+</footer>
+
+<script>
+  document.getElementById("modeToggle").onclick = () =>
+    document.body.classList.toggle("dark");
+  document.getElementById("pdfBtn").onclick = () => window.print();
+</script>
+
+</body>
+</html>
