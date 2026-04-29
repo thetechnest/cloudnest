@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Systems | Design Thinking</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#eef3f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#08294a;
+padding:16px 7%;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fff;
+}
+
+.logo span{
+color:#33d1ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#33d1ff;
+}
+
+.hero{
+background:linear-gradient(rgba(8,41,74,.88),rgba(8,41,74,.88)),
+url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:85px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:900px;
+margin:auto;
+font-size:20px;
+color:#dceeff;
+}
+
+section{
+padding:65px 7%;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+color:#08294a;
+margin-bottom:12px;
+}
+
+.subtitle{
+max-width:850px;
+margin:auto auto 45px;
+text-align:center;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:24px;
+}
+
+.card{
+background:#fff;
+padding:26px;
+border-radius:10px;
+box-shadow:0 10px 22px rgba(0,0,0,0.08);
+border-top:4px solid #08294a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+}
+
+.card h3{
+color:#08294a;
+margin-bottom:10px;
+}
+
+.stage{
+background:#ffffff;
+padding:25px;
+margin-bottom:18px;
+border-left:5px solid #33d1ff;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.stage h3{
+color:#08294a;
+margin-bottom:8px;
+}
+
+.quote{
+background:#08294a;
+color:#fff;
+padding:35px;
+border-radius:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:28px;
+padding:13px 26px;
+background:#08294a;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0d4f8a;
+}
+
+footer{
+background:#08294a;
+color:#fff;
+padding:30px 7%;
+text-align:center;
+margin-top:50px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:34px;
+}
+.title{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think @NBKRIST</span></div>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Healthcare Systems Design Using Design Thinking</h1>
+<p>
+Learn how software engineers build hospital systems, patient portals, telemedicine apps, diagnostics platforms and life-saving healthcare technology using Design Thinking.
+</p>
+</section>
+
+<section>
+<h2 class="title">Why Healthcare Software Matters?</h2>
+<p class="subtitle">
+Healthcare software directly impacts patient care, doctor efficiency and hospital operations. Great systems can save time, reduce errors and even save lives.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Human-Centered Domain</h3>
+<p>Patients, doctors and nurses depend on easy-to-use systems.</p>
+</div>
+
+<div class="card">
+<h3>High Social Impact</h3>
+<p>Software can improve treatment quality and accessibility.</p>
+</div>
+
+<div class="card">
+<h3>Great Career Scope</h3>
+<p>Demand for developers, testers, data analysts and AI engineers.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">Design Thinking Stages in Healthcare Software</h2>
+<p class="subtitle">
+How top engineers create medical systems with empathy and precision.
+</p>
+
+<div class="stage">
+<h3>1. Empathize</h3>
+<p>Understand patient pain points: long waiting times, confusing forms, delayed reports, poor appointment systems, doctor workload and emergency needs.</p>
+</div>
+
+<div class="stage">
+<h3>2. Define</h3>
+<p>Frame problems clearly: “Patients need faster online appointments and easy access to reports.”</p>
+</div>
+
+<div class="stage">
+<h3>3. Ideate</h3>
+<p>Create solutions like telemedicine apps, smart queue systems, AI symptom assistants, digital prescriptions and multilingual patient portals.</p>
+</div>
+
+<div class="stage">
+<h3>4. Prototype</h3>
+<p>Build wireframes for doctor dashboards, patient mobile apps, lab report portals and hospital management systems.</p>
+</div>
+
+<div class="stage">
+<h3>5. Test</h3>
+<p>Doctors, nurses and patients test the system. Engineers improve speed, usability, accessibility and reliability.</p>
+</div>
+
+</section>
+
+<section>
+<h2 class="title">Real Modules Engineers Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Hospital Management</h3>
+<p>Admissions, billing, pharmacy, staff and bed management.</p>
+</div>
+
+<div class="card">
+<h3>Patient Portals</h3>
+<p>Appointments, reports, prescriptions and health history.</p>
+</div>
+
+<div class="card">
+<h3>Telemedicine Apps</h3>
+<p>Video consultations and remote care systems.</p>
+</div>
+
+<div class="card">
+<h3>Lab Systems</h3>
+<p>Test booking, sample tracking and digital results.</p>
+</div>
+
+<div class="card">
+<h3>AI Diagnostics</h3>
+<p>Image analysis, disease prediction and alerts.</p>
+</div>
+
+<div class="card">
+<h3>Emergency Systems</h3>
+<p>Ambulance tracking and urgent care coordination.</p>
+</div>
+
+</div>
+</section>
+
+<section id="career">
+<div class="quote">
+“Healthcare software is where coding meets compassion.”
+</div>
+</section>
+
+<section>
+<h2 class="title">Message to CSE Students how to Apply Design Thinking</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Build Meaningful Products</h3>
+<p>Your software can improve real human lives.</p>
+</div>
+
+<div class="card">
+<h3>Think Beyond UI</h3>
+<p>Understand workflows, urgency and data privacy.</p>
+</div>
+
+<div class="card">
+<h3>Future Ready Career</h3>
+<p>Healthcare tech is one of the fastest growing sectors.</p>
+</div>
+
+</div>
+
+<center>
+<a href="index.html" class="btn">← Back to Home</a>
+</center>
+
+</section>
+
+<footer id="footer">
+© 2026 NBKRSIT | Design Thinking for Software Engineering | authored by Hari babu Mutchakala
+</footer>
+
+</body>
+</html>

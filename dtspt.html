@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Technology Systems | Design Thinking</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#eef3f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#08294a;
+padding:16px 7%;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fff;
+}
+
+.logo span{
+color:#33d1ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#33d1ff;
+}
+
+.hero{
+background:linear-gradient(rgba(8,41,74,.88),rgba(8,41,74,.88)),
+url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:85px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:920px;
+margin:auto;
+font-size:20px;
+color:#dceeff;
+}
+
+section{
+padding:65px 7%;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+color:#08294a;
+margin-bottom:12px;
+}
+
+.subtitle{
+max-width:860px;
+margin:auto auto 45px;
+text-align:center;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:24px;
+}
+
+.card{
+background:#fff;
+padding:26px;
+border-radius:10px;
+box-shadow:0 10px 22px rgba(0,0,0,0.08);
+border-top:4px solid #08294a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+}
+
+.card h3{
+color:#08294a;
+margin-bottom:10px;
+}
+
+.stage{
+background:#ffffff;
+padding:25px;
+margin-bottom:18px;
+border-left:5px solid #33d1ff;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.stage h3{
+color:#08294a;
+margin-bottom:8px;
+}
+
+.quote{
+background:#08294a;
+color:#fff;
+padding:35px;
+border-radius:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:28px;
+padding:13px 26px;
+background:#08294a;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0d4f8a;
+}
+
+footer{
+background:#08294a;
+color:#fff;
+padding:30px 7%;
+text-align:center;
+margin-top:50px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:32px;
+}
+.title{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think@NBKRIST</span></div>
+
+<nav>
+<ul>
+<li><a href="dtmain.html">Home</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Space Technology Systems</h1>
+<p>
+Discover how software engineers build mission control systems, satellite dashboards, rover software, launch analytics and astronaut support platforms using Design Thinking.
+</p>
+</section>
+
+<section>
+<h2 class="title">Why Space Technology Software Matters?</h2>
+<p class="subtitle">
+Modern space missions rely on advanced software for navigation, communication, safety, analytics and autonomous decision making. Space exploration is powered by engineering intelligence.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>High Impact Innovation</h3>
+<p>Software enables missions beyond Earth.</p>
+</div>
+
+<div class="card">
+<h3>Advanced Technologies</h3>
+<p>Uses AI, embedded systems, networking, cloud and robotics.</p>
+</div>
+
+<div class="card">
+<h3>Dream Career Domain</h3>
+<p>Ideal for engineers who want frontier technology challenges.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">Design Thinking Stages in Space Systems</h2>
+<p class="subtitle">
+How engineers design reliable systems for extreme environments.
+</p>
+
+<div class="stage">
+<h3>1. Empathize</h3>
+<p>Understand the needs of scientists, mission operators, astronauts and engineers: reliability, clarity, speed and zero-error workflows.</p>
+</div>
+
+<div class="stage">
+<h3>2. Define</h3>
+<p>Frame problems clearly: “Mission teams need one dashboard to monitor satellite health in real time.”</p>
+</div>
+
+<div class="stage">
+<h3>3. Ideate</h3>
+<p>Create solutions like autonomous alerts, rover control UIs, space weather analytics, digital twins and fail-safe communication tools.</p>
+</div>
+
+<div class="stage">
+<h3>4. Prototype</h3>
+<p>Build control room dashboards, simulation software, telemetry apps, operator consoles and mission planning systems.</p>
+</div>
+
+<div class="stage">
+<h3>5. Test</h3>
+<p>Run simulations, stress tests and scenario drills. Engineers improve usability, resilience and safety continuously.</p>
+</div>
+
+</section>
+
+<section>
+<h2 class="title">Real Modules Engineers Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Mission Control Dashboard</h3>
+<p>Telemetry, alerts, commands and live mission status.</p>
+</div>
+
+<div class="card">
+<h3>Satellite Monitoring</h3>
+<p>Power, orbit, communication and payload health systems.</p>
+</div>
+
+<div class="card">
+<h3>Rover Software</h3>
+<p>Navigation, sensors and autonomous path planning.</p>
+</div>
+
+<div class="card">
+<h3>Launch Analytics</h3>
+<p>Countdown systems, trajectory and risk monitoring.</p>
+</div>
+
+<div class="card">
+<h3>Astronaut Support Apps</h3>
+<p>Health monitoring, task guidance and schedules.</p>
+</div>
+
+<div class="card">
+<h3>Space Data Platforms</h3>
+<p>Earth observation imagery and research analytics.</p>
+</div>
+
+</div>
+</section>
+
+<section id="career">
+<div class="quote">
+“The future of space exploration will be written in code.”
+</div>
+</section>
+
+<section>
+<h2 class="title">Message to CSE Students</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Dream Big</h3>
+<p>Your software can help explore the universe.</p>
+</div>
+
+<div class="card">
+<h3>Master Core Skills</h3>
+<p>Algorithms, systems, AI and reliability engineering matter here.</p>
+</div>
+
+<div class="card">
+<h3>Global Opportunities</h3>
+<p>Space startups and agencies need brilliant engineers.</p>
+</div>
+
+</div>
+
+<center>
+<a href="dtmain.html" class="btn">← Back to Home</a>
+</center>
+
+</section>
+
+<footer id="footer">
+© 2026 NBKRSIT | Design Thinking for Software Engineering | authored by Hari babu Mutchakala
+</footer>
+
+</body>
+</html>

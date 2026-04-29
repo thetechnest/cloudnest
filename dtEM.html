@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Environmental Monitoring Systems | Design Thinking</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#eef3f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#08294a;
+padding:16px 7%;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fff;
+}
+
+.logo span{
+color:#33d1ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#33d1ff;
+}
+
+.hero{
+background:linear-gradient(rgba(8,41,74,.88),rgba(8,41,74,.88)),
+url('https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:85px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:920px;
+margin:auto;
+font-size:20px;
+color:#dceeff;
+}
+
+section{
+padding:65px 7%;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+color:#08294a;
+margin-bottom:12px;
+}
+
+.subtitle{
+max-width:860px;
+margin:auto auto 45px;
+text-align:center;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:24px;
+}
+
+.card{
+background:#fff;
+padding:26px;
+border-radius:10px;
+box-shadow:0 10px 22px rgba(0,0,0,0.08);
+border-top:4px solid #08294a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+}
+
+.card h3{
+color:#08294a;
+margin-bottom:10px;
+}
+
+.stage{
+background:#ffffff;
+padding:25px;
+margin-bottom:18px;
+border-left:5px solid #33d1ff;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.stage h3{
+color:#08294a;
+margin-bottom:8px;
+}
+
+.quote{
+background:#08294a;
+color:#fff;
+padding:35px;
+border-radius:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:28px;
+padding:13px 26px;
+background:#08294a;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0d4f8a;
+}
+
+footer{
+background:#08294a;
+color:#fff;
+padding:30px 7%;
+text-align:center;
+margin-top:50px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:32px;
+}
+.title{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think@NBKRSIT</span></div>
+
+<nav>
+<ul>
+<li><a href="dtmain.html">Home</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Environmental Monitoring Systems</h1>
+<p>
+Learn how software engineers build air quality dashboards, water monitoring platforms, climate analytics tools and sustainability systems using Design Thinking.
+</p>
+</section>
+
+<section>
+<h2 class="title">Why Environmental Software Matters?</h2>
+<p class="subtitle">
+Climate change, pollution and resource management are global challenges. Smart software helps governments, industries and citizens make better environmental decisions.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Global Impact</h3>
+<p>Supports cleaner air, safer water and sustainable living.</p>
+</div>
+
+<div class="card">
+<h3>Future Tech Domain</h3>
+<p>Uses IoT, AI, GIS, cloud and real-time analytics.</p>
+</div>
+
+<div class="card">
+<h3>Meaningful Careers</h3>
+<p>Ideal for engineers who want technology with purpose.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">Design Thinking Stages in Environmental Monitoring</h2>
+<p class="subtitle">
+How engineers design systems people can use to protect the planet.
+</p>
+
+<div class="stage">
+<h3>1. Empathize</h3>
+<p>Understand pain points of citizens, farmers, industries and officials: pollution uncertainty, delayed alerts, unclear reports and poor resource visibility.</p>
+</div>
+
+<div class="stage">
+<h3>2. Define</h3>
+<p>Frame problems clearly: “Cities need real-time air quality alerts that citizens can easily understand.”</p>
+</div>
+
+<div class="stage">
+<h3>3. Ideate</h3>
+<p>Create solutions like pollution dashboards, water quality sensors, waste tracking apps, carbon calculators and climate alert systems.</p>
+</div>
+
+<div class="stage">
+<h3>4. Prototype</h3>
+<p>Build mobile apps, sensor dashboards, GIS maps, analytics portals and public awareness interfaces.</p>
+</div>
+
+<div class="stage">
+<h3>5. Test</h3>
+<p>Users validate clarity, usefulness, speed and trustworthiness. Engineers improve systems continuously.</p>
+</div>
+
+</section>
+
+<section>
+<h2 class="title">Real Modules Engineers Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Air Quality Dashboard</h3>
+<p>Live AQI monitoring, maps and health alerts.</p>
+</div>
+
+<div class="card">
+<h3>Water Quality Systems</h3>
+<p>Track pH, contamination and reservoir conditions.</p>
+</div>
+
+<div class="card">
+<h3>Waste Management</h3>
+<p>Collection routes, recycling data and smart bins.</p>
+</div>
+
+<div class="card">
+<h3>Climate Analytics</h3>
+<p>Rainfall, temperature and long-term trend insights.</p>
+</div>
+
+<div class="card">
+<h3>Carbon Tracking</h3>
+<p>Measure emissions for industries and campuses.</p>
+</div>
+
+<div class="card">
+<h3>Disaster Alerts</h3>
+<p>Flood, cyclone, wildfire and heatwave warnings.</p>
+</div>
+
+</div>
+</section>
+
+<section id="career">
+<div class="quote">
+“The next great software product may help save the planet.”
+</div>
+</section>
+
+<section>
+<h2 class="title">Message to CSE Students</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Code with Purpose</h3>
+<p>Use your skills to solve environmental challenges.</p>
+</div>
+
+<div class="card">
+<h3>Learn Powerful Tech</h3>
+<p>IoT, cloud, analytics, maps and AI in one domain.</p>
+</div>
+
+<div class="card">
+<h3>Strong Future Scope</h3>
+<p>Green technology and sustainability careers are growing fast.</p>
+</div>
+
+</div>
+
+<center>
+<a href="dtmain.html" class="btn">← Back to Home</a>
+</center>
+
+</section>
+
+<footer id="footer">
+© 2026 NBKRSIT | Design Thinking for Software Engineering | authored by Hari babu Mutchakala
+</footer>
+
+</body>
+</html>

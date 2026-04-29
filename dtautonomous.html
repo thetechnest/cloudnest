@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autonomous Vehicles | Design Thinking</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#eef3f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#08294a;
+padding:16px 7%;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fff;
+}
+
+.logo span{
+color:#33d1ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#33d1ff;
+}
+
+.hero{
+background:linear-gradient(rgba(8,41,74,.88),rgba(8,41,74,.88)),
+url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:85px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:920px;
+margin:auto;
+font-size:20px;
+color:#dceeff;
+}
+
+section{
+padding:65px 7%;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+color:#08294a;
+margin-bottom:12px;
+}
+
+.subtitle{
+max-width:900px;
+margin:auto auto 45px;
+text-align:center;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:24px;
+}
+
+.card{
+background:#fff;
+padding:26px;
+border-radius:10px;
+box-shadow:0 10px 22px rgba(0,0,0,0.08);
+border-top:4px solid #08294a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+}
+
+.card h3{
+color:#08294a;
+margin-bottom:10px;
+}
+
+.stage{
+background:#ffffff;
+padding:25px;
+margin-bottom:18px;
+border-left:5px solid #33d1ff;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.stage h3{
+color:#08294a;
+margin-bottom:8px;
+}
+
+.quote{
+background:#08294a;
+color:#fff;
+padding:35px;
+border-radius:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:28px;
+padding:13px 26px;
+background:#08294a;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0d4f8a;
+}
+
+footer{
+background:#08294a;
+color:#fff;
+padding:30px 7%;
+text-align:center;
+margin-top:50px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:32px;
+}
+.title{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think@NBKRIST</span></div>
+
+<nav>
+<ul>
+<li><a href="dtmain.html">Home</a></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Autonomous Vehicles</h1>
+<p>
+Explore how software engineers combine AI, Data Science, Java systems, UI design, sensors and cloud platforms to build self-driving and intelligent vehicle solutions using Design Thinking.
+</p>
+</section>
+
+<section>
+<h2 class="title">Why Autonomous Vehicle Software Matters?</h2>
+<p class="subtitle">
+Future transportation depends on software. Autonomous vehicles use real-time intelligence to improve safety, efficiency and mobility.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Future Mobility</h3>
+<p>Self-driving systems are transforming transportation worldwide.</p>
+</div>
+
+<div class="card">
+<h3>Multi-Disciplinary Engineering</h3>
+<p>Combines AI, UI, embedded systems, networking and analytics.</p>
+</div>
+
+<div class="card">
+<h3>High Career Scope</h3>
+<p>Excellent domain for CSE, AI, Data Science and software engineers.</p>
+</div>
+
+</div>
+</section>
+
+<section id="components">
+<h2 class="title">Major Software Components</h2>
+<p class="subtitle">
+Autonomous vehicles are built using many software layers working together.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>AI / Machine Learning</h3>
+<p>Object detection, lane recognition, pedestrian safety, decision making and path planning.</p>
+</div>
+
+<div class="card">
+<h3>Data Science</h3>
+<p>Analyze driving data, traffic patterns, route optimization and performance metrics.</p>
+</div>
+
+<div class="card">
+<h3>Java Enterprise Systems</h3>
+<p>Fleet management, backend APIs, charging systems, booking portals and cloud services.</p>
+</div>
+
+<div class="card">
+<h3>UI / UX Design</h3>
+<p>Driver dashboard, touch controls, alerts, maps and human-machine interaction.</p>
+</div>
+
+<div class="card">
+<h3>Embedded Systems</h3>
+<p>Sensor integration with cameras, radar, lidar, braking and steering controls.</p>
+</div>
+
+<div class="card">
+<h3>Cloud & Networking</h3>
+<p>OTA updates, vehicle connectivity, diagnostics and remote monitoring.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">Design Thinking Stages in Autonomous Vehicles</h2>
+<p class="subtitle">
+How engineers design intelligent systems people can trust.
+</p>
+
+<div class="stage">
+<h3>1. Empathize</h3>
+<p>Understand drivers, passengers and city needs: safety concerns, traffic stress, parking problems, elderly mobility and trust in automation.</p>
+</div>
+
+<div class="stage">
+<h3>2. Define</h3>
+<p>Frame problems clearly: “Users need safer travel with simpler controls and fewer accidents.”</p>
+</div>
+
+<div class="stage">
+<h3>3. Ideate</h3>
+<p>Create solutions like smart navigation, voice assistant, auto parking, collision alerts and adaptive driving modes.</p>
+</div>
+
+<div class="stage">
+<h3>4. Prototype</h3>
+<p>Build dashboard UIs, driving simulators, AI models, route engines and control software demos.</p>
+</div>
+
+<div class="stage">
+<h3>5. Test</h3>
+<p>Run simulation tests, road tests, user studies and safety validation. Improve continuously.</p>
+</div>
+
+</section>
+
+<section>
+<h2 class="title">Real Applications Engineers Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Self Driving Cars</h3>
+<p>Navigation, sensing and real-time autonomous control.</p>
+</div>
+
+<div class="card">
+<h3>Smart EV Fleets</h3>
+<p>Ride-sharing, route planning and charging management.</p>
+</div>
+
+<div class="card">
+<h3>ADAS Platforms</h3>
+<p>Lane assist, blind spot alerts and driver safety tools.</p>
+</div>
+
+<div class="card">
+<h3>Traffic Intelligence</h3>
+<p>Connected vehicle analytics and congestion prediction.</p>
+</div>
+
+<div class="card">
+<h3>Vehicle Dashboards</h3>
+<p>Maps, alerts, entertainment and vehicle diagnostics.</p>
+</div>
+
+<div class="card">
+<h3>Remote Monitoring</h3>
+<p>Cloud-based fleet health and maintenance systems.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="quote">
+“The cars of tomorrow will run on software written by engineers of today.”
+</div>
+</section>
+
+<section>
+<h2 class="title">Message to CSE Students</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Use Multiple Skills</h3>
+<p>Perfect field for AI, Java, Data Science, UI and systems design.</p>
+</div>
+
+<div class="card">
+<h3>Build the Future</h3>
+<p>Your code can redefine mobility and road safety.</p>
+</div>
+
+<div class="card">
+<h3>Global Opportunity</h3>
+<p>Automotive tech companies need smart software talent.</p>
+</div>
+
+</div>
+
+<center>
+<a href="dtmain.html" class="btn">← Back to Home</a>
+</center>
+
+</section>
+
+<footer id="footer">
+© 2026 NBKRSIT | Design Thinking for Software Engineering | authored by Hari babu Mutchakala
+</footer>
+
+</body>
+</html>

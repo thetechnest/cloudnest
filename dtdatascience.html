@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Applications | Design Thinking</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#eef3f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#08294a;
+padding:16px 7%;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fff;
+}
+
+.logo span{
+color:#33d1ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#33d1ff;
+}
+
+.hero{
+background:linear-gradient(rgba(8,41,74,.88),rgba(8,41,74,.88)),
+url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:85px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:920px;
+margin:auto;
+font-size:20px;
+color:#dceeff;
+}
+
+section{
+padding:65px 7%;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+color:#08294a;
+margin-bottom:12px;
+}
+
+.subtitle{
+max-width:860px;
+margin:auto auto 45px;
+text-align:center;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:24px;
+}
+
+.card{
+background:#fff;
+padding:26px;
+border-radius:10px;
+box-shadow:0 10px 22px rgba(0,0,0,0.08);
+border-top:4px solid #08294a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+}
+
+.card h3{
+color:#08294a;
+margin-bottom:10px;
+}
+
+.stage{
+background:#ffffff;
+padding:25px;
+margin-bottom:18px;
+border-left:5px solid #33d1ff;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.stage h3{
+color:#08294a;
+margin-bottom:8px;
+}
+
+.quote{
+background:#08294a;
+color:#fff;
+padding:35px;
+border-radius:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:28px;
+padding:13px 26px;
+background:#08294a;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0d4f8a;
+}
+
+footer{
+background:#08294a;
+color:#fff;
+padding:30px 7%;
+text-align:center;
+margin-top:50px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:34px;
+}
+.title{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think@NBKRSIT</span></div>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Data Science Applications Using Design Thinking</h1>
+<p>
+Learn how software engineers build analytics platforms, forecasting tools, dashboards, recommendation systems and data-driven decision software using Design Thinking.
+</p>
+</section>
+
+<section>
+<h2 class="title">Why Data Science Matters?</h2>
+<p class="subtitle">
+Organizations generate massive amounts of data every day. Smart software transforms this raw data into insights, predictions and strategic decisions.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Decision Intelligence</h3>
+<p>Data helps companies make faster and smarter choices.</p>
+</div>
+
+<div class="card">
+<h3>High Demand Careers</h3>
+<p>Roles in Data Engineering, BI, Analytics and Data Science.</p>
+</div>
+
+<div class="card">
+<h3>Every Industry Uses It</h3>
+<p>Healthcare, banking, retail, telecom, education and logistics.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">Design Thinking Stages in Data Science Products</h2>
+<p class="subtitle">
+How engineers build data products people can trust and use.
+</p>
+
+<div class="stage">
+<h3>1. Empathize</h3>
+<p>Understand managers, analysts and users struggling with unclear reports, slow decisions, scattered data and poor visibility.</p>
+</div>
+
+<div class="stage">
+<h3>2. Define</h3>
+<p>Frame problems clearly: “Business leaders need one dashboard showing sales trends in real time.”</p>
+</div>
+
+<div class="stage">
+<h3>3. Ideate</h3>
+<p>Create solutions like KPI dashboards, forecasting tools, anomaly alerts, recommendation systems and self-service analytics portals.</p>
+</div>
+
+<div class="stage">
+<h3>4. Prototype</h3>
+<p>Build dashboard wireframes, ETL workflows, data models, report mockups and predictive demos.</p>
+</div>
+
+<div class="stage">
+<h3>5. Test</h3>
+<p>Users validate clarity, speed, relevance and trustworthiness of insights. Engineers refine continuously.</p>
+</div>
+
+</section>
+
+<section>
+<h2 class="title">Real Data Science Applications Engineers Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Business Dashboards</h3>
+<p>Visualize revenue, growth, operations and KPIs.</p>
+</div>
+
+<div class="card">
+<h3>Sales Forecasting</h3>
+<p>Predict demand and future revenue trends.</p>
+</div>
+
+<div class="card">
+<h3>Customer Analytics</h3>
+<p>Study churn, loyalty and buying behavior.</p>
+</div>
+
+<div class="card">
+<h3>Recommendation Systems</h3>
+<p>Suggest products, courses and content intelligently.</p>
+</div>
+
+<div class="card">
+<h3>Fraud & Risk Analytics</h3>
+<p>Detect anomalies and suspicious patterns.</p>
+</div>
+
+<div class="card">
+<h3>Data Pipelines</h3>
+<p>Collect, clean and process large-scale data automatically.</p>
+</div>
+
+</div>
+</section>
+
+<section id="career">
+<div class="quote">
+“Data becomes powerful only when engineers turn it into decisions.”
+</div>
+</section>
+
+<section>
+<h2 class="title">Message to CSE Students</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Blend Coding + Logic</h3>
+<p>Perfect field for programming, math and business thinking.</p>
+</div>
+
+<div class="card">
+<h3>Think Like a Strategist</h3>
+<p>Great engineers solve decisions, not only databases.</p>
+</div>
+
+<div class="card">
+<h3>Future Ready Career</h3>
+<p>Data skills open doors across every modern industry.</p>
+</div>
+
+</div>
+
+<center>
+<a href="dtaiml.html" class="btn">← Back to Home</a>
+</center>
+
+</section>
+
+<footer id="footer">
+© 2026 NBKRSIT | Design Thinking for Software Engineering | authored by Hari babu Mutchakala
+</footer>
+
+</body>
+</html>

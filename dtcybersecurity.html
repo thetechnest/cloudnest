@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Security Applications | Design Thinking</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#eef3f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#08294a;
+padding:16px 7%;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fff;
+}
+
+.logo span{
+color:#33d1ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#33d1ff;
+}
+
+.hero{
+background:linear-gradient(rgba(8,41,74,.88),rgba(8,41,74,.88)),
+url('https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:85px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:920px;
+margin:auto;
+font-size:20px;
+color:#dceeff;
+}
+
+section{
+padding:65px 7%;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+color:#08294a;
+margin-bottom:12px;
+}
+
+.subtitle{
+max-width:860px;
+margin:auto auto 45px;
+text-align:center;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:24px;
+}
+
+.card{
+background:#fff;
+padding:26px;
+border-radius:10px;
+box-shadow:0 10px 22px rgba(0,0,0,0.08);
+border-top:4px solid #08294a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+}
+
+.card h3{
+color:#08294a;
+margin-bottom:10px;
+}
+
+.stage{
+background:#ffffff;
+padding:25px;
+margin-bottom:18px;
+border-left:5px solid #33d1ff;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.stage h3{
+color:#08294a;
+margin-bottom:8px;
+}
+
+.quote{
+background:#08294a;
+color:#fff;
+padding:35px;
+border-radius:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.btn{
+display:inline-block;
+margin-top:28px;
+padding:13px 26px;
+background:#08294a;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0d4f8a;
+}
+
+footer{
+background:#08294a;
+color:#fff;
+padding:30px 7%;
+text-align:center;
+margin-top:50px;
+font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:34px;
+}
+.title{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think@NBKRIST</span></div>
+
+<nav>
+<ul>
+<li><a href="dtmain.html">Home</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Cyber Security Applications Using Design Thinking</h1>
+<p>
+Discover how software engineers build secure systems, threat detection platforms, identity solutions, SOC dashboards and privacy-first applications using Design Thinking.
+</p>
+</section>
+
+<section>
+<h2 class="title">Why Cyber Security Matters?</h2>
+<p class="subtitle">
+Every digital product needs protection. Cyber security software defends data, money, privacy and critical infrastructure from evolving threats.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Mission Critical Domain</h3>
+<p>Protects users, organizations and national systems.</p>
+</div>
+
+<div class="card">
+<h3>Huge Career Demand</h3>
+<p>Roles in security engineering, SOC, cloud security and ethical hacking.</p>
+</div>
+
+<div class="card">
+<h3>Works Everywhere</h3>
+<p>Banking, healthcare, government, e-commerce and enterprises.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">Design Thinking Stages in Cyber Security Products</h2>
+<p class="subtitle">
+How engineers create security tools users can trust and teams can use effectively.
+</p>
+
+<div class="stage">
+<h3>1. Empathize</h3>
+<p>Understand user pain points: weak passwords, phishing confusion, alert fatigue, slow incident response and complex security tools.</p>
+</div>
+
+<div class="stage">
+<h3>2. Define</h3>
+<p>Frame problems clearly: “Employees need simpler login with stronger security and less friction.”</p>
+</div>
+
+<div class="stage">
+<h3>3. Ideate</h3>
+<p>Create solutions like MFA login, phishing simulators, SIEM dashboards, anomaly detection, zero trust access and secure vaults.</p>
+</div>
+
+<div class="stage">
+<h3>4. Prototype</h3>
+<p>Build mockups for admin consoles, alert dashboards, IAM portals, threat maps and incident workflows.</p>
+</div>
+
+<div class="stage">
+<h3>5. Test</h3>
+<p>Run penetration tests, usability testing, red-team drills and response simulations. Improve continuously.</p>
+</div>
+
+</section>
+
+<section>
+<h2 class="title">Real Cyber Security Applications Engineers Build</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Identity & Access Management</h3>
+<p>Login control, SSO, MFA and role-based permissions.</p>
+</div>
+
+<div class="card">
+<h3>SOC Dashboards</h3>
+<p>Monitor alerts, incidents and threat intelligence.</p>
+</div>
+
+<div class="card">
+<h3>Endpoint Security</h3>
+<p>Protect laptops, servers and mobile devices.</p>
+</div>
+
+<div class="card">
+<h3>Cloud Security Tools</h3>
+<p>Secure workloads, storage and configurations.</p>
+</div>
+
+<div class="card">
+<h3>Fraud & Anomaly Detection</h3>
+<p>Detect unusual behavior using AI models.</p>
+</div>
+
+<div class="card">
+<h3>Privacy Platforms</h3>
+<p>Encryption, key management and data protection.</p>
+</div>
+
+</div>
+</section>
+
+<section id="career">
+<div class="quote">
+“Security is not a feature added later — it is designed from day one.”
+</div>
+</section>
+
+<section>
+<h2 class="title">Message to CSE Students</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Become Highly Valuable</h3>
+<p>Every company urgently needs skilled security engineers.</p>
+</div>
+
+<div class="card">
+<h3>Think Like Defender</h3>
+<p>Learn systems, networks, coding and attacker mindset.</p>
+</div>
+
+<div class="card">
+<h3>Future Ready Career</h3>
+<p>Cyber security demand keeps growing every year.</p>
+</div>
+
+</div>
+
+<center>
+<a href="dtmain.html" class="btn">← Back to Home</a>
+</center>
+
+</section>
+
+<footer id="footer">
+© 2026 NBKRSIT | Design Thinking for Software Engineering | authored by Hari babu Mutchakala
+</footer>
+
+</body>
+</html>

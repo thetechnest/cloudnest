@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Thinking for Software Engineering</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: 'Segoe UI', sans-serif;
+background:#f5f7fa;
+color:#222;
+line-height:1.6;
+}
+
+/* Header */
+header{
+background:#0b1c39;
+padding:18px 7%;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#fff;
+}
+
+.logo span{
+color:#00c6ff;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#00c6ff;
+}
+
+/* Hero */
+.hero{
+background:linear-gradient(rgba(11,28,57,.88),rgba(11,28,57,.88)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+padding:90px 7%;
+text-align:center;
+color:#fff;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:900px;
+margin:auto;
+font-size:20px;
+color:#dbeafe;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 28px;
+background:#00c6ff;
+color:#000;
+font-weight:700;
+text-decoration:none;
+border-radius:6px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#fff;
+}
+
+/* Section */
+section{
+padding:70px 7%;
+}
+
+.title{
+text-align:center;
+font-size:38px;
+margin-bottom:10px;
+color:#0b1c39;
+}
+
+.subtitle{
+text-align:center;
+color:#555;
+max-width:800px;
+margin:auto auto 45px;
+}
+
+/* Cards */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.card{
+background:#fff;
+border-radius:10px;
+padding:28px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:0.3s;
+border-top:4px solid #0b1c39;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+color:#0b1c39;
+margin-bottom:12px;
+}
+
+.card p{
+color:#555;
+margin-bottom:15px;
+}
+
+.card a{
+color:#00a8e8;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* Stages */
+.stage-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.stage{
+background:#eef4ff;
+padding:22px;
+border-left:5px solid #0b1c39;
+border-radius:8px;
+}
+
+.stage h4{
+margin-bottom:8px;
+color:#0b1c39;
+}
+
+/* Footer */
+footer{
+background:#0b1c39;
+color:#fff;
+padding:45px 7%;
+margin-top:40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:30px;
+}
+
+footer h3{
+margin-bottom:12px;
+color:#00c6ff;
+}
+
+footer ul{
+list-style:none;
+}
+
+footer ul li{
+margin-bottom:8px;
+}
+
+footer ul li a{
+color:#fff;
+text-decoration:none;
+}
+
+.bottom{
+margin-top:30px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,0.15);
+text-align:center;
+font-size:14px;
+color:#ddd;
+}
+
+@media(max-width:900px){
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+nav ul{
+margin-top:15px;
+flex-wrap:wrap;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo">Design<span>Think @ NBKRSIT</span></div>
+
+<nav>
+<ul>
+<li><a href="dt.html">Home</a></li>
+<li><a href="#domains">Domains</a></li>
+<li><a href="#stages">Stages</a></li>
+<li><a href="#footer">Author</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Design Thinking for Computer Science & Software Engineering</h1>
+<p>
+Explore how Computer Science Engineers solve real-world industry problems using empathy, ideation, prototyping and testing across multiple software domains.
+</p>
+
+<a href="#domains" class="btn">Explore Applications</a>
+</section>
+
+<section>
+<h2 class="title">Why This Portal?</h2>
+<p class="subtitle">
+Many students learn programming languages but miss how products are actually designed. This platform teaches how engineers think before coding.A foundation portal for Computer Science Engineers to learn how software products are analyzed, designed and built using Design Thinking approaches.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Industry Ready Thinking</h3>
+<p>Understand real business problems before writing software.</p>
+</div>
+
+<div class="card">
+<h3>Architecture Mindset</h3>
+<p>Learn modular design, workflows and scalable systems.</p>
+</div>
+
+<div class="card">
+<h3>Placement Advantage</h3>
+<p>Useful for interviews, startups, projects and innovation labs.</p>
+</div>
+
+</div>
+</section>
+
+<section id="stages">
+<h2 class="title">5 Stages of Design Thinking</h2>
+<p class="subtitle">
+Every successful software application uses these steps.
+</p>
+
+<div class="stage-box">
+
+<div class="stage">
+<h4>1. Empathize</h4>
+<p>Understand users, customers and stakeholders.</p>
+</div>
+
+<div class="stage">
+<h4>2. Define</h4>
+<p>Identify the real problem clearly.</p>
+</div>
+
+<div class="stage">
+<h4>3. Ideate</h4>
+<p>Create multiple innovative solutions.</p>
+</div>
+
+<div class="stage">
+<h4>4. Prototype</h4>
+<p>Build wireframes, mockups and MVPs.</p>
+</div>
+
+<div class="stage">
+<h4>5. Test</h4>
+<p>Collect feedback and improve continuously.</p>
+</div>
+
+</div>
+</section>
+
+<section id="domains">
+<h2 class="title">Software Engineering Domains</h2>
+<p class="subtitle">
+Select any application area to explore detailed Design Thinking methods.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Banking Systems</h3>
+<p>ATM UX, loan automation, mobile banking, fraud detection.</p>
+<a href="dtbanking.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Healthcare</h3>
+<p>Hospital ERP, patient apps, telemedicine, diagnostics.</p>
+<a href="dthealthcare.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Automobile</h3>
+<p>Smart vehicles, dashboards, ERP manufacturing systems.</p>
+<a href="dtautomobile.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>AI / ML</h3>
+<p>Chatbots, recommendation engines, prediction systems.</p>
+<a href="dtaiml.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Data Science</h3>
+<p>Forecasting, analytics dashboards, business intelligence.</p>
+<a href="dtdatascience.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Networking</h3>
+<p>Monitoring tools, routers, security and cloud networks.</p>
+<a href="dtnetworking.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>College/Learning Management System</h3>
+<p>Learning management platforms, student information systems and academic administration tools.</p>
+<a href="dtlms.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Cyber Security</h3>
+<p>Threat detection, IAM, secure architecture.</p>
+<a href="dtcybersecurity.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Smart irrigation dashboards/Aggriculture</h3>
+<p>IoT-based smart irrigation systems, farm management platforms and agricultural analytics tools.</p>
+
+<a href="dtaggriculture.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Environmental Monitoring</h3>
+<p>Air quality monitoring, water quality dashboards and climate data platforms.</p>
+<a href="dtEM.html">Read More →</a>
+</div>
+<div class="card">
+<h3>Space Technology Systems</h3>
+<p>Satellite monitoring, mission control systems and aerospace engineering tools.</p>
+<a href="dtspt.html">Read More →</a>
+</div>
+
+<div class="card">
+<h3>Autonomous Vehicles</h3>
+<p>Self-driving car software, navigation systems and sensor fusion.</p>
+<a href="dtautonomous.html">Read More →</a>
+</div>
+</div>
+</section>
+
+
+
+<footer id="footer">
+<div class="bottom">    © 2026 NBKRIST | Design Thinking for Software Engineering | All Rights Reserved : Authored by Hari babu Mutchakala </div>
+
+</footer>
+
+</body>
+</html>
