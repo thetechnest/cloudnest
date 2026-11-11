@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uber | Design Thinking & Innovation</title>
+<style>
+:root {
+  --bg:#081321; --panel:#102238; --text:#edf5ff;
+  --muted:#b2c3d4; --cyan:#65d7e8; --line:#294057;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.7 Arial,sans-serif;
+}
+.wrap {width:min(1000px,92%);margin:auto}
+header {
+  height:70px;display:flex;align-items:center;
+  justify-content:space-between;border-bottom:1px solid var(--line)
+}
+.brand {font-weight:900;letter-spacing:2px;color:white;text-decoration:none}
+.brand span {color:var(--cyan)}
+a {color:var(--cyan)}
+.back {text-decoration:none;color:var(--muted)}
+.hero {padding:65px 0 35px}
+.eyebrow {
+  color:var(--cyan);font-size:.76rem;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase
+}
+h1 {
+  font-size:clamp(2.6rem,7vw,5rem);line-height:1.02;
+  letter-spacing:-3px;margin:15px 0
+}
+h1 span {color:var(--cyan)}
+.lead {max-width:780px;color:var(--muted);font-size:1.15rem}
+.hero-art {
+  height:280px;border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(130deg,#243c50,#0c1724 65%,#34536a);
+  display:grid;place-items:center;position:relative;overflow:hidden;margin-top:28px
+}
+.car {font-size:7rem;filter:drop-shadow(0 15px 18px #0008)}
+.caption {position:absolute;bottom:17px;left:22px;color:#d5e5f2;font-size:.8rem}
+.quote {
+  margin:30px 0;padding:24px;border-left:4px solid var(--cyan);
+  background:#65d7e812;border-radius:0 14px 14px 0;
+  font-size:1.35rem;font-weight:750
+}
+.section {padding:35px 0;border-top:1px solid var(--line)}
+h2 {font-size:2rem;line-height:1.15;margin:8px 0 15px}
+p {color:var(--muted)}
+.highlight {color:#ffd18a;font-weight:750}
+.callout {
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:16px;padding:20px;margin:20px 0
+}
+.callout strong {color:var(--cyan)}
+.tech,.stages {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;margin:20px 0
+}
+.tile,.stage {
+  padding:17px;background:var(--panel);
+  border:1px solid var(--line);border-radius:14px
+}
+.tile b {display:block;font-size:1.2rem}
+.tile small,.stage p {color:var(--muted)}
+.stages {grid-template-columns:repeat(5,1fr)}
+.stage .num {color:var(--cyan);font-size:.72rem;font-weight:850}
+.stage h3 {font-size:1rem}
+.stage p {font-size:.87rem}
+.challenge {
+  padding:24px;border:1px solid #65d7e866;border-radius:20px;
+  background:linear-gradient(130deg,#65d7e817,#6da8ff0b);margin:20px 0
+}
+.prompt {font-size:1.18rem;font-weight:800;margin:12px 0}
+.prompt span {color:var(--cyan)}
+.closing {font-size:1.45rem;font-weight:850;line-height:1.4;color:white}
+footer {
+  padding:25px 0 35px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.85rem
+}
+@media(max-width:760px) {
+  .stages {grid-template-columns:repeat(2,1fr)}
+  .tech {grid-template-columns:repeat(2,1fr)}
+  .hero-art {height:220px}
+}
+@media(max-width:430px) {
+  .stages,.tech {grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<header class="wrap">
+  <a class="brand" href="case-studies.html">NBKRIST DESIGN<span>NEST</span></a>
+  <a class="back" href="case-studies.html">← All Case Studies</a>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="eyebrow">Case Study 01 · Service Innovation</div>
+  <h1>Uber: <span>One problem.</span><br>One question. A new way to move.</h1>
+  <p class="lead">
+    A human frustration became the starting point for a new
+    on-demand transportation service. Innovation can come from
+    connecting existing technologies in a new way.
+  </p>
+  <div class="hero-art">
+    <div class="car">🚘</div>
+    <div class="caption">From waiting for a ride to requesting one</div>
+  </div>
+</section>
+
+<div class="quote">
+  "Fall in love with the problem, not with the technology."
+</div>
+
+<section class="section">
+  <div class="eyebrow">01 · Set the scene</div>
+  <h2>Take a journey to Paris</h2>
+
+  <p>
+    Imagine Paris in late 2008. Two technology entrepreneurs,
+    Travis Kalanick and Garrett Camp, are visiting the city
+    for the LeWeb technology conference.
+  </p>
+
+  <p>
+    They spend time discussing ideas and opportunities.
+    The conversation connects with a frustration Garrett
+    had experienced in San Francisco: finding a taxi when
+    he needed one could be difficult.
+  </p>
+
+  <p>
+    Now picture the situation: it is late, you are tired,
+    and you need to get back to your hotel. You look for a cab.
+    You wait. You try again. Still no ride.
+  </p>
+
+  <p><em>
+    At that moment, even a donkey with a passenger seat
+    might look like a luxury vehicle!
+  </em></p>
+
+  <p class="highlight">
+    Most people stop at complaining. Innovators start questioning.
+  </p>
+
+  <div class="callout">
+    <strong>Historical note:</strong>
+    The late-night Paris discussion is based on Travis Kalanick's
+    account. The popular version that the founders were stranded
+    outside a bar at 3 AM is a storytelling embellishment,
+    not a verified detail.
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">02 · The turning-point question</div>
+  <h2>What if getting a ride were as simple as using a phone?</h2>
+
+  <p>
+    What if you could request a car from your phone?
+    What if the driver could find your location?
+    What if you could see the car approaching?
+    What if payment happened automatically?
+  </p>
+
+  <p>
+    Garrett's initial concept was an on-demand luxury car
+    service, with the cost shared through an iPhone application.
+    The idea developed into UberCab, later known as Uber.
+  </p>
+
+  <div class="callout">
+    <strong>The innovation spark:</strong>
+    What if we could make requesting a ride simple,
+    convenient and predictable?
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">03 · Existing technology, new combination</div>
+  <h2>Did they invent all the technology?</h2>
+
+  <p>
+    No. The innovation was not the invention of every component.
+    It was the way existing capabilities were brought together
+    in a new service experience.
+  </p>
+
+  <div class="tech">
+    <div class="tile"><b>GPS</b><small>Location awareness</small></div>
+    <div class="tile"><b>Internet</b><small>Connecting people</small></div>
+    <div class="tile"><b>Smartphones</b><small>User interface</small></div>
+    <div class="tile"><b>Digital maps</b><small>Navigation</small></div>
+    <div class="tile"><b>Payments</b><small>Convenient transactions</small></div>
+    <div class="tile"><b>Driver network</b><small>Delivering the ride</small></div>
+  </div>
+
+  <p>
+    <strong>Remember:</strong> You don't always have to reinvent
+    the wheel. Sometimes you need to connect existing wheels
+    in a different way.
+  </p>
+</section>
+
+<section class="section">
+  <div class="eyebrow">04 · From idea to experiment</div>
+  <h2>An idea had to meet reality</h2>
+
+  <p>
+    The team developed the early application and tested the service.
+    An early test took place in New York in January 2010 using
+    just three cars. Uber launched in San Francisco on May 31, 2010.
+  </p>
+
+  <div class="callout">
+    <strong>Three cars—not thousands.</strong>
+    Early experiments let a team learn from real use,
+    discover friction and improve before expanding.
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">05 · Design Thinking</div>
+  <h2>Five stages, one human-centred mindset</h2>
+
+  <p>
+    Use the Uber journey to understand the five commonly taught
+    stages of Design Thinking. This is a learning interpretation
+    of the story, not a claim that the founders formally followed
+    this exact framework.
+  </p>
+
+  <div class="stages">
+    <div class="stage">
+      <div class="num">01 · EMPATHIZE</div>
+      <h3>🤝 Understand people</h3>
+      <p>Recognise passenger frustration, uncertainty and the need for reliable transportation.</p>
+    </div>
+
+    <div class="stage">
+      <div class="num">02 · DEFINE</div>
+      <h3>🎯 Frame the problem</h3>
+      <p>How might we help people request a reliable ride with less waiting and uncertainty?</p>
+    </div>
+
+    <div class="stage">
+      <div class="num">03 · IDEATE</div>
+      <h3>💡 Explore possibilities</h3>
+      <p>Consider app-based requests, location sharing, driver matching and digital payments.</p>
+    </div>
+
+    <div class="stage">
+      <div class="num">04 · PROTOTYPE</div>
+      <h3>🧩 Make it tangible</h3>
+      <p>Build an early app and service that people can try.</p>
+    </div>
+
+    <div class="stage">
+      <div class="num">05 · TEST</div>
+      <h3>🧪 Learn and improve</h3>
+      <p>Try the service with users, gather feedback and refine it.</p>
+    </div>
+  </div>
+
+  <p><small>
+    Design Thinking is iterative. Testing may reveal that
+    the problem needs to be reframed or another idea explored.
+  </small></p>
+</section>
+
+<section class="section">
+  <div class="eyebrow">06 · Think like an AIML engineer</div>
+  <h2>Technology is a tool. Problem-solving is the skill.</h2>
+
+  <p>
+    Imagine you build a machine-learning model with 95% accuracy.
+    That sounds impressive. But what if nobody needs the application?
+    What if it is too slow, too expensive, difficult to use,
+    or unreliable outside the lab?
+  </p>
+
+  <p>
+    Before choosing Python, machine learning, deep learning
+    or generative AI, ask who experiences the problem and
+    what evidence shows that it matters.
+  </p>
+
+  <div class="callout">
+    <strong>Ask yourself:</strong>
+    Who is experiencing this problem? How do they solve it today?
+    What makes the current approach frustrating?
+    How will I know my solution helped?
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">07 · Your turn</div>
+  <h2>Can you find the next big problem?</h2>
+
+  <p>
+    Look around your college, your home, your neighbourhood
+    or your community. Find one genuine problem.
+    Do not start by choosing a technology.
+  </p>
+
+  <div class="challenge">
+    <div class="eyebrow">Five-minute innovation challenge</div>
+    <h2>Start with a problem. Not a product.</h2>
+
+    <p>Work in a team of 3–5. Discuss one problem that people
+    experience and propose a way to improve their situation.</p>
+
+    <div class="prompt">
+      People face the problem of
+      <span>________________________</span>.
+    </div>
+
+    <div class="prompt">
+      We propose to solve it by
+      <span>________________________</span>.
+    </div>
+
+    <div class="prompt">
+      Using <span>________________________</span> technology.
+    </div>
+
+    <p><small>
+      Explain who has the problem, why it matters
+      and how you would test your idea.
+    </small></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">The takeaway</div>
+  <h2>What should you remember?</h2>
+
+  <p>
+    Uber's story reminds us that innovation can come from
+    recognising a human need, reframing a problem,
+    combining existing capabilities and learning through experiments.
+  </p>
+
+  <p class="closing">
+    Don't just ask: What technology can I build?<br>
+    Ask: What problem can I solve using technology?
+  </p>
+
+  <p>
+    Keep your eyes open. Keep questioning. Keep experimenting.
+    The next meaningful idea may begin with a problem you notice
+    on your way to college tomorrow.
+  </p>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Further reading</div>
+  <h2>Explore the original story</h2>
+  <p>
+    <a href="https://www.uber.com/newsroom/" target="_blank">
+      Uber Newsroom
+    </a>
+    ·
+    <a href="https://designthinking.ideo.com/" target="_blank">
+      IDEO Design Thinking
+    </a>
+  </p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <a href="case-studies.html">← Back to all case studies</a>
+  <p>© DesignNest · NBKRIST | Human-Centred Innovation :  Hari Babu Mutchakala</p>
+</footer>
+</body>
+</html>
