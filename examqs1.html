@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ph.D. Second Semester Cloud Architecture and Design — unit-wise 20-mark questions and conceptual answers.">
+<title>Cloud Architecture & Design | Ph.D. Exam Preparation</title>
+<style>
+:root{
+ --bg:#f4f7fb;--surface:#fff;--surface2:#eef3fa;--text:#17243b;--muted:#607089;
+ --line:#dce5f0;--brand:#2457c5;--brand2:#13a6a0;--accent:#e9f0ff;--shadow:0 12px 32px rgba(23,49,92,.08);
+ --radius:18px;--nav:#101d38;--navtext:#e9f0ff;
+}
+[data-theme="dark"]{
+ --bg:#0c1424;--surface:#121f34;--surface2:#1a2a43;--text:#edf3ff;--muted:#a8b6cc;
+ --line:#2a3b56;--brand:#86aaff;--brand2:#54d2c4;--accent:#1d3153;--shadow:0 12px 32px rgba(0,0,0,.25);
+ --nav:#091224;--navtext:#edf3ff;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--bg);color:var(--text);font:15.5px/1.72 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--brand);text-decoration:none}
+.topbar{background:var(--nav);color:var(--navtext);position:sticky;top:0;z-index:20;box-shadow:0 5px 24px #07122633}
+.topinner{max-width:1240px;margin:auto;padding:12px 22px;display:flex;align-items:center;gap:14px}
+.brandmark{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#2d68dc,#16b7ad);display:grid;place-items:center;color:white;font-weight:900;font-size:18px}
+.brandtext{line-height:1.25}.brandtext strong{display:block;font-size:15px;letter-spacing:.2px}.brandtext span{font-size:11px;opacity:.72}
+.topspacer{flex:1}.topbtn{border:1px solid #ffffff35;background:#ffffff12;color:white;padding:8px 12px;border-radius:10px;cursor:pointer;font:inherit;font-size:13px}
+.hero{background:linear-gradient(120deg,#10244a,#194e9d 58%,#078f91);color:#fff;padding:54px 22px 42px}
+.hero-inner{max-width:1240px;margin:auto}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#bcd5ff;font-weight:800}
+.hero h1{font-size:clamp(30px,4.5vw,48px);line-height:1.12;margin:12px 0 14px;max-width:850px}
+.hero p{max-width:790px;color:#e1ebff;margin:0;font-size:16px}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:23px}.tag{border:1px solid #ffffff45;background:#ffffff14;border-radius:30px;padding:6px 12px;font-size:12px}
+.wrap{max-width:1240px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px;align-items:start}
+.sidebar{position:sticky;top:82px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.side-title{font-weight:800;margin:0 0 10px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.unitlink{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:11px;color:var(--text);font-size:13px;margin:3px 0}
+.unitlink:hover,.unitlink.active{background:var(--accent);color:var(--brand)}
+.unitnum{font-weight:900;min-width:26px;color:var(--brand)}
+.progressbox{margin-top:17px;padding-top:15px;border-top:1px solid var(--line)}
+.progressline{height:7px;background:var(--surface2);border-radius:10px;overflow:hidden;margin:9px 0}
+.progressfill{height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .25s}
+.small{font-size:12px;color:var(--muted)}
+.content{min-width:0}
+.introcard,.unithead,.question,.studybox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.introcard{padding:23px 25px;margin-bottom:22px}
+.introcard h2{margin:0 0 7px;font-size:21px}.introcard p{margin:6px 0;color:var(--muted)}
+.callout{background:var(--accent);border-left:4px solid var(--brand);padding:13px 16px;border-radius:0 12px 12px 0;margin-top:14px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.search{flex:1;min-width:220px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);font:inherit}
+.action{padding:10px 14px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--text);font:inherit;cursor:pointer}
+.action.primary{background:var(--brand);border-color:var(--brand);color:white}
+.unithead{padding:20px 23px;margin:28px 0 13px;background:linear-gradient(115deg,var(--surface),var(--accent))}
+.unit-kicker{color:var(--brand);font-size:11px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase}
+.unithead h2{margin:4px 0 0;font-size:22px}
+.question{margin:13px 0;overflow:hidden}
+.qhead{padding:19px 21px;display:flex;gap:14px;align-items:flex-start;cursor:pointer}
+.qnum{width:40px;height:40px;flex:0 0 40px;border-radius:12px;background:var(--accent);color:var(--brand);display:grid;place-items:center;font-weight:900}
+.qtitle{flex:1}.qtitle h3{font-size:16px;line-height:1.5;margin:0 0 6px}.qmeta{display:flex;gap:7px;flex-wrap:wrap}
+.pill{font-size:11px;border-radius:20px;padding:3px 9px;background:var(--surface2);color:var(--muted)}
+.chev{font-size:20px;color:var(--muted);transition:transform .2s}.question.open .chev{transform:rotate(180deg)}
+.answer{display:none;border-top:1px solid var(--line);padding:22px 25px 25px}
+.question.open .answer{display:block}
+.answer h4{font-size:16px;margin:22px 0 7px;color:var(--brand)}.answer h4:first-child{margin-top:0}
+.answer p{margin:8px 0}.answer ul,.answer ol{padding-left:23px}.answer li{margin:5px 0}
+.answer table{width:100%;border-collapse:collapse;margin:13px 0;font-size:13px;display:block;overflow-x:auto}
+.answer th,.answer td{border:1px solid var(--line);padding:9px 11px;text-align:left;min-width:120px}
+.answer th{background:var(--surface2)}
+.answer blockquote{margin:14px 0;padding:12px 16px;background:var(--accent);border-left:4px solid var(--brand2);border-radius:0 10px 10px 0}
+.diagram{margin:15px 0;padding:15px;border:1px dashed var(--line);border-radius:13px;background:var(--surface2);text-align:center}
+.flow{display:flex;gap:7px;align-items:center;justify-content:center;flex-wrap:wrap}
+.node{padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-size:12px;font-weight:700}
+.arrow{color:var(--brand);font-weight:900}
+.examtip{background:#fff7e6;color:#61430a;border:1px solid #f4dfad;padding:13px 15px;border-radius:12px;margin:17px 0}
+[data-theme="dark"] .examtip{background:#392d16;color:#ffe4a6;border-color:#69511f}
+.studybox{padding:22px;margin:26px 0}
+.studybox h2{margin:0 0 8px}
+.footer{background:var(--nav);color:#dbe6fa;padding:30px 22px;margin-top:45px;text-align:center;font-size:13px}
+.empty{display:none;padding:24px;text-align:center;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:14px}
+@media(max-width:850px){.wrap{grid-template-columns:1fr}.sidebar{position:relative;top:auto}.sidebar nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.progressbox{margin-top:12px}.hero{padding-top:38px}}
+@media(max-width:560px){.topinner{padding:9px 13px}.brandtext span{display:none}.topbtn{padding:7px 9px}.wrap{padding:0 13px;margin-top:15px}.hero{padding-left:16px;padding-right:16px}.sidebar nav{grid-template-columns:1fr 1fr}.qhead{padding:15px}.answer{padding:17px}.introcard{padding:18px}}
+@media print{
+ .topbar,.sidebar,.toolbar,.topbtn,.footer,.qmeta .pill:last-child{display:none!important}
+ body{background:white;color:#111;font-size:11pt}.hero{background:white;color:#111;padding:10px 0}.hero p,.eyebrow{color:#333}
+ .wrap{display:block;max-width:none;margin:0;padding:0}.introcard,.unithead,.question,.studybox{box-shadow:none;break-inside:avoid;border-color:#bbb}
+ .answer{display:block!important}.qhead{cursor:default}.question{break-inside:avoid}.answer h4{color:#123c83}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+ 
+ <div class="topinner">
+  <div class="brandmark">CN</div>
+  <div class="brandtext"><strong>NBKRIST–CloudNest</strong><span>Ph.D. Examination Preparation</span></div>
+  <div class="topspacer"></div>
+  <button class="topbtn" id="themeBtn" aria-label="Toggle theme">☀ / ☾</button>
+  <button class="topbtn" onclick="window.print()">⬇ Print / PDF</button>
+     <div class="header-left">
+            <a class="back-btn" href="cloud-journey.html" aria-label="Back to Home">← Back</a>
+        </div>
+ </div>
+</header>
+<section class="hero">
+ <div class="hero-inner">
+  <div class="eyebrow">SRM Institute of Science and Technology · Second Semester</div>
+  <h1>Cloud Architecture &amp; Design</h1>
+  <p>A concept-first study companion for preparing ten 20-mark questions across all five syllabus modules. Learn the architecture, understand why it exists, connect it to real systems, and develop your own examination answer.</p>
+  <div class="hero-tags"><span class="tag">10 Questions</span><span class="tag">20 Marks Each</span><span class="tag">5 Modules</span><span class="tag">Conceptual Learning</span></div>
+ </div>
+</section>
+<div class="wrap">
+<aside class="sidebar">
+ <p class="side-title">Study navigation</p>
+ <nav id="unitNav">
+  <a class="unitlink" href="#unit1"><span class="unitnum">01</span><span>Introduction to Cloud Computing</span></a>
+  <a class="unitlink" href="#unit2"><span class="unitnum">02</span><span>Service-Oriented Architecture</span></a>
+  <a class="unitlink" href="#unit3"><span class="unitnum">03</span><span>Cloud Storage Infrastructures</span></a>
+  <a class="unitlink" href="#unit4"><span class="unitnum">04</span><span>Resource Provisioning</span></a>
+  <a class="unitlink" href="#unit5"><span class="unitnum">05</span><span>Data Center Design</span></a>
+ </nav>
+ <div class="progressbox">
+  <strong style="font-size:13px">Preparation progress</strong>
+  <div class="progressline"><div class="progressfill" id="progressFill"></div></div>
+  <div class="small" id="progressText">0 of 10 answers marked as studied</div>
+  <p class="small">Progress is stored in this browser on this device.</p>
+ </div>
+</aside>
+<main class="content">
+ <section class="introcard">
+  <h2>How to use this study page</h2>
+  <p>Do not try to memorize every sentence. For each question, understand the problem first, then learn the architecture and working mechanism. Use the examples to make the ideas your own.</p>
+  <div class="callout"><strong>Learning sequence:</strong> Understand → Visualize → Connect → Explain. A strong 20-mark answer normally includes an introduction, architecture diagram, components, working, applications, advantages, limitations and a conclusion.</div>
+ </section>
+ <div class="toolbar">
+  <input class="search" id="searchBox" type="search" placeholder="Search concepts, technologies or questions…">
+  <button class="action" id="expandAll">Expand all</button>
+  <button class="action" id="collapseAll">Collapse all</button>
+  <button class="action primary" id="clearSearch">Clear search</button>
+ </div>
+ <div id="questionList">
+ <section id="unit1" class="unithead"><div class="unit-kicker">Module I</div><h2>Introduction to Cloud Computing</h2></section>
+
+ <article class="question open" data-q="1">
+  <div class="qhead"><div class="qnum">Q1</div><div class="qtitle"><h3>Explain the fundamentals of Cloud Computing, its characteristics, deployment models and service models. Discuss the benefits and challenges of adopting Cloud Computing in modern organizations.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Fundamentals · Models · Benefits</span><span class="pill">Conceptual foundation</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction to Cloud Computing</h4>
+   <p>Cloud Computing is a model that provides on-demand network access to a shared pool of configurable computing resources—such as servers, storage, networks, databases and applications—that can be rapidly provisioned and released with minimal management effort.</p>
+   <p>Traditionally, an organization purchased physical servers, installed operating systems, configured networks and maintained a data center. This required capital investment, maintenance, capacity planning and specialist staff. Cloud computing changes the model: an organization consumes computing capabilities as services and pays according to its chosen service and usage arrangement.</p>
+   <blockquote><strong>Example:</strong> A university can host its examination portal, database and document repository on AWS, Azure or Google Cloud instead of purchasing and maintaining all the physical servers itself.</blockquote>
+   <h4>2. Five essential characteristics</h4>
+   <ol><li><strong>On-demand self-service:</strong> Users can provision resources such as virtual machines or storage without manually contacting the provider each time.</li><li><strong>Broad network access:</strong> Services are available over networks through standard mechanisms and devices such as laptops, tablets and phones.</li><li><strong>Resource pooling:</strong> Provider resources serve multiple customers using a shared, multi-tenant model, with logical isolation between customers.</li><li><strong>Rapid elasticity:</strong> Capacity can be increased or decreased as demand changes. To the consumer, resources may appear almost unlimited.</li><li><strong>Measured service:</strong> Resource usage is monitored and measured, enabling transparency, control and usage-based charging.</li></ol>
+   <h4>3. Cloud deployment models</h4>
+   <table><tr><th>Model</th><th>Meaning</th><th>Example / use</th><th>Trade-off</th></tr><tr><td>Public cloud</td><td>Provider-owned infrastructure offered to multiple customers</td><td>Public website or scalable application on AWS</td><td>Flexible and scalable; consider control, compliance and provider dependency</td></tr><tr><td>Private cloud</td><td>Cloud infrastructure dedicated to one organization</td><td>Organization's controlled environment for sensitive workloads</td><td>Greater control; potentially higher cost and management effort</td></tr><tr><td>Hybrid cloud</td><td>Combination of private and public cloud environments</td><td>Keep sensitive records private while using public cloud for web traffic</td><td>Flexible placement; integration and governance are more complex</td></tr><tr><td>Community cloud</td><td>Infrastructure shared by organizations with common requirements</td><td>Government or healthcare organizations with shared needs</td><td>Shared cost and policies; governance must be agreed</td></tr></table>
+   <h4>4. Cloud service models</h4>
+   <div class="diagram"><div class="flow"><span class="node">SaaS · Complete application</span><span class="arrow">←</span><span class="node">PaaS · Development platform</span><span class="arrow">←</span><span class="node">IaaS · Computing infrastructure</span></div><p class="small">As you move from IaaS to SaaS, the provider manages a larger portion of the technology stack.</p></div>
+   <ul><li><strong>Infrastructure as a Service (IaaS):</strong> Provides virtual machines, storage and networking. The customer manages the operating system, middleware, applications and data. Example: Amazon EC2.</li><li><strong>Platform as a Service (PaaS):</strong> Provides a managed platform and runtime for building and deploying applications. Developers focus more on code than infrastructure. Example: Google App Engine.</li><li><strong>Software as a Service (SaaS):</strong> Delivers a complete application over the network. The provider manages the application and underlying stack. Examples: Microsoft 365 and Salesforce.</li></ul>
+   <h4>5. Enabling technologies</h4>
+   <p>Cloud computing is enabled by the combination of virtualization, distributed computing, high-speed networking, web services, service-oriented architecture, automation, large-scale storage and monitoring. Virtualization abstracts physical resources; distributed computing spreads work across machines; networking connects them; automation provisions and manages them.</p>
+   <h4>6. Benefits</h4>
+   <ul><li>Reduced upfront infrastructure investment.</li><li>Elastic scalability for changing workloads.</li><li>Faster deployment and experimentation.</li><li>Global access and geographic reach.</li><li>Managed services that reduce routine administration.</li><li>Backup, replication and recovery options that support continuity.</li></ul>
+   <h4>7. Challenges</h4>
+   <ul><li>Data privacy, security and regulatory compliance.</li><li>Vendor lock-in and migration complexity.</li><li>Dependence on network connectivity and provider availability.</li><li>Uncontrolled consumption and unexpected costs.</li><li>Shared-responsibility misunderstandings and skills gaps.</li></ul>
+   <h4>8. Conclusion</h4><p>Cloud computing transforms IT from infrastructure that an organization must own and operate into configurable services that can be provisioned, measured and scaled. The correct service and deployment model depends on workload, security, compliance, control, performance and cost requirements.</p>
+   <div class="examtip"><strong>What to understand:</strong> Cloud computing is not simply renting a server. It is a service-delivery model built around resource pooling, on-demand access, elasticity and measured use.</div>
+  </div>
+ </article>
+
+
+ <article class="question" data-q="2"><div class="qhead"><div class="qnum">Q2</div><div class="qtitle"><h3>Explain Cloud Computing architecture and its enabling technologies. Discuss business agility, application availability, performance management and various types of disasters in a cloud environment.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Architecture · Availability · Disaster management</span></div></div><span class="chev">⌄</span></div><div class="answer">
+ <h4>1. Introduction</h4><p>Cloud architecture describes how clients, applications, compute, storage, networks, security and management components interact to deliver cloud services. A sound architecture addresses performance, availability, scalability, security and cost.</p>
+ <h4>2. Front-end and back-end architecture</h4><div class="diagram"><div class="flow"><span class="node">Client devices / Browser / App</span><span class="arrow">→ Network / Internet →</span><span class="node">Cloud back end</span></div><div class="flow" style="margin-top:8px"><span class="node">Applications</span><span class="node">Compute</span><span class="node">Storage</span><span class="node">Network</span><span class="node">Security &amp; Management</span></div></div><p>The front end includes user interfaces, browsers, mobile applications and client devices. The back end includes application servers, virtual machines, databases, storage, networking, security and management services.</p>
+ <h4>3. Major architecture layers</h4><ul><li><strong>Compute:</strong> Physical servers, VMs, containers and processing capacity.</li><li><strong>Storage:</strong> Object, block and file storage.</li><li><strong>Network:</strong> Connectivity among users, applications, compute and storage.</li><li><strong>Virtualization:</strong> Abstracts physical resources into logical resources.</li><li><strong>Management:</strong> Provisioning, monitoring, automation and billing.</li><li><strong>Security:</strong> Identity, access control, encryption, auditing and protection.</li></ul>
+ <h4>4. Business agility</h4><p>Business agility is the ability to respond quickly to changing business requirements. Cloud platforms allow teams to provision infrastructure, deploy releases, expand capacity and experiment without lengthy hardware procurement. For example, a startup can begin with modest capacity and expand as its customer base grows. Benefits include faster time to market, flexible infrastructure and rapid experimentation. Challenges include governance, security, cost control, migration and skills.</p>
+ <h4>5. Application availability</h4><p>Availability measures the proportion of time a service is operational and accessible.</p><div class="diagram"><strong>Availability = Uptime ÷ (Uptime + Downtime) × 100%</strong></div><table><tr><th>Availability</th><th>Approx. annual downtime</th></tr><tr><td>99%</td><td>87.6 hours</td></tr><tr><td>99.9%</td><td>8.76 hours</td></tr><tr><td>99.99%</td><td>52.56 minutes</td></tr><tr><td>99.999%</td><td>5.26 minutes</td></tr></table><p>High availability uses redundant servers, load balancing, replication, automatic failover, multiple availability zones, health checks and tested recovery plans.</p>
+ <h4>6. Application performance</h4><ul><li><strong>Latency:</strong> Delay before a response is received.</li><li><strong>Response time:</strong> Total time to complete a request.</li><li><strong>Throughput:</strong> Requests or transactions processed per unit time.</li><li><strong>CPU and memory utilization:</strong> Resource consumption.</li><li><strong>Bandwidth:</strong> Network data-transfer capacity.</li></ul><p>Performance can be improved through caching, CDNs, load balancing, database tuning, horizontal scaling, efficient APIs and monitoring.</p>
+ <h4>7. Types of disasters</h4><ul><li><strong>Natural:</strong> Floods, earthquakes, cyclones and fires affecting facilities.</li><li><strong>Hardware:</strong> Disk, server, power-supply or network-device failures.</li><li><strong>Software:</strong> Operating-system crashes, application defects and database corruption.</li><li><strong>Cybersecurity:</strong> Ransomware, denial-of-service attacks, data breaches and unauthorized access.</li><li><strong>Human error:</strong> Accidental deletion, incorrect configuration or faulty deployment.</li></ul>
+ <h4>8. Disaster management</h4><p>Organizations use backups, geographically separated replication, redundant infrastructure, recovery runbooks, automatic failover, security monitoring and periodic recovery exercises. Recovery design should be based on business impact and acceptable RPO and RTO targets.</p><h4>9. Conclusion</h4><p>Cloud architecture integrates compute, storage, networking, virtualization, management and security. Business agility enables rapid change; availability and performance practices protect user experience; disaster planning prepares critical applications for unexpected failures.</p><div class="examtip"><strong>Core idea:</strong> Design not only for normal operation, but also for workload growth, component failure and disruptive events.</div></div></article>
+
+ <section id="unit2" class="unithead"><div class="unit-kicker">Module II</div><h2>Service-Oriented Architecture</h2></section>
+ <article class="question" data-q="3">
+  <div class="qhead"><div class="qnum">Q3</div><div class="qtitle"><h3>Explain Service-Oriented Architecture (SOA) in detail. Discuss REST, Systems of Systems, Web Services and the Publish-Subscribe communication model with suitable examples.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">SOA · REST · Web Services · Messaging</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction to SOA</h4><p>Service-Oriented Architecture is an architectural approach in which software functionality is organized as independent, reusable services. Each service performs a defined business capability and communicates through a well-defined interface or contract.</p>
+   <p>Consider a banking system with customer, account, payment, loan and notification functions. If these functions are tightly coupled, a change in one area may affect many others. SOA separates capabilities into services that can be developed, maintained and reused more independently.</p>
+   <h4>2. Principles of SOA</h4><ul><li><strong>Loose coupling:</strong> A service depends minimally on the internal implementation of another service.</li><li><strong>Reusability:</strong> A business capability can be used by multiple applications.</li><li><strong>Interoperability:</strong> Different platforms and languages can communicate through agreed interfaces.</li><li><strong>Autonomy:</strong> A service controls its internal logic and execution.</li><li><strong>Discoverability:</strong> Service descriptions help consumers identify available capabilities.</li><li><strong>Standardized contract:</strong> The interface defines how a service can be used.</li></ul>
+   <h4>3. SOA roles and interaction</h4>
+   <div class="diagram"><div class="flow"><span class="node">Service Provider</span><span class="arrow">— publish →</span><span class="node">Service Registry</span></div><div class="flow" style="margin-top:8px"><span class="node">Service Consumer</span><span class="arrow">— find →</span><span class="node">Registry</span><span class="arrow">— bind / invoke →</span><span class="node">Provider</span></div></div>
+   <ol><li><strong>Publish:</strong> The provider publishes a description of the service.</li><li><strong>Find:</strong> A consumer searches for a service that meets its need.</li><li><strong>Bind:</strong> The consumer uses the service interface and invokes the service.</li></ol>
+   <h4>4. Web Services: SOAP, WSDL and UDDI</h4><ul><li><strong>SOAP:</strong> A protocol for exchanging structured messages, commonly using XML envelopes.</li><li><strong>WSDL:</strong> Describes a web service's operations, messages, bindings and endpoints.</li><li><strong>UDDI:</strong> A specification for publishing and discovering web service descriptions.</li></ul><p>These technologies are associated with a traditional web-services approach to service description, discovery and message exchange.</p>
+   <h4>5. REST architecture</h4><p>REST (Representational State Transfer) is an architectural style for networked applications. It models information as resources identified by URIs and commonly uses HTTP methods.</p>
+   <table><tr><th>HTTP method</th><th>Typical purpose</th><th>Example</th></tr><tr><td>GET</td><td>Retrieve a resource</td><td><code>GET /students/101</code></td></tr><tr><td>POST</td><td>Create or submit data</td><td><code>POST /students</code></td></tr><tr><td>PUT</td><td>Replace a resource</td><td><code>PUT /students/101</code></td></tr><tr><td>PATCH</td><td>Partially update a resource</td><td><code>PATCH /students/101</code></td></tr><tr><td>DELETE</td><td>Remove a resource</td><td><code>DELETE /students/101</code></td></tr></table>
+   <p>Key REST constraints include client-server separation, stateless communication, cacheability, a uniform interface and a layered system. JSON is common for data exchange, although REST is not restricted to JSON.</p>
+   <h4>6. Systems of Systems (SoS)</h4><p>A System of Systems is a set of independently operated systems that collaborate to achieve a larger objective. A smart city may integrate traffic control, public transport, electricity, emergency response and environmental monitoring. Each subsystem has its own purpose, but coordination creates a wider capability. SOA concerns the organization and exposure of software services; SoS concerns the integration of independent systems.</p>
+   <h4>7. Publish-Subscribe communication</h4>
+   <div class="diagram"><div class="flow"><span class="node">Publisher</span><span class="arrow">→</span><span class="node">Message Broker / Topic</span><span class="arrow">→</span><span class="node">Subscriber A</span></div><div class="flow" style="margin-top:8px"><span class="node"> </span><span class="arrow"> </span><span class="node"> </span><span class="arrow">→</span><span class="node">Subscriber B</span><span class="arrow"> / Subscriber C</span></div></div>
+   <p>A publisher emits an event without needing to know which subscribers will consume it. A broker receives and distributes messages according to topics or subscriptions. In an online order workflow, an order event can be consumed independently by inventory, billing, shipping, notification and analytics services. Technologies include Apache Kafka and RabbitMQ.</p>
+   <h4>8. Advantages and challenges</h4><p><strong>Advantages:</strong> reuse, modularity, interoperability, easier integration, independent development and asynchronous processing.</p><p><strong>Challenges:</strong> distributed monitoring, network delays, service versioning, security across service boundaries, message ordering and failure handling.</p>
+   <h4>9. Conclusion</h4><p>SOA organizes application capabilities as services. REST provides a style for resource-oriented network interaction; SOAP-based web services provide structured messaging; and publish-subscribe supports asynchronous event-driven communication. Together, these concepts support modular distributed cloud applications.</p>
+   <div class="examtip"><strong>Remember the distinction:</strong> SOA explains how functionality is organized; REST explains an architectural style for interacting with resources; publish-subscribe explains how components exchange events asynchronously.</div>
+  </div>
+ </article>
+
+
+ <article class="question" data-q="4"><div class="qhead"><div class="qnum">Q4</div><div class="qtitle"><h3>Explain Virtualization Architecture in Cloud Computing. Discuss different types and implementation levels of virtualization, CPU, memory and I/O virtualization, server virtualization and parallel processing architectures.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Hypervisor · Virtualization · SMP · MPP</span></div></div><span class="chev">⌄</span></div><div class="answer">
+ <h4>1. Introduction</h4><p>Virtualization creates logical versions of computing resources such as servers, operating systems, storage and networks. It allows multiple isolated virtual environments to share one physical machine. It addresses low hardware utilization, high infrastructure cost and slow provisioning.</p>
+ <h4>2. Virtualization architecture</h4><div class="diagram"><div class="flow"><span class="node">Applications</span><span class="arrow">↑</span><span class="node">Guest OS</span><span class="arrow">↑</span><span class="node">Virtual Machine</span></div><div class="flow" style="margin-top:8px"><span class="node">VM 1</span><span class="node">VM 2</span><span class="node">VM 3</span><span class="arrow">→</span><span class="node">Hypervisor</span><span class="arrow">→</span><span class="node">Physical CPU · RAM · Storage · Network</span></div></div><p>The hypervisor creates and manages virtual machines, allocates physical resources and maintains isolation. Each VM can run its own guest operating system and applications.</p>
+ <h4>3. Hypervisor types</h4><ul><li><strong>Type 1 (bare-metal):</strong> Runs directly on physical hardware. Examples: VMware ESXi and Xen. Common in data centers.</li><li><strong>Type 2 (hosted):</strong> Runs as an application on a host operating system. Examples: Oracle VirtualBox and VMware Workstation. Convenient for learning and testing.</li></ul>
+ <h4>4. Types of virtualization</h4><ul><li><strong>Server:</strong> Divides a physical server into multiple virtual servers.</li><li><strong>Storage:</strong> Combines physical devices into logical pools.</li><li><strong>Network:</strong> Creates logical networks over physical infrastructure.</li><li><strong>Desktop:</strong> Hosts desktop environments centrally for remote access.</li><li><strong>Application:</strong> Runs applications in isolated or abstracted environments.</li><li><strong>OS-level:</strong> Uses a shared kernel to isolate containers, as with Docker.</li></ul>
+ <h4>5. Implementation levels</h4><table><tr><th>Level</th><th>Explanation</th><th>Example</th></tr><tr><td>Hardware</td><td>Virtual hardware presented to guest systems</td><td>VMware ESXi</td></tr><tr><td>Operating system</td><td>Isolated environments share host kernel</td><td>Docker</td></tr><tr><td>Programming language</td><td>Virtual execution environment</td><td>Java Virtual Machine</td></tr><tr><td>Application</td><td>Application runs in an isolated environment</td><td>Application virtualization</td></tr></table>
+ <h4>6. CPU virtualization</h4><p>Multiple VMs share physical processor capacity. The hypervisor schedules virtual CPUs onto physical cores, allocates processor time and handles privileged operations. A multi-core server can support several VMs subject to workload and resource limits.</p>
+ <h4>7. Memory virtualization</h4><p>Each VM sees its own logical memory space. The hypervisor maps guest memory to physical memory using mechanisms such as shadow page tables or hardware-assisted nested paging (for example, Extended Page Tables). Memory overcommitment may assign more virtual memory than installed physical memory, but excessive pressure harms performance. Isolation prevents one VM from improperly accessing another's memory.</p>
+ <h4>8. I/O virtualization</h4><p>I/O virtualization lets VMs access physical network and storage devices. Techniques include device emulation, paravirtualized drivers, direct device assignment and Single Root I/O Virtualization (SR-IOV). The design balances performance, flexibility and isolation.</p>
+ <h4>9. Parallel processing architectures</h4><p>Parallel processing divides work into smaller tasks that execute simultaneously.</p><ul><li><strong>Vector processing / SIMD:</strong> One instruction operates on multiple data elements.</li><li><strong>Symmetric Multiprocessing (SMP):</strong> Multiple processors share common main memory and are coordinated by one operating system.</li><li><strong>Massively Parallel Processing (MPP):</strong> Many independent nodes, usually with their own memory, cooperate over a network to process large workloads.</li></ul><div class="diagram"><div class="flow"><span class="node">SMP CPUs</span><span class="arrow">↔ shared memory ↔</span><span class="node">Common system</span></div><div class="flow" style="margin-top:8px"><span class="node">MPP node 1</span><span class="arrow">↔ network ↔</span><span class="node">MPP node 2</span><span class="arrow">↔</span><span class="node">MPP node 3</span></div></div>
+ <h4>10. Advantages and limitations</h4><p><strong>Advantages:</strong> improved hardware utilization, reduced physical footprint, faster provisioning, isolation, flexible allocation and easier migration. <strong>Limitations:</strong> virtualization overhead, resource contention, hypervisor attack surface, complex performance tuning and the possibility that one host failure affects several VMs.</p><h4>11. Conclusion</h4><p>Virtualization abstracts physical resources into flexible logical environments and is a foundational enabler of cloud resource pooling. CPU, memory and I/O virtualization make shared infrastructure practical; parallel architectures provide processing capacity for large-scale workloads.</p><div class="examtip"><strong>Connect the ideas:</strong> Virtualization explains how resources are abstracted and shared; parallel processing explains how computation is divided and executed efficiently.</div></div></article>
+
+ <section id="unit3" class="unithead"><div class="unit-kicker">Module III</div><h2>Cloud Storage Infrastructures</h2></section>
+ <article class="question" data-q="5">
+  <div class="qhead"><div class="qnum">Q5</div><div class="qtitle"><h3>Explain Cloud Storage Infrastructure architecture, planning and design. Discuss NAS, FC SAN, iSCSI, FCIP, FCoE and storage virtualization with suitable applications.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Storage · SAN · NAS · Virtualization</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction</h4><p>Cloud storage infrastructure provides mechanisms to store, organize, access, protect and manage data at scale. Organizations generate data from transactions, research, IoT devices, applications and multimedia. Storage design must address capacity, performance, availability, durability, security, scalability and cost.</p>
+   <h4>2. Cloud storage architecture</h4>
+   <div class="diagram"><div class="flow"><span class="node">Users / Applications</span><span class="arrow">→</span><span class="node">Access APIs / Protocols</span><span class="arrow">→</span><span class="node">Storage Management</span></div><div class="flow" style="margin-top:8px"><span class="node">Storage Pool</span><span class="arrow">↔</span><span class="node">Replication / Backup / Encryption</span><span class="arrow">↔</span><span class="node">Monitoring</span></div></div>
+   <p>The client layer issues requests; the access layer exposes APIs and protocols; management controls allocation and policies; storage pools aggregate physical capacity; protection services replicate, back up and encrypt data; monitoring tracks health and utilization.</p>
+   <h4>3. Types of cloud storage</h4><ul><li><strong>Object storage:</strong> Stores data as objects with identifiers and metadata. Useful for images, videos, backups and data lakes. Example: Amazon S3.</li><li><strong>Block storage:</strong> Presents storage as addressable blocks, often used for virtual machine disks and transactional databases. Example: Amazon EBS.</li><li><strong>File storage:</strong> Organizes data as files and directories, useful for shared documents and file-based applications. Example: Amazon EFS.</li></ul>
+   <h4>4. Storage planning and design considerations</h4><ul><li><strong>Capacity:</strong> Current data volume and expected growth.</li><li><strong>Performance:</strong> IOPS, throughput and workload pattern.</li><li><strong>Latency:</strong> Time to access data.</li><li><strong>Availability and durability:</strong> Service accessibility and protection against data loss.</li><li><strong>Security:</strong> Access control, encryption and isolation.</li><li><strong>Scalability:</strong> Ability to expand capacity and throughput.</li><li><strong>Cost:</strong> Storage tier, replication, retrieval and transfer charges.</li></ul>
+   <h4>5. NAS – Network Attached Storage</h4><p>NAS provides file-level storage over an IP network. Clients access shared files using protocols such as NFS or SMB. A university shared document repository is a typical example. NAS is convenient for shared folders and centralized file management.</p>
+   <h4>6. FC SAN – Fibre Channel Storage Area Network</h4><p>A SAN provides block-level storage access over a dedicated storage network. Fibre Channel is widely used in enterprise storage environments. Servers connect through Fibre Channel switches to storage arrays. Typical workloads include enterprise databases and mission-critical virtualized infrastructure.</p>
+   <h4>7. iSCSI</h4><p>Internet Small Computer Systems Interface carries SCSI storage commands over TCP/IP. It enables block storage access using IP networking and can use existing Ethernet infrastructure. It is commonly used to build IP-based SAN connectivity.</p>
+   <h4>8. FCIP</h4><p>Fibre Channel over IP encapsulates Fibre Channel frames within IP packets. It connects Fibre Channel SANs across geographically separated locations and can support remote storage connectivity and disaster-recovery links.</p>
+   <h4>9. FCoE</h4><p>Fibre Channel over Ethernet carries Fibre Channel frames over Ethernet networks. It aims to consolidate data and storage networking over a shared Ethernet infrastructure, reducing separate network cabling and adapters in suitable environments.</p>
+   <h4>10. Storage virtualization</h4><p>Storage virtualization abstracts multiple physical storage devices into logical storage pools. Applications use logical volumes or namespaces without needing to know the exact physical location of data. It supports centralized management, flexible allocation, improved utilization and easier migration.</p>
+   <h4>11. Comparison</h4>
+   <table><tr><th>Technology</th><th>Access / transport</th><th>Main use</th></tr><tr><td>NAS</td><td>File-level over IP</td><td>Shared files and directories</td></tr><tr><td>FC SAN</td><td>Block-level over Fibre Channel</td><td>Enterprise block storage</td></tr><tr><td>iSCSI</td><td>Block-level over TCP/IP</td><td>IP-based SAN</td></tr><tr><td>FCIP</td><td>Fibre Channel frames over IP</td><td>Interconnecting remote SANs</td></tr><tr><td>FCoE</td><td>Fibre Channel over Ethernet</td><td>Converged network fabric</td></tr></table>
+   <h4>12. University example and conclusion</h4><p>A university might use block storage for its transactional student database, file storage for shared faculty documents and object storage for lecture videos and research datasets. Replication and backup protect important information; encryption and access policies protect confidentiality. A good storage architecture is therefore not just about where data resides—it is about how data is accessed, protected, managed and delivered to applications.</p>
+  </div>
+ </article>
+
+ <article class="question" data-q="6">
+  <div class="qhead"><div class="qnum">Q6</div><div class="qtitle"><h3>Explain security management in cloud storage infrastructure. Discuss information security, VDC management, storage virtualization security, monitoring, security auditing, SIEM, business continuity and disaster recovery.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">CIA · SIEM · VDC · DR</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction</h4><p>Cloud storage contains valuable organizational information such as student records, financial transactions, research data and personal information. A security failure may cause data theft, corruption, service interruption or regulatory consequences. Security must protect confidentiality, integrity and availability.</p>
+   <h4>2. CIA triad</h4><ul><li><strong>Confidentiality:</strong> Only authorized people and systems can view data. Example: only permitted staff can access student records.</li><li><strong>Integrity:</strong> Data remains accurate and is changed only through authorized actions. Example: examination marks cannot be altered without permission.</li><li><strong>Availability:</strong> Data and services remain accessible when required. Example: the examination portal is operational during the examination window.</li></ul>
+   <h4>3. Security mechanisms</h4><ul><li><strong>Authentication:</strong> Verifies identity, using passwords, certificates or multi-factor authentication.</li><li><strong>Authorization:</strong> Determines permitted actions, often through roles and policies.</li><li><strong>Encryption:</strong> Protects data at rest and in transit.</li><li><strong>Access control:</strong> Restricts access to storage, APIs and management interfaces.</li><li><strong>Data isolation:</strong> Prevents unauthorized cross-tenant access.</li><li><strong>Key management:</strong> Controls creation, storage, rotation and use of cryptographic keys.</li><li><strong>Backup protection:</strong> Keeps recoverable copies, ideally with access separation and immutability where appropriate.</li></ul>
+   <h4>4. Virtual Data Center (VDC) management</h4><p>A Virtual Data Center is a logically organized environment of virtual compute, storage and networking resources. Management includes resource allocation, virtual machine lifecycle, virtual networking, storage administration, security policy enforcement, monitoring and capacity planning.</p>
+   <h4>5. Securing virtualized storage</h4><p>Risks include unauthorized access, misconfigured permissions, insecure APIs, hypervisor vulnerabilities, data leakage and failures in tenant isolation. Controls include encryption, role-based access control, multi-factor authentication, network segmentation, secure API practices, patching, key management and immutable backups.</p>
+   <h4>6. Monitoring and security auditing</h4><p>Monitoring observes capacity, read/write performance, latency, failed access attempts, data transfer patterns, system errors and resource utilization. Security auditing systematically reviews user access, configurations, logs, vulnerabilities, policy compliance and evidence that controls are operating as intended.</p>
+   <h4>7. SIEM – Security Information and Event Management</h4>
+   <div class="diagram"><div class="flow"><span class="node">Servers</span><span class="node">Firewalls</span><span class="node">Applications</span><span class="node">Identity systems</span></div><div class="flow" style="margin:8px 0"><span class="arrow">↓ logs / events</span></div><div class="flow"><span class="node">SIEM: collect → correlate → detect</span><span class="arrow">→</span><span class="node">Alert / Investigation</span></div></div>
+   <p>SIEM collects and analyzes security events from servers, applications, firewalls, databases, networks and identity systems. It performs log collection, aggregation, correlation, suspicious-activity detection, alerting, investigation support and compliance reporting. For example, repeated failed logins followed by an unusual bulk download may be correlated into a security alert. Examples include Microsoft Sentinel and Splunk Enterprise Security.</p>
+   <h4>8. Business continuity</h4><p>Business Continuity is the broader organizational capability to continue critical operations during and after disruption. It includes business impact analysis, risk assessment, people and process responsibilities, alternate operating arrangements, communication plans and technology recovery.</p>
+   <h4>9. Disaster recovery strategies</h4><ul><li><strong>Backup and restore:</strong> Restore data and services from backups after disruption.</li><li><strong>Pilot light:</strong> Keep a minimal core environment ready and expand it during recovery.</li><li><strong>Warm standby:</strong> Maintain a partially operational recovery environment that can be scaled up.</li><li><strong>Multi-site active-active:</strong> Run workloads at multiple sites, subject to application and data design.</li></ul>
+   <h4>10. RPO and RTO</h4>
+   <div class="diagram"><div class="flow"><span class="node">Last recoverable data point</span><span class="arrow">← RPO →</span><span class="node">Disruption</span><span class="arrow">← RTO →</span><span class="node">Service restored</span></div></div>
+   <p><strong>Recovery Point Objective (RPO)</strong> is the maximum acceptable data loss measured in time. An RPO of 15 minutes means recovery should limit lost updates to approximately the last 15 minutes. <strong>Recovery Time Objective (RTO)</strong> is the target maximum time to restore the service. An RTO of two hours means the service should be restored within two hours.</p>
+   <table><tr><th>Business continuity</th><th>Disaster recovery</th></tr><tr><td>Broader strategy to continue business operations</td><td>Technology-focused restoration of systems and data</td></tr><tr><td>Includes people, processes and technology</td><td>Includes infrastructure, applications, data and recovery procedures</td></tr><tr><td>Preparation, response and continuity</td><td>Recovery after disruption</td></tr></table>
+   <h4>11. Conclusion</h4><p>Cloud security combines preventive controls such as encryption and access management, detective controls such as monitoring and SIEM, and recovery controls such as backup and disaster recovery. A sound architecture balances security, availability, recoverability and operational cost.</p>
+   <div class="examtip"><strong>Analytical point:</strong> A highly available system without adequate security remains risky; a secure system that cannot recover from a disaster is also incomplete. Design these properties together.</div>
+  </div>
+ </article>
+
+ <section id="unit4" class="unithead"><div class="unit-kicker">Module IV</div><h2>Resource Provisioning</h2></section>
+ <article class="question" data-q="7">
+  <div class="qhead"><div class="qnum">Q7</div><div class="qtitle"><h3>Explain Resource Provisioning in Cloud Computing. Discuss compute resource provisioning, demand-driven, event-driven, popularity-driven provisioning, dynamic resource deployment and NIST Cloud Computing Reference Architecture.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Provisioning · Scaling · NIST</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction</h4><p>Resource provisioning is the process of allocating, configuring, monitoring and releasing computing resources according to application requirements. Resources include CPU, memory, storage, network capacity, virtual machines and containers.</p>
+   <blockquote><strong>Example:</strong> A university examination portal may have modest traffic on normal days but thousands of simultaneous users during examinations. Too few resources cause delays and failures; too many resources waste money. Provisioning seeks a balance.</blockquote>
+   <h4>2. Compute resource provisioning lifecycle</h4>
+   <ol><li>Identify application and service requirements.</li><li>Estimate workload and capacity.</li><li>Select compute, memory and network resources.</li><li>Allocate virtual machines, containers or managed compute.</li><li>Configure storage, network and security.</li><li>Monitor actual utilization and service performance.</li><li>Scale resources up or down as demand changes.</li><li>Release resources that are no longer needed.</li></ol>
+   <h4>3. Provisioning approaches</h4>
+   <table><tr><th>Approach</th><th>How it works</th><th>Example</th></tr><tr><td>Static</td><td>Capacity is allocated in advance and remains relatively fixed</td><td>Keep ten application servers running continuously</td></tr><tr><td>Demand-driven</td><td>Resources change in response to observed workload demand</td><td>Add instances as request volume increases</td></tr><tr><td>Event-driven</td><td>A defined event or threshold triggers provisioning</td><td>Launch an instance when CPU crosses a threshold or queue length grows</td></tr><tr><td>Popularity-driven</td><td>Capacity is adjusted for services or content experiencing increased popularity</td><td>Scale a result portal when results are announced</td></tr></table>
+   <h4>4. Dynamic resource deployment</h4>
+   <div class="diagram"><div class="flow"><span class="node">Monitor workload</span><span class="arrow">→</span><span class="node">Analyze metrics</span><span class="arrow">→</span><span class="node">Decide capacity</span><span class="arrow">→</span><span class="node">Provision / release</span></div><div class="flow" style="margin-top:8px"><span class="node">Measure outcome</span><span class="arrow">↺</span><span class="node">Continuous feedback</span></div></div>
+   <p>Dynamic deployment continuously observes metrics such as CPU, memory, request rate, queue depth and latency. A policy or controller decides whether to add, resize or remove resources. The result is measured to check whether the service objective is being met.</p>
+   <h4>5. Horizontal and vertical scaling</h4><ul><li><strong>Horizontal scaling:</strong> Add or remove instances. Example: increase from two to eight application servers.</li><li><strong>Vertical scaling:</strong> Increase or decrease the capacity of an instance. Example: resize a virtual machine from 4 GB to 16 GB RAM.</li></ul><p>Horizontal scaling is particularly useful for distributed applications designed to run across multiple instances. Vertical scaling can be simpler for workloads that cannot easily be distributed, but it has hardware and size limits.</p>
+   <h4>6. Storage-as-a-Service and runtime support</h4><p>Storage-as-a-Service provides remotely accessible storage capacity through cloud services, such as object, block and file storage. Runtime support services provide the environment needed to execute applications: language runtimes, middleware, databases, containers, APIs, monitoring and execution platforms.</p>
+   <h4>7. NIST Cloud Computing Reference Architecture</h4>
+   <p>The NIST reference architecture describes five major cloud actors and their roles.</p>
+   <div class="diagram"><div class="flow"><span class="node">Cloud Consumer</span><span class="arrow">↔</span><span class="node">Cloud Provider</span></div><div class="flow" style="margin-top:8px"><span class="node">Cloud Broker</span><span class="node">Cloud Auditor</span><span class="node">Cloud Carrier</span></div></div>
+   <ol><li><strong>Cloud Consumer:</strong> Uses cloud services, such as a university using a hosted student system.</li><li><strong>Cloud Provider:</strong> Makes cloud services available and operates the service environment.</li><li><strong>Cloud Broker:</strong> Manages use, performance or delivery of cloud services between consumer and provider. Functions can include service intermediation, aggregation and arbitrage.</li><li><strong>Cloud Auditor:</strong> Independently assesses services, including security, performance, privacy and compliance.</li><li><strong>Cloud Carrier:</strong> Provides network connectivity and transport between consumer and provider.</li></ol>
+   <h4>8. Benefits and challenges</h4><p><strong>Benefits:</strong> efficient utilization, elasticity, performance support, cost control and automation. <strong>Challenges:</strong> workload prediction, provisioning delay, resource contention, monitoring complexity, over-provisioning and under-provisioning.</p>
+   <h4>9. Conclusion</h4><p>Resource provisioning is a continuous allocation and optimization process, not merely the act of launching a virtual machine. It balances workload, performance, availability and cost. The NIST reference architecture helps explain the actors involved in delivering and consuming cloud services.</p>
+   <div class="examtip"><strong>What to understand:</strong> The central question is: how can the system provide the right amount of resources, at the right time, while meeting performance needs without unnecessary cost?</div>
+  </div>
+ </article>
+
+ <article class="question" data-q="8">
+  <div class="qhead"><div class="qnum">Q8</div><div class="qtitle"><h3>Explain Cloud Service Management in detail. Discuss reliability, availability, security, performance, scalability, cloud economics, platform selection and service creation environments.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Service management · Economics · TCO</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction</h4><p>Cloud Service Management includes the processes and tools used to deploy, operate, monitor, secure and optimize cloud services throughout their lifecycle. Once an application is deployed, workload, data volume, user expectations and risk can change. Continuous management is therefore essential.</p>
+   <h4>2. Major management activities</h4><ul><li><strong>Provisioning:</strong> Allocate and configure resources.</li><li><strong>Monitoring:</strong> Observe infrastructure and application health.</li><li><strong>Configuration management:</strong> Maintain consistent and correct settings.</li><li><strong>Security management:</strong> Manage identities, permissions, encryption and threats.</li><li><strong>Performance management:</strong> Maintain response time and throughput objectives.</li><li><strong>Capacity management:</strong> Plan for present and future demand.</li><li><strong>Cost management:</strong> Track and optimize expenditure.</li><li><strong>Incident management:</strong> Detect, investigate and resolve failures.</li></ul>
+   <h4>3. Reliability and availability</h4><p><strong>Reliability</strong> is the ability of a system to perform its required function correctly over time. It can be improved with redundancy, fault isolation, error detection, replication and recovery mechanisms.</p><p><strong>Availability</strong> is the proportion of time a service is operational and accessible. A common simplified measure is:</p>
+   <div class="diagram"><strong>Availability = MTBF ÷ (MTBF + MTTR)</strong><p class="small">MTBF = Mean Time Between Failures; MTTR = Mean Time To Repair.</p></div>
+   <p>Load balancing, health checks, failover, redundant networks and deployment across availability zones can improve availability. A system can have occasional failures yet maintain high availability if it recovers quickly.</p>
+   <h4>4. Reliability versus availability</h4><table><tr><th>Reliability</th><th>Availability</th></tr><tr><td>Emphasizes correct operation without failure over time</td><td>Emphasizes whether the service is accessible when needed</td></tr><tr><td>Concerned with failure frequency and dependable operation</td><td>Influenced by both failure frequency and recovery time</td></tr></table>
+   <h4>5. Security, performance and scalability</h4><p><strong>Security:</strong> Identity and access management, encryption, firewalls, network segmentation, secure APIs, logging, vulnerability management and audit controls.</p><p><strong>Performance:</strong> Measured through response time, throughput, latency, CPU, memory and storage/network behavior. Techniques include caching, load balancing, database tuning and efficient communication.</p><p><strong>Scalability:</strong> The ability to handle increased workload by adding capacity. Vertical scaling increases the capacity of an instance; horizontal scaling adds instances.</p>
+   <h4>6. Management tools and technologies</h4>
+   <table><tr><th>Technology</th><th>Purpose</th></tr><tr><td>AWS CloudWatch</td><td>Monitoring AWS resources and applications</td></tr><tr><td>Azure Monitor</td><td>Monitoring Azure resources</td></tr><tr><td>Google Cloud Monitoring</td><td>Monitoring Google Cloud services</td></tr><tr><td>Kubernetes</td><td>Container orchestration</td></tr><tr><td>Terraform</td><td>Infrastructure as Code</td></tr><tr><td>Ansible</td><td>Configuration management and automation</td></tr><tr><td>Prometheus</td><td>Metrics collection and monitoring</td></tr></table>
+   <h4>7. Cloud economics: CapEx and OpEx</h4><p><strong>Capital Expenditure (CapEx)</strong> is upfront investment in assets such as servers, storage, network equipment and data center facilities. <strong>Operational Expenditure (OpEx)</strong> is recurring expenditure such as cloud consumption, support, maintenance, monitoring and operations. Cloud adoption can shift some spending from capital investment to operating expenditure, but it does not automatically guarantee lower total cost.</p>
+   <h4>8. Total Cost of Ownership (TCO)</h4><p>TCO estimates the complete cost of owning and operating a solution over a defined period. A simplified cloud cost model includes:</p><div class="diagram"><strong>TCO ≈ Compute + Storage + Network + Management + Security + Support</strong><p class="small">A complete analysis may also include migration, licensing, personnel, training, compliance and indirect costs.</p></div>
+   <p>A low virtual-machine price may be offset by data-transfer charges, storage retrieval, backup, support or migration expenses.</p>
+   <h4>9. Cloud platform selection</h4><p>When comparing AWS, Azure and Google Cloud, an organization should evaluate technical fit, performance, availability, security, compliance, geographic coverage, pricing, existing skills and systems, support, migration effort and vendor dependency. The best platform is the one that meets the workload and organizational requirements—not necessarily the one with the lowest headline price.</p>
+   <h4>10. Application development and service creation environments</h4><p>Cloud development environments provide programming language runtimes, frameworks, databases, middleware, APIs, containers, CI/CD pipelines and monitoring. A developer might build a Java application, connect it to a managed database, package it in a container and deploy it through an automated pipeline.</p>
+   <h4>11. Conclusion</h4><p>Cloud Service Management keeps services secure, reliable, available, scalable and cost-effective. Cloud economics supports informed platform decisions, while development environments accelerate application creation and deployment. Management is a continuous optimization activity across technical, operational and financial dimensions.</p>
+   <div class="examtip"><strong>Ph.D.-level perspective:</strong> Cloud service management is a multi-objective optimization problem: improve performance, reliability and security while controlling operational cost and complexity.</div>
+  </div>
+ </article>
+
+ <section id="unit5" class="unithead"><div class="unit-kicker">Module V</div><h2>Data Center Design</h2></section>
+ <article class="question" data-q="9">
+  <div class="qhead"><div class="qnum">Q9</div><div class="qtitle"><h3>Explain various Cloud Architecture Patterns in detail. Discuss Horizontal Scaling, Queue-Centric Workflow, Auto-Scaling, Eventual Consistency, MapReduce, Database Sharding and Node Failure patterns with suitable examples.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Architecture patterns · Distributed systems</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction</h4><p>Cloud architecture patterns are reusable design approaches for recurring problems in distributed applications. Cloud systems must handle changing user traffic, large datasets, network delays, partial failures and consistency requirements. Patterns provide established ways to address these concerns.</p>
+   <h4>2. Horizontal scaling pattern</h4><div class="diagram"><div class="flow"><span class="node">Users</span><span class="arrow">→</span><span class="node">Load Balancer</span><span class="arrow">→</span><span class="node">App 1</span><span class="node">App 2</span><span class="node">App 3 …</span></div></div><p>Horizontal scaling increases capacity by adding more instances. A load balancer distributes requests among them. For an online store, additional application servers can be added during a sale. Benefits include increased capacity and potential resilience. The application must be designed for distributed execution; session state and shared database bottlenecks must be considered.</p>
+   <h4>3. Queue-centric workflow pattern</h4><div class="diagram"><div class="flow"><span class="node">Order service</span><span class="arrow">→</span><span class="node">Message queue</span><span class="arrow">→</span><span class="node">Inventory</span><span class="node">Billing</span><span class="node">Shipping</span></div></div><p>Components place tasks or events into a queue instead of requiring immediate synchronous completion by another component. For an order, the order service publishes an event; inventory, billing, shipping and notification workers process it independently. This supports loose coupling, asynchronous processing and smoothing of traffic spikes. Systems must also handle retries, duplicate messages, ordering and dead-letter messages.</p>
+   <h4>4. Auto-scaling pattern</h4><p>Auto-scaling automatically adds or removes capacity based on policies and metrics such as CPU utilization, request rate, queue depth or latency. For example, an application may add instances when demand exceeds a threshold and remove them when demand falls. It improves elasticity and can reduce idle resource costs, but poorly chosen thresholds can cause oscillation or slow response to sudden demand.</p>
+   <h4>5. Eventual consistency pattern</h4><p>Distributed systems may keep replicas of data at different nodes. When an update occurs, all replicas may not reflect it immediately. Eventual consistency means that, if no new updates occur and replication proceeds, replicas are expected to converge to the same value. A profile-picture update might appear on one server before another. This model supports distributed operation but applications must tolerate temporary stale reads and address concurrent updates.</p>
+   <h4>6. MapReduce pattern</h4><div class="diagram"><div class="flow"><span class="node">Input data</span><span class="arrow">→</span><span class="node">Map tasks</span><span class="arrow">→</span><span class="node">Shuffle / Group</span><span class="arrow">→</span><span class="node">Reduce tasks</span><span class="arrow">→</span><span class="node">Output</span></div></div><p>MapReduce is a programming model for distributed processing of large datasets. The Map phase processes input records and emits intermediate key-value pairs. The shuffle/group phase brings values with the same key together. The Reduce phase aggregates those values. In word count, Map emits (word, 1) pairs and Reduce adds the counts for each word. It supports parallel data processing across nodes.</p>
+   <h4>7. Database sharding pattern</h4><p>Sharding horizontally partitions a dataset across multiple database instances. For example, a large student database can be divided by student ID ranges or another shard key. An application or routing layer directs each request to the relevant shard. Sharding distributes load and data volume, but introduces shard-key design, cross-shard queries, rebalancing and transaction complexity.</p>
+   <h4>8. Node failure pattern</h4><p>Distributed systems must expect individual nodes to fail because of hardware, software, network or resource problems. Health checks detect failures; replication and redundancy provide alternatives; load balancers route traffic to healthy nodes; failover transfers workload. For example, if one of three application servers fails, the load balancer can stop sending it new requests. Data durability requires separate replication or backup strategies, not just multiple application servers.</p>
+   <h4>9. Comparison of patterns</h4><table><tr><th>Pattern</th><th>Problem addressed</th><th>Core approach</th></tr><tr><td>Horizontal scaling</td><td>More concurrent workload</td><td>Add instances</td></tr><tr><td>Queue-centric workflow</td><td>Tight synchronous dependency</td><td>Asynchronous message queue</td></tr><tr><td>Auto-scaling</td><td>Changing resource demand</td><td>Policy-based capacity adjustment</td></tr><tr><td>Eventual consistency</td><td>Distributed replica convergence</td><td>Allow propagation over time</td></tr><tr><td>MapReduce</td><td>Large-scale data processing</td><td>Map, group and reduce</td></tr><tr><td>Database sharding</td><td>Database capacity bottleneck</td><td>Partition data across instances</td></tr><tr><td>Node failure handling</td><td>Partial infrastructure failure</td><td>Detection, redundancy and failover</td></tr></table>
+   <h4>10. Combining patterns</h4><p>An e-commerce platform may use horizontal scaling and auto-scaling for web traffic, queues for order processing, sharding for customer data, MapReduce for sales analytics, eventual consistency for selected replicas and failover for node resilience. These patterns solve different problems and must be selected together according to workload, consistency, performance, availability and cost requirements.</p>
+   <h4>11. Conclusion</h4><p>Cloud architecture patterns are reusable building blocks for scalable and resilient distributed applications. No single pattern solves every problem; architects combine patterns while understanding their trade-offs.</p>
+   <div class="examtip"><strong>Analytical point:</strong> Always explain both the problem a pattern solves and the new complexity it introduces. That demonstrates architectural judgment.</div>
+  </div>
+ </article>
+
+ <article class="question" data-q="10">
+  <div class="qhead"><div class="qnum">Q10</div><div class="qtitle"><h3>Explain Data Center Design in Cloud Computing. Discuss data center architecture, Top of Rack (TOR), End of Row (EOR), standalone and blade servers, stateless architecture, clustering, scaling optimization, CDN, network latency and multi-site deployment.</h3><div class="qmeta"><span class="pill">20 Marks</span><span class="pill">Data center · Network · Multi-site</span></div></div><span class="chev">⌄</span></div>
+  <div class="answer">
+   <h4>1. Introduction</h4><p>A data center is a physical facility containing computing, storage and networking infrastructure used to process, store and manage information. Cloud providers operate large data centers to deliver services at scale. Design must address capacity, availability, performance, security, energy, cooling and operational efficiency.</p>
+   <h4>2. Data center components</h4><ul><li><strong>Compute:</strong> Physical servers and virtualization platforms.</li><li><strong>Storage:</strong> Storage arrays, object systems and backup infrastructure.</li><li><strong>Networking:</strong> Switches, routers, firewalls and links.</li><li><strong>Power:</strong> Utility feeds, UPS and backup generation.</li><li><strong>Cooling:</strong> Airflow and temperature management.</li><li><strong>Security:</strong> Physical access control and logical security.</li><li><strong>Management:</strong> Monitoring, automation and operational processes.</li></ul>
+   <h4>3. Top of Rack (TOR)</h4><p>In TOR architecture, a network switch is placed within or at the top of each server rack. Servers in that rack connect to the local switch, which uplinks to the wider data center network. Benefits include short rack-level cabling and easier local organization. The design requires appropriate uplinks, redundancy and management across many rack switches.</p>
+   <h4>4. End of Row (EOR)</h4><p>In EOR architecture, switching equipment is placed at the end of a row and serves multiple racks. It can centralize switching and reduce the number of switches in some designs. However, cabling paths may be longer and the design must provide sufficient redundancy and capacity at the row switches.</p>
+   <table><tr><th>TOR</th><th>EOR</th></tr><tr><td>Switch per rack or rack group</td><td>Switching centralized at row end</td></tr><tr><td>Shorter local rack connections</td><td>Potentially longer server-to-switch cabling</td></tr><tr><td>More distributed switching</td><td>More centralized switching</td></tr></table>
+   <h4>5. Standalone servers</h4><p>Standalone servers are independent physical machines with their own processor, memory, storage, power and network interfaces. They provide flexible hardware selection and independent configuration, but can require more rack space, cabling, power and separate management.</p>
+   <h4>6. Blade servers</h4><p>Blade servers are compact modular server units installed in a shared chassis. The chassis may provide shared power, cooling, networking and management. They can offer high density, reduced cabling and centralized administration. Consider chassis cost, shared-component failure dependencies and vendor-specific compatibility.</p>
+   <h4>7. Stateless architecture</h4><p>A stateless application server does not retain client session state between requests. Session information is maintained in an external database, cache or token. If an examination portal has several application servers, successive requests from a student can be handled by different servers because the session is not tied to one machine. This makes load balancing, horizontal scaling and server replacement easier.</p>
+   <h4>8. Clustering</h4><p>Clustering connects multiple servers or nodes so they cooperate as a system. <strong>High-availability clusters</strong> provide failover; <strong>load-balancing clusters</strong> distribute requests; <strong>high-performance computing clusters</strong> combine nodes for intensive computation. Clustering can improve availability and capacity, but requires monitoring, coordination and careful handling of shared state.</p>
+   <h4>9. Scaling optimization</h4><p>Architects combine horizontal scaling, vertical scaling, load balancing, caching, auto-scaling and monitoring. The choice depends on workload characteristics, application design, bottlenecks, cost and service objectives. Scaling only the application tier will not solve a database or network bottleneck.</p>
+   <h4>10. Content Delivery Network (CDN)</h4><div class="diagram"><div class="flow"><span class="node">User</span><span class="arrow">→</span><span class="node">Nearby CDN edge</span><span class="arrow">→ cache miss</span><span class="node">Origin server</span></div></div><p>A CDN is a geographically distributed set of edge servers that delivers content closer to users. Cached static content such as images, scripts and videos can be served from a nearby edge rather than repeatedly fetched from the origin. This reduces latency and origin load and can improve user experience. Examples include Amazon CloudFront and Cloudflare.</p>
+   <h4>11. Network latency</h4><p>Latency is the time taken for data to travel through a network and be processed along the path. It is affected by physical distance, routing, congestion, network equipment and processing. Optimization includes placing services closer to users, using CDNs and caching, improving routes, reducing unnecessary round trips and selecting suitable network connectivity.</p>
+   <h4>12. Multi-site deployment</h4><p>Multi-site deployment distributes applications or infrastructure across geographically separate locations. A banking service may operate across two regions so that a regional outage does not necessarily make the service unavailable everywhere. Benefits include geographic redundancy, disaster recovery and continuity. Challenges include cost, replication, consistency, cross-region latency, data residency and transfer charges.</p>
+   <h4>13. Integrated university examination example</h4><table><tr><th>Requirement</th><th>Possible design choice</th></tr><tr><td>High user traffic</td><td>Horizontal scaling and load balancing</td></tr><tr><td>Changing traffic</td><td>Auto-scaling</td></tr><tr><td>Rack connectivity</td><td>TOR or EOR architecture</td></tr><tr><td>Dense compute deployment</td><td>Blade servers where suitable</td></tr><tr><td>Service continuity</td><td>Clustering and failover</td></tr><tr><td>Fast static content</td><td>CDN</td></tr><tr><td>Regional outage recovery</td><td>Multi-site deployment and replication</td></tr><tr><td>Session flexibility</td><td>Stateless application design</td></tr></table>
+   <h4>14. Conclusion</h4><p>Data center design integrates compute, storage, networking, power, cooling, security and management. TOR/EOR address network topology; standalone and blade servers represent deployment choices; stateless design and clustering support scale and availability; CDN and multi-site deployment address latency and geographic resilience.</p>
+   <div class="examtip"><strong>What to understand:</strong> A data center is not merely a room full of servers. It is an engineered system in which physical infrastructure, network topology, application architecture and operational processes work together.</div>
+  </div>
+ </article>
+ </div>
+ <div class="empty" id="emptyState">No matching questions or answers. Try another keyword.</div>
+ <section class="studybox">
+  <h2>Final examination strategy</h2>
+  <p>For a 20-mark answer, aim for a clear structure rather than memorizing paragraphs. Adapt the depth to the time available and the exact wording of the question.</p>
+  <ol><li><strong>Introduction and definition:</strong> Explain the concept and why it is needed.</li><li><strong>Architecture diagram:</strong> Draw and label the major components.</li><li><strong>Working mechanism:</strong> Explain the flow step by step.</li><li><strong>Types and comparisons:</strong> Distinguish approaches and technologies.</li><li><strong>Real-world application:</strong> Use a university, banking, e-commerce or enterprise example.</li><li><strong>Advantages and limitations:</strong> Show balanced technical understanding.</li><li><strong>Conclusion:</strong> Summarize the significance and trade-offs.</li></ol>
+  <div class="callout"><strong>Three questions to ask yourself while studying:</strong><br>1. Why was this technology developed?<br>2. How does it work?<br>3. What problem does it solve, and what trade-off does it introduce?</div>
+ </section>
+ <section class="studybox">
+  <h2>Connect the syllabus to your research</h2>
+  <p>Your research direction, <strong>Adaptive Federated Learning for Multi-Cloud Environments</strong>, connects naturally with cloud resource provisioning, storage security, distributed processing, multi-site deployment, fault tolerance and cloud service management.</p>
+  <p>As you study, look for the common architectural questions: where should computation run, how should data be protected, how should resources adapt to workload, how should failures be handled, and how should cost and performance be balanced?</p>
+ </section>
+</main>
+</div>
+<footer class="footer">© NBKRIST–CloudNest · Ph.D. Cloud Architecture &amp; Design Study Companion<br><span style="opacity:.7">Concept-first preparation · Understand, visualize, connect and explain</span></footer>
+<script>
+const questions=[...document.querySelectorAll('.question')];
+questions.forEach(card=>{
+ const head=card.querySelector('.qhead');
+ head.addEventListener('click',()=>card.classList.toggle('open'));
+});
+document.getElementById('expandAll').addEventListener('click',()=>questions.forEach(q=>q.classList.add('open')));
+document.getElementById('collapseAll').addEventListener('click',()=>questions.forEach(q=>q.classList.remove('open')));
+const search=document.getElementById('searchBox');
+search.addEventListener('input',()=>{
+ const term=search.value.trim().toLowerCase();let shown=0;
+ questions.forEach(q=>{const match=q.innerText.toLowerCase().includes(term);q.style.display=match?'':'none';if(match){shown++;if(term)q.classList.add('open')}});
+ document.querySelectorAll('.unithead').forEach(h=>{
+  let next=h.nextElementSibling,has=false;
+  while(next && !next.classList.contains('unithead')){if(next.classList.contains('question')&&next.style.display!=='none')has=true;next=next.nextElementSibling}
+  h.style.display=has?'':'none';
+ });
+ document.getElementById('emptyState').style.display=shown?'none':'block';
+});
+document.getElementById('clearSearch').addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));});
+const themeBtn=document.getElementById('themeBtn');
+themeBtn.addEventListener('click',()=>{const dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');localStorage.setItem('cloudnest-theme',dark?'light':'dark')});
+const savedTheme=localStorage.getItem('cloudnest-theme');if(savedTheme)document.documentElement.setAttribute('data-theme',savedTheme);
+const doneKey='cloudnest-cloud-arch-studied-v2';
+let done=JSON.parse(localStorage.getItem(doneKey)||'[]');
+questions.forEach(q=>{
+ const n=q.dataset.q;const row=document.createElement('label');row.className='small';row.style.cssText='display:flex;align-items:center;gap:7px;margin:0 21px 15px;cursor:pointer';
+ const cb=document.createElement('input');cb.type='checkbox';cb.checked=done.includes(n);cb.addEventListener('change',()=>{done=cb.checked?[...new Set([...done,n])]:done.filter(x=>x!==n);localStorage.setItem(doneKey,JSON.stringify(done));updateProgress()});
+ row.append(cb,document.createTextNode('Mark this answer as studied'));q.appendChild(row);
+});
+function updateProgress(){const pct=done.length/10*100;document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=done.length+' of 10 answers marked as studied';}
+updateProgress();
+const navLinks=[...document.querySelectorAll('.unitlink')];
+const sections=['unit1','unit2','unit3','unit4','unit5'].map(id=>document.getElementById(id));
+function setActive(){let active=0;sections.forEach((s,i)=>{if(s.getBoundingClientRect().top<180)active=i});navLinks.forEach((a,i)=>a.classList.toggle('active',i===active))}
+window.addEventListener('scroll',setActive,{passive:true});setActive();
+</script>
+</body>
+</html>
